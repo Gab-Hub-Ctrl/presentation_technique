@@ -1,0 +1,1055 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>IT Dashboard A+ : Présentation technique</title>
+
+  <!-- SEO -->
+  <meta name="description" content="Présentation technique professionnelle du projet IT Dashboard A+. Architecture, gouvernance, documentation et vision long terme.">
+  <meta name="author" content="Gabriel ROULON">
+  <meta name="keywords" content="IT Dashboard, Intelligence Artificielle, Architecture technique, Gouvernance IA, Documentation technique">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="IT Dashboard A+ : Présentation technique">
+  <meta property="og:description" content="Architecture, gouvernance, documentation et vision long terme du projet IT Dashboard A+.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://gab-hub-ctrl.github.io/presentation_technique/">
+  <meta property="og:image" content="https://gab-hub-ctrl.github.io/presentation_technique/og-image.png">
+  <meta property="og:locale" content="fr_FR">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="IT Dashboard A+ : Présentation technique">
+  <meta name="twitter:description" content="Architecture, gouvernance, documentation et vision long terme du projet IT Dashboard A+.">
+  <meta name="twitter:image" content="https://gab-hub-ctrl.github.io/presentation_technique/og-image.png">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="favicon.png">
+  <link rel="apple-touch-icon" href="favicon.png">
+
+  <!-- Canonical URL -->
+  <link rel="canonical" href="https://gab-hub-ctrl.github.io/presentation_technique/">
+
+  <!-- Robots -->
+  <meta name="robots" content="index, follow">
+
+  <!-- Theme Color for Mobile -->
+  <meta name="theme-color" content="#2563eb">
+  <meta name="msapplication-TileColor" content="#2563eb">
+
+  <!-- Format Detection -->
+  <meta name="format-detection" content="telephone=no">
+
+  <!-- Referrer Policy -->
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+
+  <!-- Resource Hints -->
+  <link rel="preconnect" href="https://github.com">
+  <link rel="dns-prefetch" href="https://github.com">
+  
+  <!-- Preload critical resources -->
+  <link rel="preload" href="favicon.png" as="image">
+
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "IT Dashboard A+",
+    "description": "Présentation technique professionnelle du projet IT Dashboard A+",
+    "url": "https://gab-hub-ctrl.github.io/presentation_technique/",
+    "author": {
+      "@type": "Person",
+      "name": "Gabriel ROULON"
+    },
+    "inLanguage": "fr-FR",
+    "datePublished": "2025-01-01",
+    "dateModified": "2025-01-01",
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": "https://gab-hub-ctrl.github.io/presentation_technique/?q={search_term_string}",
+      "query-input": "required name=search_term_string"
+    },
+    "publisher": {
+      "@type": "Person",
+      "name": "Gabriel ROULON"
+    }
+  }
+  </script>
+
+  <!-- BreadcrumbList Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [{
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Accueil",
+      "item": "https://gab-hub-ctrl.github.io/presentation_technique/"
+    }]
+  }
+  </script>
+
+  <style>
+    /* ============================================
+       VARIABLES CSS - Palette de couleurs
+       Définition centralisée pour faciliter
+       la maintenance et la cohérence visuelle
+       ============================================ */
+    :root {
+      /* Palette sobre et professionnelle */
+      /* WCAG AA: Contraste minimum 4.5:1 pour texte normal, 3:1 pour texte large */
+      /* WCAG AAA: Contraste minimum 7:1 pour texte normal, 4.5:1 pour texte large */
+      --primary-color: #2563eb; /* Bleu professionnel - Ratio 4.5:1 sur blanc (WCAG AA) */
+      --primary-dark: #1e40af; /* Ratio 7:1 sur blanc (WCAG AAA) */
+      --primary-light: #3b82f6; /* Ratio 4.5:1 sur blanc (WCAG AA) */
+      
+      /* Gris neutres professionnels */
+      --neutral-dark: #1f2937; /* Ratio 12.6:1 sur blanc (WCAG AAA) */
+      --neutral-medium: #4b5563; /* Ratio 7:1 sur blanc (WCAG AAA) */
+      --neutral-light: #6b7280; /* Ratio 4.5:1 sur blanc (WCAG AA) */
+      --neutral-lighter: #9ca3af; /* Ratio 2.5:1 sur blanc - Usage décoratif uniquement */
+      
+      /* Accent discret */
+      --accent-color: #2563eb; /* Même que primary pour cohérence - Ratio 4.5:1 (WCAG AA) */
+      --accent-hover: #1d4ed8; /* Ratio 7:1 sur blanc (WCAG AAA) */
+      
+      /* Couleurs de base */
+      --text-color: #111827; /* Ratio 16.6:1 sur blanc (WCAG AAA) */
+      --text-secondary: #4b5563; /* Ratio 7:1 sur blanc (WCAG AAA) */
+      --bg-color: #ffffff; /* Fond principal */
+      --bg-secondary: #f9fafb; /* Fond secondaire */
+      --card-bg: #ffffff; /* Fond des cartes */
+      --border-color: #e5e7eb; /* Bordure - Usage décoratif */
+      
+      /* Ombres subtiles */
+      --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+      --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.07);
+      --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
+      
+      --max-width: 1200px;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --text-color: #f9fafb;
+        --text-secondary: #d1d5db;
+        --bg-color: #111827;
+        --bg-secondary: #1f2937;
+        --card-bg: #1f2937;
+        --border-color: #374151;
+        --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.3);
+        --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.4);
+        --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.5);
+      }
+    }
+
+    /* ============================================
+       RESET ET BASE
+       Normalisation des styles et configuration
+       des propriétés de base du document
+       ============================================ */
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 100px;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      text-rendering: optimizeLegibility;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: var(--bg-color);
+      color: var(--text-color);
+      overflow-x: hidden;
+      line-height: 1.6;
+      min-height: 100vh;
+    }
+
+    /* Performance: Use will-change for animated elements */
+    header, .card {
+      will-change: transform;
+    }
+
+    /* Background sobre et professionnel */
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: 
+        linear-gradient(180deg, rgba(249, 250, 251, 0.5) 0%, rgba(255, 255, 255, 0.8) 100%);
+      pointer-events: none;
+      z-index: -1;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      body::before {
+        background: 
+          linear-gradient(180deg, rgba(17, 24, 39, 0.5) 0%, rgba(31, 41, 55, 0.8) 100%);
+      }
+    }
+
+    /* ============================================
+       HEADER - Navigation principale
+       Header fixe avec effet glassmorphism
+       et navigation accessible
+       ============================================ */
+    header {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(20px) saturate(180%);
+      -webkit-backdrop-filter: blur(20px) saturate(180%);
+      border-bottom: 1px solid var(--border-color);
+      box-shadow: var(--shadow-sm);
+      padding: 14px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 100;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      header {
+        background: rgba(31, 41, 55, 0.95);
+        border-bottom-color: var(--border-color);
+      }
+    }
+
+    .header-left a {
+      text-decoration: none;
+      color: inherit;
+      display: block;
+    }
+
+    .header-left a:focus-visible {
+      outline: 3px solid var(--accent-color);
+      outline-offset: 4px;
+      border-radius: 3px;
+      padding: 2px 4px;
+    }
+
+    .header-left h2 {
+      margin: 0;
+      font-size: 1.35em;
+      color: var(--primary-color);
+      font-weight: 700;
+      white-space: nowrap;
+      transition: color 0.2s ease;
+    }
+
+    .header-left a:hover h2 {
+      color: var(--accent-hover);
+    }
+
+    .header-nav {
+      display: flex;
+      gap: 22px;
+    }
+
+    .header-nav a {
+      text-decoration: none;
+      color: var(--text-secondary);
+      font-weight: 500;
+      font-size: 0.95em;
+      white-space: nowrap;
+      transition: color 0.2s ease;
+      position: relative;
+    }
+
+    .header-nav a::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 50%;
+      transform: translateX(-50%) scaleX(0);
+      width: 100%;
+      height: 2px;
+      background: var(--primary-color);
+      border-radius: 2px;
+      transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .header-nav a:hover {
+      color: var(--primary-color);
+    }
+
+    .header-nav a:hover::after {
+      transform: translateX(-50%) scaleX(1);
+    }
+
+    .header-nav a:focus-visible {
+      outline: 3px solid var(--primary-color);
+      outline-offset: 4px;
+      border-radius: 3px;
+    }
+
+    /* RESPONSIVE HEADER */
+    @media (max-width: 850px) {
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 16px 25px;
+      }
+
+      .header-nav {
+        margin-top: 10px;
+        gap: 14px;
+        flex-wrap: wrap;
+      }
+    }
+
+    /* MAIN */
+    main {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 120px 20px 40px;
+    }
+
+    h1 {
+      font-size: 2.6em;
+      margin-bottom: 6px;
+      color: var(--primary-color);
+      text-align: center;
+      animation: fadeIn 0.6s ease;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+
+    .subtitle {
+      text-align: center;
+      font-size: 1.15em;
+      color: #3a3a3a;
+      margin-bottom: 35px;
+      animation: fadeIn 0.8s ease;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      .subtitle {
+        color: #c0c0c0;
+      }
+    }
+
+    /* ============================================
+       EXECUTIVE SUMMARY - Résumé exécutif
+       Section mise en avant avec bordure
+       gauche et effet hover subtil
+       ============================================ */
+    .executive-summary {
+      max-width: 900px;
+      margin: 0 auto 60px;
+      padding: 28px 35px;
+      background: var(--card-bg);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid var(--border-color);
+      border-left: 4px solid var(--primary-color);
+      border-radius: 20px;
+      box-shadow: var(--shadow-md);
+      animation: fadeIn 1s ease;
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .executive-summary::before {
+      display: none; /* Supprimer le gradient coloré */
+    }
+
+    .executive-summary:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .executive-summary h2 {
+      margin-top: 0;
+      font-size: 1.55em;
+      color: var(--primary-color);
+    }
+
+    .executive-summary p {
+      font-size: 1.05em;
+      color: #3a3a3a;
+      line-height: 1.6;
+      margin-bottom: 0;
+      text-align: justify;
+      text-align-last: left;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      .executive-summary p {
+        color: #d5d5d5;
+      }
+    }
+
+    /* Section container */
+    .sections-container {
+      margin-top: 50px;
+      padding-top: 30px;
+      border-top: 2px solid rgba(92, 107, 192, 0.2);
+      position: relative;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      .sections-container {
+        border-top-color: rgba(92, 107, 192, 0.3);
+      }
+    }
+
+    .sections-title {
+      font-size: 1.5em;
+      color: var(--primary-color);
+      text-align: center;
+      margin-bottom: 25px;
+      font-weight: 700;
+      position: relative;
+      padding-bottom: 12px;
+      animation: fadeIn 0.8s ease;
+    }
+
+    .sections-title::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 4px;
+      background: var(--primary-color);
+      border-radius: 2px;
+    }
+
+    /* ============================================
+       CARDS GRID - Grille de cartes
+       Layout responsive avec grid CSS
+       et animations au survol
+       ============================================ */
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 15px;
+      margin-top: 20px;
+    }
+
+    .card {
+      background: var(--card-bg);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid var(--border-color);
+      border-radius: 16px;
+      padding: 14px 12px;
+      box-shadow: var(--shadow-md);
+      text-align: center;
+      transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+                  box-shadow 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+                  border-color 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      animation: fadeInUp 0.6s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+      transition: left 0.5s;
+    }
+
+    .card:hover::after {
+      left: 100%;
+    }
+
+    .card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 4px;
+      background: var(--primary-color);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translate3d(0, -8px, 0) scale(1.02);
+      box-shadow: var(--shadow-lg);
+      border-color: var(--primary-color);
+    }
+
+    /* Micro-interaction: Card focus state */
+    .card:focus-within {
+      outline: 3px solid var(--primary-color);
+      outline-offset: 4px;
+      border-radius: 16px;
+    }
+
+    .card:hover::before {
+      transform: scaleX(1);
+    }
+
+    .card svg {
+      width: 28px;
+      height: 28px;
+      margin-bottom: 8px;
+      fill: var(--primary-color);
+      transition: transform 0.3s ease, fill 0.3s ease;
+    }
+
+    .card:hover svg {
+      transform: scale(1.1) rotate(5deg);
+      fill: var(--primary-color);
+    }
+
+    .card h3 {
+      margin: 0 0 6px 0;
+      font-size: 1em;
+      color: var(--primary-color);
+      font-weight: 600;
+    }
+
+    .card p {
+      margin-top: 4px;
+      font-size: 0.8em;
+      color: #3a3a3a;
+      line-height: 1.3;
+      margin-bottom: 8px;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      .card p {
+        color: #c5c5c5;
+      }
+    }
+
+    .card a {
+      margin-top: 6px;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      color: var(--primary-color);
+      font-weight: 600;
+      text-decoration: none;
+      font-size: 0.75em;
+      transition: color 0.3s ease, gap 0.3s ease;
+    }
+
+    .card a::after {
+      content: '→';
+      transition: transform 0.3s ease;
+    }
+
+    .card a:hover {
+      color: var(--accent-hover);
+      gap: 10px;
+    }
+
+    .card a:hover::after {
+      transform: translateX(4px);
+    }
+
+    .card a:focus-visible {
+      outline: 3px solid var(--primary-color);
+      outline-offset: 4px;
+      border-radius: 4px;
+      padding: 2px 4px;
+    }
+
+    /* Footer */
+    footer {
+      margin-top: 50px;
+      padding: 25px 0;
+      text-align: center;
+      color: #666;
+      font-size: 0.9em;
+      border-top: 1px solid rgba(0,0,0,0.1);
+    }
+
+    @media (prefers-color-scheme: dark) {
+      footer {
+        color: #888;
+        border-top-color: rgba(255,255,255,0.1);
+      }
+    }
+
+    footer p {
+      margin: 8px 0;
+    }
+
+    footer a {
+      color: var(--primary-color);
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+
+    footer a:hover {
+      color: var(--accent-hover);
+      text-decoration: underline;
+    }
+
+    footer a:focus-visible {
+      outline: 2px solid var(--primary-color);
+      outline-offset: 2px;
+      border-radius: 2px;
+    }
+
+    footer .arrow-up {
+      font-size: 0.5em;
+      margin-right: 12px;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+
+    /* ============================================
+       ANIMATIONS - Optimisées pour performance
+       Utilisation exclusive de transform et opacity
+       pour bénéficier de l'accélération GPU
+       ============================================ */
+    
+    @keyframes fadeIn {
+      from { 
+        opacity: 0; 
+        transform: translate3d(0, 10px, 0); 
+      }
+      to { 
+        opacity: 1; 
+        transform: translate3d(0, 0, 0); 
+      }
+    }
+
+    @keyframes fadeInUp {
+      from { 
+        opacity: 0; 
+        transform: translate3d(0, 20px, 0); 
+      }
+      to { 
+        opacity: 1; 
+        transform: translate3d(0, 0, 0); 
+      }
+    }
+
+    @keyframes highlight {
+      0% { 
+        background-color: transparent; 
+        transform: translate3d(0, 0, 0);
+      }
+      50% { 
+        background-color: rgba(92, 107, 192, 0.1); 
+        transform: translate3d(0, 0, 0);
+      }
+      100% { 
+        background-color: transparent; 
+        transform: translate3d(0, 0, 0);
+      }
+    }
+
+    section:target {
+      animation: highlight 1s ease;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      @keyframes highlight {
+        0% { background-color: transparent; }
+        50% { background-color: rgba(92, 107, 192, 0.2); }
+        100% { background-color: transparent; }
+      }
+    }
+
+    /* Responsive */
+    @media (max-width: 1000px) {
+      .cards {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 700px) {
+      .cards {
+        grid-template-columns: 1fr;
+      }
+      h1 { 
+        font-size: 2.2em; 
+      }
+      .card {
+        padding: 24px 20px;
+      }
+    }
+
+    /* Very small screens (< 320px) */
+    @media (max-width: 320px) {
+      main {
+        padding: 100px 12px 30px;
+      }
+      
+      h1 {
+        font-size: 1.8em;
+      }
+      
+      .subtitle {
+        font-size: 1em;
+      }
+      
+      .executive-summary {
+        padding: 20px 16px;
+        margin-bottom: 40px;
+      }
+      
+      .card {
+        padding: 16px 12px;
+      }
+      
+      .card h3 {
+        font-size: 0.95em;
+      }
+      
+      .card p {
+        font-size: 0.75em;
+      }
+      
+      .card a {
+        font-size: 0.7em;
+      }
+      
+      header {
+        padding: 12px 16px;
+      }
+      
+      .header-left h2 {
+        font-size: 1.1em;
+      }
+      
+      .header-nav {
+        gap: 10px;
+      }
+      
+      .header-nav a {
+        font-size: 0.85em;
+      }
+    }
+
+    /* Skip link for accessibility */
+    .skip-link {
+      position: absolute;
+      top: -40px;
+      left: 0;
+      background: var(--primary-color);
+      color: white;
+      padding: 10px 20px;
+      text-decoration: none;
+      z-index: 1000;
+      font-weight: 600;
+      border-radius: 0 0 4px 0;
+    }
+
+    .skip-link:focus {
+      top: 0;
+      outline: 3px solid var(--primary-color);
+      outline-offset: 2px;
+    }
+
+    /* Bouton retour en haut */
+
+    /* Mode impression */
+    @media print {
+      header, footer, .skip-link {
+        display: none;
+      }
+      
+      main {
+        padding: 0;
+        max-width: 100%;
+      }
+      
+      section {
+        page-break-inside: avoid;
+        box-shadow: none;
+        border: 1px solid #ddd;
+      }
+      
+      .card {
+        page-break-inside: avoid;
+      }
+    }
+
+    /* Screen reader only content */
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border-width: 0;
+    }
+
+    /* Reduced motion */
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+      
+      .back-to-top {
+        transition: opacity 0.01ms !important;
+      }
+    }
+
+    /* High contrast mode support */
+    @media (prefers-contrast: high) {
+      :root {
+        --border-color: #000000;
+        --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.5);
+      }
+    }
+
+    /* Focus visible enhancement */
+    *:focus-visible {
+      outline: 3px solid var(--primary-color);
+      outline-offset: 2px;
+      border-radius: 2px;
+    }
+  </style>
+</head>
+
+<body>
+
+<a href="#main-content" class="skip-link">Aller au contenu principal</a>
+
+<header role="banner">
+  <div class="header-left">
+    <a href="#main-content" aria-label="Retour en haut de la page">
+      <h2>IT Dashboard A+</h2>
+    </a>
+  </div>
+
+  <nav class="header-nav" aria-label="Navigation principale">
+    <a href="#resume" aria-label="Aller au résumé exécutif">Résumé</a>
+    <a href="#sections" aria-label="Aller aux sections">Sections</a>
+    <a href="https://github.com/Gab-Hub-Ctrl/presentation_technique" target="_blank" rel="noopener noreferrer" aria-label="Ouvrir le dépôt GitHub dans un nouvel onglet">GitHub</a>
+  </nav>
+</header>
+
+<main id="main-content" role="main">
+
+  <h1 lang="fr">Présentation technique</h1>
+  <p class="subtitle" lang="fr">Architecture, gouvernance, documentation et vision long terme du projet</p>
+
+  <section id="resume" class="executive-summary" aria-labelledby="resume-title" aria-describedby="resume-description">
+    <h2 id="resume-title">Résumé exécutif</h2>
+    <p id="resume-description">
+      IT Dashboard A+ centralise, analyse et pilote des indicateurs IT critiques.
+      Le projet couvre la supervision, la gouvernance, la sécurité et l'aide à la décision,
+      avec une ouverture vers l'automatisation et l'intelligence artificielle.
+    </p>
+  </section>
+
+  <section id="sections" class="sections-container" aria-label="Sections de présentation">
+    <h2 class="sections-title">Sections</h2>
+    <div class="cards">
+
+    <!-- Card 1 -->
+    <article class="card" aria-labelledby="card-1-title" aria-describedby="card-1-desc">
+      <svg viewBox="0 0 24 24" aria-hidden="true" role="img">
+        <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/>
+      </svg>
+      <h3 id="card-1-title">Présentation synthétique</h3>
+      <p id="card-1-desc" class="sr-only">Accédez à la présentation synthétique qui offre une vue d'ensemble du projet IT Dashboard A+, ses objectifs et sa structure générale.</p>
+      <p>Vue d'ensemble du projet, de ses objectifs et de sa structure générale.</p>
+      <a href="https://gab-hub-ctrl.github.io/presentation_technique/presentation_synthetique.html" target="_blank" rel="noopener noreferrer" aria-label="Voir la présentation synthétique du projet">Voir la présentation</a>
+    </article>
+
+    <!-- Card 2 -->
+    <article class="card" aria-labelledby="card-2-title" aria-describedby="card-2-desc">
+      <svg viewBox="0 0 24 24" aria-hidden="true" role="img">
+        <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V5h14v14zm-5.04-6.71l-2.75 3.54-1.96-2.36L6.5 17h11l-3.54-4.71z"/>
+      </svg>
+      <h3 id="card-2-title">Présentation complète</h3>
+      <p id="card-2-desc" class="sr-only">Accédez à la présentation complète détaillant l'architecture technique, les choix technologiques et la vision à long terme du projet IT Dashboard A+.</p>
+      <p>Description détaillée de l'architecture, des choix techniques et de la vision à long terme.</p>
+      <a href="https://gab-hub-ctrl.github.io/presentation_technique/presentation_complete.html" target="_blank" rel="noopener noreferrer" aria-label="Voir la présentation complète du projet">Voir la présentation complète</a>
+    </article>
+
+    <!-- Card 3 -->
+    <article class="card" aria-labelledby="card-3-title" aria-describedby="card-3-desc">
+      <svg viewBox="0 0 24 24" aria-hidden="true" role="img">
+        <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+      </svg>
+      <h3 id="card-3-title">Lettre de motivation</h3>
+      <p id="card-3-desc" class="sr-only">Accédez au dossier de candidature académique présentant le projet IT Dashboard A+ et son contexte professionnel.</p>
+      <p>Dossier de candidature académique en lien avec le projet IT Dashboard A+.</p>
+      <a href="https://gab-hub-ctrl.github.io/presentation_technique/lettre_motivation_ecole.html" target="_blank" rel="noopener noreferrer" aria-label="Voir la lettre de motivation">Voir la lettre</a>
+    </article>
+
+    <!-- Card 4 -->
+    <article class="card" aria-labelledby="card-4-title" aria-describedby="card-4-desc">
+      <svg viewBox="0 0 24 24" aria-hidden="true" role="img">
+        <path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/>
+      </svg>
+      <h3 id="card-4-title">Documentation technique</h3>
+      <p id="card-4-desc" class="sr-only">Accédez à la documentation technique complète couvrant l'architecture, la gouvernance de l'IA et la structuration du système IT Dashboard A+.</p>
+      <p>Architecture technique, gouvernance de l'IA et structuration du système.</p>
+      <a href="https://github.com/Gab-Hub-Ctrl/presentation_technique/tree/main/documentation_technique" target="_blank" rel="noopener noreferrer" aria-label="Accéder à la documentation technique sur GitHub">Accéder aux documents</a>
+    </article>
+
+    <!-- Card 5 -->
+    <article class="card" aria-labelledby="card-5-title" aria-describedby="card-5-desc">
+      <svg viewBox="0 0 24 24" aria-hidden="true" role="img">
+        <path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/>
+      </svg>
+      <h3 id="card-5-title">Annexes visuelles</h3>
+      <p id="card-5-desc" class="sr-only">Accédez aux annexes visuelles comprenant captures d'écran, schémas d'architecture et illustrations techniques du projet IT Dashboard A+.</p>
+      <p>Captures d'écran, schémas et illustrations techniques du projet.</p>
+      <a href="https://github.com/Gab-Hub-Ctrl/presentation_technique/tree/main/presentation_visuel" target="_blank" rel="noopener noreferrer" aria-label="Voir les annexes visuelles sur GitHub">Voir les annexes</a>
+    </article>
+
+    <!-- Card 6 -->
+    <article class="card" aria-labelledby="card-6-title" aria-describedby="card-6-desc">
+      <svg viewBox="0 0 24 24" aria-hidden="true" role="img">
+        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z"/>
+      </svg>
+      <h3 id="card-6-title">Mieux me connaître</h3>
+      <p id="card-6-desc" class="sr-only">Découvrez mon profil professionnel, mon parcours académique et mes compétences techniques liées au projet IT Dashboard A+.</p>
+      <p>En savoir plus sur moi, mon parcours et mes compétences sans CV séparé.</p>
+      <a href="https://gab-hub-ctrl.github.io/presentation_technique/profil_personnel.html" target="_blank" rel="noopener noreferrer" aria-label="Découvrir mon profil et mon parcours">Découvrir</a>
+    </article>
+
+    </div>
+  </section>
+
+  <footer role="contentinfo">
+    <p>Projet IT Dashboard A+</p>
+    <p>Gabriel ROULON</p>
+    <p>Démarche de démonstration technique et académique - 2025</p>
+    <p>
+      <a href="#main-content" aria-label="Retour en haut de la page"><span class="arrow-up">↑</span> Retour en haut</a> | 
+      <a href="https://github.com/Gab-Hub-Ctrl/presentation_technique" target="_blank" rel="noopener noreferrer">Dépôt GitHub</a>
+    </p>
+  </footer>
+
+</main>
+
+
+  <script>
+    /**
+     * Performance: Debounce function for scroll events
+     * Reduces function calls during scroll by delaying execution
+     * until after the specified wait time has elapsed since the last invocation
+     * 
+     * @param {Function} func - The function to debounce
+     * @param {number} wait - The number of milliseconds to delay
+     * @returns {Function} The debounced function
+     */
+    function debounce(func, wait) {
+      let timeout;
+      return function executedFunction(...args) {
+        const later = () => {
+          clearTimeout(timeout);
+          func(...args);
+        };
+        clearTimeout(timeout);
+        timeout = setTimeout(later, wait);
+      };
+    }
+
+    /**
+     * Performance: Throttle function for scroll events
+     * Limits function calls to once per specified time interval
+     * Ensures the function is called at most once every 'limit' milliseconds
+     * 
+     * @param {Function} func - The function to throttle
+     * @param {number} limit - The time limit in milliseconds
+     * @returns {Function} The throttled function
+     */
+    function throttle(func, limit) {
+      let inThrottle;
+      return function(...args) {
+        if (!inThrottle) {
+          func.apply(this, args);
+          inThrottle = true;
+          setTimeout(() => inThrottle = false, limit);
+        }
+      };
+    }
+
+
+    /**
+     * Intersection Observer for lazy loading animations
+     * Only animate elements when they're in viewport
+     */
+    (function() {
+      if ('IntersectionObserver' in window) {
+        const observerOptions = {
+          root: null,
+          rootMargin: '50px',
+          threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('in-view');
+              observer.unobserve(entry.target);
+            }
+          });
+        }, observerOptions);
+
+        // Observe all cards
+        document.querySelectorAll('.card').forEach(card => {
+          observer.observe(card);
+        });
+      }
+    })();
+
+    /**
+     * Error handling and logging
+     */
+    window.addEventListener('error', function(e) {
+      console.error('Error:', e.error);
+      // In production, send to error tracking service
+      // Example: sendToErrorTracking(e.error);
+    });
+
+    /**
+     * Performance monitoring - Web Vitals
+     */
+    if ('PerformanceObserver' in window) {
+      try {
+        const perfObserver = new PerformanceObserver((list) => {
+          for (const entry of list.getEntries()) {
+            // Log performance metrics
+            if (entry.entryType === 'navigation') {
+              console.log('Page Load Time:', entry.loadEventEnd - entry.fetchStart, 'ms');
+            }
+            // In production, send to analytics
+            // Example: sendToAnalytics('performance', entry);
+          }
+        });
+        perfObserver.observe({ entryTypes: ['navigation', 'measure'] });
+      } catch (e) {
+        console.warn('Performance Observer not fully supported');
+      }
+    }
+  </script>
+
+</body>
+</html>

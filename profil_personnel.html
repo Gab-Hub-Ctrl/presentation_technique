@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Mieux me connaître : Gabriel ROULON</title>
+
+  <!-- SEO -->
+  <meta name="description" content="Présentation personnelle et professionnelle de Gabriel ROULON - Candidature en Intelligence Artificielle et gouvernance des systèmes">
+  <meta name="author" content="Gabriel ROULON">
+  <meta name="keywords" content="Gabriel ROULON, Présentation, Candidature, Intelligence Artificielle, Gouvernance IA">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Mieux me connaître : Gabriel ROULON">
+  <meta property="og:description" content="Présentation personnelle et professionnelle de Gabriel ROULON">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://gab-hub-ctrl.github.io/presentation_technique/profil_personnel.html">
+  <meta property="og:image" content="https://gab-hub-ctrl.github.io/presentation_technique/favicon.png">
+  <meta property="og:locale" content="fr_FR">
+
+  <!-- Twitter Cards -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Mieux me connaître : Gabriel ROULON">
+  <meta name="twitter:description" content="Présentation personnelle et professionnelle de Gabriel ROULON">
+
+  <!-- Canonical URL -->
+  <link rel="canonical" href="https://gab-hub-ctrl.github.io/presentation_technique/profil_personnel.html">
+
+  <!-- Robots -->
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#2563eb">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+
+  <!-- Preconnect -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" href="favicon.png" as="image">
+
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Gabriel ROULON",
+    "url": "https://gab-hub-ctrl.github.io/presentation_technique/",
+    "sameAs": [
+      "https://gab-hub-ctrl.github.io/presentation_technique/"
+    ]
+  }
+  </script>
+
+  <style>
+    /* ============================================
+       VARIABLES CSS - Palette de couleurs
+       Définition centralisée pour faciliter
+       la maintenance et la cohérence visuelle
+       ============================================ */
+    :root {
+        /* Palette sobre et professionnelle */
+        --primary-color: #2563eb; /* Bleu professionnel */
+        --primary-dark: #1e40af;
+        --primary-light: #3b82f6;
+        
+        /* Gris neutres professionnels */
+        --neutral-dark: #1f2937;
+        --neutral-medium: #4b5563;
+        --neutral-light: #6b7280;
+        --neutral-lighter: #9ca3af;
+        
+        /* Accent discret */
+        --accent-color: #2563eb; /* Même que primary pour cohérence */
+        --accent-hover: #1d4ed8;
+        
+        /* Couleurs de base */
+        --text-color: #111827;
+        --text-secondary: #4b5563;
+        --bg-color: #ffffff;
+        --bg-secondary: #f9fafb;
+        --card-bg: #ffffff;
+        --border-color: #e5e7eb;
+        
+        /* Ombres subtiles */
+        --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+        --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.07);
+        --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
+        
+        --max-width: 1200px;
+    }
+
+    @media (prefers-color-scheme: dark) {
+        :root {
+            --text-color: #f9fafb;
+            --text-secondary: #d1d5db;
+            --bg-color: #111827;
+            --bg-secondary: #1f2937;
+            --card-bg: #1f2937;
+            --border-color: #374151;
+            --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.3);
+            --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.4);
+            --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.5);
+        }
+    }
+
+    /* ============================================
+       RESET ET BASE
+       Normalisation des styles et configuration
+       des propriétés de base du document
+       ============================================ */
+    * {
+        box-sizing: border-box;
+    }
+
+    html {
+        scroll-behavior: smooth;
+        scroll-padding-top: 100px;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        text-rendering: optimizeLegibility;
+    }
+
+    body {
+        margin: 0;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background: var(--bg-color);
+        color: var(--text-color);
+        overflow-x: hidden;
+        line-height: 1.6;
+        min-height: 100vh;
+    }
+
+    /* Performance: Use will-change for animated elements */
+    header, section {
+        will-change: transform;
+    }
+
+    /* Background sobre et professionnel */
+    body::before {
+        content: "";
+        position: fixed;
+        top: 0; left: 0;
+        width: 100%; height: 100%;
+        background: 
+            linear-gradient(180deg, rgba(249, 250, 251, 0.5) 0%, rgba(255, 255, 255, 0.8) 100%);
+        pointer-events: none;
+        z-index: -1;
+    }
+
+    @media (prefers-color-scheme: dark) {
+        body::before {
+            background: 
+                linear-gradient(180deg, rgba(17, 24, 39, 0.5) 0%, rgba(31, 41, 55, 0.8) 100%);
+        }
+    }
+
+    /* ============================================
+       HEADER - Navigation principale
+       Header fixe avec effet glassmorphism
+       et navigation accessible
+       ============================================ */
+    header {
+        position: fixed;
+        top: 0; left: 0;
+        width: 100%;
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(20px) saturate(180%);
+        -webkit-backdrop-filter: blur(20px) saturate(180%);
+        border-bottom: 1px solid var(--border-color);
+        box-shadow: var(--shadow-sm);
+        padding: 14px 40px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        z-index: 100;
+    }
+
+    @media (prefers-color-scheme: dark) {
+        header {
+            background: rgba(31, 41, 55, 0.95);
+            border-bottom-color: var(--border-color);
+        }
+    }
+
+    .header-left a {
+        text-decoration: none;
+        color: inherit;
+        display: block;
+    }
+
+    .header-left a:focus-visible {
+        outline: 3px solid var(--primary-color);
+        outline-offset: 4px;
+        border-radius: 3px;
+        padding: 2px 4px;
+    }
+
+    .header-left h2 {
+        margin: 0;
+        font-size: 1.35em;
+        color: var(--primary-color);
+        font-weight: 700;
+        white-space: nowrap;
+        transition: color 0.2s ease;
+    }
+
+    .header-left a:hover h2 {
+        color: var(--accent-hover);
+    }
+
+    .header-nav {
+        display: flex;
+        gap: 22px;
+        flex-wrap: wrap;
+    }
+
+    .header-nav a {
+        text-decoration: none;
+        color: var(--text-secondary);
+        font-weight: 500;
+        font-size: 0.95em;
+        white-space: nowrap;
+        transition: color 0.2s ease;
+        position: relative;
+    }
+
+    .header-nav a::after {
+        content: '';
+        position: absolute;
+        bottom: -4px;
+        left: 50%;
+        transform: translateX(-50%) scaleX(0);
+        width: 100%;
+        height: 2px;
+        background: var(--primary-color);
+        border-radius: 2px;
+        transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .header-nav a:hover {
+        color: var(--primary-color);
+    }
+
+    .header-nav a:hover::after {
+        transform: translateX(-50%) scaleX(1);
+    }
+
+    .header-nav a:focus-visible {
+        outline: 3px solid var(--primary-color);
+        outline-offset: 4px;
+        border-radius: 3px;
+    }
+
+    .header-nav a.active {
+        color: var(--primary-color);
+    }
+
+    .header-nav a.active::after {
+        transform: translateX(-50%) scaleX(1);
+    }
+
+    /* RESPONSIVE HEADER */
+    @media (max-width: 850px) {
+        header {
+            flex-direction: column;
+            align-items: flex-start;
+            padding: 16px 25px;
+        }
+
+        .header-nav {
+            margin-top: 10px;
+            gap: 14px;
+        }
+    }
+
+    /* MAIN */
+    main {
+        max-width: var(--max-width);
+        margin: 0 auto;
+        padding: 120px 20px 40px;
+    }
+
+    /* SECTIONS */
+    section {
+        margin-bottom: 48px;
+        padding: 40px 45px;
+        background: var(--card-bg);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        border: 1px solid var(--border-color);
+        border-radius: 12px;
+        box-shadow: var(--shadow-md);
+        scroll-margin-top: 100px;
+        animation: fadeInUp 0.6s ease forwards;
+        opacity: 0;
+        transform: translate3d(0, 20px, 0);
+    }
+
+    @keyframes fadeInUp {
+        from {
+            opacity: 0;
+            transform: translate3d(0, 20px, 0);
+        }
+        to {
+            opacity: 1;
+            transform: translate3d(0, 0, 0);
+        }
+    }
+
+    section h1 {
+        color: var(--primary-color);
+        font-size: 2.4em;
+        margin-bottom: 24px;
+        margin-top: 0;
+        padding-bottom: 16px;
+        border-bottom: 2px solid var(--border-color);
+        font-weight: 700;
+        letter-spacing: -0.5px;
+        text-align: center;
+    }
+
+    section p {
+        margin-bottom: 16px;
+        text-align: justify;
+        text-align-last: left;
+        font-size: 1.05em;
+        line-height: 1.75;
+        color: var(--text-color);
+    }
+
+    /* FOOTER */
+    footer {
+        margin-top: 50px;
+        padding: 25px 0;
+        text-align: center;
+        color: var(--text-secondary);
+        font-size: 0.9em;
+        border-top: 1px solid var(--border-color);
+    }
+
+    footer p {
+        margin: 8px 0;
+    }
+
+    footer a {
+        color: var(--primary-color);
+        text-decoration: none;
+        transition: color 0.2s ease;
+    }
+
+    footer a:hover {
+        color: var(--accent-hover);
+        text-decoration: underline;
+    }
+
+    footer .arrow-up {
+        font-size: 0.5em;
+        margin-right: 12px;
+        display: inline-block;
+        vertical-align: middle;
+        line-height: 1;
+    }
+
+    /* Skip link for accessibility */
+    .skip-link {
+        position: absolute;
+        top: -40px;
+        left: 0;
+        background: var(--primary-color);
+        color: white;
+        padding: 10px 20px;
+        text-decoration: none;
+        z-index: 1000;
+        font-weight: 600;
+        border-radius: 0 0 4px 0;
+    }
+
+    .skip-link:focus {
+        top: 0;
+        outline: 3px solid var(--primary-color);
+        outline-offset: 2px;
+    }
+
+    /* Reduced motion */
+    @media (prefers-reduced-motion: reduce) {
+        *,
+        *::before,
+        *::after {
+            animation-duration: 0.01ms !important;
+            animation-iteration-count: 1 !important;
+            transition-duration: 0.01ms !important;
+            scroll-behavior: auto !important;
+        }
+    }
+
+    /* Focus visible enhancement */
+    *:focus-visible {
+        outline: 3px solid var(--primary-color);
+        outline-offset: 2px;
+        border-radius: 2px;
+    }
+  </style>
+</head>
+<body>
+    <a href="#main-content" class="skip-link">Aller au contenu principal</a>
+    
+    <header role="banner">
+        <div class="header-left">
+            <a href="index.html" aria-label="Retour à l'accueil">
+                <h2>IT Dashboard A+</h2>
+            </a>
+        </div>
+        
+        <nav class="header-nav" aria-label="Navigation principale">
+            <a href="index.html">Accueil</a>
+            <a href="presentation_synthetique.html">Présentation</a>
+            <a href="presentation_complete.html">Présentation complète</a>
+        </nav>
+    </header>
+    
+    <main id="main-content" role="main">
+        <section>
+            <h1 lang="fr">Mieux me connaître</h1>
+            <p>Cette page est en cours de préparation. Le contenu sera bientôt disponible.</p>
+        </section>
+    </main>
+    
+    <footer role="contentinfo">
+        <p>Projet IT Dashboard A+</p>
+        <p>Gabriel ROULON</p>
+        <p>Démarche de démonstration technique et académique - 2025</p>
+        <p>
+            <a href="#main-content" aria-label="Retour en haut de la page"><span class="arrow-up">↑</span> Retour en haut</a> | 
+            <a href="index.html">Accueil</a> | 
+            <a href="https://github.com/Gab-Hub-Ctrl/presentation_technique" target="_blank" rel="noopener noreferrer">Dépôt GitHub</a>
+        </p>
+    </footer>
+</body>
+</html>
+

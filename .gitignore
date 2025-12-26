@@ -1,0 +1,78 @@
+# ==============================
+# Système / OS
+# ==============================
+Thumbs.db
+Desktop.ini
+.DS_Store
+
+# ==============================
+# Fichiers temporaires
+# ==============================
+*.tmp
+*.bak
+*.swp
+*.swo
+*~
+*_temp_*
+*_temp.*
+
+# ==============================
+# Sauvegardes
+# ==============================
+*.backup
+*.old
+
+# ==============================
+# Éditeurs / IDE
+# ==============================
+.vscode/
+.idea/
+*.sublime-*
+
+# ==============================
+# Logs
+# ==============================
+*.log
+
+# ==============================
+# Fichiers NON nécessaires pour la candidature école
+# ==============================
+
+# Email de candidature (personnel, non nécessaire pour le dossier)
+email_candidature.md
+email_candidature.txt
+mail.md
+mail.txt
+
+# Lettres de motivation entreprise (pas pour l'école)
+lettre_motivation_entreprise.html
+lettre_motivation_entreprise.md
+lettre_motivation_entreprise.txt
+
+# Rapport de compétences (non nécessaire pour la candidature)
+rapport_competences.md
+rapport_competences.txt
+rapport_competences/
+
+# Fichiers PDF personnels
+Lettre_motivation_ROULON_Gabriel.pdf
+*.pdf
+
+# Fichiers d'arborescence (non nécessaires pour la candidature)
+arborescence.md
+arborescence.txt
+arbo.md
+arbo.txt
+
+# Fichiers de structure/planning (non nécessaires)
+plan_*
+structure_*
+
+# Fichiers texte (tous convertis en .md)
+*.txt
+
+# ==============================
+# Fichiers de développement (non nécessaires)
+# ==============================
+.gitignore.backup
+prepare-git.ps1
