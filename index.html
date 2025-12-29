@@ -318,25 +318,19 @@
     main {
       max-width: var(--max-width);
       margin: 0 auto;
-      padding: 120px 20px 40px;
+      padding: 100px 20px 40px;
     }
 
-    h1 {
-      font-size: 2.6em;
-      margin-bottom: 6px;
-      color: var(--primary-color);
-      text-align: center;
-      animation: fadeIn 0.6s ease;
-      font-weight: 700;
-      letter-spacing: -0.02em;
-    }
+    /* h1 supprimé - titre maintenant dans le header */
 
     .subtitle {
       text-align: center;
-      font-size: 1.15em;
+      font-size: 1.3em;
       color: #3a3a3a;
-      margin-bottom: 35px;
+      margin-top: 20px;
+      margin-bottom: 25px;
       animation: fadeIn 0.8s ease;
+      font-weight: 500;
     }
 
     @media (prefers-color-scheme: dark) {
@@ -889,9 +883,7 @@
       .cards {
         grid-template-columns: 1fr;
       }
-      h1 { 
-        font-size: 2.2em; 
-      }
+      /* h1 supprimé */
       .card {
         padding: 24px 20px;
       }
@@ -910,9 +902,7 @@
         padding: 100px 12px 30px;
       }
       
-      h1 {
-        font-size: 1.8em;
-      }
+      /* h1 supprimé */
       
       .subtitle {
         font-size: 1em;
@@ -1053,12 +1043,11 @@
 <header role="banner">
   <div class="header-left">
     <a href="#main-content" aria-label="Retour en haut de la page">
-      <h2>IT Dashboard A+</h2>
+      <h2>Présentation technique</h2>
     </a>
   </div>
 
   <nav class="header-nav" aria-label="Navigation principale">
-    <a href="#resume" aria-label="Aller au résumé exécutif">Résumé</a>
     <a href="#sections" aria-label="Aller aux sections">Sections</a>
     <a href="https://github.com/Gab-Hub-Ctrl/presentation_technique/tree/main/presentation_visuel/demo_video" target="_blank" rel="noopener noreferrer" aria-label="Ouvrir la démo vidéo sur GitHub dans un nouvel onglet">Démo</a>
     <a href="https://github.com/Gab-Hub-Ctrl/presentation_technique" target="_blank" rel="noopener noreferrer" aria-label="Ouvrir le dépôt GitHub dans un nouvel onglet">GitHub</a>
@@ -1067,34 +1056,8 @@
 
 <main id="main-content" role="main">
 
-  <h1 lang="fr">Présentation technique</h1>
   <p class="subtitle" lang="fr">Architecture, gouvernance, documentation et vision long terme du projet</p>
   <p class="introduction" lang="fr">Bienvenue sur la page de présentation du projet IT Dashboard A+. Cette page vous permet d'accéder facilement à tous les documents et ressources du projet.</p>
-
-  <section id="hero-section" class="hero-section-container" aria-label="Section principale">
-    <div class="hero-grid">
-      <!-- Résumé exécutif -->
-      <div id="resume" class="executive-summary" aria-labelledby="resume-title" aria-describedby="resume-description">
-        <h2 id="resume-title">Résumé exécutif</h2>
-        <p id="resume-description">
-          IT Dashboard A+ centralise, analyse et pilote des indicateurs IT critiques.
-          Le projet couvre la supervision, la gouvernance, la sécurité et l'aide à la décision,
-          avec une ouverture vers l'automatisation et l'intelligence artificielle.
-        </p>
-      </div>
-
-      <!-- Carte Rapport de Projection Dimensionnelle -->
-      <article class="report-card-hero" aria-labelledby="report-card-title" aria-describedby="report-card-desc">
-        <svg viewBox="0 0 24 24" aria-hidden="true" role="img">
-          <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-2 10h-4v4h-2v-4H7v-2h4V7h2v4h4v2z"/>
-        </svg>
-        <h3 id="report-card-title">Rapport de Projection Dimensionnelle</h3>
-        <p id="report-card-desc" class="sr-only">Accédez au rapport de projection dimensionnelle analysant l'impact des 31 standards techniques sur la dimension, la maturité et les capacités du projet Projet3.</p>
-        <p>Analyse de l'impact des 31 standards techniques sur la dimension, la maturité et les capacités du projet.</p>
-        <a href="rapport_projection_dimension_standards_projet3.html" aria-label="Consulter le rapport de projection dimensionnelle">Consulter le rapport complet</a>
-      </article>
-    </div>
-  </section>
 
   <section id="sections" class="sections-container" aria-label="Sections de présentation">
     <h2 class="sections-title">Sections</h2>
@@ -1129,6 +1092,17 @@
       <p>Description détaillée de l'architecture, des choix techniques et de la vision à long terme.</p>
       <a href="https://gab-hub-ctrl.github.io/presentation_technique/presentation_complete.html" target="_blank" rel="noopener noreferrer" aria-label="Voir la présentation complète du projet">Voir la présentation complète</a>
     </article>
+
+    <!-- Card 2b : Rapport de Projection Dimensionnelle -->
+    <article class="card" aria-labelledby="card-2b-title" aria-describedby="card-2b-desc">
+      <svg viewBox="0 0 24 24" aria-hidden="true" role="img">
+        <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-2 10h-4v4h-2v-4H7v-2h4V7h2v4h4v2z"/>
+      </svg>
+      <h3 id="card-2b-title">Rapport de Projection Dimensionnelle</h3>
+      <p id="card-2b-desc" class="sr-only">Accédez au rapport de projection dimensionnelle analysant l'impact des 31 standards techniques sur la dimension, la maturité et les capacités du projet Projet3.</p>
+      <p>Analyse de l'impact des 31 standards techniques sur la dimension, la maturité et les capacités du projet.</p>
+      <a href="rapport_projection_dimension_standards_projet3.html" aria-label="Consulter le rapport de projection dimensionnelle">Consulter le rapport complet</a>
+    </article>
           </div>
         </div>
       </div>
@@ -1142,18 +1116,26 @@
       <div class="section-accordion-content">
         <div class="section-accordion-inner">
           <div class="cards">
-    <!-- Card 3 -->
+    <!-- Card 3 : Lettre pour école -->
     <article class="card" aria-labelledby="card-3-title" aria-describedby="card-3-desc">
       <svg viewBox="0 0 24 24" aria-hidden="true" role="img">
         <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
       </svg>
-      <h3 id="card-3-title">Lettre de motivation</h3>
-      <p id="card-3-desc" class="sr-only">Accédez au dossier de candidature académique et professionnel présentant le projet IT Dashboard A+ et son contexte.</p>
-      <p>Dossier de candidature académique et professionnel en lien avec le projet IT Dashboard A+.</p>
-      <div style="display: flex; flex-direction: column; gap: 12px; margin-top: 16px;">
-        <a href="https://gab-hub-ctrl.github.io/presentation_technique/lettre_motivation_ecole.html" target="_blank" rel="noopener noreferrer" aria-label="Voir la lettre de motivation pour école" style="display: inline-block; padding: 8px 14px; background: var(--primary-color); color: white; text-decoration: none; border-radius: 6px; text-align: center; font-weight: 500; font-size: 0.85em; transition: background 0.2s ease, transform 0.2s ease;">Voir la lettre pour école</a>
-        <a href="https://gab-hub-ctrl.github.io/presentation_technique/lettre_motivation_entreprise.html" target="_blank" rel="noopener noreferrer" aria-label="Voir la lettre de motivation pour entreprise" style="display: inline-block; padding: 8px 14px; background: transparent; color: var(--primary-color); text-decoration: none; border: 1.5px solid var(--primary-color); border-radius: 6px; text-align: center; font-weight: 500; font-size: 0.85em; transition: all 0.2s ease;">Voir la lettre pour entreprise</a>
-      </div>
+      <h3 id="card-3-title">Lettre de motivation - École</h3>
+      <p id="card-3-desc" class="sr-only">Accédez à la lettre de motivation académique pour Bachelor IT/IA présentant le projet IT Dashboard A+ et son contexte.</p>
+      <p>Candidature académique pour Bachelor en Informatique et Intelligence Artificielle.</p>
+      <a href="https://gab-hub-ctrl.github.io/presentation_technique/lettre_motivation_ecole.html" target="_blank" rel="noopener noreferrer" aria-label="Voir la lettre de motivation pour école">Voir la lettre pour école</a>
+    </article>
+
+    <!-- Card 3b : Lettre pour entreprise -->
+    <article class="card" aria-labelledby="card-3b-title" aria-describedby="card-3b-desc">
+      <svg viewBox="0 0 24 24" aria-hidden="true" role="img">
+        <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+      </svg>
+      <h3 id="card-3b-title">Lettre de motivation - Entreprise</h3>
+      <p id="card-3b-desc" class="sr-only">Accédez à la lettre de motivation professionnelle présentant le projet IT Dashboard A+ et son contexte.</p>
+      <p>Candidature professionnelle en lien avec le projet IT Dashboard A+.</p>
+      <a href="https://gab-hub-ctrl.github.io/presentation_technique/lettre_motivation_entreprise.html" target="_blank" rel="noopener noreferrer" aria-label="Voir la lettre de motivation pour entreprise">Voir la lettre pour entreprise</a>
     </article>
 
     <!-- Card 3b -->
