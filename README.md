@@ -6,19 +6,19 @@ Ce dossier présente l'ensemble de la documentation technique du projet IT Dashb
 
 ## 📊 Statistiques du dossier (repo Git)
 
-- **Total fichiers dans le repo** : 61 fichiers
+- **Total fichiers dans le repo** : 64 fichiers
 - **Fichiers HTML** : 7 fichiers (présentations interactives)
 - **Fichiers Markdown** : 17 fichiers (15 documentation technique + 2 candidature)
-- **Images PNG** : 32 fichiers (captures d'écran et ressources visuelles)
+- **Images PNG** : 33 fichiers (captures d'écran et ressources visuelles)
 - **Fichiers CSS/JS** : 2 fichiers (styles et scripts communs)
-- **Fichiers de configuration** : 3 fichiers (README.md, GIT_README.md, .gitignore)
+- **Fichiers de configuration** : 5 fichiers (README.md, GIT_README.md, .gitignore, sitemap.xml, robots.txt)
 
 ## 📁 Structure complète du dossier (selon arborescence.txt)
 
 ```
 presentation_technique/
 │
-├── 📄 Fichiers racine (14 fichiers dans le repo Git)
+├── 📄 Fichiers racine (16 fichiers dans le repo Git)
 │   ├── .gitignore                                    # Fichier d'exclusion Git
 │   ├── common.css                                    # Styles CSS communs (413 lignes)
 │   ├── common.js                                     # Scripts JavaScript communs
@@ -60,10 +60,13 @@ presentation_technique/
 │   │   └── arborescence.txt                          # ⚠️ Exclu du repo (.gitignore - *.txt)
 │   └── rapports/                                     # Dossier vide dans le repo Git
 │
-└── 🖼️ presentation_visuel/ (30 fichiers PNG)
+└── 🖼️ presentation_visuel/ (31 fichiers PNG)
     ├── Correlation_Anticipation/ (2 fichiers)
     │   ├── Capture d'écran 2025-12-24 004254.png
     │   └── Capture d'écran 2025-12-24 004304.png
+    │
+    ├── demo_video/ (1 fichier)
+    │   └── demo.png
     │
     ├── Pole0_Demonstration/ (9 fichiers)
     │   ├── Capture d'écran 2025-12-24 003537.png
@@ -182,8 +185,9 @@ Les présentations HTML offrent une expérience interactive complète avec navig
 
 ### Annexes visuelles
 
-30 captures d'écran organisées par catégorie dans `presentation_visuel/` :
+31 captures d'écran organisées par catégorie dans `presentation_visuel/` :
 - `Correlation_Anticipation/` : 2 captures d'écran
+- `demo_video/` : 1 fichier (demo.png)
 - `Pole0_Demonstration/` : 9 fichiers (1 capture + Pipeline/ avec 8 fichiers)
 - `Pole1_Technologies_Infrastructures/` à `Pole10_Innovation_RD/` : 9 fichiers (1 capture par pôle)
 - `Vue_global/` : 10 fichiers (9 captures d'écran + Formulaire.png)
@@ -202,14 +206,17 @@ Les présentations HTML offrent une expérience interactive complète avec navig
 
 - **`favicon.png`** : Icône du site (32x32 ou 64x64 pixels)
 - **`og-image.png`** : Image Open Graph (1200x630 pixels)
+- **`sitemap.xml`** : Plan du site pour les moteurs de recherche
+- **`robots.txt`** : Instructions pour les robots d'indexation
 
 ## 📋 Conformité et qualité
 
 - ✅ **Standard 01_Qualité** : Conforme
 - ✅ **WCAG 2.1 AA/AAA** : Accessibilité validée
 - ✅ **HTML5** : Structure valide
-- ✅ **SEO** : Méta-données complètes
+- ✅ **SEO** : Méta-données complètes, sitemap.xml et robots.txt
 - ✅ **Cohérence** : Styles et terminologie uniformisés
+- ✅ **Dates harmonisées** : datePublished (2025-01-01) et dateModified (2025-12-29) cohérentes
 
 ## 🔗 Déploiement
 
@@ -232,4 +239,4 @@ Ce dossier démontre :
 
 ---
 
-*Dernière mise à jour : 2025-01-15*
+*Dernière mise à jour : 2025-12-29*

@@ -6,11 +6,11 @@ Ce guide présente les conventions Git à respecter pour le dossier `presentatio
 
 Le dossier `presentation_technique` est prêt à être commité dans votre repo git.
 
-## 📋 Inventaire complet des fichiers dans le repo Git (61 fichiers)
+## 📋 Inventaire complet des fichiers dans le repo Git (64 fichiers)
 
 **Note** : Les fichiers exclus par `.gitignore` ne sont pas listés ici (email_candidature.md, *.txt, *.pdf, etc.).
 
-### Fichiers racine (14 fichiers - ordre alphabétique selon arborescence.txt)
+### Fichiers racine (16 fichiers - ordre alphabétique selon arborescence.txt)
 - ✅ `.gitignore` - Fichier d'exclusion Git
 - ✅ `common.css` - Styles CSS communs (413 lignes)
 - ✅ `common.js` - Scripts JavaScript communs
@@ -25,6 +25,8 @@ Le dossier `presentation_technique` est prêt à être commité dans votre repo 
 - ✅ `profil_personnel.html` - Profil personnel et professionnel
 - ✅ `rapport_projection_dimension_standards_projet3.html` - Rapport de projection dimensionnelle
 - ✅ `README.md` - Documentation principale
+- ✅ `robots.txt` - Instructions pour les robots d'indexation
+- ✅ `sitemap.xml` - Plan du site pour les moteurs de recherche
 
 ### Documentation technique (15 fichiers Markdown)
 - ✅ `documentation_technique/01_introduction.md`
@@ -53,10 +55,11 @@ Le dossier `presentation_technique` est prêt à être commité dans votre repo 
 - ⚠️ `documents/documentation/arborescence.md` - **Exclu du repo** (défini dans `.gitignore`)
 - ⚠️ `documents/rapports/` - Dossier vide dans le repo
 
-### Annexes visuelles (32 fichiers PNG au total)
+### Annexes visuelles (33 fichiers PNG au total)
 - ✅ `favicon.png` - Icône du site (racine)
 - ✅ `og-image.png` - Image Open Graph (racine)
 - ✅ `presentation_visuel/Correlation_Anticipation/` - 2 captures d'écran
+- ✅ `presentation_visuel/demo_video/` - 1 fichier (demo.png)
 - ✅ `presentation_visuel/Pole0_Demonstration/` - 9 fichiers (1 capture + Pipeline/ avec 8 fichiers)
 - ✅ `presentation_visuel/Pole1_Technologies_Infrastructures/` - 1 capture d'écran
 - ✅ `presentation_visuel/Pole2_Logiciels_Developpement/` - 1 capture d'écran
@@ -70,9 +73,9 @@ Le dossier `presentation_technique` est prêt à être commité dans votre repo 
 - ✅ `presentation_visuel/Pole10_Innovation_RD/` - 1 capture d'écran
 - ✅ `presentation_visuel/Vue_global/` - 10 fichiers (9 captures d'écran + Formulaire.png)
 
-**Total PNG** : 2 (racine) + 30 (presentation_visuel/) = 32 fichiers
+**Total PNG** : 2 (racine) + 31 (presentation_visuel/) = 33 fichiers
 
-**Total dans le repo Git : 61 fichiers**
+**Total dans le repo Git : 64 fichiers** (63 fichiers précédents + demo_video/demo.png)
 
 **Fichiers exclus par `.gitignore`** :
 - `documents/candidature/email_candidature.md` (fichier personnel)
@@ -97,7 +100,7 @@ git add presentation_technique/
 
 ### 3. Commiter les fichiers
 ```powershell
-git commit -m "docs(presentation): ajout de la présentation technique complète - 61 fichiers"
+git commit -m "docs(presentation): ajout de la présentation technique complète - 64 fichiers (sitemap.xml, robots.txt et demo_video inclus)"
 ```
 
 ### 4. Pousser vers le repo distant (si configuré)
@@ -196,11 +199,13 @@ Get-ChildItem -Path presentation_technique -Recurse -File | Measure-Object -Prop
 - [ ] Tous les fichiers HTML sont valides (pas d'erreurs de syntaxe)
 - [ ] Les liens internes fonctionnent correctement
 - [ ] Les fichiers `favicon.png` et `og-image.png` sont présents
+- [ ] Les fichiers `sitemap.xml` et `robots.txt` sont présents
 - [ ] Les styles CSS sont cohérents
 - [ ] La documentation est à jour
 - [ ] Les README reflètent la vraie arborescence
+- [ ] Les dates sont harmonisées (datePublished: 2025-01-01, dateModified: 2025-12-29)
 - [ ] Aucun fichier temporaire ou de cache n'est inclus
 
 ---
 
-*Dernière mise à jour : 2025-01-15*
+*Dernière mise à jour : 2025-12-29*

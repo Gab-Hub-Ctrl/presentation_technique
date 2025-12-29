@@ -50,7 +50,9 @@ plan_*
 structure_*
 
 # Fichiers texte (tous convertis en .md)
+# Exception : robots.txt doit être inclus dans le repo
 *.txt
+!robots.txt
 
 # Fichiers PDF (non nécessaires pour la candidature)
 *.pdf
