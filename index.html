@@ -213,19 +213,19 @@
 
     .header-left h2 {
       margin: 0;
-      font-size: 1.5em;
+      font-size: 1.1em;
       color: #000000;
-      font-weight: 700;
-      line-height: 1.4;
+      font-weight: 600;
+      line-height: 1.3;
       transition: color 0.2s ease;
     }
     
     .header-left h2 .project-name {
       display: inline;
-      font-size: 1.5em;
+      font-size: 1.1em;
       color: #000000;
-      font-weight: 700;
-      letter-spacing: 0.5px;
+      font-weight: 600;
+      letter-spacing: 0.3px;
     }
 
     .header-left a:hover h2 {
@@ -284,24 +284,25 @@
 
     .subtitle {
       text-align: center;
-      font-size: 1.2em;
-      color: #333333;
-      margin-top: 20px;
-      margin-bottom: 30px;
+      font-size: 1em;
+      color: #666666;
+      margin-top: 15px;
+      margin-bottom: 25px;
       animation: fadeIn 0.8s ease;
       font-weight: 400;
-      line-height: 1.6;
+      line-height: 1.5;
     }
 
 
     .introduction {
       text-align: center;
-      margin: 0 auto 40px auto;
-      max-width: 800px;
+      margin: 0 auto 35px auto;
+      max-width: 700px;
       padding: 0 20px;
-      font-size: 1.05em;
+      font-size: 0.95em;
       color: var(--text-secondary);
       animation: fadeIn 1s ease;
+      line-height: 1.6;
     }
 
     /* ============================================
@@ -491,8 +492,8 @@
     .section-accordion-header {
       background: #000000;
       color: #ffffff;
-      padding: 20px 30px;
-      font-size: 1.2em;
+      padding: 16px 24px;
+      font-size: 1.05em;
       font-weight: 600;
       cursor: pointer;
       display: flex;
@@ -542,20 +543,20 @@
     }
 
     .section-accordion-inner {
-      padding: 30px;
+      padding: 24px;
       background: #ffffff;
     }
 
     .sections-title {
-      font-size: 1.8em;
+      font-size: 1.4em;
       color: #000000;
       text-align: center;
-      margin-bottom: 30px;
-      font-weight: 700;
+      margin-bottom: 25px;
+      font-weight: 600;
       position: relative;
-      padding-bottom: 15px;
+      padding-bottom: 12px;
       animation: fadeIn 0.8s ease;
-      letter-spacing: -0.5px;
+      letter-spacing: -0.3px;
     }
 
     .sections-title::after {
@@ -577,8 +578,8 @@
     .cards {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 24px;
-      margin-top: 20px;
+      gap: 20px;
+      margin-top: 16px;
     }
 
     .card {
@@ -651,25 +652,25 @@
 
     .card p {
       margin-top: 6px;
-      font-size: 0.85em;
-      color: #333333;
+      font-size: 0.8em;
+      color: #666666;
       line-height: 1.5;
-      margin-bottom: 12px;
-      text-align: left;
+      margin-bottom: 10px;
+      text-align: center;
     }
 
 
     .card a {
-      margin-top: 6px;
+      margin-top: 8px;
       display: inline-flex;
       align-items: center;
       gap: 4px;
       color: #000000;
       font-weight: 600;
       text-decoration: none;
-      font-size: 0.8em;
-      padding: 6px 12px;
-      border: 2px solid #000000;
+      font-size: 0.85em;
+      padding: 6px 14px;
+      border: 1px solid #000000;
       border-radius: 4px;
       transition: all 0.2s ease;
     }
@@ -677,22 +678,9 @@
     .card a:hover {
       background: #000000;
       color: #ffffff;
-      text-decoration: underline;
+      text-decoration: none;
     }
 
-    .card a::after {
-      content: '→';
-      transition: transform 0.3s ease;
-    }
-
-    .card a:hover {
-      color: var(--accent-hover);
-      gap: 10px;
-    }
-
-    .card a:hover::after {
-      transform: translateX(4px);
-    }
 
     .card a:focus-visible {
       outline: 3px solid #000000;
@@ -1020,8 +1008,8 @@
       </svg>
       <h3 id="card-1-title">Présentation synthétique</h3>
       <p id="card-1-desc" class="sr-only">Accédez à la présentation synthétique qui offre une vue d'ensemble du projet IT Dashboard A+, ses objectifs et sa structure générale.</p>
-      <p>Vue d'ensemble du projet, de ses objectifs et de sa structure générale.</p>
-      <a href="https://gab-hub-ctrl.github.io/presentation_technique/presentation_synthetique.html" target="_blank" rel="noopener noreferrer" aria-label="Voir la présentation synthétique du projet">Voir la présentation</a>
+      <p>Vue d'ensemble du projet et de ses objectifs.</p>
+      <a href="https://gab-hub-ctrl.github.io/presentation_technique/presentation_synthetique.html" target="_blank" rel="noopener noreferrer" aria-label="Voir la présentation synthétique du projet">Voir →</a>
     </article>
 
     <!-- Card 2 -->
@@ -1031,8 +1019,8 @@
       </svg>
       <h3 id="card-2-title">Présentation complète</h3>
       <p id="card-2-desc" class="sr-only">Accédez à la présentation complète détaillant l'architecture technique, les choix technologiques et la vision à long terme du projet IT Dashboard A+.</p>
-      <p>Description détaillée de l'architecture, des choix techniques et de la vision à long terme.</p>
-      <a href="https://gab-hub-ctrl.github.io/presentation_technique/presentation_complete.html" target="_blank" rel="noopener noreferrer" aria-label="Voir la présentation complète du projet">Voir la présentation complète</a>
+      <p>Architecture technique et vision à long terme.</p>
+      <a href="https://gab-hub-ctrl.github.io/presentation_technique/presentation_complete.html" target="_blank" rel="noopener noreferrer" aria-label="Voir la présentation complète du projet">Voir →</a>
     </article>
 
     <!-- Card 2b : Rapport de Projection Dimensionnelle -->
@@ -1042,8 +1030,8 @@
       </svg>
       <h3 id="card-2b-title">Rapport de Projection Dimensionnelle</h3>
       <p id="card-2b-desc" class="sr-only">Accédez au rapport de projection dimensionnelle analysant l'impact des 31 standards techniques sur la dimension, la maturité et les capacités du projet Projet3.</p>
-      <p>Analyse de l'impact des 31 standards techniques sur la dimension, la maturité et les capacités du projet.</p>
-      <a href="rapport_projection_dimension_standards_projet3.html" aria-label="Consulter le rapport de projection dimensionnelle">Consulter le rapport complet</a>
+      <p>Impact des 31 standards sur la maturité du projet.</p>
+      <a href="rapport_projection_dimension_standards_projet3.html" aria-label="Consulter le rapport de projection dimensionnelle">Consulter →</a>
     </article>
           </div>
         </div>
@@ -1065,8 +1053,8 @@
       </svg>
       <h3 id="card-3-title">Lettre de motivation - École</h3>
       <p id="card-3-desc" class="sr-only">Accédez à la lettre de motivation académique pour Bachelor IT/IA présentant le projet IT Dashboard A+ et son contexte.</p>
-      <p>Candidature académique pour Bachelor en Informatique et Intelligence Artificielle.</p>
-      <a href="https://gab-hub-ctrl.github.io/presentation_technique/lettre_motivation_ecole.html" target="_blank" rel="noopener noreferrer" aria-label="Voir la lettre de motivation pour école">Voir la lettre pour école</a>
+      <p>Candidature Bachelor IT/IA.</p>
+      <a href="https://gab-hub-ctrl.github.io/presentation_technique/lettre_motivation_ecole.html" target="_blank" rel="noopener noreferrer" aria-label="Voir la lettre de motivation pour école">Voir →</a>
     </article>
 
     <!-- Card 3b : Lettre pour entreprise -->
@@ -1076,8 +1064,8 @@
       </svg>
       <h3 id="card-3b-title">Lettre de motivation - Entreprise</h3>
       <p id="card-3b-desc" class="sr-only">Accédez à la lettre de motivation professionnelle présentant le projet IT Dashboard A+ et son contexte.</p>
-      <p>Candidature professionnelle en lien avec le projet IT Dashboard A+.</p>
-      <a href="https://gab-hub-ctrl.github.io/presentation_technique/lettre_motivation_entreprise.html" target="_blank" rel="noopener noreferrer" aria-label="Voir la lettre de motivation pour entreprise">Voir la lettre pour entreprise</a>
+      <p>Candidature professionnelle.</p>
+      <a href="https://gab-hub-ctrl.github.io/presentation_technique/lettre_motivation_entreprise.html" target="_blank" rel="noopener noreferrer" aria-label="Voir la lettre de motivation pour entreprise">Voir →</a>
     </article>
 
     <!-- Card 3c : Profil personnel -->
@@ -1087,8 +1075,8 @@
       </svg>
       <h3 id="card-6-title">Mieux me connaître</h3>
       <p id="card-6-desc" class="sr-only">Découvrez mon profil professionnel, mon parcours académique et mes compétences techniques liées au projet IT Dashboard A+.</p>
-      <p>En savoir plus sur moi, mon parcours et mes compétences sans CV séparé.</p>
-      <a href="https://gab-hub-ctrl.github.io/presentation_technique/profil_personnel.html" target="_blank" rel="noopener noreferrer" aria-label="Découvrir mon profil et mon parcours">Découvrir</a>
+      <p>Profil, parcours et compétences.</p>
+      <a href="https://gab-hub-ctrl.github.io/presentation_technique/profil_personnel.html" target="_blank" rel="noopener noreferrer" aria-label="Découvrir mon profil et mon parcours">Découvrir →</a>
     </article>
           </div>
         </div>
@@ -1110,8 +1098,8 @@
       </svg>
       <h3 id="card-4-title">Documentation technique</h3>
       <p id="card-4-desc" class="sr-only">Accédez à la documentation technique complète couvrant l'architecture, la gouvernance de l'IA et la structuration du système IT Dashboard A+.</p>
-      <p>Architecture technique, gouvernance de l'IA et structuration du système.</p>
-      <a href="https://github.com/Gab-Hub-Ctrl/presentation_technique/tree/main/documentation_technique" target="_blank" rel="noopener noreferrer" aria-label="Accéder à la documentation technique sur GitHub">Accéder aux documents</a>
+      <p>Architecture et gouvernance de l'IA.</p>
+      <a href="https://github.com/Gab-Hub-Ctrl/presentation_technique/tree/main/documentation_technique" target="_blank" rel="noopener noreferrer" aria-label="Accéder à la documentation technique sur GitHub">Accéder →</a>
     </article>
 
     <!-- Card 5 -->
@@ -1121,8 +1109,8 @@
       </svg>
       <h3 id="card-5-title">Annexes visuelles</h3>
       <p id="card-5-desc" class="sr-only">Accédez aux annexes visuelles comprenant captures d'écran, schémas d'architecture et illustrations techniques du projet IT Dashboard A+.</p>
-      <p>Captures d'écran, schémas et illustrations techniques du projet.</p>
-      <a href="https://github.com/Gab-Hub-Ctrl/presentation_technique/tree/main/presentation_visuel" target="_blank" rel="noopener noreferrer" aria-label="Voir les annexes visuelles sur GitHub">Voir les annexes</a>
+      <p>Captures d'écran et schémas techniques.</p>
+      <a href="https://github.com/Gab-Hub-Ctrl/presentation_technique/tree/main/presentation_visuel" target="_blank" rel="noopener noreferrer" aria-label="Voir les annexes visuelles sur GitHub">Voir →</a>
     </article>
 
     <!-- Card 5b -->
@@ -1132,8 +1120,8 @@
       </svg>
       <h3 id="card-5b-title">Démo vidéo</h3>
       <p id="card-5b-desc" class="sr-only">Accédez à la démonstration vidéo du projet IT Dashboard A+.</p>
-      <p>Démonstration vidéo du projet en action.</p>
-      <a href="https://github.com/Gab-Hub-Ctrl/presentation_technique/tree/main/presentation_visuel/demo_video" target="_blank" rel="noopener noreferrer" aria-label="Voir la démo vidéo">Voir la démo</a>
+      <p>Démonstration du projet en action.</p>
+      <a href="https://github.com/Gab-Hub-Ctrl/presentation_technique/tree/main/presentation_visuel/demo_video" target="_blank" rel="noopener noreferrer" aria-label="Voir la démo vidéo">Voir →</a>
     </article>
           </div>
         </div>
