@@ -131,30 +131,8 @@
       --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.12);
       --shadow-md: 0 2px 6px rgba(0, 0, 0, 0.15);
       --shadow-lg: 0 4px 12px rgba(0, 0, 0, 0.2);
-      --bg-secondary: #f9fafb;
-      --card-bg: #ffffff;
-      --border-color: #e5e7eb;
-      
-      /* Ombres subtiles */
-      --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
-      --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.07);
-      --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
       
       --max-width: 1200px;
-    }
-
-    @media (prefers-color-scheme: dark) {
-      :root {
-        --text-color: #f9fafb;
-        --text-secondary: #d1d5db;
-        --bg-color: #111827;
-        --bg-secondary: #1f2937;
-        --card-bg: #1f2937;
-        --border-color: #374151;
-        --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.3);
-        --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.4);
-        --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.5);
-      }
     }
 
     /* ============================================
@@ -178,7 +156,7 @@
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       line-height: 1.75;
       color: var(--text-color);
-      background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-color) 100%);
+      background: #ffffff;
       min-height: 100vh;
     }
 
@@ -286,21 +264,12 @@
       top: 0;
       left: 0;
       right: 0;
-      background: rgba(255, 255, 255, 0.95);
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
-      border-bottom: 1px solid var(--border-color);
+      background: #ffffff;
+      border-bottom: 2px solid #000000;
       box-shadow: var(--shadow-sm);
       padding: 16px 0;
       z-index: 1000;
       will-change: transform;
-    }
-
-    @media (prefers-color-scheme: dark) {
-      header {
-        background: rgba(31, 41, 55, 0.95);
-        border-bottom-color: var(--border-color);
-      }
     }
 
     .header-container {
@@ -436,26 +405,27 @@
       margin-top: 60px;
       padding: 32px 20px;
       text-align: center;
-      color: var(--text-secondary);
+      color: #000000;
       font-size: 0.9em;
-      border-top: 1px solid var(--border-color);
+      border-top: 2px solid #000000;
+      background: #ffffff;
+    }
+
+    footer p {
+      color: #000000;
+      margin: 8px 0;
     }
 
     footer a {
-      color: var(--primary-color);
+      color: #000000;
       text-decoration: none;
       margin: 0 8px;
     }
 
     footer a:hover,
     footer a:focus {
+      color: #333333;
       text-decoration: underline;
-    }
-
-    @media (prefers-color-scheme: dark) {
-      footer {
-        border-top-color: var(--border-color);
-      }
     }
 
     /* ============================================

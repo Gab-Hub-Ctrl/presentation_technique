@@ -197,12 +197,6 @@
             z-index: 100;
         }
 
-        @media (prefers-color-scheme: dark) {
-            header {
-                background: rgba(31, 41, 55, 0.95);
-                border-bottom-color: var(--border-color);
-            }
-        }
 
         .header-left a {
             text-decoration: none;
@@ -336,12 +330,6 @@
             font-weight: 600;
         }
 
-        @media (prefers-color-scheme: dark) {
-            .nav-dropdown-menu {
-                background: rgba(31, 41, 55, 0.98);
-                border-color: var(--border-color);
-            }
-        }
 
         /* RESPONSIVE HEADER */
         @media (max-width: 1200px) {
@@ -424,11 +412,6 @@
             line-height: 1.6;
         }
 
-        @media (prefers-color-scheme: dark) {
-            .introduction-header .subtitle {
-                color: var(--text-secondary);
-            }
-        }
 
         /* ============================================
            SECTIONS - Contenu principal
@@ -502,12 +485,6 @@
             }
         }
 
-        @media (prefers-color-scheme: dark) {
-        section {
-                background: var(--card-bg);
-                border-color: var(--border-color);
-            }
-        }
         
         section:focus {
             outline: 3px solid var(--primary-color);
@@ -533,12 +510,10 @@
             }
         }
 
-        @media (prefers-color-scheme: dark) {
-            @keyframes highlight {
-                0% { background-color: transparent; }
-                50% { background-color: rgba(37, 99, 235, 0.1); }
-                100% { background-color: transparent; }
-            }
+        @keyframes highlight {
+            0% { background-color: transparent; }
+            50% { background-color: rgba(0, 0, 0, 0.1); }
+            100% { background-color: transparent; }
         }
 
         /* TITLES */
@@ -631,12 +606,6 @@
             font-weight: 700;
         }
         
-        @media (prefers-color-scheme: dark) {
-            .highlight {
-                background: var(--bg-secondary);
-                border-left-color: var(--primary-color);
-            }
-        }
 
         /* EXPLORE BOX */
         .explore-box {
@@ -732,25 +701,6 @@
             border-bottom-color: var(--accent-hover);
         }
 
-        @media (prefers-color-scheme: dark) {
-            .explore-box {
-                background: var(--bg-secondary);
-                border-color: var(--border-color);
-            }
-            
-            .explore-box li {
-                background: var(--card-bg);
-            }
-            
-            .explore-box li:hover {
-                background: var(--bg-color);
-            }
-            
-            .explore-box code {
-                background: var(--bg-color);
-                color: var(--primary-light);
-            }
-        }
 
         /* LISTS */
         section ul, section ol {
@@ -778,12 +728,6 @@
             font-weight: 600;
         }
 
-        @media (prefers-color-scheme: dark) {
-            section code {
-                background: var(--bg-color);
-                color: var(--primary-light);
-            }
-        }
 
         /* ============================================
            METRICS - Grille de métriques
@@ -898,29 +842,25 @@
             margin-top: 50px;
             padding: 25px 0;
             text-align: center;
-            color: var(--text-secondary);
+            color: #000000;
             font-size: 0.9em;
-            border-top: 1px solid var(--border-color);
-        }
-
-        @media (prefers-color-scheme: dark) {
-            footer {
-                border-top-color: var(--border-color);
-            }
+            border-top: 2px solid #000000;
+            background: #ffffff;
         }
 
         footer p {
             margin: 8px 0;
+            color: #000000;
         }
 
         footer a {
-            color: var(--primary-color);
+            color: #000000;
             text-decoration: none;
             transition: color 0.2s ease;
         }
 
         footer a:hover {
-            color: var(--accent-hover);
+            color: #333333;
             text-decoration: underline;
         }
 
