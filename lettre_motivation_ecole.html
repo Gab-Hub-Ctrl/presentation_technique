@@ -38,8 +38,8 @@
   <link rel="sitemap" type="application/xml" href="sitemap.xml">
 
   <!-- Theme Color for Mobile -->
-  <meta name="theme-color" content="#334155">
-  <meta name="msapplication-TileColor" content="#334155">
+  <meta name="theme-color" content="#000000">
+  <meta name="msapplication-TileColor" content="#000000">
 
   <!-- Format Detection -->
   <meta name="format-detection" content="telephone=no">
@@ -102,25 +102,35 @@
        VARIABLES CSS - Palette de couleurs
        ============================================ */
     :root {
-      /* Palette sobre et professionnelle */
-      --primary-color: #334155; /* Bleu ardoise professionnel */
-      --primary-dark: #1e293b; /* Bleu ardoise foncé */
-      --primary-light: #475569; /* Bleu ardoise clair */
+      /* Thème noir et blanc professionnel avec couleurs d'importance discrètes */
       
-      /* Gris neutres professionnels */
-      --neutral-dark: #1f2937;
-      --neutral-medium: #4b5563;
-      --neutral-light: #6b7280;
-      --neutral-lighter: #9ca3af;
+      /* Couleurs de base - Noir et blanc */
+      --text-color: #000000; /* Noir pur pour texte principal */
+      --text-secondary: #333333; /* Gris foncé pour texte secondaire */
+      --bg-color: #ffffff; /* Blanc pur pour fond principal */
+      --bg-secondary: #f5f5f5; /* Gris très clair pour fond secondaire */
+      --card-bg: #ffffff; /* Blanc pur pour cartes */
+      --border-color: #000000; /* Noir pour bordures */
       
-      /* Accent discret */
-      --accent-color: #334155; /* Même que primary pour cohérence */
-      --accent-hover: #1e293b;
+      /* Couleurs d'importance - Discrètes et professionnelles */
+      --importance-critical: #8b0000; /* Rouge foncé discret pour critique */
+      --importance-high: #003366; /* Bleu foncé discret pour important */
+      --importance-normal: #006400; /* Vert foncé discret pour normal */
+      --importance-info: #333333; /* Gris foncé pour information */
       
-      /* Couleurs de base */
-      --text-color: #111827;
-      --text-secondary: #4b5563;
-      --bg-color: #ffffff;
+      /* Couleurs principales - Noir par défaut */
+      --primary-color: #000000; /* Noir pour éléments principaux */
+      --primary-dark: #000000; /* Noir pour états foncés */
+      --primary-light: #333333; /* Gris foncé pour états clairs */
+      
+      /* Accents */
+      --accent-color: #000000; /* Noir pour accents */
+      --accent-hover: #333333; /* Gris foncé au survol */
+      
+      /* Ombres subtiles en noir et blanc */
+      --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.12);
+      --shadow-md: 0 2px 6px rgba(0, 0, 0, 0.15);
+      --shadow-lg: 0 4px 12px rgba(0, 0, 0, 0.2);
       --bg-secondary: #f9fafb;
       --card-bg: #ffffff;
       --border-color: #e5e7eb;

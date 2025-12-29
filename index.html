@@ -38,8 +38,8 @@
   <link rel="sitemap" type="application/xml" href="sitemap.xml">
 
   <!-- Theme Color for Mobile -->
-  <meta name="theme-color" content="#334155">
-  <meta name="msapplication-TileColor" content="#334155">
+  <meta name="theme-color" content="#000000">
+  <meta name="msapplication-TileColor" content="#000000">
 
   <!-- Format Detection -->
   <meta name="format-detection" content="telephone=no">
@@ -105,52 +105,40 @@
        la maintenance et la cohérence visuelle
        ============================================ */
     :root {
-      /* Palette sobre et professionnelle */
-      /* WCAG AA: Contraste minimum 4.5:1 pour texte normal, 3:1 pour texte large */
-      /* WCAG AAA: Contraste minimum 7:1 pour texte normal, 4.5:1 pour texte large */
-      --primary-color: #334155; /* Bleu ardoise professionnel - Ratio 7:1 sur blanc (WCAG AAA) */
-      --primary-dark: #1e293b; /* Bleu ardoise foncé - Ratio 12:1 sur blanc (WCAG AAA) */
-      --primary-light: #475569; /* Bleu ardoise clair - Ratio 5.5:1 sur blanc (WCAG AA) */
+      /* Thème noir et blanc professionnel avec couleurs d'importance discrètes */
       
-      /* Gris neutres professionnels */
-      --neutral-dark: #1f2937; /* Ratio 12.6:1 sur blanc (WCAG AAA) */
-      --neutral-medium: #4b5563; /* Ratio 7:1 sur blanc (WCAG AAA) */
-      --neutral-light: #6b7280; /* Ratio 4.5:1 sur blanc (WCAG AA) */
-      --neutral-lighter: #9ca3af; /* Ratio 2.5:1 sur blanc - Usage décoratif uniquement */
+      /* Couleurs de base - Noir et blanc */
+      --text-color: #000000; /* Noir pur pour texte principal */
+      --text-secondary: #333333; /* Gris foncé pour texte secondaire */
+      --bg-color: #ffffff; /* Blanc pur pour fond principal */
+      --bg-secondary: #f5f5f5; /* Gris très clair pour fond secondaire */
+      --card-bg: #ffffff; /* Blanc pur pour cartes */
+      --border-color: #000000; /* Noir pour bordures */
       
-      /* Accent discret */
-      --accent-color: #334155; /* Même que primary pour cohérence - Ratio 7:1 (WCAG AAA) */
-      --accent-hover: #1e293b; /* Ratio 12:1 sur blanc (WCAG AAA) */
+      /* Couleurs d'importance - Discrètes et professionnelles */
+      --importance-critical: #8b0000; /* Rouge foncé discret pour critique */
+      --importance-high: #003366; /* Bleu foncé discret pour important */
+      --importance-normal: #006400; /* Vert foncé discret pour normal */
+      --importance-info: #333333; /* Gris foncé pour information */
       
-      /* Couleurs de base */
-      --text-color: #111827; /* Ratio 16.6:1 sur blanc (WCAG AAA) */
-      --text-secondary: #4b5563; /* Ratio 7:1 sur blanc (WCAG AAA) */
-      --bg-color: #ffffff; /* Fond principal */
-      --bg-secondary: #f9fafb; /* Fond secondaire */
-      --card-bg: #ffffff; /* Fond des cartes - Blanc pur pour meilleur contraste */
-      --border-color: #e5e7eb; /* Bordure - Usage décoratif */
+      /* Couleurs principales - Noir par défaut */
+      --primary-color: #000000; /* Noir pour éléments principaux */
+      --primary-dark: #000000; /* Noir pour états foncés */
+      --primary-light: #333333; /* Gris foncé pour états clairs */
       
-      /* Ombres subtiles */
-      --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
-      --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.07);
-      --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
+      /* Accents */
+      --accent-color: #000000; /* Noir pour accents */
+      --accent-hover: #333333; /* Gris foncé au survol */
+      
+      /* Ombres subtiles en noir et blanc */
+      --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.12);
+      --shadow-md: 0 2px 6px rgba(0, 0, 0, 0.15);
+      --shadow-lg: 0 4px 12px rgba(0, 0, 0, 0.2);
       
       --max-width: 1200px;
     }
 
-    @media (prefers-color-scheme: dark) {
-      :root {
-        --text-color: #f9fafb;
-        --text-secondary: #d1d5db;
-        --bg-color: #111827;
-        --bg-secondary: #1f2937;
-        --card-bg: #1f2937;
-        --border-color: #374151;
-        --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.3);
-        --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.4);
-        --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.5);
-      }
-    }
+    /* Mode sombre désactivé - Thème noir et blanc uniquement */
 
     /* ============================================
        RESET ET BASE
@@ -184,16 +172,9 @@
       will-change: transform;
     }
 
-    /* Background sobre et professionnel */
+    /* Fond blanc pur - pas de gradient */
     body::before {
-      content: "";
-      position: fixed;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      background: 
-        linear-gradient(180deg, rgba(249, 250, 251, 0.5) 0%, rgba(255, 255, 255, 0.8) 100%);
-      pointer-events: none;
-      z-index: -1;
+      display: none;
     }
 
     @media (prefers-color-scheme: dark) {
@@ -236,7 +217,7 @@
     }
 
     .header-left a:focus-visible {
-      outline: 3px solid var(--accent-color);
+      outline: 3px solid #000000;
       outline-offset: 4px;
       border-radius: 3px;
       padding: 2px 4px;
@@ -244,24 +225,27 @@
 
     .header-left h2 {
       margin: 0;
-      font-size: 1.4em;
-      color: var(--primary-color);
+      font-size: 1.5em;
+      color: #000000;
       font-weight: 700;
-      line-height: 1.3;
+      line-height: 1.4;
       transition: color 0.2s ease;
     }
     
     .header-left h2 .project-name {
       display: block;
-      font-size: 0.85em;
-      color: var(--text-secondary);
-      font-weight: 500;
-      margin-bottom: 2px;
+      font-size: 0.9em;
+      color: #333333;
+      font-weight: 600;
+      margin-bottom: 3px;
+      letter-spacing: 0.5px;
     }
     
     .header-left h2 .page-title {
       display: block;
-      color: var(--primary-color);
+      color: #000000;
+      font-size: 1em;
+      font-weight: 700;
     }
 
     .header-left a:hover h2 {
@@ -275,29 +259,29 @@
 
     .header-nav a {
       text-decoration: none;
-      color: var(--text-secondary);
+      color: #333333;
       font-weight: 500;
       font-size: 0.95em;
       white-space: nowrap;
       transition: color 0.2s ease;
       position: relative;
+      padding: 4px 8px;
     }
 
     .header-nav a::after {
       content: '';
       position: absolute;
-      bottom: -4px;
+      bottom: 0;
       left: 50%;
       transform: translateX(-50%) scaleX(0);
-      width: 100%;
+      width: calc(100% - 16px);
       height: 2px;
-      background: var(--primary-color);
-      border-radius: 2px;
-      transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      background: #000000;
+      transition: transform 0.3s ease;
     }
 
     .header-nav a:hover {
-      color: var(--primary-color);
+      color: #000000;
     }
 
     .header-nav a:hover::after {
@@ -305,7 +289,7 @@
     }
 
     .header-nav a:focus-visible {
-      outline: 3px solid var(--primary-color);
+      outline: 3px solid #000000;
       outline-offset: 4px;
       border-radius: 3px;
     }
@@ -336,12 +320,13 @@
 
     .subtitle {
       text-align: center;
-      font-size: 1.3em;
-      color: #3a3a3a;
+      font-size: 1.2em;
+      color: #333333;
       margin-top: 20px;
-      margin-bottom: 25px;
+      margin-bottom: 30px;
       animation: fadeIn 0.8s ease;
-      font-weight: 500;
+      font-weight: 400;
+      line-height: 1.6;
     }
 
     @media (prefers-color-scheme: dark) {
@@ -538,9 +523,9 @@
 
     /* Section container avec accordéon */
     .sections-container {
-      margin-top: 50px;
-      padding-top: 30px;
-      border-top: 2px solid rgba(92, 107, 192, 0.2);
+      margin-top: 40px;
+      padding-top: 40px;
+      border-top: 3px solid #000000;
       position: relative;
     }
 
@@ -551,15 +536,16 @@
     }
 
     .section-accordion {
-      margin-bottom: 20px;
-      border: 2px solid var(--border-color);
-      border-radius: 12px;
+      margin-bottom: 24px;
+      border: 2px solid #000000;
+      border-radius: 0;
       overflow: hidden;
-      background: var(--card-bg);
+      background: #ffffff;
+      box-shadow: var(--shadow-md);
     }
 
     .section-accordion-header {
-      background: var(--primary-color);
+      background: #000000;
       color: #ffffff;
       padding: 20px 30px;
       font-size: 1.2em;
@@ -570,10 +556,24 @@
       align-items: center;
       user-select: none;
       transition: background 0.2s ease;
+      border-bottom: 2px solid #000000;
     }
 
     .section-accordion-header:hover {
-      background: var(--primary-dark);
+      background: #333333;
+    }
+    
+    /* Couleurs d'importance pour les sections */
+    .section-accordion.importance-critical .section-accordion-header {
+      border-left: 4px solid var(--importance-critical);
+    }
+    
+    .section-accordion.importance-high .section-accordion-header {
+      border-left: 4px solid var(--importance-high);
+    }
+    
+    .section-accordion.importance-normal .section-accordion-header {
+      border-left: 4px solid var(--importance-normal);
     }
 
     .section-accordion-header::after {
@@ -599,17 +599,19 @@
 
     .section-accordion-inner {
       padding: 30px;
+      background: #ffffff;
     }
 
     .sections-title {
-      font-size: 1.5em;
-      color: var(--primary-color);
+      font-size: 1.8em;
+      color: #000000;
       text-align: center;
-      margin-bottom: 25px;
+      margin-bottom: 30px;
       font-weight: 700;
       position: relative;
-      padding-bottom: 12px;
+      padding-bottom: 15px;
       animation: fadeIn 0.8s ease;
+      letter-spacing: -0.5px;
     }
 
     .sections-title::after {
@@ -618,10 +620,9 @@
       bottom: 0;
       left: 50%;
       transform: translateX(-50%);
-      width: 80px;
-      height: 4px;
-      background: var(--primary-color);
-      border-radius: 2px;
+      width: 100px;
+      height: 3px;
+      background: #000000;
     }
 
     /* ============================================
@@ -631,24 +632,37 @@
        ============================================ */
     .cards {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 15px;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 24px;
       margin-top: 20px;
     }
 
     .card {
       background: #ffffff;
-      border: 2px solid var(--border-color);
-      border-radius: 16px;
-      padding: 20px 18px;
+      border: 2px solid #000000;
+      border-radius: 8px;
+      padding: 24px 20px;
       box-shadow: var(--shadow-md);
       text-align: center;
-      transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1),
-                  box-shadow 0.4s cubic-bezier(0.4, 0, 0.2, 1),
-                  border-color 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      transition: transform 0.3s ease,
+                  box-shadow 0.3s ease,
+                  border-color 0.3s ease;
       animation: fadeInUp 0.6s ease;
       position: relative;
       overflow: hidden;
+    }
+    
+    /* Couleurs d'importance pour les cartes */
+    .card.importance-critical {
+      border-left: 4px solid var(--importance-critical);
+    }
+    
+    .card.importance-high {
+      border-left: 4px solid var(--importance-high);
+    }
+    
+    .card.importance-normal {
+      border-left: 4px solid var(--importance-normal);
     }
 
     .card::after {
@@ -667,63 +681,48 @@
     }
 
     .card::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 4px;
-      background: var(--primary-color);
-      transform: scaleX(0);
-      transform-origin: left;
-      transition: transform 0.3s ease;
+      display: none;
     }
 
     .card:hover {
-      transform: translate3d(0, -8px, 0) scale(1.02);
+      transform: translateY(-4px);
       box-shadow: var(--shadow-lg);
-      border-color: var(--primary-color);
+      border-color: #000000;
     }
 
     /* Micro-interaction: Card focus state */
     .card:focus-within {
-      outline: 3px solid var(--primary-color);
+      outline: 3px solid #000000;
       outline-offset: 4px;
-      border-radius: 16px;
-    }
-
-    .card:hover::before {
-      transform: scaleX(1);
+      border-radius: 8px;
     }
 
     .card svg {
-      width: 28px;
-      height: 28px;
-      margin-bottom: 8px;
-      fill: var(--primary-color);
-      transition: transform 0.3s ease, fill 0.3s ease;
+      width: 32px;
+      height: 32px;
+      margin-bottom: 12px;
+      fill: #000000;
+      transition: transform 0.2s ease;
     }
 
     .card:hover svg {
-      transform: scale(1.1) rotate(5deg);
-      fill: var(--primary-color);
+      transform: scale(1.05);
     }
 
     .card h3 {
-      margin: 0 0 6px 0;
-      font-size: 1em;
-      color: var(--primary-color);
-      font-weight: 600;
+      margin: 0 0 10px 0;
+      font-size: 1.1em;
+      color: #000000;
+      font-weight: 700;
     }
 
     .card p {
-      margin-top: 4px;
-      font-size: 0.8em;
-      color: #3a3a3a;
-      line-height: 1.3;
-      margin-bottom: 8px;
-      text-align: justify;
-      text-align-last: left;
+      margin-top: 8px;
+      font-size: 0.95em;
+      color: #333333;
+      line-height: 1.6;
+      margin-bottom: 16px;
+      text-align: left;
     }
 
     @media (prefers-color-scheme: dark) {
@@ -733,15 +732,23 @@
     }
 
     .card a {
-      margin-top: 6px;
+      margin-top: 8px;
       display: inline-flex;
       align-items: center;
-      gap: 5px;
-      color: var(--primary-color);
+      gap: 6px;
+      color: #000000;
       font-weight: 600;
       text-decoration: none;
-      font-size: 0.75em;
-      transition: color 0.3s ease, gap 0.3s ease;
+      font-size: 0.9em;
+      padding: 8px 16px;
+      border: 2px solid #000000;
+      border-radius: 4px;
+      transition: all 0.2s ease;
+    }
+    
+    .card a:hover {
+      background: #000000;
+      color: #ffffff;
     }
 
     .card a::after {
@@ -759,10 +766,9 @@
     }
 
     .card a:focus-visible {
-      outline: 3px solid var(--primary-color);
+      outline: 3px solid #000000;
       outline-offset: 4px;
       border-radius: 4px;
-      padding: 2px 4px;
     }
 
     /* Styles spécifiques pour les liens dans la carte 3 (Lettre de motivation) */
@@ -782,12 +788,13 @@
 
     /* Footer */
     footer {
-      margin-top: 50px;
-      padding: 25px 0;
+      margin-top: 60px;
+      padding: 30px 0;
       text-align: center;
-      color: #666;
+      color: #333333;
       font-size: 0.9em;
-      border-top: 1px solid rgba(0,0,0,0.1);
+      border-top: 2px solid #000000;
+      background: #f5f5f5;
     }
 
     @media (prefers-color-scheme: dark) {
@@ -802,13 +809,14 @@
     }
 
     footer a {
-      color: var(--primary-color);
+      color: #000000;
       text-decoration: none;
       transition: color 0.2s ease;
+      font-weight: 500;
     }
 
     footer a:hover {
-      color: var(--accent-hover);
+      color: #333333;
       text-decoration: underline;
     }
 
@@ -960,8 +968,8 @@
       position: absolute;
       top: -40px;
       left: 0;
-      background: var(--primary-color);
-      color: white;
+      background: #000000;
+      color: #ffffff;
       padding: 10px 20px;
       text-decoration: none;
       z-index: 1000;
@@ -971,7 +979,7 @@
 
     .skip-link:focus {
       top: 0;
-      outline: 3px solid var(--primary-color);
+      outline: 3px solid #000000;
       outline-offset: 2px;
     }
 
@@ -1038,7 +1046,7 @@
 
     /* Focus visible enhancement */
     *:focus-visible {
-      outline: 3px solid var(--primary-color);
+      outline: 3px solid #000000;
       outline-offset: 2px;
       border-radius: 2px;
     }
@@ -1072,7 +1080,7 @@
     <h2 class="sections-title">Sections</h2>
 
     <!-- Section 1 : Présentations principales -->
-    <div class="section-accordion active">
+    <div class="section-accordion active importance-high">
       <div class="section-accordion-header" onclick="toggleSection(this)">
         Présentations principales
       </div>
@@ -1081,8 +1089,8 @@
           <div class="cards">
 
     <!-- Card 1 -->
-    <article class="card" aria-labelledby="card-1-title" aria-describedby="card-1-desc">
-      <svg viewBox="0 0 24 24" aria-hidden="true" role="img">
+    <article class="card importance-normal" aria-labelledby="card-1-title" aria-describedby="card-1-desc">
+      <svg viewBox="0 0 24 24" aria-hidden="true" role="img" style="fill: #000000; width: 32px; height: 32px; margin-bottom: 12px;">
         <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/>
       </svg>
       <h3 id="card-1-title">Présentation synthétique</h3>
@@ -1092,8 +1100,8 @@
     </article>
 
     <!-- Card 2 -->
-    <article class="card" aria-labelledby="card-2-title" aria-describedby="card-2-desc">
-      <svg viewBox="0 0 24 24" aria-hidden="true" role="img">
+    <article class="card importance-high" aria-labelledby="card-2-title" aria-describedby="card-2-desc">
+      <svg viewBox="0 0 24 24" aria-hidden="true" role="img" style="fill: #000000; width: 32px; height: 32px; margin-bottom: 12px;">
         <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V5h14v14zm-5.04-6.71l-2.75 3.54-1.96-2.36L6.5 17h11l-3.54-4.71z"/>
       </svg>
       <h3 id="card-2-title">Présentation complète</h3>
@@ -1103,8 +1111,8 @@
     </article>
 
     <!-- Card 2b : Rapport de Projection Dimensionnelle -->
-    <article class="card" aria-labelledby="card-2b-title" aria-describedby="card-2b-desc">
-      <svg viewBox="0 0 24 24" aria-hidden="true" role="img">
+    <article class="card importance-critical" aria-labelledby="card-2b-title" aria-describedby="card-2b-desc">
+      <svg viewBox="0 0 24 24" aria-hidden="true" role="img" style="fill: #000000; width: 32px; height: 32px; margin-bottom: 12px;">
         <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-2 10h-4v4h-2v-4H7v-2h4V7h2v4h4v2z"/>
       </svg>
       <h3 id="card-2b-title">Rapport de Projection Dimensionnelle</h3>
@@ -1118,7 +1126,7 @@
     </div>
 
     <!-- Section 2 : Candidatures et lettres de motivation -->
-    <div class="section-accordion">
+    <div class="section-accordion importance-normal">
       <div class="section-accordion-header" onclick="toggleSection(this)">
         Candidatures et lettres de motivation
       </div>
@@ -1126,8 +1134,8 @@
         <div class="section-accordion-inner">
           <div class="cards">
     <!-- Card 3 : Lettre pour école -->
-    <article class="card" aria-labelledby="card-3-title" aria-describedby="card-3-desc">
-      <svg viewBox="0 0 24 24" aria-hidden="true" role="img">
+    <article class="card importance-normal" aria-labelledby="card-3-title" aria-describedby="card-3-desc">
+      <svg viewBox="0 0 24 24" aria-hidden="true" role="img" style="fill: #000000; width: 32px; height: 32px; margin-bottom: 12px;">
         <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
       </svg>
       <h3 id="card-3-title">Lettre de motivation - École</h3>
@@ -1137,8 +1145,8 @@
     </article>
 
     <!-- Card 3b : Lettre pour entreprise -->
-    <article class="card" aria-labelledby="card-3b-title" aria-describedby="card-3b-desc">
-      <svg viewBox="0 0 24 24" aria-hidden="true" role="img">
+    <article class="card importance-normal" aria-labelledby="card-3b-title" aria-describedby="card-3b-desc">
+      <svg viewBox="0 0 24 24" aria-hidden="true" role="img" style="fill: #000000; width: 32px; height: 32px; margin-bottom: 12px;">
         <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
       </svg>
       <h3 id="card-3b-title">Lettre de motivation - Entreprise</h3>
@@ -1147,9 +1155,9 @@
       <a href="https://gab-hub-ctrl.github.io/presentation_technique/lettre_motivation_entreprise.html" target="_blank" rel="noopener noreferrer" aria-label="Voir la lettre de motivation pour entreprise">Voir la lettre pour entreprise</a>
     </article>
 
-    <!-- Card 3b -->
-    <article class="card" aria-labelledby="card-6-title" aria-describedby="card-6-desc">
-      <svg viewBox="0 0 24 24" aria-hidden="true" role="img">
+    <!-- Card 3c : Profil personnel -->
+    <article class="card importance-normal" aria-labelledby="card-6-title" aria-describedby="card-6-desc">
+      <svg viewBox="0 0 24 24" aria-hidden="true" role="img" style="fill: #000000; width: 32px; height: 32px; margin-bottom: 12px;">
         <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z"/>
       </svg>
       <h3 id="card-6-title">Mieux me connaître</h3>
@@ -1163,7 +1171,7 @@
     </div>
 
     <!-- Section 3 : Ressources techniques -->
-    <div class="section-accordion">
+    <div class="section-accordion importance-high">
       <div class="section-accordion-header" onclick="toggleSection(this)">
         Ressources techniques
       </div>
@@ -1171,8 +1179,8 @@
         <div class="section-accordion-inner">
           <div class="cards">
     <!-- Card 4 -->
-    <article class="card" aria-labelledby="card-4-title" aria-describedby="card-4-desc">
-      <svg viewBox="0 0 24 24" aria-hidden="true" role="img">
+    <article class="card importance-high" aria-labelledby="card-4-title" aria-describedby="card-4-desc">
+      <svg viewBox="0 0 24 24" aria-hidden="true" role="img" style="fill: #000000; width: 32px; height: 32px; margin-bottom: 12px;">
         <path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/>
       </svg>
       <h3 id="card-4-title">Documentation technique</h3>
@@ -1182,8 +1190,8 @@
     </article>
 
     <!-- Card 5 -->
-    <article class="card" aria-labelledby="card-5-title" aria-describedby="card-5-desc">
-      <svg viewBox="0 0 24 24" aria-hidden="true" role="img">
+    <article class="card importance-normal" aria-labelledby="card-5-title" aria-describedby="card-5-desc">
+      <svg viewBox="0 0 24 24" aria-hidden="true" role="img" style="fill: #000000; width: 32px; height: 32px; margin-bottom: 12px;">
         <path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/>
       </svg>
       <h3 id="card-5-title">Annexes visuelles</h3>
@@ -1193,8 +1201,8 @@
     </article>
 
     <!-- Card 5b -->
-    <article class="card" aria-labelledby="card-5b-title" aria-describedby="card-5b-desc">
-      <svg viewBox="0 0 24 24" aria-hidden="true" role="img">
+    <article class="card importance-normal" aria-labelledby="card-5b-title" aria-describedby="card-5b-desc">
+      <svg viewBox="0 0 24 24" aria-hidden="true" role="img" style="fill: #000000; width: 32px; height: 32px; margin-bottom: 12px;">
         <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-2 10h-4v4h-2v-4H7v-2h4V7h2v4h4v2z"/>
       </svg>
       <h3 id="card-5b-title">Démo vidéo</h3>

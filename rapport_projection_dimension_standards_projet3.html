@@ -11,8 +11,8 @@
     
     <!-- Sitemap -->
     <link rel="sitemap" type="application/xml" href="sitemap.xml">
-    <meta name="theme-color" content="#334155">
-    <meta name="msapplication-TileColor" content="#334155">
+    <meta name="theme-color" content="#000000">
+    <meta name="msapplication-TileColor" content="#000000">
     <link rel="canonical" href="https://gab-hub-ctrl.github.io/presentation_technique/rapport_projection_dimension_standards_projet3.html">
     <link rel="icon" type="image/png" href="favicon.png">
     <link rel="apple-touch-icon" href="favicon.png">
@@ -94,56 +94,45 @@
            la maintenance et la cohérence visuelle
            ============================================ */
         :root {
-            /* Palette sobre et professionnelle */
-            /* WCAG AA: Contraste minimum 4.5:1 pour texte normal, 3:1 pour texte large */
-            /* WCAG AAA: Contraste minimum 7:1 pour texte normal, 4.5:1 pour texte large */
-            --primary-color: #334155; /* Bleu ardoise professionnel - Ratio 7:1 sur blanc (WCAG AAA) */
-            --primary-dark: #1e293b; /* Bleu ardoise foncé - Ratio 12:1 sur blanc (WCAG AAA) */
-            --primary-light: #475569; /* Bleu ardoise clair - Ratio 5.5:1 sur blanc (WCAG AA) */
+            /* Thème noir et blanc professionnel avec couleurs d'importance discrètes */
             
-            /* Gris neutres professionnels */
-            --neutral-dark: #1f2937; /* Ratio 12.6:1 sur blanc (WCAG AAA) */
-            --neutral-medium: #4b5563; /* Ratio 7:1 sur blanc (WCAG AAA) */
-            --neutral-light: #6b7280; /* Ratio 4.5:1 sur blanc (WCAG AA) */
-            --neutral-lighter: #9ca3af; /* Ratio 2.5:1 sur blanc - Usage décoratif uniquement */
+            /* Couleurs de base - Noir et blanc */
+            --text-color: #000000; /* Noir pur pour texte principal */
+            --text-secondary: #333333; /* Gris foncé pour texte secondaire */
+            --bg-color: #ffffff; /* Blanc pur pour fond principal */
+            --bg-secondary: #f5f5f5; /* Gris très clair pour fond secondaire */
+            --card-bg: #ffffff; /* Blanc pur pour cartes */
+            --border-color: #000000; /* Noir pour bordures */
             
-            /* Accent discret */
-            --accent-color: #334155; /* Même que primary pour cohérence - Ratio 7:1 (WCAG AAA) */
-            --accent-hover: #1e293b; /* Ratio 12:1 sur blanc (WCAG AAA) */
+            /* Couleurs d'importance - Discrètes et professionnelles */
+            --importance-critical: #8b0000; /* Rouge foncé discret pour critique */
+            --importance-high: #003366; /* Bleu foncé discret pour important */
+            --importance-normal: #006400; /* Vert foncé discret pour normal */
+            --importance-info: #333333; /* Gris foncé pour information */
             
-            /* Couleurs de statut */
-            --success-color: #10b981;
-            --warning-color: #f59e0b;
-            --danger-color: #ef4444;
+            /* Couleurs principales - Noir par défaut */
+            --primary-color: #000000; /* Noir pour éléments principaux */
+            --primary-dark: #000000; /* Noir pour états foncés */
+            --primary-light: #333333; /* Gris foncé pour états clairs */
             
-            /* Couleurs de base */
-            --text-color: #111827; /* Ratio 16.6:1 sur blanc (WCAG AAA) */
-            --text-secondary: #4b5563; /* Ratio 7:1 sur blanc (WCAG AAA) */
-            --bg-color: #ffffff; /* Fond principal */
-            --bg-secondary: #f9fafb; /* Fond secondaire */
-            --card-bg: #ffffff; /* Fond des cartes */
-            --border-color: #e5e7eb; /* Bordure - Usage décoratif */
+            /* Accents */
+            --accent-color: #000000; /* Noir pour accents */
+            --accent-hover: #333333; /* Gris foncé au survol */
             
-            /* Ombres subtiles */
-            --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
-            --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.07);
-            --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
+            /* Couleurs de statut - Discrètes */
+            --success-color: #006400; /* Vert foncé */
+            --warning-color: #8b0000; /* Rouge foncé */
+            --danger-color: #8b0000; /* Rouge foncé */
+            
+            /* Ombres subtiles en noir et blanc */
+            --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.12);
+            --shadow-md: 0 2px 6px rgba(0, 0, 0, 0.15);
+            --shadow-lg: 0 4px 12px rgba(0, 0, 0, 0.2);
             
             --max-width: 1200px;
         }
-        @media (prefers-color-scheme: dark) {
-            :root {
-                --text-color: #f9fafb;
-                --text-secondary: #d1d5db;
-                --bg-color: #111827;
-                --bg-secondary: #1f2937;
-                --card-bg: #1f2937;
-                --border-color: #374151;
-                --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.3);
-                --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.4);
-                --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.5);
-            }
-        }
+        
+        /* Mode sombre désactivé - Thème noir et blanc uniquement */
         * { box-sizing: border-box; }
         html {
             scroll-behavior: smooth;
