@@ -1,5 +1,7 @@
 Orientation professionnelle et formations identifiées
 
+Ce document présente mon orientation professionnelle et les formations que j'ai identifiées. Cette section est importante car elle démontre la cohérence entre mon projet technique, mes compétences naturelles, et mes objectifs professionnels. L'objectif est de montrer comment mon expérience avec IT Dashboard A+ m'a conduit à définir un objectif professionnel clair : devenir Expert en Gouvernance IA. Nous allons détailler cet objectif, les formations identifiées, et la cohérence de ce parcours. Pour comprendre ma relation avec l'IA, voir `02_relation_ia.md`. Pour explorer mes compétences préexistantes, voir `11_competences_preexistantes.md`.
+
 Objectif professionnel : Expert en Gouvernance IA
 
 Mon objectif professionnel est de me spécialiser en Expert en Gouvernance IA. Ce métier correspond bien à mes compétences et à mes aspirations : structurer les processus d'utilisation de l'IA, assurer la traçabilité et l'éthique, définir les règles de gouvernance, sans nécessiter de développement pur ni de mathématiques avancées.

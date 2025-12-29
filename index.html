@@ -50,6 +50,9 @@
   
   <!-- Preload critical resources -->
   <link rel="preload" href="favicon.png" as="image">
+  
+  <!-- Common CSS -->
+  <link rel="stylesheet" href="common.css">
 
   <!-- Structured Data -->
   <script type="application/ld+json">
@@ -340,13 +343,29 @@
     }
 
     /* ============================================
+       HERO SECTION - Grille spéciale
+       Résumé exécutif et rapport côte à côte
+       ============================================ */
+    .hero-section-container {
+      margin-bottom: 60px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 30px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    /* ============================================
        EXECUTIVE SUMMARY - Résumé exécutif
        Section mise en avant avec bordure
        gauche et effet hover subtil
        ============================================ */
     .executive-summary {
-      max-width: 900px;
-      margin: 0 auto 60px;
+      max-width: none;
+      margin: 0;
       padding: 28px 35px;
       background: var(--card-bg);
       backdrop-filter: blur(20px);
@@ -388,6 +407,112 @@
     @media (prefers-color-scheme: dark) {
       .executive-summary p {
         color: #d5d5d5;
+      }
+    }
+
+    /* ============================================
+       REPORT CARD HERO - Carte rapport dans hero
+       ============================================ */
+    .report-card-hero {
+      background: var(--card-bg);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid var(--border-color);
+      border-left: 4px solid var(--primary-color);
+      border-radius: 20px;
+      padding: 28px 35px;
+      box-shadow: var(--shadow-md);
+      animation: fadeIn 1s ease;
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .report-card-hero:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-lg);
+      border-left-color: var(--primary-dark);
+    }
+
+    .report-card-hero svg {
+      width: 32px;
+      height: 32px;
+      margin-bottom: 12px;
+      fill: var(--primary-color);
+      transition: transform 0.3s ease, fill 0.3s ease;
+    }
+
+    .report-card-hero:hover svg {
+      transform: scale(1.1) rotate(5deg);
+      fill: var(--primary-dark);
+    }
+
+    .report-card-hero h3 {
+      margin: 0 0 12px 0;
+      font-size: 1.55em;
+      color: var(--primary-color);
+      font-weight: 700;
+    }
+
+    .report-card-hero p {
+      font-size: 1.05em;
+      color: #3a3a3a;
+      line-height: 1.6;
+      margin-bottom: 20px;
+      flex-grow: 1;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      .report-card-hero p {
+        color: #d5d5d5;
+      }
+    }
+
+    .report-card-hero a {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--primary-color);
+      font-weight: 600;
+      text-decoration: none;
+      font-size: 1em;
+      transition: color 0.3s ease, gap 0.3s ease;
+      margin-top: auto;
+    }
+
+    .report-card-hero a::after {
+      content: '→';
+      transition: transform 0.3s ease;
+    }
+
+    .report-card-hero a:hover {
+      color: var(--accent-hover);
+      gap: 12px;
+    }
+
+    .report-card-hero a:hover::after {
+      transform: translateX(4px);
+    }
+
+    .report-card-hero a:focus-visible {
+      outline: 3px solid var(--primary-color);
+      outline-offset: 4px;
+      border-radius: 4px;
+      padding: 2px 4px;
+    }
+
+    /* Responsive pour la grille hero */
+    @media (max-width: 900px) {
+      .hero-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+      }
+
+      .executive-summary {
+        max-width: 900px;
+        margin: 0 auto;
       }
     }
 
@@ -567,6 +692,21 @@
       outline-offset: 4px;
       border-radius: 4px;
       padding: 2px 4px;
+    }
+
+    /* Styles spécifiques pour les liens dans la carte 3 (Lettre de motivation) */
+    .card div a {
+      margin-top: 0;
+      font-size: 0.85em;
+    }
+
+    .card div a:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 2px 8px rgba(37, 99, 235, 0.2);
+    }
+
+    .card div a:active {
+      transform: translateY(0);
     }
 
     /* Footer */
@@ -853,14 +993,31 @@
 
   <h1 lang="fr">Présentation technique</h1>
   <p class="subtitle" lang="fr">Architecture, gouvernance, documentation et vision long terme du projet</p>
+  <p class="introduction" lang="fr">Cette page d'accueil présente l'ensemble de la documentation technique du projet IT Dashboard A+. Cette présentation a été conçue comme une annexe technique complète pour un dossier d'admission en Bachelor en Informatique et Intelligence Artificielle. L'objectif de cette page est de fournir un point d'entrée vers toutes les présentations disponibles, en permettant une navigation claire vers les différents documents. Cette documentation permet de comprendre le contexte de réalisation, les choix techniques, et l'évolution du projet depuis son origine. Vous trouverez ci-dessous un résumé exécutif, un accès au rapport de projection dimensionnelle, et des liens vers les différentes présentations disponibles.</p>
 
-  <section id="resume" class="executive-summary" aria-labelledby="resume-title" aria-describedby="resume-description">
-    <h2 id="resume-title">Résumé exécutif</h2>
-    <p id="resume-description">
-      IT Dashboard A+ centralise, analyse et pilote des indicateurs IT critiques.
-      Le projet couvre la supervision, la gouvernance, la sécurité et l'aide à la décision,
-      avec une ouverture vers l'automatisation et l'intelligence artificielle.
-    </p>
+  <section id="hero-section" class="hero-section-container" aria-label="Section principale">
+    <div class="hero-grid">
+      <!-- Résumé exécutif -->
+      <div id="resume" class="executive-summary" aria-labelledby="resume-title" aria-describedby="resume-description">
+        <h2 id="resume-title">Résumé exécutif</h2>
+        <p id="resume-description">
+          IT Dashboard A+ centralise, analyse et pilote des indicateurs IT critiques.
+          Le projet couvre la supervision, la gouvernance, la sécurité et l'aide à la décision,
+          avec une ouverture vers l'automatisation et l'intelligence artificielle.
+        </p>
+      </div>
+
+      <!-- Carte Rapport de Projection Dimensionnelle -->
+      <article class="report-card-hero" aria-labelledby="report-card-title" aria-describedby="report-card-desc">
+        <svg viewBox="0 0 24 24" aria-hidden="true" role="img">
+          <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-2 10h-4v4h-2v-4H7v-2h4V7h2v4h4v2z"/>
+        </svg>
+        <h3 id="report-card-title">Rapport de Projection Dimensionnelle</h3>
+        <p id="report-card-desc" class="sr-only">Accédez au rapport de projection dimensionnelle analysant l'impact des 31 standards techniques sur la dimension, la maturité et les capacités du projet Projet3.</p>
+        <p>Analyse de l'impact des 31 standards techniques sur la dimension, la maturité et les capacités du projet.</p>
+        <a href="rapport_projection_dimension_standards_projet3.html" aria-label="Consulter le rapport de projection dimensionnelle">Consulter le rapport complet</a>
+      </article>
+    </div>
   </section>
 
   <section id="sections" class="sections-container" aria-label="Sections de présentation">
@@ -895,9 +1052,12 @@
         <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
       </svg>
       <h3 id="card-3-title">Lettre de motivation</h3>
-      <p id="card-3-desc" class="sr-only">Accédez au dossier de candidature académique présentant le projet IT Dashboard A+ et son contexte professionnel.</p>
-      <p>Dossier de candidature académique en lien avec le projet IT Dashboard A+.</p>
-      <a href="https://gab-hub-ctrl.github.io/presentation_technique/lettre_motivation_ecole.html" target="_blank" rel="noopener noreferrer" aria-label="Voir la lettre de motivation">Voir la lettre</a>
+      <p id="card-3-desc" class="sr-only">Accédez au dossier de candidature académique et professionnel présentant le projet IT Dashboard A+ et son contexte.</p>
+      <p>Dossier de candidature académique et professionnel en lien avec le projet IT Dashboard A+.</p>
+      <div style="display: flex; flex-direction: column; gap: 12px; margin-top: 16px;">
+        <a href="https://gab-hub-ctrl.github.io/presentation_technique/lettre_motivation_ecole.html" target="_blank" rel="noopener noreferrer" aria-label="Voir la lettre de motivation pour école" style="display: inline-block; padding: 8px 14px; background: var(--primary-color); color: white; text-decoration: none; border-radius: 6px; text-align: center; font-weight: 500; font-size: 0.85em; transition: background 0.2s ease, transform 0.2s ease;">Voir la lettre pour école</a>
+        <a href="https://gab-hub-ctrl.github.io/presentation_technique/lettre_motivation_entreprise.html" target="_blank" rel="noopener noreferrer" aria-label="Voir la lettre de motivation pour entreprise" style="display: inline-block; padding: 8px 14px; background: transparent; color: var(--primary-color); text-decoration: none; border: 1.5px solid var(--primary-color); border-radius: 6px; text-align: center; font-weight: 500; font-size: 0.85em; transition: all 0.2s ease;">Voir la lettre pour entreprise</a>
+      </div>
     </article>
 
     <!-- Card 4 -->
@@ -1050,6 +1210,9 @@
       }
     }
   </script>
+  
+  <!-- Common JavaScript -->
+  <script src="common.js" defer></script>
 
 </body>
 </html>

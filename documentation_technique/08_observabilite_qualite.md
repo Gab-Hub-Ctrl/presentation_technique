@@ -1,5 +1,7 @@
 Observabilité, auditabilité et qualité opérationnelle
 
+Ce document détaille l'observabilité, l'auditabilité et la qualité opérationnelle du projet. Cette section est importante car elle démontre la capacité à créer des systèmes traçables, auditable et maintenables. L'objectif est de présenter les mécanismes d'observation, d'audit, et de qualité mis en place pour garantir la fiabilité et la traçabilité du système. Nous allons explorer les scripts d'audit, les mécanismes d'observabilité, et les outils de qualité opérationnelle. Pour comprendre l'architecture technique, voir `07_architecture_technique.md`. Pour explorer les fonctionnalités opérationnelles, voir `04_fonctionnalites_operationnelles.md`.
+
 Scripts d'Audit et Vérification
 
 J'ai créé plusieurs scripts d'audit. Invoke-AutomatedAudit.ps1 effectue 43 tests automatisables. J'ai développé des scripts pour l'audit des chemins, la vérification des standards, l'audit opérationnel, l'audit complet en mode interactif ou automatique, et la correction automatique des problèmes.

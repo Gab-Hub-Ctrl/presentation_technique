@@ -35,34 +35,15 @@ Desktop.ini
 *.log
 
 # ==============================
-# Fichiers NON nécessaires pour la candidature école
+# Fichiers NON nécessaires pour la candidature
 # ==============================
 
 # Email de candidature (personnel, non nécessaire pour le dossier)
-email_candidature.md
-email_candidature.txt
-mail.md
-mail.txt
-
-# Lettres de motivation entreprise (pas pour l'école)
-lettre_motivation_entreprise.html
-lettre_motivation_entreprise.md
-lettre_motivation_entreprise.txt
-
-# Rapport de compétences (non nécessaire pour la candidature)
-rapport_competences.md
-rapport_competences.txt
-rapport_competences/
-
-# Fichiers PDF personnels
-Lettre_motivation_ROULON_Gabriel.pdf
-*.pdf
+documents/candidature/email_candidature.md
 
 # Fichiers d'arborescence (non nécessaires pour la candidature)
-arborescence.md
-arborescence.txt
-arbo.md
-arbo.txt
+documents/documentation/arborescence.md
+documents/documentation/arborescence.txt
 
 # Fichiers de structure/planning (non nécessaires)
 plan_*
@@ -70,6 +51,9 @@ structure_*
 
 # Fichiers texte (tous convertis en .md)
 *.txt
+
+# Fichiers PDF (non nécessaires pour la candidature)
+*.pdf
 
 # ==============================
 # Fichiers de développement (non nécessaires)

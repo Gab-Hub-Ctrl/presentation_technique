@@ -1,5 +1,7 @@
 Stratégie d'amélioration continue : collecte de feedback utilisateurs
 
+Ce document détaille la stratégie d'amélioration continue mise en place pour le projet. Cette section est importante car elle démontre la capacité à créer des mécanismes de collecte de feedback structurés et à utiliser ces retours pour améliorer continuellement le projet. L'objectif est de présenter les outils de collecte de feedback, les plans de test utilisateurs, et la distribution du projet. Nous allons explorer le formulaire de feedback, les parcours de test, et les mécanismes de distribution. Pour comprendre l'état actuel du projet, voir `14_conclusion.md` (section État actuel). Pour explorer les évolutions prévues, voir `10_evolutions_prevues.md`.
+
 Formulaire de feedback : outil de collecte structurée
 
 J'ai développé un formulaire de feedback complet dans FeedbackView.tsx qui permet de collecter deux types de retours.

@@ -1,5 +1,7 @@
 Introduction : du besoin à la réalisation
 
+Ce document présente l'introduction au projet IT Dashboard A+, en détaillant le besoin initial, le défi technique, l'approche retenue, et l'évolution du projet. Cette section est fondamentale car elle pose le contexte de réalisation et explique les motivations qui ont conduit à la création de ce projet. L'objectif est de comprendre comment un besoin simple de structuration de veille technologique a évolué vers un Proof of Concept opérationnel complexe. Cette introduction permet de mieux appréhender les sections suivantes qui détaillent l'architecture, les fonctionnalités, et la gouvernance du projet. Pour plus de détails sur ma relation avec l'IA, voir `02_relation_ia.md`. Pour comprendre les problèmes rencontrés et leurs solutions, voir `05_resolution_problemes.md`.
+
 Le besoin initial
 
 J'ai identifié un besoin : disposer d'une source de vérité sur l'actualité et les signaux faibles du monde IT, notamment en sécurité, cloud, développement, systèmes et IA. J'avais besoin de structurer ma veille et de rester à jour.
@@ -21,6 +23,18 @@ J'ai travaillé deux mois et demi avec des IA locales uniquement. J'ai créé le
 Mon projet a évolué vers un Proof of Concept conceptuel fortement structuré et opérationnel. ProjectModule.psm1 assure une portabilité maximale. L'architecture est modulaire. L'archivage et la rétention sont automatiques. La traçabilité passe par des logs standardisés et des correlation IDs. Vault est intégré et opérationnel. Le pipeline fonctionne de bout en bout. La synchronisation Backend vers Frontend est automatique. Les alertes remontent correctement.
 
 Le projet fonctionne exclusivement en local. Le backend n'est pas encore exposé via une API publique complète. Cette exposition est une évolution que je prévois.
+
+Évolution organique du projet
+
+L'évolution de mon projet suit une approche itérative naturelle : chaque problème rencontré devient une opportunité d'amélioration. Cette évolution organique illustre ma façon de résoudre les problèmes.
+
+Le besoin initial était de structurer ma veille technologique IT. J'ai choisi d'utiliser l'IA comme outil d'apprentissage et de développement (Solution 1). Cependant, j'ai rapidement rencontré un problème : la perte de contexte avec l'IA à chaque nouvelle session. Pour résoudre ce problème, j'ai créé 11 prompts fondateurs structurés et cohérents (Solution 2).
+
+Cette solution a elle-même créé un nouveau défi : comment reprendre efficacement le projet après une interruption ? J'ai donc développé INIT_SEQUENCE, un système de gouvernance IA basé sur une machine à états finis (Solution 3). Ce système permet de reconstruire l'état logique du projet et de garantir la continuité du travail.
+
+Face à un autre problème récurrent, la nécessité de répéter les mêmes instructions à l'IA, j'ai créé les Standards Projet3, un framework de 31 standards organisés en 8 catégories (Solution 4). Ces standards servent de référence permanente et réutilisable pour garantir la cohérence et la qualité.
+
+Cette évolution illustre mon approche naturelle de résolution de problèmes : quand je rencontre un problème, je cherche naturellement une solution adaptée. Chaque solution devient alors la base pour la suivante, créant un système qui s'améliore continuellement.
 
 Contexte de réalisation
 

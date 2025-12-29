@@ -50,6 +50,9 @@
   
   <!-- Preload critical resources -->
   <link rel="preload" href="favicon.png" as="image">
+  
+  <!-- Common CSS -->
+  <link rel="stylesheet" href="common.css">
 
   <!-- Structured Data -->
   <script type="application/ld+json">
@@ -197,6 +200,45 @@
 
     .skip-link:focus {
       top: 0;
+    }
+    
+    /* Breadcrumb navigation */
+    .breadcrumb {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 100px 20px 20px;
+      font-size: 0.9em;
+    }
+    .breadcrumb ol {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 8px;
+    }
+    .breadcrumb li {
+      display: flex;
+      align-items: center;
+    }
+    .breadcrumb li:not(:last-child)::after {
+      content: '›';
+      margin-left: 8px;
+      color: var(--text-secondary);
+    }
+    .breadcrumb a {
+      color: var(--primary-color);
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+    .breadcrumb a:hover {
+      color: var(--primary-dark);
+      text-decoration: underline;
+    }
+    .breadcrumb [aria-current="page"] {
+      color: var(--text-secondary);
+      font-weight: 500;
     }
 
     .sr-only {
@@ -422,9 +464,8 @@
         font-size: 1em;
       }
 
-        height: 44px;
       }
-    }
+  
 
     @media (max-width: 320px) {
       main {
@@ -463,7 +504,12 @@
 </head>
 <body>
   <a href="#main-content" class="skip-link">Aller au contenu principal</a>
-  
+  <nav class="breadcrumb" aria-label="Fil d'Ariane">
+    <ol>
+      <li><a href="index.html">Accueil</a></li>
+      <li aria-current="page">Lettre de Motivation</li>
+    </ol>
+  </nav>
   <header role="banner">
     <div class="header-container">
       <div class="header-left">
@@ -487,7 +533,7 @@
       
       <p>Je reconnais ma dépendance à l'IA pour apprendre et progresser. C'est précisément pour cette raison que je m'oriente vers le TSSR, puis vers un Bachelor en IA, afin de transformer ma pratique empirique en compétence structurée et reconnue.</p>
       
-      <p>En parallèle, j'ai initié un projet personnel nommé IT Dashboard A+, un tableau de bord interactif de veille IT développé en trois mois en partant de zéro connaissance en développement. Ce projet a évolué vers un Proof of Concept opérationnel avec intégration Vault, pipeline backend fonctionnel et synchronisation automatique. Ce projet m'a également conduit à créer INIT_SEQUENCE_ITD-A+, un système de gouvernance IA basé sur une machine à états finis.</p>
+      <p>En parallèle, j'ai initié un projet personnel nommé IT Dashboard A+, un tableau de bord interactif de veille IT développé en trois mois en partant de zéro connaissance en développement. Ce projet a évolué vers un Proof of Concept opérationnel avec intégration Vault, pipeline backend fonctionnel et synchronisation automatique. Ce projet m'a également conduit à créer INIT_SEQUENCE, un système de gouvernance IA basé sur une machine à états finis.</p>
       
       <p>Par ailleurs, mes trois années d'expérience en alternance en électricité et en maintenance industrielle m'ont permis d'acquérir une posture professionnelle solide. Je possède également des bases solides en virtualisation, en sécurité informatique et en configuration de serveur Windows.</p>
       
@@ -574,5 +620,8 @@
       }
     }
   </script>
+  
+  <!-- Common JavaScript -->
+  <script src="common.js" defer></script>
 </body>
 </html>

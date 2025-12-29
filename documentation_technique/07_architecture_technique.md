@@ -1,5 +1,7 @@
 Architecture technique globale
 
+Ce document détaille l'architecture technique globale du projet IT Dashboard A+, en présentant la vue d'ensemble, les composants principaux, la portabilité maximale, et l'automatisation complète. Cette section est essentielle car elle explique les choix techniques, la structure en couches, et les composants principaux du système. L'objectif est de présenter une vue d'ensemble cohérente de l'architecture, en montrant comment les différents composants s'articulent pour créer un système fonctionnel et maintenable. Pour comprendre le contexte de réalisation, voir `01_introduction.md`. Pour explorer les fonctionnalités opérationnelles, voir `04_fonctionnalites_operationnelles.md`.
+
 Vue d'ensemble
 
 J'ai conçu le projet IT Dashboard A+ avec une architecture en couches, pensée pour être lisible, évolutive et maintenable. Mon objectif n'est pas encore la performance ou la scalabilité, mais la cohérence, la lisibilité et la gouvernance du flux de données.
@@ -22,6 +24,6 @@ Mon objectif était de permettre l'exécution de n'importe quel script depuis n'
 
 Automatisation complète : Menus CLI
 
-Plusieurs menus CLI interactifs automatisent toutes les opérations. Le Menu Principal sert de point d'entrée centralisé avec accès à tous les sous-menus. Le Menu Vault permet l'initialisation complète, la création de policies et d'AppRoles pour 10 pôles, la rotation des Secret IDs, et un cycle complet automatique en 15 étapes (voir section Fonctionnalités opérationnelles). Le Menu Stack Management permet de lancer la stack complète, le Backend uniquement, le Frontend uniquement, le pipeline complet, et l'arrêt de la stack. Le Menu Maintenance offre un backup complet, une restauration, un nettoyage standard et approfondi, un test de santé et un diagnostic avancé (voir section Observabilité pour les détails).
+Plusieurs menus CLI interactifs automatisent toutes les opérations. Le Menu Principal sert de point d'entrée centralisé avec accès à tous les sous-menus. Le Menu Vault permet l'initialisation complète, la création de policies et d'AppRoles pour 10 pôles, la rotation des Secret IDs, et un cycle complet automatique en 15 étapes. Pour plus de détails sur l'intégration Vault, voir `04_fonctionnalites_operationnelles.md` (section Intégration Vault). Le Menu Stack Management permet de lancer la stack complète, le Backend uniquement, le Frontend uniquement, le pipeline complet, et l'arrêt de la stack. Le Menu Maintenance offre un backup complet, une restauration, un nettoyage standard et approfondi, un test de santé et un diagnostic avancé. Pour plus de détails sur l'observabilité, voir `08_observabilite_qualite.md`.
 
 J'ai créé des scripts de maintenance spécifiques. Test-StackHealth.ps1 vérifie complètement la santé de la stack et génère des rapports de santé horodatés.

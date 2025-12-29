@@ -1,8 +1,10 @@
 Ce qui fonctionne réellement : démonstration opérationnelle
 
+Ce document démontre concrètement ce qui fonctionne réellement dans le projet IT Dashboard A+. Cette section est importante car elle prouve que le projet n'est pas seulement conceptuel mais opérationnel et fonctionnel. L'objectif est de présenter les fonctionnalités validées et opérationnelles, en démontrant la capacité à créer un système complexe qui fonctionne de bout en bout. Nous allons explorer l'intégration Vault, le pipeline backend, la synchronisation Backend vers Frontend, et la remontée des alertes. Pour comprendre l'architecture technique, voir `07_architecture_technique.md`. Pour explorer les problèmes résolus, voir `05_resolution_problemes.md`.
+
 Intégration Vault : automatisation complète du cycle de vie des secrets
 
-J'ai intégré HashiCorp Vault de manière opérationnelle dans mon projet. L'automatisation couvre le cycle de vie complet des AppRoles. Le système génère automatiquement 10 fichiers AppRole JSON, un par pôle. Chaque collecteur Python charge automatiquement son fichier AppRole via la fonction loadroleandsecret(). Chaque étape du pipeline s'initialise avec les credentials Vault appropriés. Un cycle complet automatisé en 15 étapes configure tout de bout en bout, incluant la rotation automatique des logs et la génération de rapports (voir section Architecture technique pour le détail des 15 étapes).
+J'ai intégré HashiCorp Vault de manière opérationnelle dans mon projet. L'automatisation couvre le cycle de vie complet des AppRoles. Le système génère automatiquement 10 fichiers AppRole JSON, un par pôle. Chaque collecteur Python charge automatiquement son fichier AppRole via la fonction loadroleandsecret(). Chaque étape du pipeline s'initialise avec les credentials Vault appropriés. Un cycle complet automatisé en 15 étapes configure tout de bout en bout, incluant la rotation automatique des logs et la génération de rapports. Pour plus de détails sur l'architecture et les menus CLI, voir `07_architecture_technique.md` (section Automatisation complète : Menus CLI).
 
 Le pipeline fonctionne de bout en bout avec Vault, depuis l'initiation jusqu'à la génération et l'utilisation des credentials, sans intervention manuelle de ma part.
 
