@@ -11,8 +11,8 @@
     
     <!-- Sitemap -->
     <link rel="sitemap" type="application/xml" href="sitemap.xml">
-    <meta name="theme-color" content="#2563eb">
-    <meta name="msapplication-TileColor" content="#2563eb">
+    <meta name="theme-color" content="#334155">
+    <meta name="msapplication-TileColor" content="#334155">
     <link rel="canonical" href="https://gab-hub-ctrl.github.io/presentation_technique/rapport_projection_dimension_standards_projet3.html">
     <link rel="icon" type="image/png" href="favicon.png">
     <link rel="apple-touch-icon" href="favicon.png">
@@ -97,9 +97,9 @@
             /* Palette sobre et professionnelle */
             /* WCAG AA: Contraste minimum 4.5:1 pour texte normal, 3:1 pour texte large */
             /* WCAG AAA: Contraste minimum 7:1 pour texte normal, 4.5:1 pour texte large */
-            --primary-color: #2563eb; /* Bleu professionnel - Ratio 4.5:1 sur blanc (WCAG AA) */
-            --primary-dark: #1e40af; /* Ratio 7:1 sur blanc (WCAG AAA) */
-            --primary-light: #3b82f6; /* Ratio 4.5:1 sur blanc (WCAG AA) */
+            --primary-color: #334155; /* Bleu ardoise professionnel - Ratio 7:1 sur blanc (WCAG AAA) */
+            --primary-dark: #1e293b; /* Bleu ardoise foncé - Ratio 12:1 sur blanc (WCAG AAA) */
+            --primary-light: #475569; /* Bleu ardoise clair - Ratio 5.5:1 sur blanc (WCAG AA) */
             
             /* Gris neutres professionnels */
             --neutral-dark: #1f2937; /* Ratio 12.6:1 sur blanc (WCAG AAA) */
@@ -108,8 +108,8 @@
             --neutral-lighter: #9ca3af; /* Ratio 2.5:1 sur blanc - Usage décoratif uniquement */
             
             /* Accent discret */
-            --accent-color: #2563eb; /* Même que primary pour cohérence - Ratio 4.5:1 (WCAG AA) */
-            --accent-hover: #1d4ed8; /* Ratio 7:1 sur blanc (WCAG AAA) */
+            --accent-color: #334155; /* Même que primary pour cohérence - Ratio 7:1 (WCAG AAA) */
+            --accent-hover: #1e293b; /* Ratio 12:1 sur blanc (WCAG AAA) */
             
             /* Couleurs de statut */
             --success-color: #10b981;
@@ -447,31 +447,31 @@
         }
         /* Styles pour la bibliographie - liens plus visibles */
         .bibliographie-section a {
-            color: #2563eb;
+            color: #334155;
             text-decoration: underline;
-            text-decoration-color: rgba(37, 99, 235, 0.3);
+            text-decoration-color: rgba(51, 65, 85, 0.3);
             text-underline-offset: 3px;
             font-weight: 500;
             transition: color 0.2s ease, text-decoration-color 0.2s ease;
         }
         .bibliographie-section a:hover {
-            color: #1d4ed8;
-            text-decoration-color: #2563eb;
+            color: #1e293b;
+            text-decoration-color: #334155;
         }
         .bibliographie-section a:visited {
             color: #7c3aed;
         }
         /* Styles pour le glossaire */
         .glossaire-section a {
-            color: #2563eb;
+            color: #334155;
             text-decoration: underline;
-            text-decoration-color: rgba(37, 99, 235, 0.3);
+            text-decoration-color: rgba(51, 65, 85, 0.3);
             text-underline-offset: 3px;
             font-weight: 500;
         }
         .glossaire-section a:hover {
-            color: #1d4ed8;
-            text-decoration-color: #2563eb;
+            color: #1e293b;
+            text-decoration-color: #334155;
         }
         /* Éviter les coupures de texte */
         section p, section li, section dd {
@@ -508,7 +508,7 @@
             border-color: var(--neutral-light);
         }
         .comparison-card.after {
-            background: linear-gradient(135deg, rgba(37, 99, 235, 0.1) 0%, rgba(37, 99, 235, 0.05) 100%);
+            background: linear-gradient(135deg, rgba(51, 65, 85, 0.1) 0%, rgba(51, 65, 85, 0.05) 100%);
             border-color: var(--primary-color);
         }
         .comparison-card h3 {
@@ -680,7 +680,7 @@
             flex-grow: 1;
         }
         .highlight-box {
-            background: linear-gradient(135deg, rgba(37, 99, 235, 0.1) 0%, rgba(37, 99, 235, 0.05) 100%);
+            background: linear-gradient(135deg, rgba(51, 65, 85, 0.1) 0%, rgba(51, 65, 85, 0.05) 100%);
             padding: 32px 40px;
             border-left: 4px solid var(--primary-color);
             margin: 40px 0;
@@ -872,7 +872,7 @@
         </nav>
     </header>
     <main id="main-content" role="main">
-        <section id="page-garde" class="page-garde-section" style="padding: 60px 40px; text-align: center; background: linear-gradient(135deg, rgba(37, 99, 235, 0.05) 0%, rgba(37, 99, 235, 0.02) 100%); border-bottom: 3px solid var(--primary-color); margin-bottom: 40px;">
+        <section id="page-garde" class="page-garde-section" style="padding: 60px 40px; text-align: center; background: linear-gradient(135deg, rgba(51, 65, 85, 0.05) 0%, rgba(51, 65, 85, 0.02) 100%); border-bottom: 3px solid var(--primary-color); margin-bottom: 40px;">
             <div style="max-width: 800px; margin: 0 auto;">
                 <h1 style="font-size: 2.5em; margin-bottom: 20px; color: var(--primary-color); font-weight: 700;">Rapport de Projection Dimensionnelle</h1>
                 <h2 style="font-size: 1.5em; margin-bottom: 40px; color: var(--text-secondary); font-weight: 500;">Standards Projet3</h2>
