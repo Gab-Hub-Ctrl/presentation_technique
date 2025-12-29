@@ -345,6 +345,16 @@
       }
     }
 
+    .introduction {
+      text-align: center;
+      margin: 0 auto 40px auto;
+      max-width: 800px;
+      padding: 0 20px;
+      font-size: 1.05em;
+      color: var(--text-secondary);
+      animation: fadeIn 1s ease;
+    }
+
     /* ============================================
        HERO SECTION - Grille spéciale
        Résumé exécutif et rapport côte à côte
@@ -521,7 +531,7 @@
       }
     }
 
-    /* Section container */
+    /* Section container avec accordéon */
     .sections-container {
       margin-top: 50px;
       padding-top: 30px;
@@ -533,6 +543,57 @@
       .sections-container {
         border-top-color: rgba(92, 107, 192, 0.3);
       }
+    }
+
+    .section-accordion {
+      margin-bottom: 20px;
+      border: 2px solid var(--border-color);
+      border-radius: 12px;
+      overflow: hidden;
+      background: var(--card-bg);
+    }
+
+    .section-accordion-header {
+      background: var(--primary-color);
+      color: white;
+      padding: 20px 30px;
+      font-size: 1.2em;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      user-select: none;
+      transition: background 0.2s ease;
+    }
+
+    .section-accordion-header:hover {
+      background: var(--primary-dark);
+    }
+
+    .section-accordion-header::after {
+      content: '+';
+      font-size: 1.5em;
+      font-weight: 300;
+      transition: transform 0.3s ease;
+    }
+
+    .section-accordion.active .section-accordion-header::after {
+      transform: rotate(45deg);
+    }
+
+    .section-accordion-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease;
+    }
+
+    .section-accordion.active .section-accordion-content {
+      max-height: 5000px;
+    }
+
+    .section-accordion-inner {
+      padding: 30px;
     }
 
     .sections-title {
@@ -834,6 +895,13 @@
       .card {
         padding: 24px 20px;
       }
+      .section-accordion-header {
+        padding: 15px 20px;
+        font-size: 1.1em;
+      }
+      .section-accordion-inner {
+        padding: 20px;
+      }
     }
 
     /* Very small screens (< 320px) */
@@ -1001,7 +1069,7 @@
 
   <h1 lang="fr">Présentation technique</h1>
   <p class="subtitle" lang="fr">Architecture, gouvernance, documentation et vision long terme du projet</p>
-  <p class="introduction" lang="fr">Cette page d'accueil présente l'ensemble de la documentation technique du projet IT Dashboard A+. Cette présentation a été conçue comme une annexe technique complète pour un dossier d'admission en Bachelor en Informatique et Intelligence Artificielle. L'objectif de cette page est de fournir un point d'entrée vers toutes les présentations disponibles, en permettant une navigation claire vers les différents documents. Cette documentation permet de comprendre le contexte de réalisation, les choix techniques, et l'évolution du projet depuis son origine. Vous trouverez ci-dessous un résumé exécutif, un accès au rapport de projection dimensionnelle, et des liens vers les différentes présentations disponibles.</p>
+  <p class="introduction" lang="fr">Bienvenue sur la page de présentation du projet IT Dashboard A+. Cette page vous permet d'accéder facilement à tous les documents et ressources du projet.</p>
 
   <section id="hero-section" class="hero-section-container" aria-label="Section principale">
     <div class="hero-grid">
@@ -1030,7 +1098,15 @@
 
   <section id="sections" class="sections-container" aria-label="Sections de présentation">
     <h2 class="sections-title">Sections</h2>
-    <div class="cards">
+
+    <!-- Section 1 : Présentations principales -->
+    <div class="section-accordion active">
+      <div class="section-accordion-header" onclick="toggleSection(this)">
+        Présentations principales
+      </div>
+      <div class="section-accordion-content">
+        <div class="section-accordion-inner">
+          <div class="cards">
 
     <!-- Card 1 -->
     <article class="card" aria-labelledby="card-1-title" aria-describedby="card-1-desc">
@@ -1053,7 +1129,19 @@
       <p>Description détaillée de l'architecture, des choix techniques et de la vision à long terme.</p>
       <a href="https://gab-hub-ctrl.github.io/presentation_technique/presentation_complete.html" target="_blank" rel="noopener noreferrer" aria-label="Voir la présentation complète du projet">Voir la présentation complète</a>
     </article>
+          </div>
+        </div>
+      </div>
+    </div>
 
+    <!-- Section 2 : Candidatures et lettres de motivation -->
+    <div class="section-accordion">
+      <div class="section-accordion-header" onclick="toggleSection(this)">
+        Candidatures et lettres de motivation
+      </div>
+      <div class="section-accordion-content">
+        <div class="section-accordion-inner">
+          <div class="cards">
     <!-- Card 3 -->
     <article class="card" aria-labelledby="card-3-title" aria-describedby="card-3-desc">
       <svg viewBox="0 0 24 24" aria-hidden="true" role="img">
@@ -1068,6 +1156,29 @@
       </div>
     </article>
 
+    <!-- Card 3b -->
+    <article class="card" aria-labelledby="card-6-title" aria-describedby="card-6-desc">
+      <svg viewBox="0 0 24 24" aria-hidden="true" role="img">
+        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z"/>
+      </svg>
+      <h3 id="card-6-title">Mieux me connaître</h3>
+      <p id="card-6-desc" class="sr-only">Découvrez mon profil professionnel, mon parcours académique et mes compétences techniques liées au projet IT Dashboard A+.</p>
+      <p>En savoir plus sur moi, mon parcours et mes compétences sans CV séparé.</p>
+      <a href="https://gab-hub-ctrl.github.io/presentation_technique/profil_personnel.html" target="_blank" rel="noopener noreferrer" aria-label="Découvrir mon profil et mon parcours">Découvrir</a>
+    </article>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Section 3 : Ressources techniques -->
+    <div class="section-accordion">
+      <div class="section-accordion-header" onclick="toggleSection(this)">
+        Ressources techniques
+      </div>
+      <div class="section-accordion-content">
+        <div class="section-accordion-inner">
+          <div class="cards">
     <!-- Card 4 -->
     <article class="card" aria-labelledby="card-4-title" aria-describedby="card-4-desc">
       <svg viewBox="0 0 24 24" aria-hidden="true" role="img">
@@ -1090,18 +1201,21 @@
       <a href="https://github.com/Gab-Hub-Ctrl/presentation_technique/tree/main/presentation_visuel" target="_blank" rel="noopener noreferrer" aria-label="Voir les annexes visuelles sur GitHub">Voir les annexes</a>
     </article>
 
-    <!-- Card 6 -->
-    <article class="card" aria-labelledby="card-6-title" aria-describedby="card-6-desc">
+    <!-- Card 5b -->
+    <article class="card" aria-labelledby="card-5b-title" aria-describedby="card-5b-desc">
       <svg viewBox="0 0 24 24" aria-hidden="true" role="img">
-        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z"/>
+        <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-2 10h-4v4h-2v-4H7v-2h4V7h2v4h4v2z"/>
       </svg>
-      <h3 id="card-6-title">Mieux me connaître</h3>
-      <p id="card-6-desc" class="sr-only">Découvrez mon profil professionnel, mon parcours académique et mes compétences techniques liées au projet IT Dashboard A+.</p>
-      <p>En savoir plus sur moi, mon parcours et mes compétences sans CV séparé.</p>
-      <a href="https://gab-hub-ctrl.github.io/presentation_technique/profil_personnel.html" target="_blank" rel="noopener noreferrer" aria-label="Découvrir mon profil et mon parcours">Découvrir</a>
+      <h3 id="card-5b-title">Démo vidéo</h3>
+      <p id="card-5b-desc" class="sr-only">Accédez à la démonstration vidéo du projet IT Dashboard A+.</p>
+      <p>Démonstration vidéo du projet en action.</p>
+      <a href="https://github.com/Gab-Hub-Ctrl/presentation_technique/tree/main/presentation_visuel/demo_video" target="_blank" rel="noopener noreferrer" aria-label="Voir la démo vidéo">Voir la démo</a>
     </article>
-
+          </div>
+        </div>
+      </div>
     </div>
+
   </section>
 
   <footer role="contentinfo">
@@ -1119,50 +1233,25 @@
 
   <script>
     /**
-     * Performance: Debounce function for scroll events
-     * Reduces function calls during scroll by delaying execution
-     * until after the specified wait time has elapsed since the last invocation
-     * 
-     * @param {Function} func - The function to debounce
-     * @param {number} wait - The number of milliseconds to delay
-     * @returns {Function} The debounced function
+     * Fonction pour ouvrir/fermer les sections accordéon
      */
-    function debounce(func, wait) {
-      let timeout;
-      return function executedFunction(...args) {
-        const later = () => {
-          clearTimeout(timeout);
-          func(...args);
-        };
-        clearTimeout(timeout);
-        timeout = setTimeout(later, wait);
-      };
+    function toggleSection(element) {
+      const section = element.parentElement;
+      section.classList.toggle('active');
     }
 
     /**
-     * Performance: Throttle function for scroll events
-     * Limits function calls to once per specified time interval
-     * Ensures the function is called at most once every 'limit' milliseconds
-     * 
-     * @param {Function} func - The function to throttle
-     * @param {number} limit - The time limit in milliseconds
-     * @returns {Function} The throttled function
+     * Ouvrir la première section par défaut au chargement
      */
-    function throttle(func, limit) {
-      let inThrottle;
-      return function(...args) {
-        if (!inThrottle) {
-          func.apply(this, args);
-          inThrottle = true;
-          setTimeout(() => inThrottle = false, limit);
-        }
-      };
-    }
-
+    document.addEventListener('DOMContentLoaded', function() {
+      const premiereSection = document.querySelector('.section-accordion');
+      if (premiereSection) {
+        premiereSection.classList.add('active');
+      }
+    });
 
     /**
-     * Intersection Observer for lazy loading animations
-     * Only animate elements when they're in viewport
+     * Intersection Observer pour les animations
      */
     (function() {
       if ('IntersectionObserver' in window) {
@@ -1181,42 +1270,12 @@
           });
         }, observerOptions);
 
-        // Observe all cards
+        // Observer les cartes
         document.querySelectorAll('.card').forEach(card => {
           observer.observe(card);
         });
       }
     })();
-
-    /**
-     * Error handling and logging
-     */
-    window.addEventListener('error', function(e) {
-      console.error('Error:', e.error);
-      // In production, send to error tracking service
-      // Example: sendToErrorTracking(e.error);
-    });
-
-    /**
-     * Performance monitoring - Web Vitals
-     */
-    if ('PerformanceObserver' in window) {
-      try {
-        const perfObserver = new PerformanceObserver((list) => {
-          for (const entry of list.getEntries()) {
-            // Log performance metrics
-            if (entry.entryType === 'navigation') {
-              console.log('Page Load Time:', entry.loadEventEnd - entry.fetchStart, 'ms');
-            }
-            // In production, send to analytics
-            // Example: sendToAnalytics('performance', entry);
-          }
-        });
-        perfObserver.observe({ entryTypes: ['navigation', 'measure'] });
-      } catch (e) {
-        console.warn('Performance Observer not fully supported');
-      }
-    }
   </script>
   
   <!-- Common JavaScript -->
