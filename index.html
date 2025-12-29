@@ -127,7 +127,7 @@
       --text-secondary: #4b5563; /* Ratio 7:1 sur blanc (WCAG AAA) */
       --bg-color: #ffffff; /* Fond principal */
       --bg-secondary: #f9fafb; /* Fond secondaire */
-      --card-bg: #ffffff; /* Fond des cartes */
+      --card-bg: #ffffff; /* Fond des cartes - Blanc pur pour meilleur contraste */
       --border-color: #e5e7eb; /* Bordure - Usage décoratif */
       
       /* Ombres subtiles */
@@ -212,12 +212,10 @@
       position: fixed;
       top: 0; left: 0;
       width: 100%;
-      background: rgba(255, 255, 255, 0.95);
-      backdrop-filter: blur(20px) saturate(180%);
-      -webkit-backdrop-filter: blur(20px) saturate(180%);
-      border-bottom: 1px solid var(--border-color);
-      box-shadow: var(--shadow-sm);
-      padding: 14px 40px;
+      background: #ffffff;
+      border-bottom: 2px solid var(--border-color);
+      box-shadow: var(--shadow-md);
+      padding: 18px 40px;
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -246,11 +244,24 @@
 
     .header-left h2 {
       margin: 0;
-      font-size: 1.35em;
+      font-size: 1.4em;
       color: var(--primary-color);
       font-weight: 700;
-      white-space: nowrap;
+      line-height: 1.3;
       transition: color 0.2s ease;
+    }
+    
+    .header-left h2 .project-name {
+      display: block;
+      font-size: 0.85em;
+      color: var(--text-secondary);
+      font-weight: 500;
+      margin-bottom: 2px;
+    }
+    
+    .header-left h2 .page-title {
+      display: block;
+      color: var(--primary-color);
     }
 
     .header-left a:hover h2 {
@@ -549,7 +560,7 @@
 
     .section-accordion-header {
       background: var(--primary-color);
-      color: white;
+      color: #ffffff;
       padding: 20px 30px;
       font-size: 1.2em;
       font-weight: 600;
@@ -626,12 +637,10 @@
     }
 
     .card {
-      background: var(--card-bg);
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
-      border: 1px solid var(--border-color);
+      background: #ffffff;
+      border: 2px solid var(--border-color);
       border-radius: 16px;
-      padding: 14px 12px;
+      padding: 20px 18px;
       box-shadow: var(--shadow-md);
       text-align: center;
       transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1),
@@ -1043,7 +1052,10 @@
 <header role="banner">
   <div class="header-left">
     <a href="#main-content" aria-label="Retour en haut de la page">
-      <h2>IT Dashboard A+ : Présentation technique</h2>
+      <h2>
+        <span class="project-name">IT Dashboard A+</span>
+        <span class="page-title">Présentation technique</span>
+      </h2>
     </a>
   </div>
 
@@ -1055,9 +1067,6 @@
 </header>
 
 <main id="main-content" role="main">
-
-  <p class="subtitle" lang="fr">Architecture, gouvernance, documentation et vision long terme du projet</p>
-  <p class="introduction" lang="fr">Bienvenue sur la page de présentation du projet IT Dashboard A+. Cette page vous permet d'accéder facilement à tous les documents et ressources du projet.</p>
 
   <section id="sections" class="sections-container" aria-label="Sections de présentation">
     <h2 class="sections-title">Sections</h2>

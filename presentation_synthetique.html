@@ -212,11 +212,9 @@
             position: fixed;
             top: 0; left: 0;
             width: 100%;
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(20px) saturate(180%);
-            -webkit-backdrop-filter: blur(20px) saturate(180%);
-            border-bottom: 1px solid var(--border-color);
-            box-shadow: var(--shadow-sm);
+            background: #ffffff;
+            border-bottom: 2px solid var(--border-color);
+            box-shadow: var(--shadow-md);
             padding: 14px 40px;
             display: flex;
             justify-content: space-between;
@@ -1140,25 +1138,25 @@
             <p id="introduction-description" class="sr-only">Cette section présente le contexte, les motivations et l'approche retenue pour le projet IT Dashboard A+.</p>
                 
                 <h2>Le besoin initial</h2>
-                <p>Face à la nécessité de structurer ma veille technologique, j'ai identifié un besoin fondamental : disposer d'une source de vérité fiable sur l'actualité et les signaux faibles du monde IT, couvrant notamment la sécurité, le cloud, le développement, les systèmes et l'intelligence artificielle.</p>
-                <p>Mon objectif initial consistait à concevoir un dashboard interactif capable d'agréger, d'analyser et de corréler des informations IT, en s'appuyant sur l'IA générative comme outil d'analyse, de synthèse et d'aide à la décision.</p>
-                <p>J'ai conçu ce projet comme un laboratoire d'apprentissage appliqué, avec des contraintes proches d'un environnement professionnel : portabilité, auditabilité, traçabilité et gouvernance.</p>
+                <p>J'avais besoin de mieux organiser mes recherches sur les nouvelles technologies informatiques. Je voulais un outil qui me permette de suivre l'actualité dans plusieurs domaines : la sécurité informatique, le cloud, le développement de logiciels, les systèmes et l'intelligence artificielle.</p>
+                <p>Mon objectif était de créer un tableau de bord qui rassemble toutes ces informations, les analyse et les présente de manière claire. J'ai utilisé l'intelligence artificielle pour m'aider à comprendre et organiser ces informations.</p>
+                <p>J'ai conçu ce projet comme un projet d'apprentissage, en suivant les mêmes règles qu'un projet professionnel : le projet doit pouvoir être déplacé facilement, toutes les actions doivent être traçables, et tout doit être bien organisé.</p>
                 
-                <h2>Le défi technique et l'approche retenue</h2>
+                <h2>Le défi et ma méthode</h2>
                 <div class="highlight">
-                    <p>Mon point de départ était très limité. Je partais de zéro connaissance en développement, avec seulement quelques bases en scripting issues de ma formation de Technicien Assistance Informatique. Je n'avais aucune formation structurée en développement, architecture ou IA. Je n'utilisais que des IA publiques, des outils gratuits moins performants que les solutions professionnelles. J'avais trois mois au total pour tout concevoir et implémenter.</p>
+                    <p>J'ai commencé ce projet avec très peu de connaissances en programmation. J'avais seulement quelques bases en scripts informatiques apprises lors de ma formation. Je n'avais pas de formation en développement, en architecture de logiciels ou en intelligence artificielle. J'ai utilisé uniquement des outils gratuits disponibles en ligne. J'avais trois mois pour tout créer.</p>
                 </div>
-                <p>J'ai choisi d'utiliser des IA publiques comme outil d'apprentissage actif. Mon objectif était de comprendre progressivement les concepts techniques, structurer une architecture cohérente, et apprendre à documenter, tester et maintenir un projet complexe.</p>
-                <p>J'ai travaillé deux mois et demi avec des IA locales uniquement. J'ai créé les prompts maîtres en cherchant une cohérence totale. INIT_SEQUENCE est né de la nécessité de résoudre la perte de contexte. Cursor m'a permis d'augmenter ma productivité pendant les deux dernières semaines. Au total, j'ai consacré trois mois à concevoir et implémenter ce projet.</p>
+                <p>J'ai utilisé l'intelligence artificielle comme outil d'apprentissage. Mon objectif était d'apprendre progressivement les concepts techniques, de créer une structure cohérente, et d'apprendre à documenter, tester et maintenir un projet complexe.</p>
+                <p>J'ai travaillé pendant deux mois et demi avec des outils d'intelligence artificielle locaux. J'ai créé un système appelé INIT_SEQUENCE pour résoudre le problème de perte d'information entre les conversations. Pendant les deux dernières semaines, j'ai utilisé un outil plus avancé qui m'a permis d'aller plus vite. Au total, j'ai consacré trois mois à ce projet.</p>
                 
-                <h2>Évolution du projet : de l'idée au POC opérationnel</h2>
-                <p>Le projet a évolué vers un Proof of Concept conceptuel fortement structuré et opérationnel. ProjectModule.psm1 assure une portabilité maximale. L'architecture est modulaire. L'archivage et la rétention sont automatiques. La traçabilité passe par des logs standardisés et des correlation IDs. Vault est intégré et opérationnel. Le pipeline fonctionne de bout en bout. La synchronisation Backend vers Frontend est automatique. Les alertes remontent correctement.</p>
-                <p>Le projet fonctionne exclusivement en local. Le backend n'est pas encore exposé via une API publique complète. Cette exposition est une évolution prévue.</p>
+                <h2>L'évolution du projet</h2>
+                <p>Le projet est maintenant un prototype fonctionnel et bien organisé. Le projet peut être déplacé facilement d'un ordinateur à l'autre. L'organisation est modulaire, ce qui signifie que chaque partie peut être modifiée indépendamment. L'archivage des données se fait automatiquement. Toutes les actions sont enregistrées dans des fichiers de log. Le système de sécurité Vault est intégré et fonctionne. Toutes les parties du système communiquent correctement entre elles.</p>
+                <p>Le projet fonctionne actuellement uniquement sur mon ordinateur. L'ouverture au public est prévue pour plus tard.</p>
                 
-                <h2>Contexte de réalisation</h2>
-                <p>Ce qui rend le projet intéressant n'est pas seulement son résultat technique final, mais le contexte dans lequel il a été réalisé.</p>
-                <p>En partant de zéro, j'ai créé INIT_SEQUENCE, un système complet de gouvernance IA basé sur une machine à états finis. Onze prompts fondateurs ont été créés ex nihilo pour structurer la communication avec l'IA. J'ai imaginé et implémenté une solution d'archivage automatique. ProjectModule.psm1 assure une portabilité maximale. Des menus CLI et une orchestration complète automatisent les opérations. Le pipeline Backend et Frontend fonctionne de bout en bout.</p>
-                <p>Réaliser ce projet dans ce contexte témoigne d'une capacité d'apprentissage autonome et d'un potentiel d'évolution. Ce qui est significatif, c'est la rapidité d'apprentissage, la capacité à structurer, innover et résoudre des problèmes complexes en partant de zéro, et la persévérance face aux limitations des outils disponibles.</p>
+                <h2>Pourquoi ce projet est intéressant</h2>
+                <p>Ce qui rend ce projet intéressant, ce n'est pas seulement le résultat final, mais la façon dont il a été créé.</p>
+                <p>En partant de zéro, j'ai créé INIT_SEQUENCE, un système complet pour gérer les conversations avec l'intelligence artificielle. J'ai créé onze modèles de communication pour structurer mes échanges. J'ai imaginé et créé un système d'archivage automatique. J'ai créé un système qui permet de déplacer facilement le projet. J'ai créé des menus et des outils qui automatisent les opérations. Toutes les parties du système fonctionnent ensemble.</p>
+                <p>Réaliser ce projet dans ces conditions montre ma capacité à apprendre seul et à évoluer rapidement. Ce qui est important, c'est la rapidité d'apprentissage, la capacité à organiser, innover et résoudre des problèmes complexes en partant de zéro, et la persévérance face aux limitations des outils disponibles.</p>
             </section>
             
         <section id="architecture" aria-labelledby="architecture-title" aria-describedby="architecture-description">
@@ -1166,9 +1164,9 @@
             <p id="architecture-description" class="sr-only">Cette section détaille l'architecture technique complète du projet, incluant les composants principaux, la portabilité et l'automatisation.</p>
                 
                 <h2>Vue d'ensemble</h2>
-                <p>J'ai conçu le projet IT Dashboard A+ avec une architecture en couches, pensée pour être lisible, évolutive et maintenable. Mon objectif n'est pas encore la performance ou la scalabilité, mais la cohérence, la lisibilité et la gouvernance du flux de données.</p>
-            <p>Le projet comprend plusieurs composants principaux. Le Frontend en React et TypeScript permet la visualisation des alertes, les corrélations globales, les vues par pôle et la gestion des feedbacks utilisateurs.</p>
-            <p>Le Backend en Python implémente un pipeline complet de collecte, ETL, Rules Engine et Correlation Engine. L'intégration Vault est opérationnelle. Le stockage et les logs utilisent le format JSONL, des logs au format Markdown horodatés, des archives en rotation automatique et une politique de rétention. Vault gère de manière sécurisée les secrets via AppRoles, incluant la génération automatique, la rotation et la consommation par les collecteurs.</p>
+                <p>J'ai organisé le projet IT Dashboard A+ en plusieurs parties distinctes, faciles à comprendre et à modifier. Mon objectif principal était de créer quelque chose de cohérent et bien organisé, plutôt que quelque chose de très performant.</p>
+            <p>Le projet comprend plusieurs parties principales. L'interface utilisateur (Frontend) permet d'afficher les alertes, de voir les liens entre les informations, de consulter les informations par domaine et de gérer les retours des utilisateurs.</p>
+            <p>La partie serveur (Backend) collecte les informations, les traite, applique des règles et trouve les liens entre les différentes informations. Le système de sécurité Vault est intégré et fonctionne. Les données sont stockées dans des fichiers texte structurés, les actions sont enregistrées dans des fichiers de log horodatés, et les anciennes données sont archivées automatiquement. Vault gère de manière sécurisée les mots de passe et les clés d'accès, en les générant, les renouvelant et les utilisant automatiquement.</p>
                 
                 <h2>Composants principaux opérationnels</h2>
                 <p>J'ai développé 10 collecteurs pour les pôles 1 à 10. Leur rôle est de collecter des événements par domaine IT comme la sécurité, le cloud, le développement et les systèmes. J'ai implémenté 10 scripts Python collect_pole qui chargent automatiquement les credentials Vault, génèrent des événements bruts au format JSON, utilisent un logging standardisé avec filtrage des données sensibles, et propagent systématiquement des Correlation IDs.</p>
@@ -1215,26 +1213,26 @@
             <h1 id="init-sequence-title">INIT_SEQUENCE : système de gouvernance IA innovant</h1>
             <p id="init-sequence-description" class="sr-only">Cette section présente INIT_SEQUENCE, un système de gouvernance IA basé sur une machine à états finis, développé pour résoudre le problème de perte de contexte avec les IA.</p>
                 
-                <h2>Conception personnelle d'un système de gouvernance IA</h2>
-                <p>J'ai conçu INIT_SEQUENCE pour résoudre le problème de perte de contexte avec les IA. Ce système illustre une approche structurée pour gérer la complexité de la communication avec l'IA.</p>
-            <p>J'ai identifié le problème de perte de contexte lors des échanges avec les IA locales. Après deux mois et demi de travail, j'ai créé INIT_SEQUENCE pour résoudre ce problème récurrent. Ce système permet de reprendre efficacement le projet entre chaque échange. Il limite la perte de données et garantit la continuité du travail malgré les interruptions.</p>
+                <h2>Pourquoi j'ai créé INIT_SEQUENCE</h2>
+                <p>J'ai créé INIT_SEQUENCE pour résoudre un problème important : quand je discutais avec l'intelligence artificielle, elle oubliait souvent le contexte de notre conversation précédente. Ce système permet de gérer efficacement la communication avec l'IA.</p>
+            <p>J'ai remarqué ce problème de perte d'information lors de mes échanges avec les outils d'intelligence artificielle. Après deux mois et demi de travail, j'ai créé INIT_SEQUENCE pour résoudre ce problème. Ce système permet de reprendre facilement le projet après chaque interruption. Il limite la perte d'information et garantit que le travail continue correctement malgré les interruptions.</p>
                 
-                <h2>Architecture : machine à états finis</h2>
-            <p>Le système fonctionne comme une machine à états finis, permettant de reconstruire l'état logique du projet après une interruption. Cette approche garantit la reproductibilité et la traçabilité de chaque étape du processus de développement.</p>
-                <p>J'ai défini huit états principaux. L'état S moins un correspond au Bootloader, qui sert de guardrail initial et valide les 11 prompts fondateurs. L'état S0 valide les bilans techniques pour reconstruire l'historique. L'état S2 analyse l'arborescence pour reconstruire la structure. L'état S4 contrôle la cohérence par une vérification globale. L'état S5 active le mode projet actif en activant le module cognitif. L'état S6 correspond à la maintenance technique avec des corrections de cohérence. L'état S7 est le mode Recovery pour la récupération en cas d'échec critique.</p>
+                <h2>Comment fonctionne INIT_SEQUENCE</h2>
+            <p>Le système fonctionne comme un système à états : il peut se souvenir de l'état du projet à chaque moment et le reconstruire après une interruption. Cette approche garantit que chaque étape peut être reproduite et que tout est traçable.</p>
+                <p>J'ai défini huit états principaux. Le premier état vérifie que tous les fichiers de base sont présents. Le deuxième état vérifie l'historique du projet. Le troisième état analyse la structure des fichiers. Le quatrième état vérifie que tout est cohérent. Le cinquième état active le mode de travail normal. Le sixième état est utilisé pour la maintenance et les corrections. Le septième état permet de récupérer le projet en cas de problème grave.</p>
                 
-                <h2>Composants du système</h2>
-                <p>J'ai implémenté une machine à états finis avec 8 états définis de S moins un à S7, des transitions strictes entre états, une gestion de contexte et mémoire, et un protocole de gouvernance.</p>
-                <p>Le module cognitif utilise une architecture basée sur des personnages historiques comme Descartes, Turing, Léonard de Vinci, Tesla, Curie, Edison, Einstein, Mandela, Gandhi, Churchill et Bouddha. Il dispose d'une mémoire interne collaborative, de routines et méthodes structurées, et d'une gestion d'erreurs avec amélioration continue.</p>
-            <p>Le système de prompts fondateurs comprend 11 fichiers représentant 8 prompts logiques, soit 1090 lignes Markdown. Chaque prompt doit être cohérent avec tous les autres. L'évolution a été itérative : 5 prompts, puis 8, puis 11 fichiers correspondant à 8 prompts logiques.</p>
-            <p>Les prompts couvrent le comportement du modèle, les standards de codage, la vision d'architecture, le contenu des 11 pôles IT, l'architecture technique, l'arborescence, l'UX/UI et l'orchestration.</p>
-                <p>Le bootloader et le protocole utilisent une initialisation stricte, un comptage et une validation de 11 fichiers attendus, une sécurité et traçabilité en ASCII uniquement sans emojis.</p>
-                <p>SYSTEM comprend 15 sections détaillées, 8 états définis, des transitions strictes entre états, une gestion des fichiers, bilans et arborescences, et des commandes disponibles.</p>
-                <p>USER PROMPT comprend 7 phases détaillées : Prompts fondateurs, Bilans, Arborescence, Cohérence, S5, Maintenance et Recovery.</p>
-                <p>Le système comprend 14 bilans techniques détaillés couvrant le Backend, le Frontend, les scripts PowerShell d'orchestration, le pipeline Backend, la structure des imports, la maintenance et le nettoyage, la documentation CI/CD gouvernance projet, et les scripts de commandes opérationnelles utilisées.</p>
+                <h2>Les composants du système</h2>
+                <p>Le système fonctionne avec 8 états différents, des règles strictes pour passer d'un état à l'autre, une gestion de la mémoire et un protocole de contrôle.</p>
+                <p>Le module de réflexion utilise une approche inspirée de grandes figures historiques pour réfléchir aux problèmes sous différents angles. Il dispose d'une mémoire interne, de méthodes structurées et d'un système de gestion des erreurs qui s'améliore avec le temps.</p>
+            <p>Le système de communication de base comprend 11 fichiers qui représentent 8 modèles de communication différents, soit environ 1100 lignes de texte structuré. Chaque modèle doit être cohérent avec tous les autres. J'ai commencé avec 5 modèles, puis 8, puis finalement 11 fichiers correspondant à 8 modèles logiques.</p>
+            <p>Ces modèles couvrent le comportement de l'IA, les règles de programmation, la vision de l'architecture, le contenu des 11 domaines informatiques, l'architecture technique, l'organisation des fichiers, l'interface utilisateur et l'automatisation.</p>
+                <p>Le système de démarrage utilise une initialisation stricte, vérifie que tous les fichiers nécessaires sont présents, et garantit la sécurité et la traçabilité en utilisant uniquement du texte simple.</p>
+                <p>Le système principal comprend 15 sections détaillées, 8 états définis, des règles strictes pour passer d'un état à l'autre, une gestion des fichiers et des bilans, et des commandes disponibles.</p>
+                <p>Le système utilisateur comprend 7 phases : les modèles de communication de base, les bilans, l'organisation des fichiers, la vérification de cohérence, le mode de travail normal, la maintenance et la récupération.</p>
+                <p>Le système comprend 14 bilans techniques détaillés qui couvrent la partie serveur, l'interface utilisateur, les scripts d'automatisation, le traitement des données, l'organisation des fichiers, la maintenance et le nettoyage, la documentation et les commandes opérationnelles.</p>
                 
-                <h2>Volume total INIT_SEQUENCE</h2>
-                <p>J'ai analysé et structuré 50 fichiers. INIT_SEQUENCE représente 4100 lignes de documentation et prompts structurés : 1090 lignes pour les prompts fondateurs, le reste étant composé du système (Bootloader, SYSTEM, USER), du module cognitif et des bilans techniques.</p>
+                <h2>La taille du système INIT_SEQUENCE</h2>
+                <p>J'ai analysé et organisé 50 fichiers. INIT_SEQUENCE représente environ 4100 lignes de documentation et de modèles structurés : 1100 lignes pour les modèles de communication de base, le reste étant composé du système de démarrage, du système principal, du système utilisateur, du module de réflexion et des bilans techniques.</p>
             </section>
             
         <section id="standards" aria-labelledby="standards-title" aria-describedby="standards-description">
