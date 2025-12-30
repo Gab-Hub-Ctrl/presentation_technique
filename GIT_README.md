@@ -208,6 +208,16 @@ Get-ChildItem -Path presentation_technique -Recurse -File | Measure-Object -Prop
 - [ ] Cohérence narrative à 100% (ordre chronologique correct)
 - [ ] Cohérence des données numériques à 100% (pôles, collecteurs, standards, lignes)
 - [ ] Cohérence terminologique à 100% (Proof of Concept, perte de contexte, etc.)
+- [ ] Cohérence temporelle à 100% (rapport de projection rédigé au conditionnel avec formulations "projeté", "selon la projection", etc.)
+- [ ] Comportement des sections optimisé (délai de 150ms pour éviter les perturbations visuelles)
+- [ ] Alignement adaptatif des cartes fonctionnel (1-2 lignes = centré, 3+ lignes = justifié)
+
+## 🎨 Améliorations récentes
+
+- ✅ **Comportement des sections optimisé** : Délai de 150ms lors de l'ouverture d'une section pour éviter les perturbations visuelles
+- ✅ **Alignement adaptatif des cartes** : Système automatique qui centre les textes courts et justifie les textes longs
+- ✅ **Section "Structure et organisation"** : Toutes les cartes de cette section sont automatiquement centrées pour une meilleure cohérence visuelle
+- ✅ **Vérification complète** : Cohérence générale, histoire, logique, données numériques, métriques et qualité d'écriture vérifiées à 100%
 
 ---
 

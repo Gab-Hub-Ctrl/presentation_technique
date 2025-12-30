@@ -215,6 +215,7 @@
             font-weight: 600;
             line-height: 1.3;
             white-space: nowrap;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
         }
         
         .header-left h2 .page-title {
@@ -222,6 +223,7 @@
             font-size: 1.1em;
             color: #000000;
             font-weight: 600;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
         }
         
         .header-left h2 .project-name {
@@ -231,6 +233,7 @@
             font-weight: 600;
             white-space: nowrap;
             transition: color 0.2s ease;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
         }
 
         .header-left a:hover h2 {
@@ -303,11 +306,17 @@
         }
 
         /* MAIN */
-        main {
+            main {
             max-width: var(--max-width);
             margin: 0 auto;
-            padding: 70px clamp(16px, 4vw, 40px) 40px;
+            padding: 61px clamp(16px, 4vw, 40px) 40px;
             min-width: 0;
+        }
+        
+        /* Décale la première section de 1,5 cm pour éviter qu'elle soit trop proche de l'en-tête */
+        main > .section-accordion:first-child,
+        main > section:first-child {
+            margin-top: 1cm;
         }
 
         /* Section d'introduction */
@@ -729,6 +738,59 @@
             transform: none;
         }
 
+        /* ============================================
+           CATEGORY GRID & CARDS - Grille de cartes catégories
+           Styles uniformisés avec le rapport
+           ============================================ */
+        .category-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+            margin: 40px 0;
+        }
+        
+        .category-card {
+            background: var(--bg-secondary);
+            padding: 28px 24px;
+            border-radius: 8px;
+            border-left: 4px solid var(--primary-color);
+            min-height: 140px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        
+        .category-card:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+        
+        .category-card h3 {
+            font-size: 1.2em;
+            margin: 0 0 12px 0;
+            color: var(--primary-color);
+            font-weight: 600;
+        }
+        
+        .category-card .count {
+            font-size: 2.2em;
+            font-weight: 700;
+            color: var(--text-color);
+            margin-bottom: 12px;
+        }
+        
+        .category-card .description {
+            font-size: 0.9em;
+            color: var(--text-secondary);
+            line-height: 1.6;
+            flex-grow: 1;
+            text-align: justify;
+            text-align-last: left;
+        }
+
         .metric-card:hover::before {
             transform: scaleX(1);
         }
@@ -789,17 +851,20 @@
             font-size: 0.9em;
             border-top: 2px solid #000000;
             background: #ffffff;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
         }
 
         footer p {
             margin: 8px 0;
             color: #000000;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
         }
 
         footer a {
             color: #000000;
             text-decoration: none;
             transition: color 0.2s ease;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
         }
 
         footer a:hover {
@@ -1044,12 +1109,6 @@
 </head>
 <body>
     <a href="#main-content" class="skip-link">Aller au contenu principal</a>
-    <nav class="breadcrumb" aria-label="Fil d'Ariane">
-        <ol>
-            <li><a href="index.html">Accueil</a></li>
-            <li aria-current="page">Présentation synthétique</li>
-        </ol>
-    </nav>
     <header role="banner">
         <div class="header-left">
             <a href="index.html" aria-label="Retour à l'accueil">
@@ -1065,12 +1124,11 @@
                     Navigation <span class="nav-arrow">▼</span>
                 </button>
                 <ul class="nav-dropdown-menu" role="menu" aria-hidden="true">
+                    <li role="none"><a href="index.html" role="menuitem">Accueil</a></li>
                     <li role="none"><a href="#introduction-title" role="menuitem">Introduction</a></li>
-                    <li role="none"><a href="#architecture-title" role="menuitem">Architecture</a></li>
-                    <li role="none"><a href="#fonctionnalites-title" role="menuitem">Fonctionnalités</a></li>
+                    <li role="none"><a href="#architecture-title" role="menuitem">Architecture et fonctionnalités</a></li>
                     <li role="none"><a href="#init-sequence-title" role="menuitem">INIT_SEQUENCE</a></li>
-                    <li role="none"><a href="#standards-title" role="menuitem">Standards</a></li>
-                    <li role="none"><a href="#metriques-title" role="menuitem">Métriques</a></li>
+                    <li role="none"><a href="#standards-title" role="menuitem">Standards et métriques</a></li>
                     <li role="none"><a href="#conclusion-title" role="menuitem">Conclusion</a></li>
                 </ul>
             </div>
@@ -1096,7 +1154,7 @@
                 
                 <h2>Le défi et ma méthode</h2>
                 <div class="highlight">
-                    <p>J'ai commencé ce projet avec très peu de connaissances en programmation. J'avais seulement quelques bases en scripts informatiques apprises lors de ma formation. Je n'avais pas de formation en développement, en architecture de logiciels ou en intelligence artificielle.</p>
+                    <p>J'ai commencé ce projet avec peu de connaissances en programmation. J'avais seulement quelques bases en scripts informatiques apprises lors de ma formation. Je n'avais pas de formation en développement, en architecture de logiciels ou en intelligence artificielle.</p>
                 <p>J'ai utilisé uniquement des outils gratuits disponibles en ligne. J'avais trois mois pour tout créer.</p>
                 </div>
                 <p>J'ai utilisé l'intelligence artificielle comme outil d'apprentissage. Mon objectif était d'apprendre progressivement les concepts techniques, de créer une structure cohérente, et d'apprendre à documenter, tester et maintenir un projet complexe.</p>
@@ -1110,28 +1168,28 @@
                 
                 <h2>Pourquoi ce projet est intéressant</h2>
                 <p>Ce qui rend ce projet intéressant, ce n'est pas seulement le résultat final, mais la façon dont il a été créé.</p>
-                <p>En partant de zéro, j'ai d'abord créé des bilans techniques et des arborescences pour faciliter la reprise. Puis j'ai créé onze prompts fondateurs ex nihilo pour structurer la communication avec l'IA. Ensuite, j'ai conçu INIT_SEQUENCE, un système complet de gouvernance IA basé sur une machine à états finis. J'ai également imaginé et créé un système d'archivage automatique.</p>
+                <p>En partant de zéro, j'ai d'abord créé des bilans techniques et des arborescences pour faciliter la reprise. Puis j'ai créé onze prompts fondateurs pour structurer la communication avec l'IA. Ensuite, j'ai conçu INIT_SEQUENCE, un système de gouvernance IA basé sur une machine à états finis. J'ai également créé un système d'archivage automatique.</p>
                 <p>J'ai créé un système qui permet de déplacer facilement le projet. J'ai créé des menus et des outils qui automatisent les opérations. Toutes les parties du système fonctionnent ensemble.</p>
-                <p>Réaliser ce projet dans ces conditions montre ma capacité à apprendre seul et à évoluer rapidement.</p>
-                <p>Ce qui est important, c'est la rapidité d'apprentissage, la capacité à organiser, innover et résoudre des problèmes complexes en partant de zéro, et la persévérance face aux limitations des outils disponibles.</p>
+<p>Réaliser ce projet dans ces conditions montre une capacité à apprendre seul et à évoluer rapidement.</p>
+<p>Ce qui est notable, c'est la rapidité d'apprentissage, la capacité à organiser et résoudre des problèmes complexes en partant de zéro, et la persévérance face aux limitations des outils disponibles.</p>
             </section>
                 </div>
             </div>
         </div>
         
-        <!-- Accordéon Architecture -->
+        <!-- Accordéon Architecture et Fonctionnalités -->
         <div class="section-accordion importance-high">
             <div class="section-accordion-header" onclick="toggleSection(this)">
-                Architecture technique globale
+                Architecture technique globale et fonctionnalités opérationnelles
             </div>
             <div class="section-accordion-content">
                 <div class="section-accordion-inner">
         <section id="architecture" aria-labelledby="architecture-title" aria-describedby="architecture-description">
-            <h1 id="architecture-title">Architecture technique globale</h1>
-            <p id="architecture-description" class="sr-only">Cette section détaille l'architecture technique complète du projet, incluant les composants principaux, la portabilité et l'automatisation.</p>
+            <h1 id="architecture-title">Architecture technique globale et fonctionnalités opérationnelles</h1>
+            <p id="architecture-description" class="sr-only">Cette section détaille l'architecture technique complète du projet et les fonctionnalités opérationnelles validées, incluant les composants principaux, la portabilité, l'automatisation et les démonstrations opérationnelles.</p>
                 
                 <h2>Vue d'ensemble</h2>
-                <p>J'ai organisé le projet IT Dashboard A+ en plusieurs parties distinctes, faciles à comprendre et à modifier. Mon objectif principal était de créer quelque chose de cohérent et bien organisé, plutôt que quelque chose de très performant.</p>
+                <p>J'ai organisé le projet IT Dashboard A+ en plusieurs parties distinctes, faciles à comprendre et à modifier. Mon objectif principal était de créer quelque chose de cohérent et bien organisé, plutôt que quelque chose de performant.</p>
             <p>Le projet comprend plusieurs parties principales. L'interface utilisateur (Frontend) permet d'afficher les alertes, de voir les liens entre les informations, de consulter les informations par domaine et de gérer les retours des utilisateurs.</p>
             <p>La partie serveur (Backend) collecte les informations, les traite, applique des règles et trouve les liens entre les différentes informations. Le système de sécurité Vault est intégré et fonctionne. Les données sont stockées dans des fichiers texte structurés, les actions sont enregistrées dans des fichiers de log horodatés, et les anciennes données sont archivées automatiquement. Vault gère de manière sécurisée les mots de passe et les clés d'accès, en les générant, les renouvelant et les utilisant automatiquement.</p>
                 
@@ -1148,39 +1206,26 @@
             <p>Plusieurs menus CLI interactifs automatisent toutes les opérations. Le Menu Principal sert de point d'entrée centralisé avec accès à tous les sous-menus.</p>
             <p>Le Menu Vault permet l'initialisation complète, la création de policies et d'AppRoles pour les 11 pôles spécialisés (pôles 1 à 10 pour la collecte + pôle 11 pour la corrélation), la rotation des Secret IDs, et un cycle complet automatique en 15 étapes. Le Menu Stack Management permet de lancer la stack complète, le Backend uniquement, le Frontend uniquement, le pipeline complet, et l'arrêt de la stack. Le Menu Maintenance offre un backup complet, une restauration, un nettoyage standard et approfondi, un test de santé et un diagnostic avancé.</p>
                 <p>J'ai créé des scripts de maintenance spécifiques. Test-StackHealth.ps1 vérifie complètement la santé de la stack et génère des rapports de santé horodatés.</p>
-            </section>
-                </div>
-            </div>
-        </div>
-        
-        <!-- Accordéon Fonctionnalités -->
-        <div class="section-accordion importance-high">
-            <div class="section-accordion-header" onclick="toggleSection(this)">
-                Ce qui fonctionne réellement : démonstration opérationnelle
-            </div>
-            <div class="section-accordion-content">
-                <div class="section-accordion-inner">
-        <section id="fonctionnalites" aria-labelledby="fonctionnalites-title" aria-describedby="fonctionnalites-description">
-            <h1 id="fonctionnalites-title">Ce qui fonctionne réellement : démonstration opérationnelle</h1>
-            <p id="fonctionnalites-description" class="sr-only">Cette section présente les fonctionnalités opérationnelles validées du projet, incluant l'intégration Vault, le pipeline backend et la synchronisation frontend.</p>
                 
-                <h2>Intégration Vault : automatisation complète du cycle de vie des secrets</h2>
+                <h2>Ce qui fonctionne réellement : démonstration opérationnelle</h2>
+                
+                <h3>Intégration Vault : automatisation complète du cycle de vie des secrets</h3>
             <p>J'ai intégré HashiCorp Vault de manière opérationnelle dans mon projet pour sécuriser la gestion des secrets. L'automatisation couvre le cycle de vie complet des AppRoles. Le système génère automatiquement 10 fichiers AppRole JSON, un par pôle de collecte (pôles 1 à 10).</p>
             <p>Chaque collecteur Python charge automatiquement son fichier AppRole via la fonction <code>loadroleandsecret()</code>. Chaque étape du pipeline s'initialise avec les credentials Vault appropriés. Un cycle complet automatisé en 15 étapes configure tout de bout en bout, incluant la rotation automatique des logs et la génération de rapports.</p>
             <p>Le pipeline fonctionne de bout en bout avec Vault, depuis l'initiation jusqu'à la génération et l'utilisation des credentials, sans intervention manuelle de ma part. Cette intégration garantit la sécurité des accès tout en simplifiant la gestion opérationnelle.</p>
                 
-                <h2>Pipeline backend : flux opérationnel complet et validé</h2>
+                <h3>Pipeline backend : flux opérationnel complet et validé</h3>
                 <p>J'ai validé une séquence opérationnelle complète. La collecte utilise 10 collecteurs Python qui exécutent en parallèle. Chaque collecteur charge ses credentials Vault, collecte les données de son domaine IT, génère des événements bruts au format JSON et les stocke dans <code>Backend/storage/raw/poleX/YYYYMMDD/</code>.</p>
                 <p>L'ETL utilise le normaliseur <code>etl_normalize.py</code> qui lit les données brutes, normalise les schémas JSON, déduplique par hash SHA256, enrichit les données de métadonnées, archive automatiquement les données J-1 en compression et stocke dans <code>Backend/storage/processed/</code>.</p>
                 <p>Le Rules Engine utilise le moteur de règles <code>rules_engine.py</code> qui applique les règles métier configurées, génère des alertes normalisées avec scoring de sévérité et stocke dans <code>Backend/storage/alerts/</code>.</p>
                 <p>Le Correlation Engine utilise le moteur de corrélation <code>correlation_engine.py</code> qui lit les alertes générées, analyse les alertes multi-pôles, applique les politiques de corrélation configurables et calcule les scores de risque global.</p>
                 <p>Le pipeline fonctionne de manière autonome. Chaque étape s'initialise correctement avec Vault, et le flux de données est tracé de bout en bout avec des correlation IDs.</p>
                 
-                <h2>Synchronisation Backend vers Frontend : opérationnelle et automatique</h2>
+                <h3>Synchronisation Backend vers Frontend : opérationnelle et automatique</h3>
             <p>J'ai validé un mécanisme de synchronisation automatique pour garantir la cohérence entre le backend et le frontend. Le script <code>Frontend/scripts/sync-data.mjs</code> copie automatiquement les alertes, corrélations, données agrégées, données brutes et logs depuis Backend vers Frontend/public. Il génère automatiquement <code>artifacts.json</code> et <code>config.json</code> avec les chemins relatifs vers les derniers fichiers.</p>
             <p>La synchronisation est fonctionnelle et automatique. Les données remontent vers le frontend après chaque exécution du pipeline, sans intervention manuelle. Cette automatisation réduit les risques d'erreurs et assure la fraîcheur des données affichées.</p>
                 
-                <h2>Remontée des alertes vers le frontend : validée et opérationnelle</h2>
+                <h3>Remontée des alertes vers le frontend : validée et opérationnelle</h3>
                 <p>J'ai validé le flux de données complet. Côté frontend, les composants React utilisent <code>alertsRepo.ts</code> et <code>correlationsRepo.ts</code> pour charger les fichiers JSONL, parser et transformer les données au format frontend, et appliquer les filtres dynamiques.</p>
                 <p>Les alertes sont affichées dans GlobalView.tsx, PoleView.tsx, SeverityHeatmap.tsx, TimelineView.tsx et CorrelationsChart.tsx. Le backend expose également une API FastAPI qui permet de récupérer les alertes via HTTP.</p>
                 <p>Les alertes remontent correctement vers le frontend et sont affichées dans toutes les vues prévues. Le système est opérationnel de bout en bout.</p>
@@ -1225,56 +1270,43 @@
             </div>
         </div>
         
-        <!-- Accordéon Standards -->
+        <!-- Accordéon Standards et Métriques -->
         <div class="section-accordion importance-high">
             <div class="section-accordion-header" onclick="toggleSection(this)">
-                Standards Projet3 : framework de gouvernance et qualité
+                Standards Projet3 et chiffres clés
             </div>
             <div class="section-accordion-content">
                 <div class="section-accordion-inner">
         <section id="standards" aria-labelledby="standards-title" aria-describedby="standards-description">
-            <h1 id="standards-title">Standards Projet3 : framework de gouvernance et qualité</h1>
-            <p id="standards-description" class="sr-only">Cette section présente les Standards Projet3, un framework de gouvernance et de qualité composé de 31 standards organisés en 8 catégories.</p>
+            <h1 id="standards-title">Standards Projet3 et chiffres clés</h1>
+            <p id="standards-description" class="sr-only">Cette section présente les Standards Projet3, un framework de gouvernance et de qualité composé de 31 standards organisés en 8 catégories, ainsi que les métriques quantitatives du projet.</p>
             
+            <h2>Standards Projet3 : framework de gouvernance et qualité</h2>
             <p>Après avoir développé INIT_SEQUENCE pour gérer le contexte avec l'IA, j'ai été confronté à un autre problème récurrent : la nécessité de répéter les mêmes instructions à l'IA à chaque nouvelle session. J'ai donc créé les Standards Projet3, un framework de 31 standards organisés en 8 catégories pour garantir la cohérence et la qualité dans tout le projet.</p>
                 
-                <h2>Structure et organisation</h2>
+                <h3>Structure et organisation</h3>
                 <p>J'ai organisé 31 standards en 8 catégories logiques qui couvrent tous les aspects du projet. Cette organisation permet de retrouver rapidement un standard selon le domaine concerné.</p>
                 <p>Les 8 catégories sont : Qualité (2 standards de référence), Code (4 standards), Infrastructure (5 standards), Sécurité (3 standards), Pipeline (5 standards), Opérationnel (5 standards), Gouvernance (5 standards), et Interface (2 standards).</p>
                 <p>Les standards de référence, Qualité d'Écriture (2463 lignes) et Naming Conventions (1554 lignes), servent de modèles pour tous les autres standards. Ils définissent la structure à respecter et garantissent que chaque standard est complet, cohérent, et directement utilisable par un agent IA.</p>
                 
-                <h2>Liste complète des standards</h2>
+                <h3>Liste complète des standards</h3>
                 <p>Le framework complet comprend 31 standards organisés en 8 catégories : Qualité (2 standards), Code (4 standards), Infrastructure (5 standards), Sécurité (3 standards), Pipeline (5 standards), Opérationnel (5 standards), Gouvernance (5 standards), et Interface (2 standards).</p>
                 <p>Tous les standards ont atteint le score optimal de 100/100, représentant un total d'environ 50 000 lignes de documentation structurée réparties en 703 sections, garantissant une complétude et une cohérence optimales.</p>
                 
-                <h2>Vision et réutilisabilité</h2>
-                <p>Les standards Projet3 représentent un investissement pour l'avenir. Quand je voudrai créer un projet similaire, j'aurai déjà les standards prêts, ce qui devrait accélérer considérablement le développement et garantir la cohérence dès le départ.</p>
+                <h3>Vision et réutilisabilité</h3>
+                <p>Les standards Projet3 représentent un investissement pour l'avenir. Quand je voudrai créer un projet similaire, j'aurai déjà les standards prêts, ce qui devrait accélérer le développement et garantir la cohérence dès le départ.</p>
                 <p>Cette réutilisabilité multiplie la valeur du travail investi. Au lieu d'avoir des règles dispersées dans différents documents ou d'avoir à réexpliquer à chaque fois, les standards constituent une référence permanente et structurée.</p>
                 <p>De plus, le framework de standards peut être adapté à d'autres types de projets. La structure générale, la méthodologie de création, et les processus de validation sont transposables à d'autres contextes.</p>
                 
-                <h2>Impact sur le projet</h2>
+                <h3>Impact sur le projet</h3>
                 <p>Les standards Projet3 ont un impact direct sur la qualité et la cohérence du projet IT Dashboard A+. Ils garantissent que tous les composants suivent les mêmes conventions, utilisent la même structure, et respectent les mêmes règles de qualité.</p>
                 <p>Ils facilitent également la maintenance du projet. Quand un nouveau développeur reprend le projet, les standards fournissent une référence claire et complète pour comprendre comment le projet est structuré et comment il doit être maintenu.</p>
                 <p>Enfin, les standards permettent l'automatisation. Un agent IA peut utiliser ces standards pour générer du code conforme, ce qui accélère le développement tout en garantissant la qualité.</p>
-            </section>
-                </div>
-            </div>
-        </div>
-        
-        <!-- Accordéon Métriques -->
-        <div class="section-accordion importance-high">
-            <div class="section-accordion-header" onclick="toggleSection(this)">
-                Chiffres clés et métriques du projet
-            </div>
-            <div class="section-accordion-content">
-                <div class="section-accordion-inner">
-        <section id="metriques" aria-labelledby="metriques-title" aria-describedby="metriques-description">
-            <h1 id="metriques-title">Chiffres clés et métriques du projet</h1>
-            <p id="metriques-description" class="sr-only">Cette section présente les métriques quantitatives du projet, incluant le volume de code, la structure modulaire et la couverture fonctionnelle.</p>
-            
-            <p>Voici les métriques quantitatives qui illustrent l'ampleur et la complexité du projet réalisé.</p>
                 
-                <h2>Volume de code</h2>
+                <h2>Chiffres clés et métriques du projet</h2>
+            <p>Voici les métriques quantitatives qui montrent l'ampleur et la complexité du projet réalisé.</p>
+                
+                <h3>Volume de code</h3>
                 <div class="metrics">
                     <div class="metric-card">
                         <h3>124</h3>
@@ -1303,7 +1335,7 @@
                 </div>
             <p>Le projet comprend 124 scripts PowerShell, 55 fichiers Python, 80 composants React et TypeScript, 11 prompts fondateurs (1090 lignes), 50 fichiers INIT_SEQUENCE, et 31 standards organisés en 8 catégories représentant environ 50 000 lignes de documentation structurée.</p>
                 
-                <h2>Architecture</h2>
+                <h3>Architecture</h3>
                 <p>L'architecture comprend 11 pôles spécialisés (pôles 1 à 10 pour la collecte + pôle 11 pour la corrélation, plus le pôle 0 pour la démonstration). Les modules backend incluent ETL, Rules Engine, Correlation Engine, API REST, Services et Repositories. Les vues frontend comprennent GlobalView, PoleView et FeedbackView.</p>
             </section>
                 </div>
@@ -1321,17 +1353,17 @@
             <h1 id="conclusion-title">Conclusion : démarche d'amélioration continue et recherche de maîtrise</h1>
             <p id="conclusion-description" class="sr-only">Cette section conclut la présentation en partageant la vision de l'évolution du projet, la démarche d'amélioration continue et la recherche de maîtrise académique.</p>
             
-            <p>IT Dashboard A+ illustre ma démarche d'apprentissage autonome et ma recherche de maîtrise. Partant de limitations techniques, j'ai développé une approche structurée pour résoudre les problèmes rencontrés. Le projet illustre ma compréhension des enjeux de gouvernance de l'IA : règles, architecture, protocoles, audit, sécurité et traçabilité.</p>
+            <p>IT Dashboard A+ reflète ma démarche d'apprentissage autonome et ma recherche de maîtrise. Partant de limitations techniques, j'ai développé une approche structurée pour résoudre les problèmes rencontrés. Le projet montre ma compréhension des enjeux de gouvernance de l'IA : règles, architecture, protocoles, audit, sécurité et traçabilité.</p>
                 <p>J'ai adopté une approche systémique et modulaire, transformant chaque obstacle en solution structurée. J'ai appliqué des standards de qualité professionnels, même en contexte d'apprentissage. Un système de collecte de feedback améliore continuellement le projet.</p>
                 <p>Je reconnais ma dépendance à l'IA et ma pratique du "no code full IA". Cette approche m'a permis de progresser rapidement, mais je souhaite maintenant apprendre les fondements théoriques et les bonnes pratiques professionnelles dans un cadre académique structuré.</p>
                 
                 <h2>État actuel du projet</h2>
-                <p>Le projet fonctionne en local avec les composants principaux opérationnels : pipeline backend, intégration Vault, synchronisation Backend-Frontend, et scripts de maintenance. ProjectModule et INIT_SEQUENCE sont en place et documentés.</p>
+                <p>Le projet fonctionne en local avec les composants principaux opérationnels : pipeline backend, intégration Vault, synchronisation Backend-Frontend, et scripts de maintenance. <code>ProjectModule</code> et INIT_SEQUENCE sont en place et documentés.</p>
                 <p>Le projet est en phase de consolidation. Je collecte des retours utilisateurs pour améliorer l'orchestration et finaliser l'interface.</p>
                 <p>Certains éléments restent en développement : la journalisation automatique Bridgepoint, la synchronisation bidirectionnelle complète, et le système de mises à jour automatiques. Le backend n'est pas encore exposé via une API publique complète.</p>
                 
                 <h2>Démarche d'amélioration continue</h2>
-                <p>J'ai mis en place un test utilisateurs structuré avec deux parcours distincts pour collecter des retours ciblés. Je distribue le projet de manière contrôlée via clés USB et copies locales pour tester dans des conditions réelles. J'ai intégré un formulaire frontend pour collecter et structurer les retours. Chaque retour utilisateur alimente les prochaines améliorations.</p>
+                <p>Je prévois de mettre en place un test utilisateur structuré avec deux parcours distincts pour collecter des retours ciblés. Le projet sera distribué de manière contrôlée via clés USB et copies locales afin de tester dans des conditions réelles. Je prévois également d’intégrer un formulaire frontend pour collecter et structurer les retours, chaque retour utilisateur alimentant les prochaines améliorations.</p>
                 
                 <h2>Recherche de maîtrise</h2>
                 <p>Je reconnais mes limites : ma pratique empirique est efficace mais manque de fondations théoriques. J'ai la volonté d'apprendre : je souhaite intégrer une formation académique en Intelligence Artificielle pour apprendre les vraies règles, les bonnes pratiques et les méthodologies éprouvées.</p>
@@ -1339,7 +1371,7 @@
                 
                 <div class="explore-box">
                     <h3>Pour approfondir</h3>
-                <p>Cette présentation couvre les 6 aspects essentiels du projet. Pour une vision complète avec les 14 sections détaillées, consultez <a href="presentation_complete.html">la présentation complète</a>.</p>
+                <p>Cette présentation couvre les 6 aspects principaux du projet. Pour une vision complète avec les 14 sections détaillées, consultez <a href="presentation_complete.html">la présentation complète</a>.</p>
                     <p>Les documents techniques dans <code>documentation_technique/</code> détaillent chaque aspect :</p>
                     <ul>
                         <li><strong>Ma relation avec l'IA</strong> (<code>02_relation_ia.md</code>) : ma pratique du prompt engineering et ma vision du "no code full IA"</li>
@@ -1354,7 +1386,7 @@
                 
                 <h2>Conclusion finale</h2>
                 <p>Ce projet n'a pas vocation à être terminé à ce stade, mais à servir de socle pédagogique et technique pour poursuivre mon parcours en formation académique en Informatique et Intelligence Artificielle, et approfondir ces concepts dans un cadre académique et encadré.</p>
-                <p>Cette démarche, plus que l'état fini du projet, illustre ma capacité à utiliser l'IA comme accélérateur tout en maintenant des standards de qualité professionnels, ma volonté d'amélioration continue basée sur des retours utilisateurs structurés, et surtout ma recherche de maîtrise.</p>
+                <p>Cette démarche, plus que l'état fini du projet, montre une capacité à utiliser l'IA comme accélérateur tout en maintenant des standards de qualité professionnels, une volonté d'amélioration continue basée sur des retours utilisateurs structurés, et surtout une recherche de maîtrise.</p>
                 <p>Mon objectif est de transformer une pratique empirique en compétence structurée et reconnue, compétence que je souhaite mettre au service d'une équipe dans le cadre d'une alternance liée à une formation académique en Intelligence Artificielle.</p>
                 <div class="signature">
                     <span class="name">ROULON</span><span class="firstname">Gabriel</span>
@@ -1370,8 +1402,6 @@
         <p>Gabriel ROULON</p>
         <p>Démarche de démonstration technique et académique - 2025</p>
         <p>
-            <a href="#main-content" aria-label="Retour en haut de la page"><span class="arrow-up">↑</span> Retour en haut</a> | 
-            <a href="index.html">Accueil</a> | 
             <a href="https://github.com/Gab-Hub-Ctrl/presentation_technique" target="_blank" rel="noopener noreferrer">Dépôt GitHub</a>
         </p>
     </footer>
@@ -1571,7 +1601,46 @@
          */
         function toggleSection(element) {
             const section = element.parentElement;
-            section.classList.toggle('active');
+            const isActive = section.classList.contains('active');
+            
+            // Fermer toutes les autres sections
+            const allAccordions = document.querySelectorAll('.section-accordion.active');
+            allAccordions.forEach(acc => {
+                if (acc !== section) {
+                    acc.classList.remove('active');
+                }
+            });
+            
+            // Si on ouvre une nouvelle section, fermer d'abord les autres avec un délai
+            if (!isActive) {
+                // Fermer toutes les autres sections d'abord
+                const allAccordions = document.querySelectorAll('.section-accordion.active');
+                allAccordions.forEach(acc => {
+                    if (acc !== section) {
+                        acc.classList.remove('active');
+                    }
+                });
+                
+                // Attendre que la fermeture soit terminée avant d'ouvrir la nouvelle section
+                setTimeout(() => {
+                    section.classList.add('active');
+                    
+                    // Scroller vers l'en-tête de l'accordéon après un court délai
+                    setTimeout(() => {
+                        const headerHeight = 100; // Hauteur du header fixe
+                        const headerPosition = element.getBoundingClientRect().top + window.pageYOffset;
+                        const offsetPosition = Math.max(0, headerPosition - headerHeight);
+                        
+                        window.scrollTo({
+                            top: offsetPosition,
+                            behavior: 'smooth'
+                        });
+                    }, 200);
+                }, 150); // Délai pour permettre la fermeture de la section précédente
+            } else {
+                // Si on ferme la section, pas besoin de délai
+                section.classList.remove('active');
+            }
         }
 
 
@@ -1611,7 +1680,7 @@
                         const targetElement = document.getElementById(targetId);
                         
                         if (targetElement) {
-                            // Fermer tous les accordéons ouverts
+                            // Fermer tous les accordéons ouverts d'abord
                             const allAccordions = document.querySelectorAll('.section-accordion.active');
                             allAccordions.forEach(acc => {
                                 acc.classList.remove('active');
@@ -1629,26 +1698,40 @@
                                 accordion = parent;
                             }
                             
-                            // Ouvrir l'accordéon correspondant si trouvé
+                            // Ouvrir l'accordéon correspondant si trouvé avec un délai pour éviter les perturbations visuelles
                             if (accordion) {
-                                accordion.classList.add('active');
-                                
-                                // Trouver l'en-tête de l'accordéon
-                                const accordionHeader = accordion.querySelector('.section-accordion-header');
-                                
-                                // Scroller vers l'en-tête de l'accordéon après un court délai
-                                if (accordionHeader) {
-                                    setTimeout(() => {
-                                        const headerHeight = 100; // Hauteur du header fixe
-                                        const headerPosition = accordionHeader.getBoundingClientRect().top + window.pageYOffset;
-                                        const offsetPosition = headerPosition - headerHeight;
-                                        
-                                        window.scrollTo({
-                                            top: offsetPosition,
-                                            behavior: 'smooth'
-                                        });
-                                    }, 150);
-                                }
+                                setTimeout(() => {
+                                    accordion.classList.add('active');
+                                    
+                                    // Trouver l'en-tête de l'accordéon
+                                    const accordionHeader = accordion.querySelector('.section-accordion-header');
+                                    
+                                    // Scroller vers l'en-tête de l'accordéon après un court délai pour permettre l'ouverture
+                                    if (accordionHeader) {
+                                        setTimeout(() => {
+                                            const headerHeight = 100; // Hauteur du header fixe
+                                            const headerPosition = accordionHeader.getBoundingClientRect().top + window.pageYOffset;
+                                            const offsetPosition = Math.max(0, headerPosition - headerHeight);
+                                            
+                                            window.scrollTo({
+                                                top: offsetPosition,
+                                                behavior: 'smooth'
+                                            });
+                                        }, 200);
+                                    }
+                                }, 150); // Délai pour permettre la fermeture de la section précédente
+                            } else {
+                                // Si pas d'accordéon, scroller directement vers l'élément
+                                setTimeout(() => {
+                                    const headerHeight = 100;
+                                    const elementPosition = targetElement.getBoundingClientRect().top + window.pageYOffset;
+                                    const offsetPosition = Math.max(0, elementPosition - headerHeight);
+                                    
+                                    window.scrollTo({
+                                        top: offsetPosition,
+                                        behavior: 'smooth'
+                                    });
+                                }, 100);
                             }
                         }
                     }

@@ -187,7 +187,7 @@
       background: #ffffff;
       border-bottom: 2px solid var(--border-color);
       box-shadow: var(--shadow-md);
-      padding: 18px 40px;
+      padding: 14px 40px;
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -282,7 +282,7 @@
     main {
       max-width: var(--max-width);
       margin: 0 auto;
-      padding: 100px clamp(16px, 4vw, 40px) 40px;
+      padding: 50px clamp(16px, 4vw, 40px) 40px;
       min-width: 0;
     }
 
@@ -494,8 +494,8 @@
     .section-accordion-header {
       background: #000000;
       color: #ffffff;
-      padding: 16px 24px;
-      font-size: 1.05em;
+      padding: 12px 18px;
+      font-size: 0.95em;
       font-weight: 600;
       cursor: pointer;
       display: flex;
@@ -995,6 +995,7 @@
         <li role="none"><a href="profil_personnel.html" role="menuitem">Profil</a></li>
         <li role="none"><a href="lettre_motivation_ecole.html" role="menuitem">Lettre école</a></li>
         <li role="none"><a href="lettre_motivation_entreprise.html" role="menuitem">Lettre entreprise</a></li>
+        <li role="none"><a href="https://github.com/Gab-Hub-Ctrl/presentation_technique" target="_blank" rel="noopener noreferrer" role="menuitem">Dépôt GitHub</a></li>
       </ul>
     </div>
   </nav>
@@ -1146,10 +1147,7 @@
     <p>Projet IT Dashboard A+</p>
     <p>Gabriel ROULON</p>
     <p>Démarche de démonstration technique et académique - 2025</p>
-    <p>
-      <a href="#main-content" aria-label="Retour en haut de la page"><span class="arrow-up">↑</span> Retour en haut</a> | 
-      <a href="https://github.com/Gab-Hub-Ctrl/presentation_technique" target="_blank" rel="noopener noreferrer">Dépôt GitHub</a>
-    </p>
+    <!-- Liens supprimés selon les spécifications -->
   </footer>
 
 </main>
@@ -1220,7 +1218,71 @@
       
       const menuLinks = dropdownMenu.querySelectorAll('a');
       menuLinks.forEach(link => {
-        link.addEventListener('click', function() {
+        link.addEventListener('click', function(e) {
+          const href = link.getAttribute('href');
+          
+          // Si c'est un lien vers une section (commence par #)
+          if (href && href.startsWith('#')) {
+            e.preventDefault();
+            
+            const targetId = href.substring(1);
+            const targetElement = document.getElementById(targetId);
+            
+            if (targetElement) {
+              // Fermer tous les accordéons ouverts
+              const allAccordions = document.querySelectorAll('.section-accordion.active');
+              allAccordions.forEach(acc => {
+                acc.classList.remove('active');
+              });
+              
+              // Trouver l'accordéon parent
+              let accordion = targetElement.closest('.section-accordion');
+              
+              // Si l'élément cible est dans une section, remonter jusqu'à l'accordéon
+              if (!accordion) {
+                let parent = targetElement.parentElement;
+                while (parent && !parent.classList.contains('section-accordion')) {
+                  parent = parent.parentElement;
+                }
+                accordion = parent;
+              }
+              
+              // Ouvrir l'accordéon correspondant si trouvé
+              if (accordion) {
+                accordion.classList.add('active');
+                
+                // Trouver l'en-tête de l'accordéon
+                const accordionHeader = accordion.querySelector('.section-accordion-header');
+                
+                // Scroller vers l'en-tête de l'accordéon après un court délai
+                if (accordionHeader) {
+                  setTimeout(() => {
+                    const headerHeight = 100; // Hauteur du header fixe
+                    const headerPosition = accordionHeader.getBoundingClientRect().top + window.pageYOffset;
+                    const offsetPosition = headerPosition - headerHeight;
+                    
+                    window.scrollTo({
+                      top: offsetPosition,
+                      behavior: 'smooth'
+                    });
+                  }, 150);
+                }
+              } else {
+                // Si pas d'accordéon, scroller directement vers l'élément
+                setTimeout(() => {
+                  const headerHeight = 100;
+                  const elementPosition = targetElement.getBoundingClientRect().top + window.pageYOffset;
+                  const offsetPosition = elementPosition - headerHeight;
+                  
+                  window.scrollTo({
+                    top: offsetPosition,
+                    behavior: 'smooth'
+                  });
+                }, 100);
+              }
+            }
+          }
+          
           dropdownToggle.setAttribute('aria-expanded', 'false');
           dropdownMenu.setAttribute('aria-hidden', 'true');
         });

@@ -297,6 +297,7 @@
       font-weight: 600;
       line-height: 1.3;
       white-space: nowrap;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
     }
     
     .header-left h2 .page-title {
@@ -304,6 +305,7 @@
       font-size: 1.1em;
       color: #000000;
       font-weight: 600;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
     }
     
     .header-left h2 .project-name {
@@ -311,6 +313,7 @@
       font-size: 1.1em;
       color: #000000;
       font-weight: 600;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
     }
 
     .header-left a:hover h2 {
@@ -351,7 +354,7 @@
     main {
       max-width: var(--max-width);
       margin: 0 auto;
-      padding: 70px clamp(16px, 4vw, 40px) 40px;
+      padding: 50px clamp(16px, 4vw, 40px) 40px;
       min-width: 0;
     }
 
@@ -415,17 +418,20 @@
       font-size: 0.9em;
       border-top: 2px solid #000000;
       background: #ffffff;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
     }
 
     footer p {
       color: #000000;
       margin: 8px 0;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
     }
 
     footer a {
       color: #000000;
       text-decoration: none;
       margin: 0 8px;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
     }
 
     footer a:hover,
@@ -512,12 +518,6 @@
 </head>
 <body>
   <a href="#main-content" class="skip-link">Aller au contenu principal</a>
-  <nav class="breadcrumb" aria-label="Fil d'Ariane">
-    <ol>
-      <li><a href="index.html">Accueil</a></li>
-      <li aria-current="page">Lettre de Motivation</li>
-    </ol>
-  </nav>
   <header role="banner">
     <div class="header-left">
       <a href="index.html" aria-label="Retour à l'accueil">
@@ -576,9 +576,7 @@
 
   <footer role="contentinfo">
     <p>
-      <a href="index.html">Accueil</a> |
-      <a href="presentation_synthetique.html">Présentation technique</a> |
-      <a href="lettre_motivation_entreprise.html">Lettre motivation entreprise</a>
+      <a href="https://github.com/Gab-Hub-Ctrl/presentation_technique" target="_blank" rel="noopener noreferrer">Dépôt GitHub</a>
     </p>
     <p>&copy; 2025 Gabriel ROULON - Tous droits réservés</p>
   </footer>
@@ -667,7 +665,37 @@
       
       const menuLinks = dropdownMenu.querySelectorAll('a');
       menuLinks.forEach(link => {
-        link.addEventListener('click', function() {
+        link.addEventListener('click', function(e) {
+          const href = link.getAttribute('href');
+          
+          // Si c'est un lien vers une section (commence par #)
+          if (href && href.startsWith('#')) {
+            e.preventDefault();
+            
+            const targetId = href.substring(1);
+            const targetElement = document.getElementById(targetId);
+            
+            if (targetElement) {
+              // Fermer tous les accordéons ouverts (si présents)
+              const allAccordions = document.querySelectorAll('.section-accordion.active');
+              allAccordions.forEach(acc => {
+                acc.classList.remove('active');
+              });
+              
+              // Scroller vers l'élément cible
+              setTimeout(() => {
+                const headerHeight = 100; // Hauteur du header fixe
+                const elementPosition = targetElement.getBoundingClientRect().top + window.pageYOffset;
+                const offsetPosition = elementPosition - headerHeight;
+                
+                window.scrollTo({
+                  top: offsetPosition,
+                  behavior: 'smooth'
+                });
+              }, 100);
+            }
+          }
+          
           dropdownToggle.setAttribute('aria-expanded', 'false');
           dropdownMenu.setAttribute('aria-hidden', 'true');
         });

@@ -150,7 +150,7 @@ Les présentations HTML offrent une expérience interactive complète avec navig
 
 4. **`rapport_projection_dimension_standards_projet3.html`** - Rapport de projection dimensionnelle
    - Analyse des 31 standards Projet3
-   - Projections d'impact et de maturité
+   - Projections d'impact et de maturité (document rédigé au conditionnel pour indiquer qu'il s'agit d'une projection future)
    - Bibliographie et glossaire complets
    - **Navigation par accordéons** : toutes les sections sont organisées en menus défilants pour alléger la page et permettre d'ouvrir uniquement les sections souhaitées
 
@@ -213,13 +213,25 @@ Les présentations HTML offrent une expérience interactive complète avec navig
 
 ## 📋 Conformité et qualité
 
-- ✅ **Standard 01_Qualité** : Conforme à 100%
+- ✅ **Standard 01_Qualité (STD-QE-001)** : Conforme à 100%
+  - Apostrophes correctement utilisées (d'exécution, l'onboarding, qu'on, etc.)
+  - Espaces avant deux-points respectées
+  - Points finaux présents sur toutes les phrases complètes
+  - Formatage cohérent (backticks pour code, noms de fichiers, chemins, commandes)
+  - Phrases complètes avec contexte explicatif
 - ✅ **WCAG 2.1 AA/AAA** : Accessibilité validée
 - ✅ **HTML5** : Structure valide
 - ✅ **SEO** : Méta-données complètes, sitemap.xml et robots.txt
 - ✅ **Cohérence globale** : Styles, terminologie, données numériques et récit narratif uniformisés à 100%
+  - Uniformisation des paddings (header : 14px 40px, main : 61px pour présentation/profil, 80px pour rapport, accordéons : 12px 18px)
+  - Uniformisation des styles d'accordéons selon common.css
+  - Uniformisation des polices (header/footer : -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif)
+  - Suppression des animations qui masquent le contenu (profil_personnel.html)
+  - Alignement adaptatif des cartes selon le nombre de lignes (1-2 lignes = centré, 3+ lignes = justifié)
 - ✅ **Cohérence narrative** : Ordre chronologique cohérent (bilans techniques → prompts fondateurs → INIT_SEQUENCE → Standards Projet3)
 - ✅ **Cohérence des données** : Toutes les données numériques sont cohérentes (11 pôles, 10 collecteurs, 31 standards, 8 catégories, 4100 lignes INIT_SEQUENCE, 1090 lignes prompts fondateurs, 50 000 lignes standards, 703 sections)
+- ✅ **Cohérence temporelle** : Le rapport de projection (`rapport_projection_dimension_standards_projet3.html`) est rédigé au conditionnel et utilise systématiquement les formulations "projeté", "selon la projection", "transformerait", etc., pour indiquer clairement qu'il s'agit d'une projection future et non d'un état déjà réalisé
+- ✅ **Comportement des sections** : Délai de 150ms lors de l'ouverture d'une section pour éviter les perturbations visuelles lors de la fermeture de la section précédente
 - ✅ **Dates harmonisées** : datePublished (2025-01-01) et dateModified (2025-12-29) cohérentes
 
 ## 🔗 Déploiement
@@ -242,5 +254,13 @@ Ce dossier démontre :
 - La maîtrise de l'architecture, de la gouvernance IA et de la documentation technique
 
 ---
+
+## 🎨 Améliorations récentes
+
+- ✅ **Comportement des sections optimisé** : Délai de 150ms lors de l'ouverture d'une section pour éviter les perturbations visuelles lors de la fermeture de la section précédente
+- ✅ **Alignement adaptatif des cartes** : Système automatique qui centre les textes de 1-2 lignes et justifie les textes de 3+ lignes pour améliorer la lisibilité
+- ✅ **Textes spécifiques** : Certains textes sont forcés à être centrés ou justifiés selon leur contenu pour une meilleure présentation
+- ✅ **Section "Structure et organisation"** : Toutes les cartes de cette section sont automatiquement centrées pour une meilleure cohérence visuelle
+- ✅ **Vérification finale de cohérence** : Cohérence narrative, données numériques, métriques et terminologie vérifiées à 100% dans tous les fichiers HTML
 
 *Dernière mise à jour : 2025-12-29*
