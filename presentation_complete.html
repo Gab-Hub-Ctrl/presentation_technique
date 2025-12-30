@@ -387,7 +387,7 @@
         main {
             max-width: var(--max-width);
             margin: 0 auto;
-            padding: 80px clamp(16px, 4vw, 40px) 40px;
+            padding: 70px clamp(16px, 4vw, 40px) 40px;
             min-width: 0;
         }
 
@@ -579,10 +579,16 @@
             animation: none;
             opacity: 1;
             transform: none;
+            transition: none;
         }
 
         .section-accordion-inner section::before {
             display: none;
+        }
+
+        .section-accordion-inner section:hover {
+            box-shadow: none;
+            transform: none;
         }
 
         
@@ -1118,7 +1124,7 @@
         /* Very small screens (< 320px) */
         @media (max-width: 320px) {
             main {
-                padding: 100px clamp(16px, 3vw, 20px) 30px;
+                padding: 70px clamp(16px, 3vw, 20px) 30px;
             }
             
             .introduction-header {
@@ -1423,7 +1429,7 @@
                 <p>INIT_SEQUENCE est un système de gouvernance IA basé sur une machine à états finis, conçu pour résoudre le problème de perte de contexte avec les IA.</p>
                 <h2 id="conception-personnelle">Conception personnelle d'un système de gouvernance IA</h2>
 <p>J'ai conçu INIT_SEQUENCE pour résoudre le problème de perte de contexte avec les IA. Ce système illustre une approche structurée pour gérer la complexité de la communication avec l'IA.</p>
-<p>J'ai identifié le problème de perte de contexte lors des échanges avec les IA locales. Après deux mois et demi de travail, j'ai créé INIT_SEQUENCE. Ce système permet de reprendre efficacement le projet entre chaque échange. Il limite la perte de données.</p>
+<p>J'ai identifié le problème de perte de contexte lors des échanges avec les IA locales. Après deux mois et demi de travail, j'ai créé INIT_SEQUENCE. Ce système permet de reprendre efficacement le projet entre chaque échange. Il limite la perte de contexte.</p>
 <h2 id="architecture-machine-etats">Architecture : machine à états finis</h2>
 <p>Le système fonctionne comme une machine à états finis, permettant de reconstruire l'état logique du projet après une interruption.</p>
 <p>J'ai défini huit états principaux. L'état S moins un correspond au Bootloader, qui sert de guardrail initial et valide les 11 prompts fondateurs. L'état S0 valide les bilans techniques pour reconstruire l'historique. L'état S2 analyse l'arborescence pour reconstruire la structure. L'état S4 contrôle la cohérence par une vérification globale. L'état S5 active le mode projet actif en activant le module cognitif. L'état S6 correspond à la maintenance technique avec des corrections de cohérence. L'état S7 est le mode Recovery pour la récupération en cas d'échec critique.</p>

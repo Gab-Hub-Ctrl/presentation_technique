@@ -306,7 +306,7 @@
         main {
             max-width: var(--max-width);
             margin: 0 auto;
-            padding: 80px clamp(16px, 4vw, 40px) 40px;
+            padding: 70px clamp(16px, 4vw, 40px) 40px;
             min-width: 0;
         }
 
@@ -723,6 +723,12 @@
             transform: translate3d(0, -2px, 0);
         }
 
+        /* Désactiver l'effet de hover pour les sections dans les accordéons */
+        .section-accordion-inner section:hover {
+            box-shadow: none;
+            transform: none;
+        }
+
         .metric-card:hover::before {
             transform: scaleX(1);
         }
@@ -965,7 +971,7 @@
         /* Very small screens (< 320px) */
         @media (max-width: 320px) {
             main {
-                padding: 100px 12px 30px;
+                padding: 70px clamp(16px, 3vw, 20px) 30px;
             }
             
             .introduction-header {
@@ -1094,8 +1100,8 @@
                 <p>J'ai utilisé uniquement des outils gratuits disponibles en ligne. J'avais trois mois pour tout créer.</p>
                 </div>
                 <p>J'ai utilisé l'intelligence artificielle comme outil d'apprentissage. Mon objectif était d'apprendre progressivement les concepts techniques, de créer une structure cohérente, et d'apprendre à documenter, tester et maintenir un projet complexe.</p>
-                <p>J'ai travaillé pendant deux mois et demi avec des outils d'intelligence artificielle locaux. J'ai créé un système appelé INIT_SEQUENCE pour résoudre le problème de perte de contexte entre les conversations.</p>
-                <p>Pendant les deux dernières semaines, j'ai utilisé un outil plus avancé (Cursor) qui m'a permis d'aller plus vite. Au total, j'ai consacré trois mois à ce projet.</p>
+                <p>J'ai travaillé pendant deux mois et demi avec des outils d'intelligence artificielle locaux. J'ai d'abord créé des bilans techniques et des arborescences pour faciliter la reprise, mais cela ne suffisait pas. J'ai alors créé les prompts fondateurs en cherchant une cohérence totale. INIT_SEQUENCE est né de la nécessité de résoudre la perte de contexte.</p>
+                <p>Pendant les deux dernières semaines, j'ai utilisé un outil plus avancé (Cursor) qui m'a permis d'augmenter ma productivité. Au total, j'ai consacré trois mois à ce projet.</p>
                 
                 <h2>L'évolution du projet</h2>
                 <p>Le projet est maintenant un Proof of Concept opérationnel et bien organisé. Le projet peut être déplacé facilement d'un ordinateur à l'autre. L'organisation est modulaire, ce qui signifie que chaque partie peut être modifiée indépendamment.</p>
@@ -1104,7 +1110,7 @@
                 
                 <h2>Pourquoi ce projet est intéressant</h2>
                 <p>Ce qui rend ce projet intéressant, ce n'est pas seulement le résultat final, mais la façon dont il a été créé.</p>
-                <p>En partant de zéro, j'ai créé INIT_SEQUENCE, un système complet pour gérer les conversations avec l'intelligence artificielle. J'ai créé onze prompts fondateurs pour structurer mes échanges. J'ai imaginé et créé un système d'archivage automatique.</p>
+                <p>En partant de zéro, j'ai d'abord créé des bilans techniques et des arborescences pour faciliter la reprise. Puis j'ai créé onze prompts fondateurs ex nihilo pour structurer la communication avec l'IA. Ensuite, j'ai conçu INIT_SEQUENCE, un système complet de gouvernance IA basé sur une machine à états finis. J'ai également imaginé et créé un système d'archivage automatique.</p>
                 <p>J'ai créé un système qui permet de déplacer facilement le projet. J'ai créé des menus et des outils qui automatisent les opérations. Toutes les parties du système fonctionnent ensemble.</p>
                 <p>Réaliser ce projet dans ces conditions montre ma capacité à apprendre seul et à évoluer rapidement.</p>
                 <p>Ce qui est important, c'est la rapidité d'apprentissage, la capacité à organiser, innover et résoudre des problèmes complexes en partant de zéro, et la persévérance face aux limitations des outils disponibles.</p>
@@ -1195,8 +1201,8 @@
             <p id="init-sequence-description" class="sr-only">Cette section présente INIT_SEQUENCE, un système de gouvernance IA basé sur une machine à états finis, développé pour résoudre le problème de perte de contexte avec les IA.</p>
                 
                 <h2>Pourquoi j'ai créé INIT_SEQUENCE</h2>
-                <p>J'ai créé INIT_SEQUENCE pour résoudre un problème important : lors des échanges avec les IA locales, je devais copier-coller l'intégralité de mes fichiers existants dans chaque nouvelle conversation. Plus le projet grandissait, plus cette approche devenait impossible car envoyer toutes les données saturait la mémoire de contexte du modèle. INIT_SEQUENCE permet de gérer efficacement la communication avec l'IA en reconstruisant le contexte du projet.</p>
-            <p>J'ai remarqué ce problème de perte de contexte lors de mes échanges avec les outils d'intelligence artificielle. Après deux mois et demi de travail, j'ai créé INIT_SEQUENCE pour résoudre ce problème. Ce système permet de reprendre facilement le projet après chaque interruption. Il limite la perte de contexte et garantit que le travail continue correctement malgré les interruptions.</p>
+                <p>J'ai créé INIT_SEQUENCE pour résoudre un problème important : lors des échanges avec les IA locales, je devais copier-coller l'intégralité de mes fichiers existants dans chaque nouvelle conversation. Plus le projet grandissait, plus cette approche devenait impossible car envoyer toutes les données saturait la mémoire de contexte du modèle.</p>
+            <p>J'ai d'abord créé des bilans techniques et des arborescences pour faciliter la reprise, mais cela ne suffisait pas. J'ai ensuite créé les prompts fondateurs pour structurer la communication avec l'IA. Puis j'ai conçu INIT_SEQUENCE, un système de gouvernance IA structuré en machine à états finis. Ce système permet de reprendre facilement le projet après chaque interruption. Il limite la perte de contexte et garantit que le travail continue correctement malgré les interruptions.</p>
                 
                 <h2>Comment fonctionne INIT_SEQUENCE</h2>
             <p>Le système fonctionne comme un système à états : il peut se souvenir de l'état du projet à chaque moment et le reconstruire après une interruption. Cette approche garantit que chaque étape peut être reproduite et que tout est traçable.</p>
@@ -1206,7 +1212,7 @@
                 <p>Le système fonctionne avec 8 états différents, des règles strictes pour passer d'un état à l'autre, une gestion de la mémoire et un protocole de contrôle.</p>
                 <p>Le module de réflexion utilise une approche inspirée de grandes figures historiques pour réfléchir aux problèmes sous différents angles. Il dispose d'une mémoire interne, de méthodes structurées et d'un système de gestion des erreurs qui s'améliore avec le temps.</p>
             <p>Le système de communication de base comprend 11 fichiers qui représentent 8 prompts logiques différents, soit environ 1090 lignes de texte structuré. Chaque prompt doit être cohérent avec tous les autres. J'ai commencé avec 5 prompts, puis 8, puis finalement 11 fichiers correspondant à 8 prompts logiques.</p>
-            <p>Ces modèles couvrent le comportement de l'IA, les règles de programmation, la vision de l'architecture, le contenu des 11 domaines informatiques, l'architecture technique, l'organisation des fichiers, l'interface utilisateur et l'automatisation.</p>
+            <p>Ces modèles couvrent le comportement de l'IA, les règles de programmation, la vision de l'architecture, le contenu des 11 pôles IT, l'architecture technique, l'organisation des fichiers, l'interface utilisateur et l'automatisation.</p>
                 <p>Le système de démarrage utilise une initialisation stricte, vérifie que tous les fichiers nécessaires sont présents, et garantit la sécurité et la traçabilité en utilisant uniquement du texte simple.</p>
                 <p>Le système principal comprend 15 sections détaillées, 8 états définis, des règles strictes pour passer d'un état à l'autre, une gestion des fichiers et des bilans, et des commandes disponibles.</p>
                 <p>Le système utilisateur comprend 7 phases : les prompts fondateurs, les bilans, l'organisation des fichiers, la vérification de cohérence, le mode de travail normal, la maintenance et la récupération.</p>

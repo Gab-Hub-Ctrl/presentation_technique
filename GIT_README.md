@@ -205,6 +205,9 @@ Get-ChildItem -Path presentation_technique -Recurse -File | Measure-Object -Prop
 - [ ] Les README reflètent la vraie arborescence
 - [ ] Les dates sont harmonisées (datePublished: 2025-01-01, dateModified: 2025-12-29)
 - [ ] Aucun fichier temporaire ou de cache n'est inclus
+- [ ] Cohérence narrative à 100% (ordre chronologique correct)
+- [ ] Cohérence des données numériques à 100% (pôles, collecteurs, standards, lignes)
+- [ ] Cohérence terminologique à 100% (Proof of Concept, perte de contexte, etc.)
 
 ---
 

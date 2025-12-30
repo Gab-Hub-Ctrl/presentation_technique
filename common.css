@@ -558,9 +558,15 @@ img[loading="lazy"].loaded {
   animation: none;
   opacity: 1;
   transform: none;
+  transition: none;
 }
 
 .section-accordion-inner section::before {
   display: none;
+}
+
+.section-accordion-inner section:hover {
+  box-shadow: none;
+  transform: none;
 }
 
