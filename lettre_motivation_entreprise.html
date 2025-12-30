@@ -51,9 +51,6 @@
   <link rel="preconnect" href="https://github.com">
   <link rel="dns-prefetch" href="https://github.com">
   
-  <!-- Preload critical resources -->
-  <link rel="preload" href="favicon.png" as="image">
-  
   <!-- Common CSS -->
   <link rel="stylesheet" href="common.css">
 
@@ -272,26 +269,41 @@
       will-change: transform;
     }
 
-    .header-container {
-      max-width: var(--max-width);
-      margin: 0 auto;
-      padding: 0 20px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 20px;
-    }
-
     .header-left {
-      flex: 1;
+      flex-shrink: 0;
+      min-width: 0;
+      overflow: hidden;
     }
 
     .header-title {
-      font-size: 1.5em;
-      font-weight: 700;
-      color: var(--primary-color);
+      font-size: 1.1em;
+      font-weight: 600;
+      color: #000000;
       text-decoration: none;
-      letter-spacing: -0.3px;
+      letter-spacing: 0.3px;
+    }
+    
+    .header-left h2 {
+      margin: 0;
+      font-size: 1.1em;
+      color: #000000;
+      font-weight: 600;
+      line-height: 1.3;
+      white-space: nowrap;
+    }
+    
+    .header-left h2 .page-title {
+      display: inline;
+      font-size: 1.1em;
+      color: #000000;
+      font-weight: 600;
+    }
+    
+    .header-left h2 .project-name {
+      display: inline;
+      font-size: 1.1em;
+      color: #000000;
+      font-weight: 600;
     }
 
     .header-title:hover,
@@ -344,13 +356,12 @@
     main {
       max-width: var(--max-width);
       margin: 0 auto;
-      padding: 120px 20px 40px;
+      padding: 120px clamp(16px, 4vw, 40px) 40px;
+      min-width: 0;
     }
 
     .letter-section {
       background: var(--card-bg);
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
       border: 1px solid var(--border-color);
       border-radius: 12px;
       padding: 48px 56px;
@@ -435,9 +446,6 @@
         font-size: 1.2em;
       }
 
-      .header-container {
-        flex-wrap: wrap;
-      }
 
       .letter-section {
         padding: 32px 24px;
@@ -495,14 +503,28 @@
     </ol>
   </nav>
   <header role="banner">
-    <div class="header-container">
-      <div class="header-left">
-        <a href="index.html" class="header-title" aria-label="Retour à l'accueil">Lettre de Motivation — Candidature Entreprise</a>
-      </div>
-      <nav class="header-nav" aria-label="Navigation principale">
-        <a href="index.html" aria-label="Retour à l'accueil">Accueil</a>
-      </nav>
+    <div class="header-left">
+      <a href="index.html" aria-label="Retour à l'accueil">
+        <h2>
+          <span class="page-title">Lettre de motivation - Entreprise</span> | <span class="project-name">IT Dashboard A+</span>
+        </h2>
+      </a>
     </div>
+    <nav class="header-nav" aria-label="Navigation principale">
+      <div class="nav-dropdown">
+        <button class="nav-dropdown-toggle" aria-expanded="false" aria-haspopup="true" aria-label="Menu de navigation">
+          Navigation <span class="nav-arrow">▼</span>
+        </button>
+        <ul class="nav-dropdown-menu" role="menu" aria-hidden="true">
+          <li role="none"><a href="index.html" role="menuitem">Accueil</a></li>
+          <li role="none"><a href="presentation_synthetique.html" role="menuitem">Présentation synthétique</a></li>
+          <li role="none"><a href="presentation_complete.html" role="menuitem">Présentation complète</a></li>
+          <li role="none"><a href="rapport_projection_dimension_standards_projet3.html" role="menuitem">Rapport</a></li>
+          <li role="none"><a href="profil_personnel.html" role="menuitem">Profil</a></li>
+          <li role="none"><a href="lettre_motivation_ecole.html" role="menuitem">Lettre école</a></li>
+        </ul>
+      </div>
+    </nav>
   </header>
 
   <main id="main-content" role="main">
@@ -602,6 +624,38 @@
         console.warn('Performance Observer non supporté');
       }
     }
+
+    /**
+     * Menu déroulant de navigation
+     */
+    (function() {
+      const dropdownToggle = document.querySelector('.nav-dropdown-toggle');
+      const dropdownMenu = document.querySelector('.nav-dropdown-menu');
+      
+      if (!dropdownToggle || !dropdownMenu) return;
+      
+      dropdownToggle.addEventListener('click', function(e) {
+        e.preventDefault();
+        const isExpanded = dropdownToggle.getAttribute('aria-expanded') === 'true';
+        dropdownToggle.setAttribute('aria-expanded', !isExpanded);
+        dropdownMenu.setAttribute('aria-hidden', isExpanded);
+      });
+      
+      document.addEventListener('click', function(e) {
+        if (!dropdownToggle.contains(e.target) && !dropdownMenu.contains(e.target)) {
+          dropdownToggle.setAttribute('aria-expanded', 'false');
+          dropdownMenu.setAttribute('aria-hidden', 'true');
+        }
+      });
+      
+      const menuLinks = dropdownMenu.querySelectorAll('a');
+      menuLinks.forEach(link => {
+        link.addEventListener('click', function() {
+          dropdownToggle.setAttribute('aria-expanded', 'false');
+          dropdownMenu.setAttribute('aria-hidden', 'true');
+        });
+      });
+    })();
   </script>
   
   <!-- Common JavaScript -->

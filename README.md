@@ -146,11 +146,13 @@ Les présentations HTML offrent une expérience interactive complète avec navig
    - Toutes les sections de la documentation technique
    - Vision détaillée du projet
    - Contexte de réalisation complet
+   - **Navigation par accordéons** : toutes les sections sont organisées en menus défilants pour alléger la page et permettre d'ouvrir uniquement les sections souhaitées
 
 4. **`rapport_projection_dimension_standards_projet3.html`** - Rapport de projection dimensionnelle
    - Analyse des 31 standards Projet3
    - Projections d'impact et de maturité
    - Bibliographie et glossaire complets
+   - **Navigation par accordéons** : toutes les sections sont organisées en menus défilants pour alléger la page et permettre d'ouvrir uniquement les sections souhaitées
 
 5. **`profil_personnel.html`** - Profil personnel et professionnel
    - Présentation personnelle

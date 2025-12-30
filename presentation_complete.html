@@ -49,9 +49,6 @@
     <link rel="preconnect" href="https://github.com">
     <link rel="dns-prefetch" href="https://github.com">
     
-    <!-- Preload critical resources -->
-    <link rel="preload" href="favicon.png" as="image">
-    
     <!-- Common CSS -->
     <link rel="stylesheet" href="common.css">
     
@@ -194,7 +191,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            z-index: 100;
+            z-index: 1000;
         }
 
 
@@ -213,9 +210,25 @@
 
         .header-left h2 {
             margin: 0;
-            font-size: 1.35em;
-            color: var(--primary-color);
-            font-weight: 700;
+            font-size: 1.1em;
+            color: #000000;
+            font-weight: 600;
+            line-height: 1.3;
+            white-space: nowrap;
+        }
+        
+        .header-left h2 .page-title {
+            display: inline;
+            font-size: 1.1em;
+            color: #000000;
+            font-weight: 600;
+        }
+        
+        .header-left h2 .project-name {
+            display: inline;
+            font-size: 1.1em;
+            color: #000000;
+            font-weight: 600;
             white-space: nowrap;
             transition: color 0.2s ease;
         }
@@ -234,6 +247,7 @@
         /* Menu déroulant pour navigation */
         .nav-dropdown {
             position: relative;
+            z-index: 1001;
         }
 
         .nav-dropdown-toggle {
@@ -241,7 +255,7 @@
             border: 1px solid var(--border-color);
             border-radius: 6px;
             padding: 8px 16px;
-            color: var(--text-primary);
+            color: var(--text-color);
             font-weight: 500;
             font-size: 0.9em;
             cursor: pointer;
@@ -281,7 +295,7 @@
             position: absolute;
             top: calc(100% + 8px);
             right: 0;
-            background: var(--bg-primary);
+            background: var(--bg-color);
             border: 1px solid var(--border-color);
             border-radius: 8px;
             box-shadow: var(--shadow-lg);
@@ -295,7 +309,7 @@
             visibility: hidden;
             transform: translateY(-10px);
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            z-index: 1000;
+            z-index: 1001;
         }
 
         .nav-dropdown-menu[aria-hidden="false"] {
@@ -312,7 +326,7 @@
             display: block;
             padding: 10px 20px;
             text-decoration: none;
-            color: var(--text-primary);
+            color: var(--text-color);
             font-size: 0.9em;
             transition: background 0.2s ease, color 0.2s ease;
             border: none;
@@ -373,7 +387,8 @@
         main {
             max-width: var(--max-width);
             margin: 0 auto;
-            padding: 120px 20px 40px;
+            padding: 80px clamp(16px, 4vw, 40px) 40px;
+            min-width: 0;
         }
 
         /* Section d'introduction */
@@ -419,11 +434,9 @@
            et effets hover subtils
            ============================================ */
         section {
-            margin-bottom: 32px;
-            padding: 32px 36px;
+            margin-bottom: 24px;
+            padding: 24px clamp(16px, 3vw, 32px);
             background: var(--card-bg);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
             border: 1px solid var(--border-color);
             border-radius: 12px;
             box-shadow: var(--shadow-md);
@@ -485,6 +498,93 @@
             }
         }
 
+        /* ============================================
+           ACCORDÉONS - Navigation par sections
+           Système d'accordéons pour alléger la page
+           ============================================ */
+        .section-accordion {
+            margin-bottom: 20px;
+            border: 2px solid #000000;
+            border-radius: 0;
+            overflow: hidden;
+            background: #ffffff;
+            box-shadow: var(--shadow-md);
+        }
+
+        .section-accordion-header {
+            background: #000000;
+            color: #ffffff;
+            padding: 16px 24px;
+            font-size: 1.05em;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            user-select: none;
+            transition: background 0.2s ease;
+            border-bottom: 2px solid #000000;
+        }
+
+        .section-accordion-header:hover {
+            background: #333333;
+        }
+        
+        /* Couleurs d'importance pour les sections */
+        .section-accordion.importance-critical .section-accordion-header {
+            border-left: 4px solid var(--importance-critical);
+        }
+        
+        .section-accordion.importance-high .section-accordion-header {
+            border-left: 4px solid var(--importance-high);
+        }
+        
+        .section-accordion.importance-normal .section-accordion-header {
+            border-left: 4px solid var(--importance-normal);
+        }
+
+        .section-accordion-header::after {
+            content: '+';
+            font-size: 1.5em;
+            font-weight: 300;
+            transition: transform 0.3s ease;
+        }
+
+        .section-accordion.active .section-accordion-header::after {
+            transform: rotate(45deg);
+        }
+
+        .section-accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+
+        .section-accordion.active .section-accordion-content {
+            max-height: 50000px;
+        }
+
+        .section-accordion-inner {
+            padding: 20px clamp(16px, 3vw, 24px);
+            background: #ffffff;
+        }
+
+        .section-accordion-inner section {
+            margin-bottom: 0;
+            padding: 0;
+            background: transparent;
+            border: none;
+            border-radius: 0;
+            box-shadow: none;
+            animation: none;
+            opacity: 1;
+            transform: none;
+        }
+
+        .section-accordion-inner section::before {
+            display: none;
+        }
+
         
         section:focus {
             outline: 3px solid var(--primary-color);
@@ -537,8 +637,7 @@
             margin-left: 0;
             padding-left: 0;
             font-weight: 600;
-            text-align: justify;
-            text-align-last: left;
+            text-align: center;
             padding-bottom: 8px;
             border-bottom: 1px solid var(--border-color);
         }
@@ -549,11 +648,9 @@
             margin-top: 20px;
             margin-bottom: 10px;
             margin-left: 0;
-            text-align: justify;
-            text-align-last: left;
             padding-left: 0;
             font-weight: 600;
-            text-align: left;
+            text-align: center;
         }
         
         /* Éviter les coupures de texte */
@@ -577,8 +674,6 @@
         /* HIGHLIGHT BOX */
         .highlight {
             background: var(--bg-secondary);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
             padding: 24px 32px;
             border-left: 4px solid var(--primary-color);
             margin: 32px 0;
@@ -610,8 +705,6 @@
         /* EXPLORE BOX */
         .explore-box {
             background: var(--bg-secondary);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
             border: 1px solid var(--border-color);
             border-left: 4px solid var(--primary-color);
             border-radius: 12px;
@@ -743,8 +836,6 @@
 
         .metric-card {
             background: var(--card-bg);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
             border: 1px solid var(--border-color);
             border-radius: 12px;
             padding: 32px 24px;
@@ -1027,7 +1118,7 @@
         /* Very small screens (< 320px) */
         @media (max-width: 320px) {
             main {
-                padding: 100px 12px 30px;
+                padding: 100px clamp(16px, 3vw, 20px) 30px;
             }
             
             .introduction-header {
@@ -1109,7 +1200,9 @@
     <header role="banner">
         <div class="header-left">
             <a href="index.html" aria-label="Retour à l'accueil">
-                <h2>IT Dashboard A+</h2>
+                <h2>
+                    <span class="page-title">Présentation complète</span> | <span class="project-name">IT Dashboard A+</span>
+                </h2>
             </a>
         </div>
         
@@ -1140,12 +1233,13 @@
     </header>
     
     <main id="main-content" role="main">
-        <!-- Section d'introduction -->
-        <section id="introduction-header" class="introduction-header">
-            <h1 lang="fr">Présentation Technique Complète</h1>
-            <p class="subtitle" lang="fr">Vue d'ensemble complète du projet IT Dashboard A+, de son architecture, de ses fonctionnalités opérationnelles et de sa vision stratégique</p>
-        </section>
-        
+        <!-- Accordéon Introduction -->
+        <div class="section-accordion importance-high">
+            <div class="section-accordion-header" onclick="toggleSection(this)">
+                Introduction : du besoin à la réalisation
+            </div>
+            <div class="section-accordion-content">
+                <div class="section-accordion-inner">
         <section id="introduction" aria-labelledby="introduction-title" aria-describedby="introduction-description">
                 <h1 id="introduction-title">Introduction : du besoin à la réalisation</h1>
                 <h2 id="besoin-initial">Le besoin initial</h2>
@@ -1153,63 +1247,106 @@
 <p>Mon objectif initial était de concevoir un dashboard interactif capable d'agréger, analyser et corréler des informations IT, en s'appuyant sur l'IA générative comme outil d'analyse, de synthèse et d'aide à la décision.</p>
 <p>J'ai conçu ce projet comme un laboratoire d'apprentissage appliqué, avec des contraintes proches d'un environnement professionnel : portabilité, auditabilité, traçabilité et gouvernance.</p>
 <h2 id="defi-technique">Le défi technique et l'approche retenue</h2>
-<p>Mon point de départ était très limité. Je partais de zéro connaissance en développement, avec seulement quelques bases en scripting issues de ma formation de Technicien Assistance Informatique. Je n'avais aucune formation structurée en développement, architecture ou IA. Je n'utilisais que des IA publiques, des outils gratuits moins performants que les solutions professionnelles. J'avais trois mois au total pour tout concevoir et implémenter.</p>
-<p>J'ai choisi d'utiliser des IA publiques comme outil d'apprentissage actif. Mon objectif était de comprendre progressivement les concepts techniques, structurer une architecture cohérente, et apprendre à documenter, tester et maintenir un projet complexe.</p>
-<p>J'ai travaillé deux mois et demi avec des IA locales uniquement. J'ai créé les prompts maîtres en cherchant une cohérence totale. INIT_SEQUENCE est né de la nécessité de résoudre la perte de contexte. Cursor m'a permis d'augmenter ma productivité pendant les deux dernières semaines. Au total, j'ai consacré trois mois à concevoir et implémenter ce projet.</p>
-<h2 id="evolution-projet">Évolution du projet : de l'idée au POC opérationnel</h2>
-<p>Le projet a évolué vers un Proof of Concept conceptuel fortement structuré et opérationnel. ProjectModule.psm1 assure une portabilité maximale. L'architecture est modulaire. L'archivage et la rétention sont automatiques. La traçabilité passe par des logs standardisés et des correlation IDs. Vault est intégré et opérationnel. Le pipeline fonctionne de bout en bout. La synchronisation Backend vers Frontend est automatique. Les alertes remontent correctement.</p>
+<p>Mon point de départ était très limité. Je partais de zéro connaissance en développement, avec seulement quelques bases en scripting issues de ma formation de Technicien Assistance Informatique. Je n'avais aucune formation structurée en développement, architecture ou IA.</p>
+<p>J'ai commencé avec des IA publiques gratuites, puis j'ai utilisé des IA locales. J'avais trois mois au total pour tout concevoir et implémenter.</p>
+<p>J'ai choisi d'utiliser des IA comme outil d'apprentissage actif. Mon objectif était de comprendre progressivement les concepts techniques, structurer une architecture cohérente, et apprendre à documenter, tester et maintenir un projet complexe.</p>
+<p>J'ai travaillé deux mois et demi avec des IA locales uniquement. J'ai d'abord créé des bilans techniques et des arborescences pour faciliter la reprise, mais cela ne suffisait pas. J'ai alors créé les prompts fondateurs en cherchant une cohérence totale.</p>
+<p>INIT_SEQUENCE est né de la nécessité de résoudre la perte de contexte. Cursor m'a permis d'augmenter ma productivité pendant les deux dernières semaines. Au total, j'ai consacré trois mois à concevoir et implémenter ce projet.</p>
+<h2 id="evolution-projet">Évolution du projet : de l'idée au Proof of Concept opérationnel</h2>
+<p>Le projet a évolué vers un Proof of Concept conceptuel fortement structuré et opérationnel. ProjectModule.psm1 assure une portabilité maximale. L'architecture est modulaire.</p>
+<p>L'archivage et la rétention sont automatiques. La traçabilité passe par des logs standardisés et des correlation IDs. Vault est intégré et opérationnel. Le pipeline fonctionne de bout en bout. La synchronisation Backend vers Frontend est automatique. Les alertes remontent correctement.</p>
 <p>Le projet fonctionne exclusivement en local. Le backend n'est pas encore exposé via une API publique complète. Cette exposition est une évolution prévue.</p>
 <h2 id="contexte-realisation">Contexte de réalisation</h2>
 <p>Ce qui rend le projet intéressant n'est pas seulement son résultat technique final, mais le contexte dans lequel il a été réalisé.</p>
-<p>En partant de zéro, j'ai créé INIT_SEQUENCE, un système complet de gouvernance IA basé sur une machine à états finis (voir section INIT_SEQUENCE). Onze prompts fondateurs ont été créés ex nihilo pour structurer la communication avec l'IA. J'ai imaginé et implémenté une solution d'archivage automatique (voir section Résolution de problèmes). ProjectModule.psm1 assure une portabilité maximale (voir section Architecture technique). Des menus CLI et une orchestration complète automatisent les opérations. Le pipeline Backend et Frontend fonctionne de bout en bout (voir section Fonctionnalités opérationnelles).</p>
+<p>En partant de zéro, j'ai d'abord créé des bilans techniques et des arborescences pour faciliter la reprise. Puis j'ai créé onze prompts fondateurs ex nihilo pour structurer la communication avec l'IA. Ensuite, j'ai conçu INIT_SEQUENCE, un système complet de gouvernance IA basé sur une machine à états finis (voir section INIT_SEQUENCE).</p>
+<p>J'ai également imaginé et implémenté une solution d'archivage automatique (voir section Résolution de problèmes). ProjectModule.psm1 assure une portabilité maximale (voir section Architecture technique). Des menus CLI et une orchestration complète automatisent les opérations. Le pipeline Backend et Frontend fonctionne de bout en bout (voir section Fonctionnalités opérationnelles).</p>
 <p>Réaliser ce projet dans ce contexte témoigne d'une capacité d'apprentissage autonome et d'un potentiel d'évolution. Ce qui est significatif, c'est la rapidité d'apprentissage, la capacité à structurer, innover et résoudre des problèmes complexes en partant de zéro, et la persévérance face aux limitations des outils disponibles.</p>
             </section>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Accordéon Relation IA -->
+        <div class="section-accordion importance-high">
+            <div class="section-accordion-header" onclick="toggleSection(this)">
+                Ma relation avec l'IA : autoformation, collaboration et recherche de maîtrise
+            </div>
+            <div class="section-accordion-content">
+                <div class="section-accordion-inner">
             <section id="relation-ia">
                 <h1 id="relation-ia-title">Ma relation avec l'IA : autoformation, collaboration et recherche de maîtrise</h1>
                 <p>Ma relation avec l'IA se décline en trois aspects : outil d'autoformation, collaborateur, et recherche de maîtrise.</p>
                 <h2 id="ia-outil-autoformation">L'IA comme outil d'autoformation</h2>
 <p>Je reconnais être très dépendant de l'IA pour développer ce projet. Cette dépendance n'est pas un aveu de faiblesse. C'est une réalité que j'assume et que j'ai transformée en force. J'ai appris à utiliser l'IA efficacement pour m'autoformer.</p>
-<p>Bien que je n'aie développé que des compétences limitées en développement traditionnel, j'ai appris énormément en pratiquant ce que j'appelle le "no code full IA". Je ne sais pas coder dans le sens classique, mais je comprends ce que je fais. Chaque ligne de code générée par l'IA, je l'ai analysée, comprise, validée et parfois modifiée pour correspondre à mes besoins.</p>
+<p>Bien que je n'aie développé que des compétences limitées en développement traditionnel, j'ai appris énormément en pratiquant ce que j'appelle le "no code full IA". Je ne sais pas coder dans le sens classique, mais je comprends ce que je fais.</p>
+<p>Chaque ligne de code générée par l'IA, je l'ai analysée, comprise, validée et parfois modifiée pour correspondre à mes besoins.</p>
 <p>J'estime avoir envoyé quelques milliers de prompts sur trois mois. Chaque prompt a été analysé, compris et amélioré. J'ai appris à communiquer avec l'IA comme avec un collaborateur.</p>
 <h2 id="ia-collaborateur">L'IA comme collaborateur</h2>
 <p>Parfois, je ne vois pas l'IA comme un simple outil, mais comme un véritable collaborateur. Les nombreuses heures que j'ai passées à peaufiner un simple prompt pour obtenir une réponse précise m'ont appris que l'IA nécessite une communication structurée, claire et itérative.</p>
-<p>Passer des heures à affiner un prompt n'est pas du temps perdu. C'est apprendre à structurer sa pensée, à anticiper les interprétations possibles, à créer un langage commun avec l'IA. Cette expérience m'a enseigné que la qualité d'un prompt détermine la qualité de la réponse, et que cette relation demande autant de rigueur qu'une collaboration humaine.</p>
-<p>J'ai travaillé intensément sur le prompt engineering. Le système comprend 11 fichiers représentant 8 prompts logiques, soit 1090 lignes Markdown. Chaque prompt doit être cohérent avec tous les autres, ce qui a nécessité un travail considérable. Cette approche m'a permis de générer des éléments très spécifiques comme ProjectModule.psm1, INIT_SEQUENCE, des scripts d'audit et de la documentation technique. Pour plus de détails sur l'architecture et les composants d'INIT_SEQUENCE, voir la section INIT_SEQUENCE.</p>
+<p>Passer des heures à affiner un prompt n'est pas du temps perdu. C'est apprendre à structurer sa pensée, à anticiper les interprétations possibles, à créer un langage commun avec l'IA.</p>
+<p>Cette expérience m'a enseigné que la qualité d'un prompt détermine la qualité de la réponse, et que cette relation demande autant de rigueur qu'une collaboration humaine.</p>
+<p>J'ai travaillé intensément sur le prompt engineering. Le système comprend 11 fichiers représentant 8 prompts logiques, soit 1090 lignes Markdown. Chaque prompt doit être cohérent avec tous les autres, ce qui a nécessité un travail considérable.</p>
+<p>Cette approche m'a permis de générer des éléments très spécifiques comme ProjectModule.psm1, INIT_SEQUENCE, des scripts d'audit et de la documentation technique. Pour plus de détails sur l'architecture et les composants d'INIT_SEQUENCE, voir la section INIT_SEQUENCE.</p>
 <h2 id="ce-que-j-aime">Ce que j'aime : concevoir, améliorer, résoudre, analyser</h2>
-<p>Je ne recherche pas à devenir un développeur au sens classique. Ce qui m'anime, c'est concevoir des architectures et structurer des systèmes, améliorer et optimiser ce qui existe, résoudre des problèmes en transformant des obstacles en opportunités et analyser des systèmes complexes pour identifier des patterns.</p>
+<p>Je ne recherche pas à devenir un développeur au sens classique. Ce qui m'anime, c'est concevoir des architectures et structurer des systèmes, améliorer et optimiser ce qui existe, résoudre des problèmes en transformant des obstacles en opportunités, et analyser des systèmes complexes pour identifier des patterns.</p>
 <p>L'IA me permet d'exprimer ces compétences sans être bloqué par mes limitations en développement. Elle traduit mes idées en code, mais c'est moi qui conçois, qui améliore, qui résous et qui analyse.</p>
 <h2 id="recherche-maitrise-relation">La recherche de maîtrise : apprendre les vraies règles</h2>
 <p>Je reconnais que ma pratique actuelle, bien qu'efficace, manque de fondations théoriques solides. Je comprends les concepts que j'utilise, mais je veux apprendre les vraies règles présentes dans les métiers de l'IA.</p>
-<p>C'est précisément pour cela que je souhaite intégrer un Bachelor en Intelligence Artificielle : pour apprendre les fondements théoriques, les bonnes pratiques professionnelles, les méthodologies éprouvées, les limites et les risques de l'IA. Je veux transformer ma pratique empirique en compétence structurée et reconnue.</p>
+<p>C'est précisément pour cela que je souhaite intégrer une formation académique en Intelligence Artificielle. Mon objectif est d'apprendre les fondements théoriques, les bonnes pratiques professionnelles, les méthodologies éprouvées, les limites et les risques de l'IA.</p>
+<p>Je veux transformer ma pratique empirique en compétence structurée et reconnue.</p>
 <p>Je veux apprendre dans un cadre académique et professionnel, avec des formateurs expérimentés, des pairs avec qui échanger et des projets réels qui me permettront de consolider mes acquis tout en découvrant de nouveaux horizons.</p>
             </section>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Accordéon Orientation -->
+        <div class="section-accordion importance-normal">
+            <div class="section-accordion-header" onclick="toggleSection(this)">
+                Orientation professionnelle
+            </div>
+            <div class="section-accordion-content">
+                <div class="section-accordion-inner">
             <section id="orientation">
-                <h1 id="orientation-title">Orientation professionnelle et formations identifiées</h1>
+                <h1 id="orientation-title">Orientation professionnelle</h1>
                 <h2 id="objectif-professionnel">Objectif professionnel : Expert en Gouvernance IA</h2>
 <p>Mon objectif professionnel est de me spécialiser en Expert en Gouvernance IA. Ce métier correspond bien à mes compétences et à mes aspirations : structurer les processus d'utilisation de l'IA, assurer la traçabilité et l'éthique, définir les règles de gouvernance, sans nécessiter de développement pur ni de mathématiques avancées.</p>
-<h2 id="formations-identifiees">Formations identifiées</h2>
-<p>Après avoir analysé le marché des formations Bachelor dans le domaine de l'IA, j'ai identifié trois parcours proposés par l'IA Institut by epta : Bachelor IA et Data Science, Bachelor IA et Business et Bachelor IA et Data Engineering.</p>
-<p>Ces trois formations correspondent au meilleur point de convergence entre ma méthode d'apprentissage, mes objectifs professionnels et mon évolution technique progressive. Ce positionnement reste conditionné à l'obtention de mon titre professionnel TSSR ainsi qu'à la réussite des tests d'admission prévus pour l'entrée en troisième année.</p>
 <h2 id="pratique-quotidienne">Pratique quotidienne de l'IA</h2>
-<p>L'Intelligence Artificielle fait déjà partie intégrante de mon quotidien. Je l'utilise pour rédiger, structurer mes idées, organiser mes recherches et explorer de nouveaux sujets techniques. À force de pratique, j'ai développé une réelle qualité de communication avec les modèles d'IA : précision du vocabulaire, clarté du contexte, explicitation des contraintes et des objectifs.</p>
+<p>L'Intelligence Artificielle fait déjà partie intégrante de mon quotidien. Je l'utilise pour rédiger, structurer mes idées, organiser mes recherches et explorer de nouveaux sujets techniques.</p>
+<p>À force de pratique, j'ai développé une réelle qualité de communication avec les modèles d'IA : précision du vocabulaire, clarté du contexte, explicitation des contraintes et des objectifs.</p>
 <h2 id="questions-gouvernance">Questions de gouvernance et d'éthique</h2>
-<p>Cette pratique m'a naturellement conduit à m'interroger sur des questions plus larges de gouvernance et d'éthique : qui décide de la manière dont l'IA est utilisée dans un projet, comment s'assurer qu'elle reste un outil au service des personnes, et comment maintenir une traçabilité claire entre les décisions humaines et les propositions générées par l'IA.</p>
+<p>Cette pratique m'a naturellement conduit à m'interroger sur des questions plus larges de gouvernance et d'éthique. Qui décide de la manière dont l'IA est utilisée dans un projet ? Comment s'assurer qu'elle reste un outil au service des personnes ? Comment maintenir une traçabilité claire entre les décisions humaines et les propositions générées par l'IA ?</p>
 <h2 id="enjeux-confidentialite">Enjeux de confidentialité et de transparence</h2>
 <p>Je suis également attentif à la confidentialité des données, au respect des personnes et à la transparence vis-à-vis des utilisateurs lorsque l'IA intervient dans un processus.</p>
-<p>À mes yeux, une IA ne doit pas seulement être performante, mais utilisée dans un cadre responsable, lisible et assumé. Cette réflexion sur la gouvernance IA, combinée à ma pratique du prompt engineering et à ma compréhension des enjeux de sécurité et d'infrastructure, oriente naturellement mon projet professionnel vers le métier d'Expert en Gouvernance IA.</p>
+<p>À mes yeux, une IA ne doit pas seulement être performante, mais utilisée dans un cadre responsable, lisible et assumé.</p>
+<p>Cette réflexion sur la gouvernance IA, combinée à ma pratique du prompt engineering et à ma compréhension des enjeux de sécurité et d'infrastructure, oriente naturellement mon projet professionnel vers le métier d'Expert en Gouvernance IA.</p>
 <h2 id="lucidite-dependance">Lucidité sur la dépendance à l'IA</h2>
-<p>Je suis lucide sur un point : aujourd'hui, je m'appuie fortement sur l'IA pour apprendre, expérimenter et progresser. Cette dépendance est à la fois une force, car elle me permet d'itérer rapidement et de corriger mes erreurs, et une fragilité si elle n'est pas accompagnée d'un socle technique solide. C'est précisément pour cette raison que je m'oriente vers le TSSR, puis vers un Bachelor en IA.</p>
+<p>Je suis lucide sur un point : aujourd'hui, je m'appuie fortement sur l'IA pour apprendre, expérimenter et progresser. Cette dépendance est à la fois une force, car elle me permet d'itérer rapidement et de corriger mes erreurs, et une fragilité si elle n'est pas accompagnée d'un socle technique solide.</p>
+<p>C'est précisément pour cette raison que je m'oriente vers une formation technique, puis vers une formation académique en Intelligence Artificielle.</p>
 <p>Je veux comprendre ce qui se passe sous le capot : systèmes, réseaux, sécurité, architectures. Je veux être capable de travailler également sans IA lorsque le contexte l'exige. Je veux faire de l'IA un outil maîtrisé, intégré dans des processus robustes et gouvernés.</p>
 <h2 id="competences-visees">Compétences en gouvernance IA visées</h2>
 <p>Au sein d'une entreprise ou d'une formation, je souhaite développer mes compétences en gouvernance IA : définition de règles d'utilisation, traçabilité des décisions, audit des systèmes IA et mise en place de processus robustes et éthiques.</p>
 <h2 id="reinvestissement-acquis">Réinvestissement des acquis professionnels</h2>
-<p>Mes trois années d'expérience en alternance en électricité et en maintenance industrielle m'ont permis d'acquérir une posture professionnelle solide : respect des engagements, travail en équipe, communication régulière sur l'avancement et intégration dans des environnements contraints. Je souhaite aujourd'hui réinvestir ces acquis dans une trajectoire centrée sur l'IT et l'IA.</p>
+<p>Mes trois années d'expérience en alternance en électricité et en maintenance industrielle m'ont permis d'acquérir une posture professionnelle solide : respect des engagements, travail en équipe, communication régulière sur l'avancement et intégration dans des environnements contraints.</p>
+<p>Je souhaite aujourd'hui réinvestir ces acquis dans une trajectoire centrée sur l'IT et l'IA.</p>
             </section>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Accordéon Fonctionnalités -->
+        <div class="section-accordion importance-high">
+            <div class="section-accordion-header" onclick="toggleSection(this)">
+                Ce qui fonctionne réellement : démonstration opérationnelle
+            </div>
+            <div class="section-accordion-content">
+                <div class="section-accordion-inner">
             <section id="fonctionnalites">
                 <h1 id="fonctionnalites-title">Ce qui fonctionne réellement : démonstration opérationnelle</h1>
                 <p>Voici les fonctionnalités validées et opérationnelles du projet.</p>
                 <h2 id="integration-vault">Intégration Vault : automatisation complète du cycle de vie des secrets</h2>
-<p>J'ai intégré HashiCorp Vault de manière opérationnelle dans mon projet. L'automatisation couvre le cycle de vie complet des AppRoles. Le système génère automatiquement 10 fichiers AppRole JSON, un par pôle. Chaque collecteur Python charge automatiquement son fichier AppRole via la fonction loadroleandsecret(). Chaque étape du pipeline s'initialise avec les credentials Vault appropriés. Un cycle complet automatisé en 15 étapes configure tout de bout en bout, incluant la rotation automatique des logs et la génération de rapports (voir section Architecture technique pour le détail des 15 étapes).</p>
+<p>J'ai intégré HashiCorp Vault de manière opérationnelle dans mon projet. L'automatisation couvre le cycle de vie complet des AppRoles. Le système génère automatiquement 10 fichiers AppRole JSON, un par pôle de collecte (pôles 1 à 10).</p>
+<p>Chaque collecteur Python charge automatiquement son fichier AppRole via la fonction loadroleandsecret(). Chaque étape du pipeline s'initialise avec les credentials Vault appropriés. Un cycle complet automatisé en 15 étapes configure tout de bout en bout, incluant la rotation automatique des logs et la génération de rapports (voir section Architecture technique pour le détail des 15 étapes).</p>
 <p>Le pipeline fonctionne de bout en bout avec Vault, depuis l'initiation jusqu'à la génération et l'utilisation des credentials, sans intervention manuelle de ma part.</p>
 <h2 id="pipeline-backend">Pipeline backend : flux opérationnel complet et validé</h2>
 <p>J'ai validé une séquence opérationnelle complète. La collecte utilise 10 collecteurs Python qui exécutent en parallèle. Chaque collecteur charge ses credentials Vault, collecte les données de son domaine IT, génère des événements bruts au format JSON et les stocke dans Backend/storage/raw/poleX/YYYYMMDD/.</p>
@@ -1225,12 +1362,23 @@
 <p>Les alertes sont affichées dans GlobalView.tsx, PoleView.tsx, SeverityHeatmap.tsx, TimelineView.tsx et CorrelationsChart.tsx. Le backend expose également une API FastAPI qui permet de récupérer les alertes via HTTP.</p>
 <p>Les alertes remontent correctement vers le frontend et sont affichées dans toutes les vues prévues. Le système est opérationnel de bout en bout.</p>
             </section>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Accordéon Résolution -->
+        <div class="section-accordion importance-high">
+            <div class="section-accordion-header" onclick="toggleSection(this)">
+                Résolution de problèmes : un fil conducteur structurant
+            </div>
+            <div class="section-accordion-content">
+                <div class="section-accordion-inner">
             <section id="resolution">
                 <h1 id="resolution-title">Résolution de problèmes : un fil conducteur structurant</h1>
                 <p>Chaque problème rencontré a été une opportunité d'apprentissage. Voici comment j'ai résolu les défis majeurs en autonomie.</p>
 <h2 id="probleme-1">Problème 1 : Perte de contexte et saturation de la mémoire</h2>
 <p>Lorsque je travaillais avec des IA publiques, je devais copier-coller l'intégralité de mes fichiers existants dans chaque nouvelle conversation. Plus le projet grandissait, plus cette approche devenait impossible : envoyer toutes les données saturait la mémoire de contexte du modèle.</p>
-<p>J'ai d'abord créé des bilans techniques et des arborescences pour faciliter la reprise, mais cela ne suffisait pas. J'ai alors conçu INIT_SEQUENCE, un système de gouvernance IA structuré en machine à états finis.</p>
+<p>J'ai d'abord créé des bilans techniques et des arborescences pour faciliter la reprise, mais cela ne suffisait pas. J'ai ensuite créé les prompts fondateurs pour structurer la communication avec l'IA. Puis j'ai conçu INIT_SEQUENCE, un système de gouvernance IA structuré en machine à états finis.</p>
 <p>Le système permet de reconstruire l'état logique du projet après une interruption, en passant par des états successifs : Bootloader, validation des bilans, analyse de l'arborescence, contrôle de cohérence, puis mode projet actif.</p>
 <p>J'ai découvert les machines à états finis, les protocoles de gouvernance et l'importance de la traçabilité. Pour plus de détails sur INIT_SEQUENCE, voir la section INIT_SEQUENCE.</p>
 <h2 id="probleme-2">Problème 2 : Prompts trop longs et incohérences</h2>
@@ -1259,6 +1407,17 @@
 <p>J'ai créé un système de gestion automatique du cycle de vie des données, inspiré des pratiques de Vault, garantissant la traçabilité tout en optimisant l'espace de stockage.</p>
 <p>J'ai découvert les politiques de rétention, la compression de données et l'importance de la gestion du cycle de vie.</p>
             </section>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Accordéon INIT_SEQUENCE -->
+        <div class="section-accordion importance-critical">
+            <div class="section-accordion-header" onclick="toggleSection(this)">
+                INIT_SEQUENCE : système de gouvernance IA innovant
+            </div>
+            <div class="section-accordion-content">
+                <div class="section-accordion-inner">
             <section id="init-sequence">
                 <h1 id="init-sequence-title">INIT_SEQUENCE : système de gouvernance IA innovant</h1>
                 <p>INIT_SEQUENCE est un système de gouvernance IA basé sur une machine à états finis, conçu pour résoudre le problème de perte de contexte avec les IA.</p>
@@ -1279,6 +1438,17 @@
 <h2 id="volume-total">Volume total INIT_SEQUENCE</h2>
 <p>J'ai analysé et structuré 50 fichiers. INIT_SEQUENCE représente 4100 lignes de documentation et prompts structurés : 1090 lignes pour les prompts fondateurs, le reste étant composé du système (Bootloader, SYSTEM, USER), du module cognitif et des bilans techniques.</p>
             </section>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Accordéon Standards -->
+        <div class="section-accordion importance-high">
+            <div class="section-accordion-header" onclick="toggleSection(this)">
+                Standards Projet3 : framework de gouvernance et qualité
+            </div>
+            <div class="section-accordion-content">
+                <div class="section-accordion-inner">
             <section id="standards">
                 <h1 id="standards-title">Standards Projet3 : framework de gouvernance et qualité</h1>
                 <p>Les Standards Projet3 sont un framework de 31 standards organisés en 8 catégories, créé pour résoudre le problème de répétition des instructions à l'IA.</p>
@@ -1363,8 +1533,19 @@
 <h2 id="etat-evolutions">État actuel et évolutions</h2>
 <p>Les standards Projet3 sont maintenant complétés : tous les 31 standards ont atteint le score optimal de 100/100. Le framework complet représente environ 50 000 lignes de documentation structurée réparties en 703 sections. Tous les standards sont complets, cohérents, et directement utilisables par un agent IA.</p>
 <p>L'objectif est de compléter tous les 31 standards avec un score de qualité de 100/100. Chaque standard doit être complet, cohérent, et directement utilisable par un agent IA. Les standards de référence (Qualité d'Écriture et Naming Conventions) sont complets et servent de modèles.</p>
-<p>Le framework représente un investissement significatif avec environ 50 000 lignes de documentation structurée réparties en 703 sections. Tous les standards sont maintenant complétés à 100/100, constituant un framework complet de gouvernance pour Projet3, garantissant la qualité, la cohérence et la maintenabilité à long terme.</p>
+<p>Le framework représente un investissement significatif avec environ 50 000 lignes de documentation structurée réparties en 703 sections. Tous les standards sont maintenant complétés à 100/100, constituant un framework complet de gouvernance pour IT Dashboard A+, garantissant la qualité, la cohérence et la maintenabilité à long terme.</p>
             </section>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Accordéon Architecture -->
+        <div class="section-accordion importance-high">
+            <div class="section-accordion-header" onclick="toggleSection(this)">
+                Architecture technique globale
+            </div>
+            <div class="section-accordion-content">
+                <div class="section-accordion-inner">
             <section id="architecture">
                 <h1 id="architecture-title">Architecture technique globale</h1>
                 <p>Voici l'architecture technique globale du projet : structure en couches, composants principaux, portabilité et automatisation.</p>
@@ -1372,16 +1553,27 @@
 <p>J'ai conçu le projet IT Dashboard A+ avec une architecture en couches, pensée pour être lisible, évolutive et maintenable. Mon objectif n'est pas encore la performance ou la scalabilité, mais la cohérence, la lisibilité et la gouvernance du flux de données.</p>
 <p>Le projet comprend plusieurs composants principaux. Le Frontend en React et TypeScript permet la visualisation des alertes, les corrélations globales, les vues par pôle et la gestion des feedbacks utilisateurs. Le Backend en Python implémente un pipeline complet de collecte, ETL, Rules Engine et Correlation Engine. L'intégration Vault est opérationnelle. Le stockage et les logs utilisent le format JSONL, des logs au format Markdown horodatés, des archives en rotation automatique et une politique de rétention. Vault gère de manière sécurisée les secrets via AppRoles, incluant la génération automatique, la rotation et la consommation par les collecteurs.</p>
 <h2 id="composants-principaux">Composants principaux opérationnels</h2>
-<p>J'ai développé 10 collecteurs pour les pôles 1 à 10. Leur rôle est de collecter des événements par domaine IT comme la sécurité, le cloud, le développement et les systèmes. J'ai implémenté 10 scripts Python collect_pole qui chargent automatiquement les credentials Vault, génèrent des événements bruts au format JSON, utilisent un logging standardisé avec filtrage des données sensibles, et propagent systématiquement des Correlation IDs.</p>
+<p>J'ai développé 10 collecteurs pour les pôles 1 à 10 (11 pôles spécialisés au total : pôles 1 à 10 pour la collecte + pôle 11 pour la corrélation, plus le pôle 0 pour la démonstration). Leur rôle est de collecter des événements par domaine IT comme la sécurité, le cloud, le développement et les systèmes. J'ai implémenté 10 scripts Python collect_pole qui chargent automatiquement les credentials Vault, génèrent des événements bruts au format JSON, utilisent un logging standardisé avec filtrage des données sensibles, et propagent systématiquement des Correlation IDs.</p>
 <p>Le pipeline ETL normalise, enrichit et fiabilise les données collectées. Il normalise les schémas JSON, déduplique par hash SHA256, enrichit les données de métadonnées, archive automatiquement les données J-1 en compression, et applique une rétention configurable de 90 jours par défaut.</p>
 <p>Le Rules Engine transforme des événements normalisés en alertes exploitables. Il applique un scoring de sévérité basé sur des règles explicites avec des seuils clairs : critique à partir de 0,7, moyen entre 0,4 et 0,69, faible en dessous de 0,4.</p>
 <p>Le Correlation Engine pour le pôle 11 corrèle les alertes issues des pôles 1 à 10 et calcule un score de risque global. Les politiques de corrélation incluent Global Critical, Time Window Correlation et Multi-Pole Cross Correlation.</p>
 <h2 id="portabilite-maximale">Portabilité maximale : ProjectModule</h2>
 <p>Mon objectif était de permettre l'exécution de n'importe quel script depuis n'importe quel répertoire. J'ai implémenté cela dans Tools/utils/core/ProjectModule.psm1. Le module détecte automatiquement la racine du projet avec 5 stratégies de fallback, expose une table centralisée $Global:ProjectPaths, supprime les chemins absolus hardcodés et valide la racine par critères.</p>
 <h2 id="automatisation-complete">Automatisation complète : Menus CLI</h2>
-<p>Plusieurs menus CLI interactifs automatisent toutes les opérations. Le Menu Principal sert de point d'entrée centralisé avec accès à tous les sous-menus. Le Menu Vault permet l'initialisation complète, la création de policies et d'AppRoles pour 10 pôles, la rotation des Secret IDs, et un cycle complet automatique en 15 étapes (voir section Fonctionnalités opérationnelles). Le Menu Stack Management permet de lancer la stack complète, le Backend uniquement, le Frontend uniquement, le pipeline complet, et l'arrêt de la stack. Le Menu Maintenance offre un backup complet, une restauration, un nettoyage standard et approfondi, un test de santé et un diagnostic avancé (voir section Observabilité pour les détails).</p>
+<p>Plusieurs menus CLI interactifs automatisent toutes les opérations. Le Menu Principal sert de point d'entrée centralisé avec accès à tous les sous-menus. Le Menu Vault permet l'initialisation complète, la création de policies et d'AppRoles pour les 11 pôles spécialisés (pôles 1 à 10 pour la collecte + pôle 11 pour la corrélation), la rotation des Secret IDs, et un cycle complet automatique en 15 étapes (voir section Fonctionnalités opérationnelles). Le Menu Stack Management permet de lancer la stack complète, le Backend uniquement, le Frontend uniquement, le pipeline complet, et l'arrêt de la stack. Le Menu Maintenance offre un backup complet, une restauration, un nettoyage standard et approfondi, un test de santé et un diagnostic avancé (voir section Observabilité pour les détails).</p>
 <p>J'ai créé des scripts de maintenance spécifiques. Test-StackHealth.ps1 vérifie complètement la santé de la stack et génère des rapports de santé horodatés.</p>
             </section>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Accordéon Observabilité -->
+        <div class="section-accordion importance-normal">
+            <div class="section-accordion-header" onclick="toggleSection(this)">
+                Observabilité, auditabilité et qualité opérationnelle
+            </div>
+            <div class="section-accordion-content">
+                <div class="section-accordion-inner">
             <section id="observabilite">
                 <h1 id="observabilite-title">Observabilité, auditabilité et qualité opérationnelle</h1>
                 <p>Voici les mécanismes d'observabilité, d'audit et de qualité opérationnelle mis en place.</p>
@@ -1399,35 +1591,72 @@
 <h2 id="qualite-auditabilite">Qualité, auditabilité et sécurité</h2>
 <p>J'ai mis en place des standards de qualité du code. Les conventions de nommage suivent le standard PowerShell Verbe-Nom.ps1 et Python PEP 8. Tous les scripts incluent des en-têtes standardisés avec métadonnées : auteur, date, version et rôle. J'ai structuré le code de manière modulaire avec une séparation claire des responsabilités.</p>
 <p>Pour l'auditabilité, le système génère automatiquement des rapports d'audit avec 43 tests automatisables. Les journaux sont horodatés au format Markdown standardisé. J'ai documenté l'état de chaque composant avec 14 bilans techniques détaillés. J'ai créé des scénarios de test manuels et automatisés par phase, avec 7 phases de tests.</p>
-<p>Pour la sécurité et la portabilité, aucun secret n'est stocké en clair grâce au filtrage automatique des données sensibles dans les logs. J'utilise exclusivement ProjectModule pour la portabilité avec des chemins centralisés (voir section Architecture technique). J'ai intégré Vault pour une gestion sécurisée des credentials via AppRoles (voir section Fonctionnalités opérationnelles).</p>
+<p>Pour la sécurité et la portabilité, aucun secret n'est stocké en clair grâce au filtrage automatique des données sensibles dans les logs. J'utilise exclusivement ProjectModule pour la portabilité avec des chemins centralisés (voir section Architecture technique).</p>
+<p>J'ai intégré Vault pour une gestion sécurisée des credentials via AppRoles (voir section Fonctionnalités opérationnelles).</p>
             </section>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Accordéon Amélioration -->
+        <div class="section-accordion importance-normal">
+            <div class="section-accordion-header" onclick="toggleSection(this)">
+                Stratégie d'amélioration continue : collecte de feedback utilisateurs
+            </div>
+            <div class="section-accordion-content">
+                <div class="section-accordion-inner">
             <section id="amelioration">
                 <h1 id="amelioration-title">Stratégie d'amélioration continue : collecte de feedback utilisateurs</h1>
                 <p>Voici la stratégie d'amélioration continue : collecte de feedback structurée, tests utilisateurs et distribution contrôlée.</p>
                 <h2 id="formulaire-feedback">Formulaire de feedback : outil de collecte structurée</h2>
 <p>J'ai développé un formulaire de feedback complet dans FeedbackView.tsx qui permet de collecter deux types de retours.</p>
-<p>Pour les retours professionnels destinés aux personnes techniques, le formulaire collecte des informations sur la configuration Vault, l'expérience avec le pipeline, la qualité des alertes générées, les problèmes techniques rencontrés et les suggestions d'amélioration de l'architecture.</p>
-<p>Pour les retours néophytes destinés aux utilisateurs non techniques, le formulaire évalue l'expérience utilisateur de l'interface frontend, la pertinence des visualisations, les difficultés de compréhension des alertes et les suggestions d'amélioration de l'UX et de l'UI.</p>
-<p>Le formulaire inclut une validation stricte avec validation complète de l'email, limites de mots et sanitization. Il stocke les retours via l'API backend Backend/api/routes/feedback.py. Les données sont stockées de manière structurée dans Projet_Dashboard_IT_IA_Bridgepoint/feedback/.</p>
+<p>Pour les retours professionnels destinés aux personnes techniques, le formulaire collecte des informations sur la configuration Vault, l'expérience avec le pipeline, la qualité des alertes générées, les problèmes techniques rencontrés, et les suggestions d'amélioration de l'architecture.</p>
+<p>Pour les retours néophytes destinés aux utilisateurs non techniques, le formulaire évalue l'expérience utilisateur de l'interface frontend, la pertinence des visualisations, les difficultés de compréhension des alertes, et les suggestions d'amélioration de l'UX et de l'UI.</p>
+<p>Le formulaire inclut une validation stricte avec validation complète de l'email, limites de mots et sanitization. Il stocke les retours via l'API backend Backend/api/routes/feedback.py.</p>
+<p>Les données sont stockées de manière structurée dans Projet_Dashboard_IT_IA_Bridgepoint/feedback/.</p>
 <h2 id="plan-test-utilisateurs">Plan de test utilisateurs : deux parcours distincts</h2>
 <p>Mon objectif est de collecter des informations structurées pour améliorer continuellement le projet.</p>
 <p>Pour le parcours technique destiné aux personnes avec compétences IT, les testeurs doivent configurer complètement Vault, lancer le pipeline complet, et fournir un feedback structuré via le formulaire frontend.</p>
-<p>Pour le parcours néophyte destiné aux utilisateurs sans compétences techniques, les testeurs reçoivent uniquement l'interface visuelle avec le frontend pré-configuré, se concentrent sur l'UX et l'UI, et fournissent un feedback structuré via le formulaire frontend en mode néophyte.</p>
+<p>Pour le parcours néophyte destiné aux utilisateurs sans compétences techniques, les testeurs reçoivent uniquement l'interface visuelle avec le frontend pré-configuré. Ils se concentrent sur l'UX et l'UI, et fournissent un feedback structuré via le formulaire frontend en mode néophyte.</p>
 <h2 id="distribution-projet">Distribution du projet : clés USB et copies locales</h2>
 <p>Le projet n'étant pas branché en public, sans repository GitHub public, la distribution se fait via clés USB avec le projet complet, la documentation et les guides de test. Je distribue également des copies locales via partage réseau avec instructions d'accès.</p>
 <h2 id="export-arborescence">Export d'arborescence : automatisation opérationnelle</h2>
-<p>J'ai mis en place un système d'export d'arborescence qui génère automatiquement la structure complète du projet. Le script d'export Tools/arborescence/scripts/Export-Arborescence.ps1 génère automatiquement des arborescences horodatées pour Backend, Frontend et la racine du projet. L'export se fait automatiquement vers Projet_Dashboard_IT_IA_Bridgepoint/arborescence/.</p>
+<p>J'ai mis en place un système d'export d'arborescence qui génère automatiquement la structure complète du projet. Le script d'export Tools/arborescence/scripts/Export-Arborescence.ps1 génère automatiquement des arborescences horodatées pour Backend, Frontend et la racine du projet.</p>
+<p>L'export se fait automatiquement vers Projet_Dashboard_IT_IA_Bridgepoint/arborescence/.</p>
 <p>L'export d'arborescence est fonctionnel et permet de documenter automatiquement la structure du projet pour faciliter la reprise et la synchronisation.</p>
             </section>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Accordéon Évolutions -->
+        <div class="section-accordion importance-normal">
+            <div class="section-accordion-header" onclick="toggleSection(this)">
+                Évolutions prévues
+            </div>
+            <div class="section-accordion-content">
+                <div class="section-accordion-inner">
             <section id="evolutions">
                 <h1 id="evolutions-title">Évolutions prévues</h1>
                 <p>Voici les évolutions prévues : développement de Bridgepoint, mises à jour automatiques, et agents IA spécialisés.</p>
                 <h2 id="evolutions-prevues">Évolutions prévues</h2>
-<p>Je prévois de développer Bridgepoint comme hub centralisé pour journalisation automatique, collecte structurée des retours utilisateurs, et synchronisation bidirectionnelle avec le projet principal. L'interface web de visualisation existe actuellement, mais la synchronisation bidirectionnelle complète n'est pas encore opérationnelle.</p>
+<p>Je prévois de développer Bridgepoint comme hub centralisé pour journalisation automatique, collecte structurée des retours utilisateurs, et synchronisation bidirectionnelle avec le projet principal.</p>
+<p>L'interface web de visualisation existe actuellement, mais la synchronisation bidirectionnelle complète n'est pas encore opérationnelle.</p>
 <p>Je prévois de mettre en place un système de mises à jour automatiques qui vérifie et applique automatiquement les mises à jour des dépendances npm et pip, avec notifications et planification quotidienne.</p>
 <p>IT Dashboard A+ est actuellement un Proof of Concept. J'ai volontairement préparé le projet comme une base solide, avant une phase de réalisation plus avancée.</p>
 <p>Une fois l'architecture totalement stabilisée et les retours utilisateurs intégrés, l'évolution que j'envisage est le développement de véritables agents spécialisés, un par pôle. Je prévois l'intégration progressive de modèles IA spécialisés, l'exposition du backend via une API complète, l'intégration d'un chatbot pour interroger le dashboard et obtenir des analyses personnalisées, et un système de notifications par email personnalisées selon le profil métier de l'utilisateur.</p>
             </section>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Accordéon Compétences -->
+        <div class="section-accordion importance-normal">
+            <div class="section-accordion-header" onclick="toggleSection(this)">
+                Compétences préexistantes : virtualisation, sécurité et infrastructure
+            </div>
+            <div class="section-accordion-content">
+                <div class="section-accordion-inner">
             <section id="competences">
                 <h1 id="competences-title">Compétences préexistantes : virtualisation, sécurité et infrastructure</h1>
                 <p>Mes compétences préexistantes en virtualisation, sécurité et infrastructure ont contribué au projet et compensé partiellement mes limitations en développement.</p>
@@ -1437,24 +1666,65 @@
 <p>Ces compétences préexistantes renforcent mon profil professionnel avec des compétences infrastructure, opérationnelles, sécurité et système. Elles compensent partiellement mes limitations en développement pur. Elles renforcent mon orientation professionnelle vers Expert en Gouvernance IA, Architecte Solutions IA, ou DevOps et SRE.</p>
 <p>Elles correspondent bien au projet : la gestion de Vault nécessite la configuration de serveur Windows, l'architecture opérationnelle avec menus CLI et scripts de maintenance utilise mes compétences infrastructure, la sécurité avec l'intégration HashiCorp Vault correspond à mes compétences en sécurité, et l'observabilité avec logs, monitoring et traçabilité opérationnelle utilise mes compétences système.</p>
             </section>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Accordéon Vision -->
+        <div class="section-accordion importance-high">
+            <div class="section-accordion-header" onclick="toggleSection(this)">
+                Vision stratégique : agents locaux et généralisation
+            </div>
+            <div class="section-accordion-content">
+                <div class="section-accordion-inner">
             <section id="vision">
                 <h1 id="vision-title">Vision stratégique : agents locaux et généralisation</h1>
                 <p>Vision stratégique : évolution vers des agents IA locaux et généralisation potentielle d'INIT_SEQUENCE pour d'autres projets.</p>
                 <h2 id="vision-agents-locaux">Vision : Remplacement des scripts par agents locaux</h2>
-<p>Je vois une évolution vers des agents IA locaux. L'objectif est de remplacer les scripts par des agents locaux. Ces agents auraient une autonomie décisionnelle, capables de prendre des décisions. Ils s'adapteraient contextuellement aux changements, communiqueraient entre agents pour collaborer, et s'exécuteraient localement sans dépendance aux APIs cloud.</p>
+<p>Je vois une évolution vers des agents IA locaux. L'objectif est de remplacer les scripts par des agents locaux. Ces agents auraient une autonomie décisionnelle, capables de prendre des décisions.</p>
+<p>Ils s'adapteraient contextuellement aux changements, communiqueraient entre agents pour collaborer, et s'exécuteraient localement sans dépendance aux APIs cloud.</p>
 <h2 id="generalisation-init-sequence">Généralisation d'INIT_SEQUENCE</h2>
-<p>Je vois un potentiel de généralisation pour INIT_SEQUENCE. Il peut être adapté pour n'importe quel projet, à condition que le projet soit basé sur des prompts maîtres, des bilans techniques et une arborescence actuelle. Les composants SYSTEM, USER, Bootloader et Module Cognitif peuvent être adaptés. Un framework de gouvernance IA réutilisable pourrait être créé. Cela permettrait de reprendre n'importe quel projet avec n'importe quelle IA.</p>
+<p>Je vois un potentiel de généralisation pour INIT_SEQUENCE. Il peut être adapté pour n'importe quel projet, à condition que le projet soit basé sur des prompts maîtres, des bilans techniques et une arborescence actuelle.</p>
+<p>Les composants SYSTEM, USER, Bootloader et Module Cognitif peuvent être adaptés. Un framework de gouvernance IA réutilisable pourrait être créé. Cela permettrait de reprendre n'importe quel projet avec n'importe quelle IA.</p>
             </section>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Accordéon Métriques -->
+        <div class="section-accordion importance-high">
+            <div class="section-accordion-header" onclick="toggleSection(this)">
+                Chiffres clés et métriques du projet
+            </div>
+            <div class="section-accordion-content">
+                <div class="section-accordion-inner">
             <section id="metriques">
                 <h1 id="metriques-title">Chiffres clés et métriques du projet</h1>
                 <p>Voici les métriques quantitatives du projet : volume de code, structure modulaire et couverture fonctionnelle.</p>
                 <h2 id="volume-code">Volume de code</h2>
-<p>Le projet comprend 124 scripts PowerShell au total : 76 dans Projet_Dashboard_IT_IA, 32 dans le projet Vault, et 9 dans Bridgepoint. Trois modules PowerShell ont été créés : ProjectModule.psm1, VaultModule.psm1 et VaultCommon.psm1. Cinquante-cinq fichiers Python incluent collecteurs, ETL, règles, corrélation, API, services, repositories et tests. Quatre-vingts composants React et TypeScript ont été créés : 56 composants tsx et 24 services et utilitaires ts. Onze prompts fondateurs en Markdown représentent 1090 lignes. Environ 20 guides et documentations ont été produits : 8 guides d'architecture, 13 guides d'onboarding et des runbooks opérationnels. INIT_SEQUENCE comprend 50 fichiers, représentant 4100 lignes de documentation et prompts structurés. Les Standards Projet3 comprennent 31 standards organisés en 8 catégories, représentant un total d'environ 50 000 lignes de documentation structurée réparties en 703 sections avec un score de qualité moyen de 100%. Tous les 31 standards ont atteint le score optimal de 100/100, garantissant une complétude et une cohérence optimales. Les standards de référence sont complets (Qualité d'Écriture : 2463 lignes, Naming Conventions : 1554 lignes), et 18 standards ont atteint le score optimal de 100%.</p>
+<p>Le projet comprend 124 scripts PowerShell au total : 76 dans Projet_Dashboard_IT_IA, 32 dans le projet Vault, et 9 dans Bridgepoint. Trois modules PowerShell ont été créés : ProjectModule.psm1, VaultModule.psm1 et VaultCommon.psm1.</p>
+<p>Cinquante-cinq fichiers Python incluent collecteurs, ETL, règles, corrélation, API, services, repositories et tests. Quatre-vingts composants React et TypeScript ont été créés : 56 composants tsx et 24 services et utilitaires ts.</p>
+<p>Onze prompts fondateurs en Markdown représentent 1090 lignes. Environ 20 guides et documentations ont été produits : 8 guides d'architecture, 13 guides d'onboarding et des runbooks opérationnels.</p>
+<p>INIT_SEQUENCE comprend 50 fichiers, représentant 4100 lignes de documentation et prompts structurés. Les Standards Projet3 comprennent 31 standards organisés en 8 catégories, représentant un total d'environ 50 000 lignes de documentation structurée réparties en 703 sections avec un score de qualité moyen de 100%.</p>
+<p>Tous les 31 standards ont atteint le score optimal de 100/100, garantissant une complétude et une cohérence optimales. Les standards de référence sont complets (Qualité d'Écriture : 2463 lignes, Naming Conventions : 1554 lignes).</p>
 <h2 id="structure-modulaire">Structure modulaire</h2>
-<p>Dix collecteurs Python opérationnels ont été développés pour les pôles de collecte. Les modules backend incluent ETL, Rules Engine, Correlation Engine, API REST, Services et Repositories. Les vues frontend comprennent GlobalView, PoleView pour 10 pôles et FeedbackView. Les composants de visualisation incluent SeverityHeatmap, TimelineView, CorrelationsChart, StatCard et DashboardCard.</p>
+<p>Dix collecteurs Python opérationnels ont été développés pour les pôles de collecte (pôles 1 à 10). L'architecture comprend 11 pôles spécialisés au total : pôles 1 à 10 pour la collecte + pôle 11 pour la corrélation, plus le pôle 0 pour la démonstration.</p>
+<p>Les modules backend incluent ETL, Rules Engine, Correlation Engine, API REST, Services et Repositories. Les vues frontend comprennent GlobalView, PoleView pour les 11 pôles spécialisés et FeedbackView.</p>
+<p>Les composants de visualisation incluent SeverityHeatmap, TimelineView, CorrelationsChart, StatCard et DashboardCard.</p>
 <h2 id="couverture-fonctionnelle">Couverture fonctionnelle</h2>
 <p>Tous les scripts PowerShell identifiés utilisent ProjectModule pour la portabilité. Tous les collecteurs identifiés chargent automatiquement les AppRoles pour l'intégration Vault. La synchronisation est automatique de Backend vers Frontend via script dédié. L'archivage suit une rotation automatique J-1 avec rétention de 90 jours. Sept phases de tests automatisés ont été mises en place : portabilité, uniformisation, menus CLI, AppRoles, documentation, logs et observabilité, et gouvernance.</p>
             </section>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Accordéon Conclusion -->
+        <div class="section-accordion importance-high">
+            <div class="section-accordion-header" onclick="toggleSection(this)">
+                Conclusion : démarche d'amélioration continue et recherche de maîtrise
+            </div>
+            <div class="section-accordion-content">
+                <div class="section-accordion-inner">
             <section id="conclusion">
                 <h1 id="conclusion-title">Conclusion : démarche d'amélioration continue et recherche de maîtrise</h1>
                 <p>IT Dashboard A+ reflète ma démarche d'apprentissage autonome et ma recherche de maîtrise. Partant de limitations techniques, j'ai développé une approche structurée pour résoudre les problèmes rencontrés. Le projet illustre ma compréhension des enjeux de gouvernance de l'IA : règles, architecture, protocoles, audit, sécurité et traçabilité.</p>
@@ -1467,14 +1737,19 @@
 <h2 id="demarche-amelioration-continue">Démarche d'amélioration continue</h2>
 <p>J'ai mis en place un test utilisateurs structuré avec deux parcours distincts pour collecter des retours ciblés. Je distribue le projet de manière contrôlée via clés USB et copies locales pour tester dans des conditions réelles. J'ai intégré un formulaire frontend pour collecter et structurer les retours. Chaque retour utilisateur alimente les prochaines améliorations.</p>
 <h2 id="recherche-maitrise-conclusion">Recherche de maîtrise</h2>
-<p>Je reconnais mes limites : ma pratique empirique est efficace mais manque de fondations théoriques. J'ai la volonté d'apprendre : je souhaite intégrer un Bachelor en IA pour apprendre les vraies règles, les bonnes pratiques et les méthodologies éprouvées. J'ai besoin d'un cadre encadré : un environnement académique et professionnel pour transformer ma pratique en compétence structurée.</p>
+<p>Je reconnais mes limites : ma pratique empirique est efficace mais manque de fondations théoriques. J'ai la volonté d'apprendre : je souhaite intégrer une formation académique en Intelligence Artificielle pour apprendre les vraies règles, les bonnes pratiques et les méthodologies éprouvées.</p>
+<p>J'ai besoin d'un cadre encadré : un environnement académique et professionnel pour transformer ma pratique en compétence structurée.</p>
 <h2 id="conclusion-finale">Conclusion finale</h2>
-<p>Ce projet n'a pas vocation à être terminé à ce stade, mais à servir de socle pédagogique et technique pour poursuivre mon parcours en Bachelor en Informatique et Intelligence Artificielle, et approfondir ces concepts dans un cadre académique et encadré.</p>
-<p>Cette démarche illustre ma capacité à utiliser l'IA comme accélérateur tout en maintenant des standards de qualité professionnels, ma volonté d'amélioration continue basée sur des retours utilisateurs structurés, et ma recherche de maîtrise : transformer une pratique empirique en compétence structurée et reconnue, compétence que je souhaite mettre au service d'une équipe dans le cadre d'une alternance liée à un Bachelor en Intelligence Artificielle.</p>
+<p>Ce projet n'a pas vocation à être terminé à ce stade, mais à servir de socle pédagogique et technique pour poursuivre mon parcours en formation académique en Informatique et Intelligence Artificielle, et approfondir ces concepts dans un cadre académique et encadré.</p>
+<p>Cette démarche illustre ma capacité à utiliser l'IA comme accélérateur tout en maintenant des standards de qualité professionnels, ma volonté d'amélioration continue basée sur des retours utilisateurs structurés, et ma recherche de maîtrise.</p>
+<p>Mon objectif est de transformer une pratique empirique en compétence structurée et reconnue, compétence que je souhaite mettre au service d'une équipe dans le cadre d'une alternance liée à une formation académique en Intelligence Artificielle.</p>
                 <div class="signature">
                     <span class="name">ROULON</span><span class="firstname">Gabriel</span>
                 </div>
             </section>
+                </div>
+            </div>
+        </div>
         </main>
         
     <footer role="contentinfo">
@@ -1532,6 +1807,15 @@
         }
 
         /**
+         * Fonction pour ouvrir/fermer les sections accordéon
+         */
+        function toggleSection(element) {
+            const section = element.parentElement;
+            section.classList.toggle('active');
+        }
+
+
+        /**
          * Menu déroulant navigation
          */
         (function() {
@@ -1556,10 +1840,62 @@
                 }
             });
 
-            // Fermer le menu après sélection d'un lien
+            // Fermer le menu après sélection d'un lien et ouvrir l'accordéon correspondant
             const menuLinks = dropdownMenu.querySelectorAll('a');
             menuLinks.forEach(link => {
-                link.addEventListener('click', function() {
+                link.addEventListener('click', function(e) {
+                    const href = link.getAttribute('href');
+                    
+                    // Si c'est un lien vers une section (commence par #)
+                    if (href && href.startsWith('#')) {
+                        e.preventDefault();
+                        
+                        const targetId = href.substring(1);
+                        const targetElement = document.getElementById(targetId);
+                        
+                        if (targetElement) {
+                            // Fermer tous les accordéons ouverts
+                            const allAccordions = document.querySelectorAll('.section-accordion.active');
+                            allAccordions.forEach(acc => {
+                                acc.classList.remove('active');
+                            });
+                            
+                            // Trouver l'accordéon parent
+                            let accordion = targetElement.closest('.section-accordion');
+                            
+                            // Si l'élément cible est dans une section, remonter jusqu'à l'accordéon
+                            if (!accordion) {
+                                let parent = targetElement.parentElement;
+                                while (parent && !parent.classList.contains('section-accordion')) {
+                                    parent = parent.parentElement;
+                                }
+                                accordion = parent;
+                            }
+                            
+                            // Ouvrir l'accordéon correspondant si trouvé
+                            if (accordion) {
+                                accordion.classList.add('active');
+                                
+                                // Trouver l'en-tête de l'accordéon
+                                const accordionHeader = accordion.querySelector('.section-accordion-header');
+                                
+                                // Scroller vers l'en-tête de l'accordéon après un court délai
+                                if (accordionHeader) {
+                                    setTimeout(() => {
+                                        const headerHeight = 100; // Hauteur du header fixe
+                                        const headerPosition = accordionHeader.getBoundingClientRect().top + window.pageYOffset;
+                                        const offsetPosition = headerPosition - headerHeight;
+                                        
+                                        window.scrollTo({
+                                            top: offsetPosition,
+                                            behavior: 'smooth'
+                                        });
+                                    }, 150);
+                                }
+                            }
+                        }
+                    }
+                    
                     dropdownToggle.setAttribute('aria-expanded', 'false');
                     dropdownMenu.setAttribute('aria-hidden', 'true');
                 });

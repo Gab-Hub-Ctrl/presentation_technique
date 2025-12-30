@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <title>Rapport de Projection Dimensionnelle - Standards Projet3</title>
-    <meta name="description" content="Rapport visuel sur la projection dimensionnelle du projet Projet3 avec l'intégration des 31 standards techniques. Analyse de l'impact, de la maturité technique et des projections d'évolution.">
+    <title>Rapport de Projection Dimensionnelle - IT Dashboard A+</title>
+    <meta name="description" content="Rapport visuel sur la projection dimensionnelle du projet IT Dashboard A+ avec l'intégration des 31 standards techniques. Analyse de l'impact, de la maturité technique et des projections d'évolution.">
     <meta name="author" content="Gabriel ROULON">
-    <meta name="keywords" content="Standards Projet3, Projection dimensionnelle, Maturité technique, Automatisation IA, Gouvernance, Documentation technique">
+    <meta name="keywords" content="IT Dashboard A+, Projection dimensionnelle, Maturité technique, Automatisation IA, Gouvernance, Documentation technique">
     <meta name="robots" content="index, follow">
     
     <!-- Sitemap -->
@@ -18,8 +18,8 @@
     <link rel="apple-touch-icon" href="favicon.png">
     
     <!-- Open Graph -->
-    <meta property="og:title" content="Rapport de Projection Dimensionnelle - Standards Projet3">
-    <meta property="og:description" content="Rapport visuel sur la projection dimensionnelle du projet Projet3 avec l'intégration des 31 standards techniques">
+    <meta property="og:title" content="Rapport de Projection Dimensionnelle - IT Dashboard A+">
+    <meta property="og:description" content="Rapport visuel sur la projection dimensionnelle du projet IT Dashboard A+ avec l'intégration des 31 standards techniques">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://gab-hub-ctrl.github.io/presentation_technique/rapport_projection_dimension_standards_projet3.html">
     <meta property="og:image" content="https://gab-hub-ctrl.github.io/presentation_technique/og-image.png">
@@ -27,8 +27,8 @@
     
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Rapport de Projection Dimensionnelle - Standards Projet3">
-    <meta name="twitter:description" content="Rapport visuel sur la projection dimensionnelle du projet Projet3 avec l'intégration des 31 standards techniques">
+    <meta name="twitter:title" content="Rapport de Projection Dimensionnelle - IT Dashboard A+">
+    <meta name="twitter:description" content="Rapport visuel sur la projection dimensionnelle du projet IT Dashboard A+ avec l'intégration des 31 standards techniques">
     <meta name="twitter:image" content="https://gab-hub-ctrl.github.io/presentation_technique/og-image.png">
     
     <!-- Format Detection -->
@@ -41,17 +41,14 @@
     <link rel="preconnect" href="https://github.com">
     <link rel="dns-prefetch" href="https://github.com">
     
-    <!-- Preload critical resources -->
-    <link rel="preload" href="favicon.png" as="image">
-    
     <!-- CSS intégré dans le fichier (fichier autonome) -->
     
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "TechArticle",
-      "headline": "Rapport de Projection Dimensionnelle - Standards Projet3",
-      "description": "Rapport visuel sur la projection dimensionnelle du projet Projet3 avec l'intégration des 31 standards techniques",
+      "headline": "Rapport de Projection Dimensionnelle - IT Dashboard A+",
+      "description": "Rapport visuel sur la projection dimensionnelle du projet IT Dashboard A+ avec l'intégration des 31 standards techniques",
       "author": {
         "@type": "Person",
         "name": "Gabriel ROULON"
@@ -180,10 +177,26 @@
 
         .header-left h2 {
             margin: 0;
-            font-size: 1.35em;
-            color: var(--primary-color);
-            font-weight: 700;
+            font-size: 1.1em;
+            color: #000000;
+            font-weight: 600;
+            line-height: 1.3;
             transition: color 0.2s ease;
+            white-space: nowrap;
+        }
+        
+        .header-left h2 .page-title {
+            display: inline;
+            font-size: 1.1em;
+            color: #000000;
+            font-weight: 600;
+        }
+        
+        .header-left h2 .project-name {
+            display: inline;
+            font-size: 1.1em;
+            color: #000000;
+            font-weight: 600;
         }
 
         .header-left a:hover h2 {
@@ -262,7 +275,8 @@
         main {
             max-width: var(--max-width);
             margin: 0 auto;
-            padding: 120px 20px 40px;
+            padding: 80px clamp(16px, 4vw, 40px) 40px;
+            min-width: 0;
         }
         .hero-section {
             text-align: center;
@@ -292,8 +306,6 @@
         }
         .metric-card {
             background: var(--card-bg);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
             border: 1px solid var(--border-color);
             border-radius: 12px;
             padding: 36px 28px;
@@ -378,8 +390,7 @@
             margin-left: 0;
             padding-left: 0;
             font-weight: 600;
-            text-align: justify;
-            text-align-last: left;
+            text-align: center;
             padding-bottom: 12px;
             border-bottom: 1px solid var(--border-color);
         }
@@ -391,8 +402,7 @@
             margin-left: 0;
             padding-left: 0;
             font-weight: 600;
-            text-align: justify;
-            text-align-last: left;
+            text-align: center;
         }
         section p {
             margin-bottom: 16px;
@@ -482,7 +492,7 @@
             border-color: var(--neutral-light);
         }
         .comparison-card.after {
-            background: linear-gradient(135deg, rgba(51, 65, 85, 0.1) 0%, rgba(51, 65, 85, 0.05) 100%);
+            background: #ffffff;
             border-color: var(--primary-color);
         }
         .comparison-card h3 {
@@ -578,7 +588,7 @@
         }
         .progress-fill {
             height: 100%;
-            background: linear-gradient(90deg, var(--primary-color) 0%, var(--primary-light) 100%);
+            background: #000000;
             border-radius: 18px;
             display: flex;
             align-items: center;
@@ -652,9 +662,11 @@
             color: var(--text-secondary);
             line-height: 1.6;
             flex-grow: 1;
+            text-align: justify;
+            text-align-last: left;
         }
         .highlight-box {
-            background: linear-gradient(135deg, rgba(51, 65, 85, 0.1) 0%, rgba(51, 65, 85, 0.05) 100%);
+            background: #f5f5f5;
             padding: 32px 40px;
             border-left: 4px solid var(--primary-color);
             margin: 40px 0;
@@ -665,7 +677,8 @@
         }
         .highlight-box p {
             margin: 0;
-            text-align: left;
+            text-align: justify;
+            text-align-last: left;
             font-size: 1.08em;
             line-height: 1.8;
         }
@@ -807,6 +820,92 @@
             color: var(--text-secondary);
             font-weight: 500;
         }
+        /* ============================================
+           ACCORDÉONS - Navigation par sections
+           Système d'accordéons pour alléger la page
+           ============================================ */
+        .section-accordion {
+            margin-bottom: 20px;
+            border: 2px solid #000000;
+            border-radius: 0;
+            overflow: hidden;
+            background: #ffffff;
+            box-shadow: var(--shadow-md);
+        }
+
+        .section-accordion-header {
+            background: #000000;
+            color: #ffffff;
+            padding: 16px 24px;
+            font-size: 1.05em;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            user-select: none;
+            transition: background 0.2s ease;
+            border-bottom: 2px solid #000000;
+        }
+
+        .section-accordion-header:hover {
+            background: #333333;
+        }
+        
+        /* Couleurs d'importance pour les sections */
+        .section-accordion.importance-critical .section-accordion-header {
+            border-left: 4px solid var(--importance-critical);
+        }
+        
+        .section-accordion.importance-high .section-accordion-header {
+            border-left: 4px solid var(--importance-high);
+        }
+        
+        .section-accordion.importance-normal .section-accordion-header {
+            border-left: 4px solid var(--importance-normal);
+        }
+
+        .section-accordion-header::after {
+            content: '+';
+            font-size: 1.5em;
+            font-weight: 300;
+            transition: transform 0.3s ease;
+        }
+
+        .section-accordion.active .section-accordion-header::after {
+            transform: rotate(45deg);
+        }
+
+        .section-accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+
+        .section-accordion.active .section-accordion-content {
+            max-height: 50000px;
+        }
+
+        .section-accordion-inner {
+            padding: 20px clamp(16px, 3vw, 24px);
+            background: #ffffff;
+        }
+
+        .section-accordion-inner section {
+            margin-bottom: 0;
+            padding: 0;
+            background: transparent;
+            border: none;
+            border-radius: 0;
+            box-shadow: none;
+            animation: none;
+            opacity: 1;
+            transform: none;
+        }
+
+        .section-accordion-inner section::before {
+            display: none;
+        }
     </style>
 </head>
 <body>
@@ -820,13 +919,15 @@
     <header role="banner">
         <div class="header-left">
             <a href="index.html" aria-label="Retour à l'accueil">
-            <h2>Rapport Projection Dimensionnelle</h2>
+                <h2>
+                    <span class="page-title">Rapport de Projection Dimensionnelle</span> | <span class="project-name">IT Dashboard A+</span>
+                </h2>
             </a>
         </div>
         <nav class="header-nav" aria-label="Navigation principale">
             <div class="nav-dropdown">
-                <button class="nav-dropdown-toggle" aria-expanded="false" aria-haspopup="true">
-                    Navigation <span>▼</span>
+                <button class="nav-dropdown-toggle" aria-expanded="false" aria-haspopup="true" aria-label="Menu de navigation">
+                    Navigation <span class="nav-arrow">▼</span>
                 </button>
                 <ul class="nav-dropdown-menu" role="menu" aria-hidden="true">
                     <li role="none"><a href="index.html" role="menuitem">Accueil</a></li>
@@ -849,7 +950,7 @@
         </nav>
     </header>
     <main id="main-content" role="main">
-        <section id="page-garde" class="page-garde-section" style="padding: 60px 40px; text-align: center; background: linear-gradient(135deg, rgba(51, 65, 85, 0.05) 0%, rgba(51, 65, 85, 0.02) 100%); border-bottom: 3px solid var(--primary-color); margin-bottom: 40px;">
+        <section id="page-garde" class="page-garde-section" style="padding: 60px 40px; text-align: center; background: #ffffff; border-bottom: 3px solid var(--primary-color); margin-bottom: 40px;">
             <div style="max-width: 800px; margin: 0 auto;">
                 <h1 style="font-size: 2.5em; margin-bottom: 20px; color: var(--primary-color); font-weight: 700;">Rapport de Projection Dimensionnelle</h1>
                 <h2 style="font-size: 1.5em; margin-bottom: 40px; color: var(--text-secondary); font-weight: 500;">Standards Projet3</h2>
@@ -859,11 +960,11 @@
                     <p style="margin: 10px 0; font-size: 1.1em;"><strong>Date de publication :</strong> 2025-12-29</p>
                     <p style="margin: 10px 0; font-size: 1.1em;"><strong>Version du rapport :</strong> 1.0.0</p>
                     <p style="margin: 10px 0; font-size: 1.1em;"><strong>Statut :</strong> Final</p>
-                    <p style="margin: 10px 0; font-size: 1.1em;"><strong>Projet :</strong> Projet3 - IT Dashboard A+</p>
+                    <p style="margin: 10px 0; font-size: 1.1em;"><strong>Projet :</strong> IT Dashboard A+</p>
                 </div>
                 
                 <p style="margin-top: 30px; font-size: 1.1em; line-height: 1.8; color: var(--text-color); max-width: 700px; margin-left: auto; margin-right: auto;">
-                    Ce rapport présente l'analyse de l'impact des 31 standards techniques sur le projet Projet3. 
+                    Ce rapport présente l'analyse de l'impact des 31 standards techniques sur le projet IT Dashboard A+. 
                     Il expose l'évolution du projet, l'amélioration de sa qualité technique, et les perspectives d'évolution future.
                 </p>
             </div>
@@ -904,78 +1005,109 @@
             </div>
         </section>
         
+        <!-- Accordéon Résumé exécutif -->
+        <div class="section-accordion importance-high">
+            <div class="section-accordion-header" onclick="toggleSection(this)">
+                Résumé exécutif
+            </div>
+            <div class="section-accordion-content">
+                <div class="section-accordion-inner">
         <section id="resume-executif">
             <h1 id="resume-executif-title">Résumé exécutif</h1>
-            <p>Dans ce rapport, j'analyse l'impact que l'intégration des 31 standards techniques que j'ai développés a eu sur la dimension, la maturité et les capacités de mon projet Projet3.</p>
+            <p>Analyse de l'impact de l'intégration des 31 standards techniques sur la dimension, la maturité et les capacités du projet IT Dashboard A+.</p>
             
             <h2>Principaux résultats</h2>
             <div class="category-grid" style="grid-template-columns: repeat(2, 1fr);">
                 <div class="category-card">
                     <h3>Dimension du projet</h3>
-                    <div class="description">J'ai constaté que le multiplicateur dimensionnel atteint environ 3,5, multipliant significativement la valeur et la portée de mon projet. Les 31 standards techniques que j'ai créés représentent un total d'environ 50 000 lignes de documentation structurée réparties en 703 sections, ce qui constitue une base de connaissance complète et réutilisable que j'ai pu mettre en place.</div>
+                    <div class="description">Multiplicateur dimensionnel de 3,5. Les 31 standards représentent 50 000 lignes de documentation structurée réparties en 703 sections, constituant une base de connaissance complète et réutilisable.</div>
                 </div>
                 <div class="category-card">
                     <h3>Maturité technique</h3>
-                    <div class="description">J'ai observé que la maturité technique de mon projet évolue de niveau 1-2 à niveau 3-4 selon le modèle CMMI. Cette évolution représente pour moi une transformation majeure des processus, passant d'un niveau initial vers un niveau de maturité avancé avec des processus définis et quantitativement gérés que j'ai pu mettre en place.</div>
+                    <div class="description">Évolution de niveau 1-2 à niveau 3-4 selon le modèle CMMI. Transformation des processus vers un niveau de maturité avancé avec processus définis et quantitativement gérés.</div>
                 </div>
                 <div class="category-card">
                     <h3>Amélioration de la maintenabilité</h3>
-                    <div class="description">J'ai constaté que la maintenabilité s'améliore de 200%, facilitant significativement la maintenance et l'évolution de mon code. Cette amélioration est rendue possible par la structuration complète des conventions, des standards et des processus que j'ai documentés.</div>
+                    <div class="description">Amélioration de 200% de la maintenabilité, facilitant la maintenance et l'évolution du code grâce à la structuration complète des conventions, standards et processus.</div>
                 </div>
                 <div class="category-card">
                     <h3>Automatisation IA</h3>
-                    <div class="description">J'ai constaté que l'automatisation IA augmente de 400%, grâce aux 31 workflows automatisables, aux 500 patterns de détection, aux 150 algorithmes de validation et aux 100 templates réutilisables que j'ai intégrés dans mes standards. Cette augmentation me permet une réduction significative du temps nécessaire pour le développement et la validation.</div>
+                    <div class="description">Augmentation de 400% de l'automatisation IA grâce aux 31 workflows automatisables, 500 patterns de détection, 150 algorithmes de validation et 100 templates réutilisables intégrés dans les standards.</div>
                 </div>
             </div>
             
             <h2>Portée du rapport</h2>
-            <p>Dans ce rapport, je couvre mon analyse complète de l'impact des 31 standards techniques que j'ai développés sur mon projet Projet3. Je présente mon analyse de qualité des standards, l'impact que j'ai observé sur la maturité technique, la dimension fonctionnelle et organisationnelle que j'ai ajoutée, la capacité d'automatisation IA que j'ai développée, les métriques et indicateurs dimensionnels que j'ai mesurés, et mes projections d'évolution à court, moyen et long terme. Je fournis également mes recommandations prioritaires pour l'adoption et l'intégration des standards.</p>
+            <p>Ce rapport couvre l'analyse de l'impact des 31 standards techniques sur IT Dashboard A+. Il présente l'analyse de qualité, l'impact sur la maturité technique, les dimensions fonctionnelle et organisationnelle, la capacité d'automatisation IA, les métriques dimensionnelles, et les projections d'évolution à court, moyen et long terme.</p>
         </section>
+                </div>
+            </div>
+        </div>
         
+        <!-- Accordéon Contexte et méthodologie -->
+        <div class="section-accordion importance-normal">
+            <div class="section-accordion-header" onclick="toggleSection(this)">
+                Contexte et méthodologie
+            </div>
+            <div class="section-accordion-content">
+                <div class="section-accordion-inner">
         <section id="contexte-methodologie">
             <h1 id="contexte-methodologie-title">Contexte et méthodologie</h1>
-            <p>Je vais vous présenter le contexte de mon projet, de l'intégration des standards que j'ai réalisée, et la méthodologie d'analyse que j'ai utilisée.</p>
+            <p>Présentation du contexte du projet, de l'intégration des standards, et de la méthodologie d'analyse utilisée.</p>
             
             <h2>Contexte du projet</h2>
-            <p>Mon projet Projet3 est un projet de dashboard IT complet que j'ai développé, incluant 124 scripts PowerShell, 55 fichiers Python, 80 composants React et TypeScript, 10 collecteurs opérationnels, un pipeline ETL complet, et une intégration Vault fonctionnelle. Mon projet couvre l'ensemble du périmètre IT moderne avec une architecture complète que j'ai construite, incluant backend, frontend, pipeline de données, et intégration sécurisée.</p>
+            <p>IT Dashboard A+ est un dashboard IT complet incluant 124 scripts PowerShell, 55 fichiers Python, 80 composants React et TypeScript, 10 collecteurs opérationnels pour les pôles 1 à 10, un pipeline ETL complet, et une intégration Vault fonctionnelle.</p>
+            <p>Le projet couvre l'ensemble du périmètre IT moderne avec une architecture complète incluant backend, frontend, pipeline de données, et intégration sécurisée.</p>
             
-            <p>Avant l'intégration des standards que j'ai effectuée, mon projet présentait une documentation dispersée, des conventions de codage variables, une automatisation IA limitée, et une maturité technique de niveau 1-2 selon le modèle CMMI. Mon objectif en intégrant les standards était de transformer mon projet en un framework structuré et réutilisable avec une gouvernance robuste.</p>
+            <p>Avant l'intégration des standards, le projet présentait une documentation dispersée, des conventions de codage variables, une automatisation IA limitée, et une maturité technique de niveau 1-2 selon le modèle CMMI.</p>
+            <p>L'objectif était de transformer le projet en un framework structuré et réutilisable avec une gouvernance robuste.</p>
             
             <h2>Contexte de l'intégration des standards</h2>
-            <p>L'intégration des 31 standards techniques que j'ai développés dans mon projet Projet3 représente pour moi une transformation majeure de la structure et de la gouvernance de mon projet. J'ai organisé les standards en 8 catégories logiques couvrant tous les aspects de mon projet : qualité, code, infrastructure, sécurité, pipeline, opérationnel, gouvernance, et interface.</p>
+            <p>L'intégration des 31 standards techniques dans IT Dashboard A+ représente une transformation majeure de la structure et de la gouvernance du projet.</p>
+            <p>Les standards sont organisés en 8 catégories logiques : qualité, code, infrastructure, sécurité, pipeline, opérationnel, gouvernance, et interface.</p>
             
-            <p>J'ai conçu chaque standard pour qu'il suive une structure cohérente permettant à un agent IA de l'utiliser directement. Dans mes standards, j'ai inclus des guides pour agent IA avec des workflows automatisables, des prompts types directement utilisables, des patterns de détection automatisée, et des algorithmes de validation que j'ai développés pour garantir la conformité.</p>
+            <p>Chaque standard suit une structure cohérente permettant à un agent IA de l'utiliser directement.</p>
+            <p>Les standards incluent des guides pour agent IA avec workflows automatisables, prompts types directement utilisables, patterns de détection automatisée, et algorithmes de validation pour garantir la conformité.</p>
             
             <h2>Méthodologie d'analyse</h2>
-            <p>La méthodologie d'analyse que j'ai utilisée pour évaluer l'impact dimensionnel des standards suit plusieurs étapes détaillées que je vais vous présenter :</p>
+            <p>La méthodologie d'analyse pour évaluer l'impact dimensionnel des standards suit plusieurs étapes :</p>
             
             <div class="category-grid" style="grid-template-columns: repeat(2, 1fr);">
                 <div class="category-card">
                     <h3>Étape 1 : Cartographie des standards</h3>
-                    <div class="description">J'ai identifié et catalogué les 31 standards techniques que j'ai développés, je les ai organisés en 8 catégories, et j'ai analysé la structure et le contenu de chaque standard. Cette étape m'a permis de comprendre l'étendue et l'organisation du framework de standards que j'ai créé.</div>
+                    <div class="description">Identification et catalogage des 31 standards techniques, organisation en 8 catégories, et analyse de la structure et du contenu de chaque standard.</div>
                 </div>
                 <div class="category-card">
                     <h3>Étape 2 : Évaluation de la qualité</h3>
-                    <div class="description">J'ai appliqué une méthodologie d'évaluation que j'ai développée, basée sur 5 critères essentiels avec poids respectifs : structure (30%), écriture (25%), adaptation IA (25%), exemples (10%), et intégration (10%). Cette évaluation garantit que chaque standard que j'ai créé atteint un score de qualité de 100/100.</div>
+                    <div class="description">Méthodologie d'évaluation basée sur 5 critères avec poids respectifs : structure (30%), écriture (25%), adaptation IA (25%), exemples (10%), et intégration (10%). Chaque standard atteint un score de qualité de 100/100.</div>
                 </div>
                 <div class="category-card">
                     <h3>Étape 3 : Analyse de l'impact dimensionnel</h3>
-                    <div class="description">J'ai évalué l'impact sur la dimension fonctionnelle, organisationnelle, et technique de mon projet. Mon analyse inclut l'évaluation de la maturité technique selon le modèle CMMI, l'amélioration de la maintenabilité que j'ai observée, et l'augmentation de l'automatisation IA que j'ai mise en place.</div>
+                    <div class="description">Évaluation de l'impact sur la dimension fonctionnelle, organisationnelle, et technique. Analyse de la maturité technique selon le modèle CMMI, amélioration de la maintenabilité, et augmentation de l'automatisation IA.</div>
                 </div>
                 <div class="category-card">
                     <h3>Étape 4 : Projection d'évolution</h3>
-                    <div class="description">J'ai effectué des projections de l'évolution de mon projet à court terme (6-12 mois), moyen terme (12-24 mois), et long terme (24+ mois). Ces projections me permettent de comprendre comment les standards que j'ai développés vont continuer à transformer mon projet dans les mois et années à venir.</div>
+                    <div class="description">Projections de l'évolution du projet à court terme (6-12 mois), moyen terme (12-24 mois), et long terme (24+ mois).</div>
                 </div>
             </div>
             
             <div class="highlight-box">
-                <p><strong>Note méthodologique :</strong> Mon analyse dimensionnelle utilise des métriques quantitatives (nombre de lignes, nombre de sections, scores de qualité) et des métriques qualitatives (maturité technique, amélioration de la maintenabilité) pour évaluer l'impact complet des standards que j'ai développés sur mon projet.</p>
+                <p><strong>Note méthodologique :</strong> L'analyse dimensionnelle utilise des métriques quantitatives (nombre de lignes, nombre de sections, scores de qualité) et des métriques qualitatives (maturité technique, amélioration de la maintenabilité) pour évaluer l'impact complet des standards.</p>
             </div>
         </section>
+                </div>
+            </div>
+        </div>
         
+        <!-- Accordéon Analyse de qualité -->
+        <div class="section-accordion importance-high">
+            <div class="section-accordion-header" onclick="toggleSection(this)">
+                Analyse de qualité des standards
+            </div>
+            <div class="section-accordion-content">
+                <div class="section-accordion-inner">
         <section id="qualite-standards">
             <h1 id="qualite-standards-title">Analyse de qualité des standards</h1>
-            <p>Je vous présente ici l'analyse de qualité que j'ai réalisée sur les 31 standards que j'ai développés : ma méthodologie d'évaluation, mes résultats par catégorie et ma conclusion globale.</p>
+            <p>Analyse de qualité des 31 standards : méthodologie d'évaluation, résultats par catégorie et conclusion globale.</p>
             
             <div class="metrics-hero" style="grid-template-columns: repeat(4, 1fr); margin: 40px 0;">
                 <div class="metric-card" style="min-height: 140px;">
@@ -1057,10 +1189,12 @@
             </div>
             
             <h2>Méthodologie d'évaluation (5 critères avec poids)</h2>
-            <p>Ma méthodologie d'évaluation des standards est basée sur cinq critères essentiels avec des poids respectifs que j'ai définis. Chaque critère est évalué sur 100 points, et j'ai calculé le score global selon une formule pondérée garantissant que chaque standard que j'ai créé atteint exactement 100/100 avant d'être considéré comme complété.</p>
+            <p>La méthodologie d'évaluation des standards est basée sur cinq critères essentiels avec des poids respectifs.</p>
+            <p>Chaque critère est évalué sur 100 points, et le score global est calculé selon une formule pondérée garantissant que chaque standard atteint exactement 100/100 avant d'être considéré comme complété.</p>
 
             <h3>Formule de calcul du score de qualité</h3>
-            <p>J'ai calculé le score de qualité global selon une formule pondérée que j'ai développée, qui évalue cinq critères essentiels. Chaque critère doit atteindre 100/100 pour que le score global soit exactement égal à 100/100. Ma formule est la suivante :</p>
+            <p>Le score de qualité global est calculé selon une formule pondérée qui évalue cinq critères essentiels.</p>
+            <p>Chaque critère doit atteindre 100/100 pour que le score global soit exactement égal à 100/100. La formule est la suivante :</p>
 
             <div class="highlight-box">
                 <p><strong>ScoreGlobal = (ScoreStructure × 0.30) + (ScoreEcriture × 0.25) + (ScoreIA × 0.25) + (ScoreExemples × 0.10) + (ScoreIntegration × 0.10)</strong></p>
@@ -1086,7 +1220,7 @@
                 </div>
                 <div class="category-card" style="grid-column: 1 / -1;">
                     <h3>ScoreIntegration (10%)</h3>
-                    <div class="description">Évalue l'intégration avec les autres standards. Le standard doit référencer les standards Projet3 pertinents, éviter les redondances, maintenir la cohérence terminologique avec le glossaire, et s'aligner avec les standards de référence dans la catégorie 01_Qualite.</div>
+                    <div class="description">Évalue l'intégration avec les autres standards. Le standard doit référencer les Standards Projet3 pertinents, éviter les redondances, maintenir la cohérence terminologique avec le glossaire, et s'aligner avec les standards de référence dans la catégorie 01_Qualite.</div>
                 </div>
             </div>
 
@@ -1136,55 +1270,68 @@
 
             
             <h2>Résultats par catégorie de standards</h2>
-            <p>J'ai organisé les 31 standards que j'ai développés en 8 catégories logiques couvrant tous les aspects de mon projet. Toutes les catégories ont atteint un score de qualité de 100/100, ce qui garantit une complétude et une cohérence optimales que j'ai pu obtenir.</p>
+            <p>Les 31 standards sont organisés en 8 catégories logiques couvrant tous les aspects du projet.</p>
+            <p>Toutes les catégories ont atteint un score de qualité de 100/100, garantissant une complétude et une cohérence optimales.</p>
             
             <div class="category-grid" style="grid-template-columns: repeat(2, 1fr);">
                 <div class="category-card">
                     <h3>Catégorie 1 : Qualité</h3>
-                    <div class="description">J'ai créé 2 standards (Qualité d'Écriture, Naming Conventions). Ces standards me servent de modèles de référence pour tous les autres standards. Score de qualité : 100/100 pour les deux standards que j'ai développés. Total : environ 4000 lignes de documentation que j'ai rédigées.</div>
+                    <div class="description">2 standards (Qualité d'Écriture, Naming Conventions). Standards de référence pour tous les autres standards. Score : 100/100. Total : environ 4000 lignes de documentation.</div>
                 </div>
                 <div class="category-card">
                     <h3>Catégorie 2 : Code</h3>
-                    <div class="description">J'ai développé 4 standards (PowerShell, Python, TypeScript, React). Ces standards couvrent les règles spécifiques à chaque langage de programmation que j'utilise dans mon projet. Score de qualité : 100/100 pour tous les standards que j'ai créés. Total : environ 8000 lignes de documentation que j'ai rédigées.</div>
+                    <div class="description">4 standards (PowerShell, Python, TypeScript, React). Règles spécifiques à chaque langage de programmation. Score : 100/100. Total : environ 8000 lignes de documentation.</div>
                 </div>
                 <div class="category-card">
                     <h3>Catégorie 3 : Infrastructure</h3>
-                    <div class="description">J'ai créé 5 standards (Configuration environnement, Gestion d'erreurs, Tests, Observabilité, Configuration). Ces standards concernent l'infrastructure technique et les outils de développement que j'utilise. Score de qualité : 100/100 pour tous les standards que j'ai développés. Total : environ 7000 lignes de documentation que j'ai rédigées.</div>
+                    <div class="description">5 standards (Configuration environnement, Gestion d'erreurs, Tests, Observabilité, Configuration). Infrastructure technique et outils de développement. Score : 100/100. Total : environ 7000 lignes de documentation.</div>
                 </div>
                 <div class="category-card">
                     <h3>Catégorie 4 : Sécurité</h3>
-                    <div class="description">J'ai développé 3 standards (Secrets Management, Vault Integration, Sécurité générale). Ces standards définissent les règles de sécurité que j'ai mises en place pour la gestion des secrets et l'intégration Vault. Score de qualité : 100/100 pour tous les standards que j'ai créés. Total : environ 4800 lignes de documentation que j'ai rédigées.</div>
+                    <div class="description">3 standards (Secrets Management, Vault Integration, Sécurité générale). Règles de sécurité pour la gestion des secrets et l'intégration Vault. Score : 100/100. Total : environ 4800 lignes de documentation.</div>
                 </div>
                 <div class="category-card">
                     <h3>Catégorie 5 : Pipeline</h3>
-                    <div class="description">J'ai créé 5 standards (Collecteurs, ETL, Orchestration, Rules Engine, Corrélation). Ces standards concernent le pipeline de données que j'ai développé, de la collecte jusqu'à la visualisation. Score de qualité : 100/100 pour tous les standards que j'ai développés. Total : environ 7100 lignes de documentation que j'ai rédigées.</div>
+                    <div class="description">5 standards (Collecteurs, ETL, Orchestration, Rules Engine, Corrélation). Pipeline de données de la collecte jusqu'à la visualisation. Score : 100/100. Total : environ 7100 lignes de documentation.</div>
                 </div>
                 <div class="category-card">
                     <h3>Catégorie 6 : Opérationnel</h3>
-                    <div class="description">J'ai développé 5 standards (Storage, Backup Restore, Maintenance, Audit, CI/CD). Ces standards couvrent les aspects opérationnels de mon projet, la maintenance et l'observabilité que j'ai mises en place. Score de qualité : 100/100 pour tous les standards que j'ai créés. Total : environ 11 000 lignes de documentation que j'ai rédigées.</div>
+                    <div class="description">5 standards (Storage, Backup Restore, Maintenance, Audit, CI/CD). Aspects opérationnels, maintenance et observabilité. Score : 100/100. Total : environ 11 000 lignes de documentation.</div>
                 </div>
                 <div class="category-card">
                     <h3>Catégorie 7 : Gouvernance</h3>
-                    <div class="description">J'ai créé 5 standards (Dependencies Management, Documentation technique, Git Workflow, Structure projet, Versioning). Ces standards définissent les règles de gouvernance de mon projet, la documentation et les processus que j'ai établis. Score de qualité : 100/100 pour tous les standards que j'ai développés. Total : environ 10 000 lignes de documentation que j'ai rédigées.</div>
+                    <div class="description">5 standards (Dependencies Management, Documentation technique, Git Workflow, Structure projet, Versioning). Règles de gouvernance, documentation et processus. Score : 100/100. Total : environ 10 000 lignes de documentation.</div>
                 </div>
                 <div class="category-card">
                     <h3>Catégorie 8 : Interface</h3>
-                    <div class="description">J'ai développé 2 standards (API Design, Menus CLI). Ces standards concernent l'interface utilisateur et l'expérience utilisateur que j'ai conçues. Score de qualité : 100/100 pour tous les standards que j'ai créés. Total : environ 3 200 lignes de documentation que j'ai rédigées.</div>
+                    <div class="description">2 standards (API Design, Menus CLI). Interface utilisateur et expérience utilisateur. Score : 100/100. Total : environ 3 200 lignes de documentation.</div>
                 </div>
             </div>
             
             <h2>Conclusion sur la qualité</h2>
             <div class="highlight-box">
-                <p><strong>Résultat global :</strong> Les 31 standards techniques que j'ai développés ont tous atteint un score de qualité de 100/100. Mon framework complet représente environ 50 000 lignes de documentation structurée que j'ai rédigées, réparties en 703 sections. Tous les standards que j'ai créés sont complets, cohérents, et directement utilisables par un agent IA. Cette qualité optimale que j'ai obtenue garantit une base solide pour la gouvernance et l'évolution continue de mon projet.</p>
+                <p><strong>Résultat global :</strong> Les 31 standards techniques ont tous atteint un score de qualité de 100/100. Le framework complet représente environ 50 000 lignes de documentation structurée réparties en 703 sections. Tous les standards sont complets, cohérents, et directement utilisables par un agent IA. Cette qualité optimale garantit une base solide pour la gouvernance et l'évolution continue du projet.</p>
             </div>
         </section>
+                </div>
+            </div>
+        </div>
         
+        <!-- Accordéon Maturité technique -->
+        <div class="section-accordion importance-high">
+            <div class="section-accordion-header" onclick="toggleSection(this)">
+                Impact sur la maturité technique
+            </div>
+            <div class="section-accordion-content">
+                <div class="section-accordion-inner">
         <section id="maturite-technique">
             <h1 id="maturite-technique-title">Impact sur la maturité technique</h1>
-            <p>Je vous présente ici l'impact que mes standards ont eu sur la maturité technique : l'évolution de la maturité avant et après les standards que j'ai intégrés, les niveaux CMMI, et les améliorations par aspect que j'ai observées. L'évolution montre une amélioration substantielle que j'ai pu constater, passant d'un niveau 1-2 à un niveau 3-4 selon le modèle CMMI.</p>
+            <p>Impact des standards sur la maturité technique : évolution avant et après l'intégration des standards, niveaux CMMI, et améliorations par aspect.</p>
+            <p>L'évolution montre une amélioration substantielle, passant d'un niveau 1-2 à un niveau 3-4 selon le modèle CMMI.</p>
             
             <h2>État actuel du projet (métriques existantes)</h2>
-            <p>Mon projet Projet3 présente actuellement les métriques suivantes que j'ai développées : 124 scripts PowerShell, 55 fichiers Python, 80 composants React et TypeScript, 10 collecteurs opérationnels, un pipeline ETL complet, et une intégration Vault fonctionnelle. Ces métriques démontrent une base technique solide que j'ai construite avec une couverture fonctionnelle complète de l'architecture.</p>
+            <p>IT Dashboard A+ présente actuellement les métriques suivantes : 124 scripts PowerShell, 55 fichiers Python, 80 composants React et TypeScript, 10 collecteurs opérationnels pour les pôles 1 à 10, un pipeline ETL complet, et une intégration Vault fonctionnelle.</p>
+            <p>Ces métriques démontrent une base technique solide avec une couverture fonctionnelle complète de l'architecture.</p>
             
             <h2>Évolution de la maturité (avant/après standards)</h2>
             <div class="comparison-grid">
@@ -1215,7 +1362,8 @@
             </div>
             
             <h2>Niveaux CMMI (comparaison)</h2>
-            <p>La comparaison des niveaux CMMI montre une évolution significative de la maturité technique du projet. Le niveau 1-2 correspond à un niveau initial avec des processus basiques, tandis que le niveau 3-4 correspond à un niveau de maturité avancé avec des processus définis et quantitativement gérés.</p>
+            <p>La comparaison des niveaux CMMI montre une évolution significative de la maturité technique du projet.</p>
+            <p>Le niveau 1-2 correspond à un niveau initial avec des processus basiques, tandis que le niveau 3-4 correspond à un niveau de maturité avancé avec des processus définis et quantitativement gérés.</p>
             
             <h2>Améliorations par aspect</h2>
             <div class="progress-container">
@@ -1257,13 +1405,24 @@
                 </div>
             </div>
         </section>
+                </div>
+            </div>
+        </div>
         
+        <!-- Accordéon Dimension fonctionnelle -->
+        <div class="section-accordion importance-normal">
+            <div class="section-accordion-header" onclick="toggleSection(this)">
+                Dimension fonctionnelle ajoutée
+            </div>
+            <div class="section-accordion-content">
+                <div class="section-accordion-inner">
         <section id="dimension-fonctionnelle">
             <h1 id="dimension-fonctionnelle-title">Dimension fonctionnelle ajoutée</h1>
             <p>Voici la dimension fonctionnelle ajoutée par les standards : extensions au pipeline, infrastructure, sécurité, gouvernance, et interfaces.</p>
             
             <h2>Extension du pipeline de traitement</h2>
-            <p>Les standards de pipeline ajoutent des capacités fonctionnelles étendues pour la collecte, le traitement, et la corrélation des données. Les standards incluent des règles pour les collecteurs, les processus ETL, l'orchestration, le moteur de règles, et la corrélation. Ces extensions permettent une gestion complète et structurée du pipeline de données depuis la collecte jusqu'à la visualisation.</p>
+            <p>Les standards de pipeline ajoutent des capacités fonctionnelles étendues pour la collecte, le traitement, et la corrélation des données.</p>
+            <p>Les standards incluent des règles pour les collecteurs, les processus ETL, l'orchestration, le moteur de règles, et la corrélation. Ces extensions permettent une gestion complète et structurée du pipeline de données depuis la collecte jusqu'à la visualisation.</p>
             
             <div class="category-grid" style="grid-template-columns: repeat(2, 1fr);">
                 <div class="category-card">
@@ -1285,18 +1444,32 @@
             </div>
             
             <h2>Extension de l'infrastructure</h2>
-            <p>Les standards d'infrastructure ajoutent des capacités fonctionnelles pour la configuration, la gestion des erreurs, les tests, et l'observabilité. Ces extensions permettent une infrastructure robuste et maintenable avec des processus standardisés pour tous les aspects techniques.</p>
+            <p>Les standards d'infrastructure ajoutent des capacités fonctionnelles pour la configuration, la gestion des erreurs, les tests, et l'observabilité.</p>
+            <p>Ces extensions permettent une infrastructure robuste et maintenable avec des processus standardisés pour tous les aspects techniques.</p>
             
             <h2>Extension de la sécurité</h2>
-            <p>Les standards de sécurité ajoutent des capacités fonctionnelles pour la gestion des secrets, l'intégration Vault, et les bonnes pratiques de sécurité. Ces extensions garantissent une sécurité renforcée avec une gestion centralisée des credentials et des processus sécurisés.</p>
+            <p>Les standards de sécurité ajoutent des capacités fonctionnelles pour la gestion des secrets, l'intégration Vault, et les bonnes pratiques de sécurité.</p>
+            <p>Ces extensions garantissent une sécurité renforcée avec une gestion centralisée des credentials et des processus sécurisés.</p>
             
             <h2>Extension de la gouvernance</h2>
-            <p>Les standards de gouvernance ajoutent des capacités fonctionnelles pour la gestion des dépendances, la documentation technique, le workflow Git, la structure du projet, et le versioning. Ces extensions permettent une gouvernance complète et structurée du projet avec des processus formalisés.</p>
+            <p>Les standards de gouvernance ajoutent des capacités fonctionnelles pour la gestion des dépendances, la documentation technique, le workflow Git, la structure du projet, et le versioning.</p>
+            <p>Ces extensions permettent une gouvernance complète et structurée du projet avec des processus formalisés.</p>
             
             <h2>Extension des interfaces et opérations</h2>
-            <p>Les standards d'interface ajoutent des capacités fonctionnelles pour la conception d'API et les menus CLI. Ces extensions permettent des interfaces utilisateur cohérentes et ergonomiques avec des conventions standardisées.</p>
+            <p>Les standards d'interface ajoutent des capacités fonctionnelles pour la conception d'API et les menus CLI.</p>
+            <p>Ces extensions permettent des interfaces utilisateur cohérentes et ergonomiques avec des conventions standardisées.</p>
         </section>
+                </div>
+            </div>
+        </div>
         
+        <!-- Accordéon Dimension organisationnelle -->
+        <div class="section-accordion importance-normal">
+            <div class="section-accordion-header" onclick="toggleSection(this)">
+                Dimension organisationnelle
+            </div>
+            <div class="section-accordion-content">
+                <div class="section-accordion-inner">
         <section id="dimension-organisationnelle">
             <h1 id="dimension-organisationnelle-title">Dimension organisationnelle</h1>
             <p>Voici l'impact organisationnel des standards : documentation technique, qualité de code, automatisation IA, et maintenance.</p>
@@ -1389,10 +1562,21 @@
                 </div>
             </div>
         </section>
+                </div>
+            </div>
+        </div>
         
+        <!-- Accordéon Automatisation IA -->
+        <div class="section-accordion importance-critical">
+            <div class="section-accordion-header" onclick="toggleSection(this)">
+                Capacité d'automatisation IA
+            </div>
+            <div class="section-accordion-content">
+                <div class="section-accordion-inner">
         <section id="automatisation-ia">
             <h1 id="automatisation-ia-title">Capacité d'automatisation IA</h1>
-            <p>Voici la capacité d'automatisation via agents IA : 31 workflows automatisables, 500 patterns de détection, 100 templates réutilisables, 150 algorithmes réutilisables. L'automatisation augmente de 400% grâce à ces éléments.</p>
+            <p>Voici la capacité d'automatisation via agents IA : 31 workflows automatisables, 500 patterns de détection, 100 templates réutilisables, 150 algorithmes réutilisables.</p>
+            <p>L'automatisation augmente de 400% grâce à ces éléments.</p>
             
             <div class="metrics-grid">
                 <div class="metric-small">
@@ -1414,16 +1598,20 @@
             </div>
             
             <h2>Workflows automatisables (31 workflows)</h2>
-            <p>Les 31 standards incluent chacun un workflow automatisable complet permettant à un agent IA de traiter le standard de manière autonome. Chaque workflow inclut des étapes claires en pseudo-code (SI/ALORS/SINON, POUR CHAQUE) permettant l'automatisation complète des processus de validation, de génération, et de correction.</p>
+            <p>Les 31 standards incluent chacun un workflow automatisable complet permettant à un agent IA de traiter le standard de manière autonome.</p>
+            <p>Chaque workflow inclut des étapes claires en pseudo-code (SI/ALORS/SINON, POUR CHAQUE) permettant l'automatisation complète des processus de validation, de génération, et de correction.</p>
             
             <h2>Patterns de détection (~500 patterns)</h2>
-            <p>Les standards incluent environ 500 patterns regex permettant la détection automatique de non-conformités dans le code et la documentation. Ces patterns couvrent tous les aspects : conventions de nommage, structure de code, qualité d'écriture, et conformité aux standards. Chaque pattern est accompagné d'exemples AVANT/APRÈS pour faciliter la compréhension.</p>
+            <p>Les standards incluent environ 500 patterns regex permettant la détection automatique de non-conformités dans le code et la documentation.</p>
+            <p>Ces patterns couvrent tous les aspects : conventions de nommage, structure de code, qualité d'écriture, et conformité aux standards. Chaque pattern est accompagné d'exemples AVANT/APRÈS pour faciliter la compréhension.</p>
             
             <h2>Templates réutilisables (~100 templates)</h2>
-            <p>Les standards incluent environ 100 templates réutilisables pour la génération de code conforme, de documentation, et de configurations. Ces templates permettent une génération rapide et cohérente de nouveaux composants selon les standards définis, réduisant significativement le temps de développement.</p>
+            <p>Les standards incluent environ 100 templates réutilisables pour la génération de code conforme, de documentation, et de configurations.</p>
+            <p>Ces templates permettent une génération rapide et cohérente de nouveaux composants selon les standards définis, réduisant significativement le temps de développement.</p>
             
             <h2>Algorithmes réutilisables (~150 algorithmes)</h2>
-            <p>Les standards incluent environ 150 algorithmes de validation réutilisables en pseudo-code permettant la vérification automatique de conformité. Ces algorithmes couvrent tous les aspects de validation : structure, qualité d'écriture, intégration, et cohérence avec les autres standards.</p>
+            <p>Les standards incluent environ 150 algorithmes de validation réutilisables en pseudo-code permettant la vérification automatique de conformité.</p>
+            <p>Ces algorithmes couvrent tous les aspects de validation : structure, qualité d'écriture, intégration, et cohérence avec les autres standards.</p>
             
             <h2>Impact sur la productivité</h2>
             <div class="highlight-box">
@@ -1440,37 +1628,52 @@
                 <span class="badge success">Tous les standards complétés à 100%</span>
             </div>
         </section>
+                </div>
+            </div>
+        </div>
         
+        <!-- Accordéon Métriques -->
+        <div class="section-accordion importance-high">
+            <div class="section-accordion-header" onclick="toggleSection(this)">
+                Métriques et indicateurs dimensionnels
+            </div>
+            <div class="section-accordion-content">
+                <div class="section-accordion-inner">
         <section id="metriques-indicateurs">
             <h1 id="metriques-indicateurs-title">Métriques et indicateurs dimensionnels</h1>
             <p>Voici les métriques et indicateurs pour mesurer l'impact dimensionnel : couverture fonctionnelle, réutilisabilité, automatisation, traçabilité.</p>
             
             <h2>Couverture fonctionnelle</h2>
-            <p>La couverture fonctionnelle mesure le pourcentage de fonctionnalités couvertes par les standards. Avec 31 standards couvrant tous les aspects du projet (qualité, code, infrastructure, sécurité, pipeline, opérationnel, gouvernance, interface), la couverture fonctionnelle atteint 100%. Cette métrique garantit qu'aucun aspect critique du projet n'est laissé sans standard.</p>
+            <p>La couverture fonctionnelle mesure le pourcentage de fonctionnalités couvertes par les standards.</p>
+            <p>Avec 31 standards couvrant tous les aspects du projet (qualité, code, infrastructure, sécurité, pipeline, opérationnel, gouvernance, interface), la couverture fonctionnelle atteint 100%. Cette métrique garantit qu'aucun aspect critique du projet n'est laissé sans standard.</p>
             
             <div class="highlight-box">
                 <p><strong>Formule de calcul :</strong> CouvertureFonctionnelle = (NombreDeFonctionnalitesCouvertes / NombreTotalDeFonctionnalites) × 100. Avec 31 standards couvrant tous les aspects identifiés, la couverture fonctionnelle est égale à 100%.</p>
             </div>
             
             <h2>Réutilisabilité</h2>
-            <p>La réutilisabilité mesure la capacité des standards à être réutilisés dans d'autres projets similaires. Avec environ 100 templates réutilisables, 150 algorithmes réutilisables, et 500 patterns de détection, la réutilisabilité est optimale. Cette métrique garantit que l'investissement dans les standards peut être multiplié sur plusieurs projets.</p>
+            <p>La réutilisabilité mesure la capacité des standards à être réutilisés dans d'autres projets similaires.</p>
+            <p>Avec environ 100 templates réutilisables, 150 algorithmes réutilisables, et 500 patterns de détection, la réutilisabilité est optimale. Cette métrique garantit que l'investissement dans les standards peut être multiplié sur plusieurs projets.</p>
             
             <div class="highlight-box">
                 <p><strong>Formule de calcul :</strong> Réutilisabilité = (NombreDeTemplates + NombreDAlgorithmes + NombreDePatterns) / NombreTotalDeStandards. Avec environ 750 éléments réutilisables pour 31 standards, la réutilisabilité moyenne est de 24,2 éléments par standard.</p>
             </div>
             
             <h2>Automatisation</h2>
-            <p>L'automatisation mesure le niveau d'automatisation possible grâce aux standards. Avec 31 workflows automatisables, l'automatisation augmente de 400% par rapport à l'état initial. Cette métrique garantit une productivité maximale grâce à l'utilisation d'agents IA.</p>
+            <p>L'automatisation mesure le niveau d'automatisation possible grâce aux standards.</p>
+            <p>Avec 31 workflows automatisables, l'automatisation augmente de 400% par rapport à l'état initial. Cette métrique garantit une productivité maximale grâce à l'utilisation d'agents IA.</p>
             
             <div class="highlight-box">
                 <p><strong>Formule de calcul :</strong> Automatisation = (NombreDeWorkflowsAutomatisables × 100) / NombreTotalDeTaches. Avec 31 workflows automatisables couvrant l'ensemble des tâches, l'automatisation atteint 100% avec un gain de productivité de 400%.</p>
             </div>
             
             <h2>Traçabilité</h2>
-            <p>La traçabilité mesure la capacité à tracer l'origine et l'évolution de chaque élément du projet. Avec 31 standards documentés avec historique complet, guides pour agent IA, et processus de validation, la traçabilité est complète. Cette métrique garantit une transparence totale sur les décisions et les évolutions.</p>
+            <p>La traçabilité mesure la capacité à tracer l'origine et l'évolution de chaque élément du projet.</p>
+            <p>Avec 31 standards documentés avec historique complet, guides pour agent IA, et processus de validation, la traçabilité est complète. Cette métrique garantit une transparence totale sur les décisions et les évolutions.</p>
             
             <h2>Formules de calcul</h2>
-            <p>Les formules de calcul pour les métriques dimensionnelles permettent de quantifier précisément l'impact des standards. Ces formules sont intégrées dans environ 200 KPIs avec formules permettant le suivi continu de l'impact des standards sur le projet.</p>
+            <p>Les formules de calcul pour les métriques dimensionnelles permettent de quantifier précisément l'impact des standards.</p>
+            <p>Ces formules sont intégrées dans environ 200 KPIs avec formules permettant le suivi continu de l'impact des standards sur le projet.</p>
             
             <div class="category-grid" style="grid-template-columns: repeat(2, 1fr);">
                 <div class="category-card">
@@ -1491,121 +1694,163 @@
             </div>
             </div>
         </section>
+                </div>
+            </div>
+        </div>
         
+        <!-- Accordéon Projection court terme -->
+        <div class="section-accordion importance-high">
+            <div class="section-accordion-header" onclick="toggleSection(this)">
+                Projection d'évolution à court terme (6-12 mois)
+            </div>
+            <div class="section-accordion-content">
+                <div class="section-accordion-inner">
         <section id="projection-court-terme">
             <h1 id="projection-court-terme-title">Projection d'évolution à court terme (6-12 mois)</h1>
-            <p>Projection à court terme (6-12 mois) : phase de croissance, extensions fonctionnelles, nouveaux composants, évolution de la documentation, intégration des workflows IA.</p>
+            <p>Projection à court terme (6-12 mois) : finalisation du Proof of Concept du dashboard IT Dashboard A+, intégration de sources de données réelles, amélioration de la corrélation d'alertes multi-pôles, et intégration d'agents IA pour l'analyse automatique.</p>
             
-            <h2>Phase de croissance</h2>
-            <p>La phase de croissance correspond à l'adoption progressive des standards dans le développement quotidien. Cette phase inclut la formation des développeurs aux standards, l'intégration des workflows IA dans les processus, et la mise à jour progressive des scripts existants pour respecter les standards. Cette phase est cruciale car elle garantit que les standards sont adoptés de manière cohérente et efficace.</p>
+            <h2>Finalisation du Proof of Concept</h2>
+            <p>La finalisation du Proof of Concept du dashboard IT Dashboard A+ inclut la stabilisation de l'architecture complète (backend FastAPI, frontend React/TypeScript, pipeline ETL), l'intégration complète de HashiCorp Vault pour la gestion sécurisée des secrets, et la validation de tous les 10 collecteurs opérationnels pour les pôles 1 à 10.</p>
+            <p>Cette phase garantit que le dashboard est opérationnel et prêt pour l'intégration de données réelles.</p>
             
-            <h2>Extensions fonctionnelles prévues</h2>
-            <p>Les extensions fonctionnelles prévues incluent l'ajout de nouvelles fonctionnalités selon les standards définis, l'amélioration des fonctionnalités existantes pour une meilleure conformité, et l'extension du pipeline de données avec de nouveaux collecteurs et processus ETL. Ces extensions garantissent que le projet continue à évoluer selon les standards établis.</p>
+            <h2>Intégration de sources de données réelles</h2>
+            <p>L'intégration de sources de données réelles inclut le remplacement progressif des données simulées par des données réelles provenant des 11 pôles spécialisés (pôles 1 à 10 pour la collecte + pôle 11 pour la corrélation), l'implémentation de connecteurs pour les systèmes de monitoring existants, et la validation de la collecte et du traitement en temps réel.</p>
+            <p>Cette intégration transforme le Proof of Concept en système opérationnel.</p>
             
-            <h2>Nouveaux composants</h2>
+            <h2>Amélioration de la corrélation d'alertes</h2>
             <div class="category-grid" style="grid-template-columns: repeat(2, 1fr);">
                 <div class="category-card">
-                    <h3>Composants backend</h3>
-                    <div class="description">Développement de nouveaux composants backend selon les standards Python et FastAPI. Ces composants bénéficient d'une qualité optimale dès la création grâce aux standards de code et d'infrastructure.</div>
+                    <h3>Moteur de corrélation avancé</h3>
+                    <div class="description">Développement d'un moteur de corrélation plus sophistiqué pour détecter les relations entre alertes issues de différents pôles. Amélioration des algorithmes de détection de corrélations temporelles et contextuelles.</div>
                 </div>
                 <div class="category-card">
-                    <h3>Composants frontend</h3>
-                    <div class="description">Développement de nouveaux composants frontend selon les standards React et TypeScript. Ces composants sont conformes aux standards d'interface et de qualité d'écriture.</div>
+                    <h3>Règles de corrélation multi-pôles</h3>
+                    <div class="description">Définition et implémentation de règles de corrélation spécifiques pour chaque combinaison de pôles. Création d'un système de règles dynamiques permettant l'ajout de nouvelles corrélations sans modification du code.</div>
                 </div>
                 <div class="category-card">
-                    <h3>Scripts PowerShell</h3>
-                    <div class="description">Développement de nouveaux scripts PowerShell selon les standards PowerShell et de gouvernance. Ces scripts suivent les conventions de nommage et de structure définies.</div>
+                    <h3>Visualisation des corrélations</h3>
+                    <div class="description">Amélioration de l'interface utilisateur pour visualiser les corrélations détectées avec des graphes interactifs, des timelines et des heatmaps. Intégration de vues détaillées pour le drill-down sur les alertes corrélées.</div>
                 </div>
                 <div class="category-card">
-                    <h3>Processus ETL</h3>
-                    <div class="description">Développement de nouveaux processus ETL selon les standards ETL et d'orchestration. Ces processus sont intégrés dans le pipeline de données de manière cohérente.</div>
+                    <h3>Scoring et priorisation</h3>
+                    <div class="description">Amélioration du système de scoring unique pour mapper les alertes corrélées en 3 niveaux (critique, moyen, faible). Développement d'un algorithme de priorisation basé sur l'impact et la criticité des corrélations détectées.</div>
                 </div>
             </div>
             
-            <h2>Évolution de la documentation</h2>
-            <p>L'évolution de la documentation inclut l'enrichissement continu des standards avec de nouveaux exemples et cas d'usage, la création de guides d'onboarding pour les nouveaux développeurs, et la mise à jour régulière de la documentation technique selon les standards de qualité d'écriture. Cette évolution garantit que la documentation reste à jour et complète.</p>
+            <h2>Intégration d'agents IA pour l'analyse automatique</h2>
+            <p>L'intégration d'agents IA pour l'analyse automatique inclut le développement d'agents IA spécialisés pour analyser les alertes et détecter automatiquement les patterns de corrélation, l'implémentation de workflows automatisables pour la validation et le traitement des alertes, et l'intégration de prompts types directement utilisables par les agents IA. Cette intégration permet une analyse automatique et une détection proactive des risques.</p>
             
-            <h2>Intégration des workflows IA</h2>
-            <p>L'intégration des workflows IA inclut l'intégration des 31 workflows automatisables dans les processus de développement, la détection automatique des non-conformités via CI/CD, et l'automatisation des validations de conformité. Cette intégration permet une productivité maximale grâce à l'utilisation d'agents IA.</p>
+            <h2>Amélioration du pipeline de données</h2>
+            <p>L'amélioration du pipeline de données inclut l'optimisation des processus ETL pour gérer des volumes plus importants de données réelles, l'implémentation de mécanismes de déduplication plus efficaces, et l'ajout de nouveaux collecteurs pour couvrir des sources de données supplémentaires. Cette amélioration garantit que le dashboard peut gérer la charge opérationnelle réelle.</p>
         </section>
+                </div>
+            </div>
+        </div>
         
+        <!-- Accordéon Projection moyen terme -->
+        <div class="section-accordion importance-high">
+            <div class="section-accordion-header" onclick="toggleSection(this)">
+                Projection d'évolution à moyen terme (12-24 mois)
+            </div>
+            <div class="section-accordion-content">
+                <div class="section-accordion-inner">
         <section id="projection-moyen-terme">
             <h1 id="projection-moyen-terme-title">Projection d'évolution à moyen terme (12-24 mois)</h1>
-            <p>Projection à moyen terme (12-24 mois) : phase de maturité, stabilisation des processus, extension multi-projets, optimisation continue, réutilisabilité maximale.</p>
+            <p>Projection à moyen terme (12-24 mois) : passage en production du dashboard IT Dashboard A+, intégration complète des agents IA pour l'analyse automatique, extension des capacités de corrélation, et optimisation des performances.</p>
             
-            <h2>Phase de maturité</h2>
-            <p>La phase de maturité correspond à la stabilisation complète des processus avec les standards intégrés. Cette phase inclut la consolidation des pratiques établies, l'optimisation continue basée sur les retours d'expérience, et la collecte de métriques pour mesurer l'impact des standards. Cette phase garantit que les standards sont pleinement intégrés et optimisés.</p>
+            <h2>Passage en production</h2>
+            <p>Le passage en production du dashboard IT Dashboard A+ inclut la migration complète des données simulées vers des données réelles provenant de tous les pôles, la validation de la stabilité et de la performance sous charge réelle, et l'implémentation de mécanismes de monitoring et d'alerting pour garantir la disponibilité du système. Cette phase transforme le Proof of Concept en système de production opérationnel.</p>
             
-            <h2>Stabilisation des processus</h2>
-            <p>La stabilisation des processus inclut la formalisation complète de tous les processus selon les standards, l'établissement de pratiques éprouvées pour chaque aspect du projet, et la création de runbooks opérationnels pour les processus critiques. Cette stabilisation garantit une exécution cohérente et fiable de tous les processus.</p>
+            <h2>Intégration complète des agents IA</h2>
+            <p>L'intégration complète des agents IA inclut le déploiement d'agents IA spécialisés pour chaque pôle du dashboard, l'implémentation de workflows automatisables pour la détection et la résolution automatique de certains types d'alertes, et l'intégration de l'apprentissage automatique pour améliorer continuellement la précision de la détection de corrélations. Cette intégration permet une analyse automatique et proactive des risques IT.</p>
             
-            <h2>Extension multi-projets</h2>
+            <h2>Extension des capacités de corrélation</h2>
             <div class="category-grid" style="grid-template-columns: repeat(2, 1fr);">
                 <div class="category-card">
-                    <h3>Réutilisation des standards</h3>
-                    <div class="description">Utilisation des standards pour d'autres projets similaires avec adaptation selon les besoins spécifiques. Cette réutilisation maximise l'investissement dans les standards.</div>
+                    <h3>Corrélation prédictive</h3>
+                    <div class="description">Développement de capacités de corrélation prédictive pour anticiper les risques avant qu'ils ne se matérialisent. Utilisation de modèles d'apprentissage automatique pour détecter les patterns précurseurs d'incidents.</div>
                 </div>
                 <div class="category-card">
-                    <h3>Adaptation contextuelle</h3>
-                    <div class="description">Adaptation des standards selon le contexte de chaque projet tout en maintenant la cohérence générale. Cette adaptation garantit une flexibilité nécessaire pour différents contextes.</div>
+                    <h3>Corrélation contextuelle avancée</h3>
+                    <div class="description">Amélioration de la corrélation contextuelle en intégrant des données historiques, des tendances et des métriques de performance. Développement d'un système de contexte enrichi pour chaque alerte.</div>
                 </div>
                 <div class="category-card">
-                    <h3>Partage de bonnes pratiques</h3>
-                    <div class="description">Partage des bonnes pratiques et des retours d'expérience entre projets pour améliorer continuellement les standards. Ce partage permet une amélioration continue.</div>
+                    <h3>Corrélation multi-niveaux</h3>
+                    <div class="description">Extension de la corrélation pour inclure plusieurs niveaux d'abstraction (infrastructure, application, business). Création d'une vue hiérarchique des corrélations permettant une analyse à différents niveaux.</div>
                 </div>
                 <div class="category-card">
-                    <h3>Communauté de pratique</h3>
-                    <div class="description">Création d'une communauté de pratique autour des standards pour favoriser l'échange et l'amélioration continue. Cette communauté garantit une évolution collaborative des standards.</div>
-            </div>
+                    <h3>Corrélation en temps réel</h3>
+                    <div class="description">Optimisation du moteur de corrélation pour traiter les alertes en temps réel avec une latence minimale. Implémentation de mécanismes de traitement parallèle et de cache pour améliorer les performances.</div>
+                </div>
             </div>
             
-            <h2>Optimisation continue</h2>
-            <p>L'optimisation continue inclut l'analyse régulière des métriques collectées pour identifier les axes d'amélioration, l'ajustement des standards selon les retours d'expérience, et l'enrichissement continu des workflows IA et des patterns de détection. Cette optimisation garantit que les standards restent pertinents et efficaces.</p>
+            <h2>Optimisation des performances</h2>
+            <p>L'optimisation des performances inclut l'optimisation du pipeline de données pour gérer des volumes croissants d'alertes, l'amélioration de l'efficacité des requêtes et de l'affichage dans l'interface utilisateur, et l'implémentation de mécanismes de mise en cache et de préchargement pour réduire la latence. Cette optimisation garantit que le dashboard reste performant même avec une charge importante.</p>
             
-            <h2>Réutilisabilité maximale</h2>
-            <p>La réutilisabilité maximale inclut l'utilisation optimale des 100 templates réutilisables, des 150 algorithmes de validation, et des 500 patterns de détection dans tous les projets. Cette réutilisabilité maximise l'investissement dans les standards et garantit une cohérence entre les projets.</p>
+            <h2>Extension fonctionnelle du dashboard</h2>
+            <p>L'extension fonctionnelle du dashboard inclut l'ajout de nouvelles visualisations et de nouveaux types de graphes pour mieux représenter les corrélations, l'implémentation de fonctionnalités d'export et de reporting pour faciliter la communication avec les décideurs, et l'ajout de capacités de recherche et de filtrage avancées pour permettre une exploration efficace des données. Cette extension améliore l'utilité opérationnelle du dashboard.</p>
         </section>
+                </div>
+            </div>
+        </div>
         
+        <!-- Accordéon Projection long terme -->
+        <div class="section-accordion importance-high">
+            <div class="section-accordion-header" onclick="toggleSection(this)">
+                Projection d'évolution à long terme (24+ mois)
+            </div>
+            <div class="section-accordion-content">
+                <div class="section-accordion-inner">
         <section id="projection-long-terme">
             <h1 id="projection-long-terme-title">Projection d'évolution à long terme (24+ mois)</h1>
-            <p>Projection à long terme (24+ mois) : vision stratégique, généralisation, framework réutilisable, impact organisationnel, transformation en plateforme.</p>
+            <p>Projection à long terme (24+ mois) : transformation du dashboard IT Dashboard A+ en plateforme complète de veille IT stratégique, intégration d'agents IA avancés pour l'anticipation des risques, et extension vers de nouveaux domaines de surveillance.</p>
             
-            <h2>Vision stratégique</h2>
-            <p>La vision stratégique à long terme correspond à la transformation du projet en un framework complet et générique pour la gouvernance IA et le développement structuré. Cette vision inclut l'établissement des standards comme référence dans le domaine, la création d'une communauté autour des standards, et l'évolution vers une plateforme complète de gouvernance IA.</p>
+            <h2>Plateforme complète de veille IT stratégique</h2>
+            <p>La transformation du dashboard IT Dashboard A+ en plateforme complète de veille IT stratégique inclut l'extension du périmètre de surveillance pour couvrir l'ensemble du paysage IT moderne, l'intégration de sources de données externes (threat intelligence, veille technologique, conformité réglementaire), et le développement de capacités d'analyse stratégique pour la prise de décision au niveau exécutif. Cette transformation positionne le dashboard comme outil central de pilotage IT.</p>
             
-            <h2>Potentiel de généralisation</h2>
-            <p>Le potentiel de généralisation correspond à l'adaptation et la généralisation des standards pour tout type de projet nécessitant une gouvernance robuste. Ce potentiel inclut l'extraction des principes fondamentaux des standards, l'adaptation pour différents domaines et contextes, et la création d'un framework générique réutilisable.</p>
+            <h2>Agents IA avancés pour l'anticipation des risques</h2>
+            <p>L'intégration d'agents IA avancés pour l'anticipation des risques inclut le développement d'agents IA spécialisés capables d'analyser les tendances à long terme et d'anticiper les risques systémiques, l'implémentation de modèles prédictifs pour la détection précoce des problèmes potentiels, et l'intégration de capacités d'apprentissage continu pour améliorer continuellement la précision des prédictions. Cette intégration permet une veille proactive et stratégique.</p>
             
-            <h2>Framework réutilisable</h2>
+            <h2>Extension vers de nouveaux domaines</h2>
             <div class="category-grid" style="grid-template-columns: repeat(2, 1fr);">
                 <div class="category-card">
-                    <h3>Architecture modulaire</h3>
-                    <div class="description">Évolution vers une architecture modulaire permettant la réutilisation et la combinaison des standards selon les besoins. Cette architecture garantit une flexibilité maximale.</div>
+                    <h3>Veille technologique</h3>
+                    <div class="description">Extension du dashboard pour inclure la veille technologique avec surveillance des émergences, des brevets, des publications et des startups. Intégration de signaux faibles pour détecter les innovations disruptives.</div>
                 </div>
                 <div class="category-card">
-                    <h3>Composants standards</h3>
-                    <div class="description">Création de composants standards réutilisables pour les processus courants. Ces composants permettent une implémentation rapide et cohérente.</div>
+                    <h3>Conformité réglementaire</h3>
+                    <div class="description">Extension vers la surveillance de la conformité réglementaire avec intégration des exigences RGPD, NIS2, AI Act et autres réglementations. Développement de capacités de monitoring de la conformité en temps réel.</div>
                 </div>
                 <div class="category-card">
-                    <h3>Bibliothèque de référence</h3>
-                    <div class="description">Évolution vers une bibliothèque de référence complète pour la gouvernance IA et le développement structuré. Cette bibliothèque sert de référence pour tous les projets.</div>
+                    <h3>Gouvernance IA</h3>
+                    <div class="description">Extension vers la gouvernance IA avec surveillance des modèles, du drift, de l'éthique et de la conformité AI Act. Intégration de métriques spécifiques à la gouvernance IA dans le dashboard.</div>
                 </div>
                 <div class="category-card">
-                    <h3>Outils d'automatisation</h3>
-                    <div class="description">Développement d'outils d'automatisation pour faciliter l'application des standards. Ces outils permettent une adoption rapide et efficace.</div>
+                    <h3>Supply chain et dépendances</h3>
+                    <div class="description">Extension vers la surveillance de la supply chain logicielle et matérielle avec monitoring des dépendances, des vulnérabilités et des risques de rupture. Intégration de données SBOM et de threat intelligence.</div>
                 </div>
             </div>
             
-            <h2>Impact organisationnel</h2>
-            <p>L'impact organisationnel à long terme inclut la transformation des pratiques organisationnelles avec les standards comme base, la création d'une culture de qualité et de gouvernance, et l'établissement de processus organisationnels alignés avec les standards. Cet impact garantit une adoption organisationnelle complète des standards.</p>
+            <h2>Intégration avec les systèmes existants</h2>
+            <p>L'intégration avec les systèmes existants inclut le développement de connecteurs pour intégrer le dashboard avec les systèmes de monitoring, de SIEM, de CMDB et autres outils IT existants, l'implémentation d'APIs standardisées pour permettre l'intégration avec des systèmes tiers, et la création d'une architecture ouverte permettant l'extension et la personnalisation selon les besoins spécifiques de chaque organisation. Cette intégration garantit que le dashboard s'intègre naturellement dans l'écosystème IT existant.</p>
             
-            <h2>Transformation en plateforme</h2>
-            <p>La transformation en plateforme complète inclut la création d'une plateforme de gouvernance IA avec outils automatisés et métriques en temps réel, l'intégration de tous les standards dans une interface unifiée, et la fourniture de services de validation et de génération automatisés. Cette transformation garantit une utilisation optimale des standards à grande échelle.</p>
+            <h2>Évolution vers une solution de référence</h2>
+            <p>L'évolution vers une solution de référence inclut le positionnement du dashboard IT Dashboard A+ comme référence dans le domaine de la veille IT stratégique, le développement d'une communauté autour de la solution pour favoriser l'échange et l'amélioration continue, et la création d'une documentation complète et d'une formation pour faciliter l'adoption par d'autres organisations. Cette évolution garantit que le dashboard devient une solution reconnue et utilisée largement.</p>
         </section>
+                </div>
+            </div>
+        </div>
         
+        <!-- Accordéon Conclusion -->
+        <div class="section-accordion importance-high">
+            <div class="section-accordion-header" onclick="toggleSection(this)">
+                Conclusion et recommandations
+            </div>
+            <div class="section-accordion-content">
+                <div class="section-accordion-inner">
         <section id="conclusion">
             <h1 id="conclusion-title">Conclusion et recommandations</h1>
-            <p>Conclusion : l'intégration des 31 standards techniques transforme le projet Projet3 en un framework structuré et réutilisable avec une gouvernance robuste et des capacités d'automatisation avancées.</p>
+            <p>Conclusion : l'intégration des 31 standards techniques transforme le projet IT Dashboard A+ en un framework structuré et réutilisable avec une gouvernance robuste et des capacités d'automatisation avancées.</p>
             
             <h2>Synthèse des résultats</h2>
             <div class="highlight-box">
@@ -1613,7 +1858,7 @@
             </div>
             
             <h2>Nouvelle dimension du projet</h2>
-            <p>L'intégration des 31 standards techniques transforme le projet Projet3 en un framework structuré et réutilisable avec une gouvernance robuste et des capacités d'automatisation avancées. Cette transformation ajoute une dimension organisationnelle, fonctionnelle, et technique significative au projet. Le projet évolue d'un ensemble de composants techniques vers un framework complet de gouvernance IA et de développement structuré.</p>
+            <p>L'intégration des 31 standards techniques transforme le projet IT Dashboard A+ en un framework structuré et réutilisable avec une gouvernance robuste et des capacités d'automatisation avancées. Cette transformation ajoute une dimension organisationnelle, fonctionnelle, et technique significative au projet. Le projet évolue d'un ensemble de composants techniques vers un framework complet de gouvernance IA et de développement structuré.</p>
             
             <div class="category-grid" style="grid-template-columns: repeat(2, 1fr);">
                 <div class="category-card">
@@ -1689,10 +1934,20 @@
             </div>
             
             <div class="highlight-box" style="margin-top: 40px;">
-                <p><strong>Conclusion finale :</strong> L'intégration des 31 standards techniques transforme le projet Projet3 en un framework structuré et réutilisable avec une gouvernance robuste et des capacités d'automatisation avancées. Cette transformation multiplie la valeur et la portée du projet par un facteur de 3,5, améliore la maturité technique de manière significative, et garantit une base solide pour l'évolution continue du projet. Les standards constituent un investissement stratégique pour l'avenir, permettant une réutilisation maximale et une évolution vers une plateforme complète de gouvernance IA.</p>
+                <p><strong>Conclusion finale :</strong> L'intégration des 31 standards techniques transforme le projet IT Dashboard A+ en un framework structuré et réutilisable avec une gouvernance robuste et des capacités d'automatisation avancées. Cette transformation multiplie la valeur et la portée du projet par un facteur de 3,5, améliore la maturité technique de manière significative, et garantit une base solide pour l'évolution continue du projet. Les standards constituent un investissement stratégique pour l'avenir, permettant une réutilisation maximale et une évolution vers une plateforme complète de gouvernance IA.</p>
             </div>
         </section>
+                </div>
+            </div>
+        </div>
         
+        <!-- Accordéon Bibliographie -->
+        <div class="section-accordion importance-normal">
+            <div class="section-accordion-header" onclick="toggleSection(this)">
+                Bibliographie
+            </div>
+            <div class="section-accordion-content">
+                <div class="section-accordion-inner">
         <section id="bibliographie" class="bibliographie-section">
             <h1 id="bibliographie-title">Bibliographie</h1>
             <p>Cette section liste toutes les références externes et standards utilisés dans ce rapport. Les références sont organisées par catégorie et suivent un format de citation standardisé.</p>
@@ -1857,11 +2112,21 @@
             <ul style="list-style: none; padding: 0;">
                 <li style="margin: 15px 0; padding-left: 30px; position: relative;">
                     <span style="position: absolute; left: 0; color: var(--primary-color);">[25]</span>
-                    <strong>INIT_SEQUENCE.</strong> Système de gouvernance IA basé sur une machine à états finis, développé dans le cadre du projet IT Dashboard A+ pour résoudre le problème de perte de contexte lors des interactions avec les IA. Le système comprend 8 états (S(-1) à S7), 50 fichiers représentant 4100 lignes de documentation structurée, incluant 11 prompts fondateurs (1090 lignes), ainsi que les composants Bootloader, SYSTEM, USER, module cognitif et bilans techniques. Projet3 - IT Dashboard A+. (Consulté le 2025-01-01)
+                    <strong>INIT_SEQUENCE.</strong> Système de gouvernance IA basé sur une machine à états finis, développé dans le cadre du projet IT Dashboard A+ pour résoudre le problème de perte de contexte lors des interactions avec les IA. Le système comprend 8 états (S(-1) à S7), 50 fichiers représentant 4100 lignes de documentation structurée, incluant 11 prompts fondateurs (1090 lignes), ainsi que les composants Bootloader, SYSTEM, USER, module cognitif et bilans techniques. IT Dashboard A+. (Consulté le 2025-01-01)
                 </li>
             </ul>
         </section>
+                </div>
+            </div>
+        </div>
         
+        <!-- Accordéon Glossaire -->
+        <div class="section-accordion importance-normal">
+            <div class="section-accordion-header" onclick="toggleSection(this)">
+                Glossaire
+            </div>
+            <div class="section-accordion-content">
+                <div class="section-accordion-inner">
         <section id="glossaire" class="glossaire-section">
             <h1 id="glossaire-title">Glossaire</h1>
             <p>Cette section définit les termes techniques, acronymes et concepts utilisés dans ce rapport. Les définitions facilitent la compréhension du document pour tous les publics.</p>
@@ -1921,7 +2186,7 @@
                     <dd style="margin-left: 20px; margin-bottom: 10px; color: var(--text-secondary);">Chaîne de traitement automatisée où les données passent par plusieurs étapes successives (collecte, transformation, analyse, corrélation).</dd>
                     
                     <dt style="font-weight: 600; margin-top: 15px; color: var(--text-color);"><strong>Pôle</strong></dt>
-                    <dd style="margin-left: 20px; margin-bottom: 10px; color: var(--text-secondary);">Domaine fonctionnel spécialisé dans le projet Projet3 (exemple : Technologies et Infrastructures, Sécurité, Réseaux, etc.). Le projet comprend 10 pôles spécialisés.</dd>
+                    <dd style="margin-left: 20px; margin-bottom: 10px; color: var(--text-secondary);">Domaine fonctionnel spécialisé dans le projet IT Dashboard A+ (exemple : Technologies et Infrastructures, Sécurité, Réseaux, etc.). Le projet comprend 11 pôles spécialisés (pôles 1 à 10 pour la collecte + pôle 11 pour la corrélation) + pôle 0 pour la démonstration.</dd>
                 </dl>
                 
                 <h2 style="font-size: 1.3em; margin: 30px 0 20px 0; color: var(--primary-color);">R</h2>
@@ -1937,17 +2202,20 @@
                 </dl>
             </div>
         </section>
+                </div>
+            </div>
+        </div>
     </main>
     
     <footer role="contentinfo" style="background: #ffffff; color: #000000; border-top: 2px solid #000000; padding: 30px 0; margin-top: 60px; text-align: center;">
         <div style="max-width: var(--max-width); margin: 0 auto; padding: 0 40px;">
             <div style="margin-bottom: 20px;">
-                <p style="font-size: 1.1em; font-weight: 600; margin-bottom: 10px; color: #000000;">Rapport de Projection Dimensionnelle - Standards Projet3</p>
+                <p style="font-size: 1.1em; font-weight: 600; margin-bottom: 10px; color: #000000;">Rapport de Projection Dimensionnelle - IT Dashboard A+</p>
                 <p style="margin: 5px 0; color: #000000;"><strong>Auteur :</strong> Gabriel ROULON</p>
                 <p style="margin: 5px 0; color: #000000;"><strong>Date de publication :</strong> 2025-12-29</p>
                 <p style="margin: 5px 0; color: #000000;"><strong>Version du rapport :</strong> 1.0.0</p>
                 <p style="margin: 5px 0; color: #000000;"><strong>Statut :</strong> Final</p>
-                <p style="margin: 5px 0; color: #000000;"><strong>Projet :</strong> Projet3 - IT Dashboard A+</p>
+                <p style="margin: 5px 0; color: #000000;"><strong>Projet :</strong> IT Dashboard A+</p>
             </div>
             
             <div style="margin-top: 20px; padding-top: 20px; border-top: 1px solid #000000;">
@@ -1963,6 +2231,15 @@
     </footer>
     
     <script>
+        /**
+         * Fonction pour ouvrir/fermer les sections accordéon
+         */
+        function toggleSection(element) {
+            const section = element.parentElement;
+            section.classList.toggle('active');
+        }
+
+
         function debounce(func, wait) {
             let timeout;
             return function executedFunction(...args) {
@@ -2008,7 +2285,61 @@
             
             const menuLinks = dropdownMenu.querySelectorAll('a');
             menuLinks.forEach(link => {
-                link.addEventListener('click', function() {
+                link.addEventListener('click', function(e) {
+                    const href = link.getAttribute('href');
+                    
+                    // Si c'est un lien vers une section (commence par #)
+                    if (href && href.startsWith('#')) {
+                        e.preventDefault();
+                        
+                        const targetId = href.substring(1);
+                        const targetElement = document.getElementById(targetId);
+                        
+                        if (targetElement) {
+                            // Fermer tous les accordéons ouverts
+                            const allAccordions = document.querySelectorAll('.section-accordion.active');
+                            allAccordions.forEach(acc => {
+                                acc.classList.remove('active');
+                            });
+                            
+                            // Trouver l'accordéon parent
+                            let accordion = targetElement.closest('.section-accordion');
+                            
+                            // Si l'élément cible est dans une section, remonter jusqu'à l'accordéon
+                            if (!accordion) {
+                                let parent = targetElement.parentElement;
+                                while (parent && !parent.classList.contains('section-accordion')) {
+                                    parent = parent.parentElement;
+                                }
+                                accordion = parent;
+                            }
+                            
+                            // Ouvrir l'accordéon correspondant si trouvé
+                            if (accordion) {
+                                accordion.classList.add('active');
+                                
+                                // Trouver l'en-tête de l'accordéon
+                                const accordionHeader = accordion.querySelector('.section-accordion-header');
+                                
+                                // Scroller vers l'en-tête de l'accordéon après un court délai
+                                if (accordionHeader) {
+                                    setTimeout(() => {
+                                        const headerHeight = 100; // Hauteur du header fixe
+                                        const headerPosition = accordionHeader.getBoundingClientRect().top + window.pageYOffset;
+                                        const offsetPosition = headerPosition - headerHeight;
+                                        
+                                        window.scrollTo({
+                                            top: offsetPosition,
+                                            behavior: 'smooth'
+                                        });
+                                    }, 150);
+                                }
+                            }
+                        }
+                    }
+                    // Pour les liens externes (comme index.html), on laisse le comportement par défaut
+                    // mais on ferme quand même le menu
+                    
                     dropdownToggle.setAttribute('aria-expanded', 'false');
                     dropdownMenu.setAttribute('aria-hidden', 'true');
                 });

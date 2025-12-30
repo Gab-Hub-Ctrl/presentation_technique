@@ -175,3 +175,30 @@ if ('PerformanceObserver' in window) {
   }
 }
 
+/**
+ * Fonction pour ouvrir/fermer les sections accordéon.
+ * Cette fonction permet de basculer l'état actif/inactif
+ * d'une section accordéon en ajoutant ou retirant la classe
+ * 'active' sur l'élément parent. Cette fonctionnalité est
+ * utilisée pour créer des sections repliables qui améliorent
+ * la lisibilité et réduisent l'encombrement visuel.
+ * 
+ * @param {HTMLElement} element - L'élément header de l'accordéon cliqué.
+ */
+function toggleSection(element) {
+  const section = element.parentElement;
+  section.classList.toggle('active');
+}
+
+/**
+ * Initialisation des accordéons au chargement de la page.
+ * Aucun accordéon ne s'ouvre automatiquement.
+ * Les accordéons s'ouvrent uniquement si la classe 'active'
+ * est déjà présente dans le HTML ou si l'utilisateur clique dessus.
+ */
+document.addEventListener('DOMContentLoaded', function() {
+  // Ne jamais ouvrir automatiquement un accordéon
+  // Les accordéons avec la classe 'active' dans le HTML restent ouverts
+  // Les autres restent fermés jusqu'à ce que l'utilisateur clique dessus
+});
+

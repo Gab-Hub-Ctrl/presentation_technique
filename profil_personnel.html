@@ -40,7 +40,6 @@
   <!-- Preconnect -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="preload" href="favicon.png" as="image">
   
   <!-- Common CSS -->
   <link rel="stylesheet" href="common.css">
@@ -191,11 +190,26 @@
 
     .header-left h2 {
         margin: 0;
-        font-size: 1.35em;
-        color: var(--primary-color);
-        font-weight: 700;
-        white-space: nowrap;
+        font-size: 1.1em;
+        color: #000000;
+        font-weight: 600;
+        line-height: 1.3;
         transition: color 0.2s ease;
+        white-space: nowrap;
+    }
+    
+    .header-left h2 .page-title {
+        display: inline;
+        font-size: 1.1em;
+        color: #000000;
+        font-weight: 600;
+    }
+    
+    .header-left h2 .project-name {
+        display: inline;
+        font-size: 1.1em;
+        color: #000000;
+        font-weight: 600;
     }
 
     .header-left a:hover h2 {
@@ -271,7 +285,8 @@
     main {
         max-width: var(--max-width);
         margin: 0 auto;
-        padding: 120px 20px 40px;
+        padding: 80px clamp(16px, 4vw, 40px) 40px;
+        min-width: 0;
     }
 
     /* SECTIONS */
@@ -279,8 +294,6 @@
         margin-bottom: 48px;
         padding: 40px 45px;
         background: var(--card-bg);
-        backdrop-filter: blur(20px);
-        -webkit-backdrop-filter: blur(20px);
         border: 1px solid var(--border-color);
         border-radius: 12px;
         box-shadow: var(--shadow-md);
@@ -483,21 +496,38 @@
     <header role="banner">
         <div class="header-left">
             <a href="index.html" aria-label="Retour à l'accueil">
-                <h2>IT Dashboard A+</h2>
+                <h2>
+                    <span class="page-title">Mieux me connaître</span> | <span class="project-name">IT Dashboard A+</span>
+                </h2>
             </a>
         </div>
         
         <nav class="header-nav" aria-label="Navigation principale">
-            <a href="index.html">Accueil</a>
-            <a href="presentation_synthetique.html">Présentation</a>
-            <a href="presentation_complete.html">Présentation complète</a>
+            <div class="nav-dropdown">
+                <button class="nav-dropdown-toggle" aria-expanded="false" aria-haspopup="true" aria-label="Menu de navigation">
+                    Navigation <span class="nav-arrow">▼</span>
+                </button>
+                <ul class="nav-dropdown-menu" role="menu" aria-hidden="true">
+                    <li role="none"><a href="index.html" role="menuitem">Accueil</a></li>
+                    <li role="none"><a href="presentation_synthetique.html" role="menuitem">Présentation synthétique</a></li>
+                    <li role="none"><a href="presentation_complete.html" role="menuitem">Présentation complète</a></li>
+                    <li role="none"><a href="rapport_projection_dimension_standards_projet3.html" role="menuitem">Rapport</a></li>
+                    <li role="none"><a href="lettre_motivation_ecole.html" role="menuitem">Lettre école</a></li>
+                    <li role="none"><a href="lettre_motivation_entreprise.html" role="menuitem">Lettre entreprise</a></li>
+                </ul>
+            </div>
         </nav>
     </header>
     
     <main id="main-content" role="main">
+        <!-- Accordéon Parcours -->
+        <div class="section-accordion importance-high">
+            <div class="section-accordion-header" onclick="toggleSection(this)">
+                Mon parcours et mes bases
+            </div>
+            <div class="section-accordion-content">
+                <div class="section-accordion-inner">
         <section>
-            <h1 lang="fr">Mieux me connaître</h1>
-            
             <h2>Mon parcours et mes bases</h2>
             
             <h3>Ma formation</h3>
@@ -506,7 +536,19 @@
             <h3>Le projet IT Dashboard A+</h3>
             <p>Il y a trois mois, j'ai démarré un projet personnel pour structurer ma veille technologique IT. Mon objectif était de créer un dashboard qui agrège et analyse des informations sur la sécurité, le cloud, le développement et l'IA.</p>
             <p>Je partais de très peu : pas de formation structurée en développement, architecture ou IA. J'avais juste envie d'apprendre en faisant. J'ai utilisé l'IA comme outil d'apprentissage et de développement, mais j'ai toujours compris et validé chaque ligne de code qui était générée.</p>
-            
+            </section>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Accordéon Résolution de problèmes -->
+        <div class="section-accordion importance-high">
+            <div class="section-accordion-header" onclick="toggleSection(this)">
+                Ma façon de résoudre des problèmes
+            </div>
+            <div class="section-accordion-content">
+                <div class="section-accordion-inner">
+        <section>
             <h2>Ma façon de résoudre des problèmes</h2>
             
             <h3>Mon approche naturelle</h3>
@@ -527,23 +569,47 @@
             <p>Les données brutes et les logs s'accumulaient sans contrôle. J'ai mis en place un système d'archivage automatique : compression des données du jour précédent, rétention de 90 jours, puis purge automatique. Ça m'a fait réfléchir à la gestion du cycle de vie des données.</p>
             
             <p>Chaque problème que j'ai rencontré est devenu une opportunité d'apprendre et d'améliorer le projet.</p>
-            
+            </section>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Accordéon Compétences techniques -->
+        <div class="section-accordion importance-high">
+            <div class="section-accordion-header" onclick="toggleSection(this)">
+                Mes compétences techniques
+            </div>
+            <div class="section-accordion-content">
+                <div class="section-accordion-inner">
+        <section>
             <h2>Mes compétences techniques</h2>
             
             <h3>Ce que je sais faire</h3>
             <p><strong>Architecture et design :</strong> Je comprends les architectures modulaires (séparation des responsabilités). J'ai créé un pipeline complet : collecte → ETL → règles → corrélation → visualisation. Je comprends les machines à états finis (grâce à INIT_SEQUENCE). J'ai créé ProjectModule.psm1 pour gérer la portabilité.</p>
             
-            <p><strong>Développement :</strong> Je connais les bases de Python, PowerShell, TypeScript et React. Mon code est fonctionnel mais encore basique (c'est un POC, pas une solution optimisée). Je n'écris pas tout le code moi-même : j'utilise l'IA, mais je comprends ce qui est généré. Je valide et adapte le code généré selon mes besoins.</p>
+            <p><strong>Développement :</strong> Je connais les bases de Python, PowerShell, TypeScript et React. Mon code est fonctionnel mais encore basique (c'est un Proof of Concept, pas une solution optimisée). Je n'écris pas tout le code moi-même : j'utilise l'IA, mais je comprends ce qui est généré. Je valide et adapte le code généré selon mes besoins.</p>
             
             <p><strong>Automatisation :</strong> J'ai créé des menus CLI pour automatiser les opérations. J'ai intégré HashiCorp Vault de manière opérationnelle. J'ai mis en place des scripts de maintenance (backup, restauration, nettoyage). J'ai créé un système d'archivage automatique.</p>
             
-            <p><strong>Documentation :</strong> J'ai produit beaucoup de documentation (plus de 15 000 lignes au total). J'ai créé des guides structurés et des standards. J'ai appris l'importance de bien documenter pour que d'autres (ou moi plus tard) puissent comprendre.</p>
+            <p><strong>Documentation :</strong> J'ai produit beaucoup de documentation. INIT_SEQUENCE comprend 4100 lignes, les Standards Projet3 représentent environ 50 000 lignes de documentation structurée, et j'ai créé de nombreux guides et standards. J'ai appris l'importance de bien documenter pour que d'autres (ou moi plus tard) puissent comprendre.</p>
             
             <h3>Ce que je ne sais pas encore bien faire</h3>
             <p><strong>Code technique :</strong> Mon code est fonctionnel mais pas optimisé. Je ne maîtrise pas encore toutes les bonnes pratiques de développement. Je n'ai pas encore beaucoup d'expérience en débogage complexe. Je dois encore améliorer mes compétences en tests.</p>
             
-            <p><strong>Fondations théoriques :</strong> Je manque de bases théoriques solides. Ma pratique est empirique et efficace, mais je veux apprendre les vraies règles. C'est pour ça que je souhaite suivre une formation académique (Bachelor en IA).</p>
-            
+            <p><strong>Fondations théoriques :</strong> Je manque de bases théoriques solides. Ma pratique est empirique et efficace, mais je veux apprendre les vraies règles. C'est pour ça que je souhaite suivre une formation académique en Intelligence Artificielle.</p>
+            </section>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Accordéon Relation avec l'IA -->
+        <div class="section-accordion importance-critical">
+            <div class="section-accordion-header" onclick="toggleSection(this)">
+                Ma relation avec l'IA
+            </div>
+            <div class="section-accordion-content">
+                <div class="section-accordion-inner">
+        <section>
             <h2>Ma relation avec l'IA</h2>
             
             <h3>Comment j'utilise l'IA</h3>
@@ -559,30 +625,57 @@
             
             <h3>Ma recherche de maîtrise</h3>
             <p>Je reconnais que ma pratique actuelle, bien qu'efficace, manque de fondations théoriques solides. Je comprends les concepts que j'utilise, mais je veux apprendre les vraies règles présentes dans les métiers de l'IA.</p>
-            <p>C'est précisément pour cela que je souhaite intégrer un Bachelor en Intelligence Artificielle : pour apprendre les fondements théoriques, les bonnes pratiques professionnelles, les méthodologies éprouvées, les limites et les risques de l'IA. Je veux transformer ma pratique empirique en compétence structurée et reconnue.</p>
-            
+            <p>C'est précisément pour cela que je souhaite intégrer une formation académique en Intelligence Artificielle : pour apprendre les fondements théoriques, les bonnes pratiques professionnelles, les méthodologies éprouvées, les limites et les risques de l'IA. Je veux transformer ma pratique empirique en compétence structurée et reconnue.</p>
+            </section>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Accordéon Compétences préexistantes -->
+        <div class="section-accordion importance-normal">
+            <div class="section-accordion-header" onclick="toggleSection(this)">
+                Mes compétences préexistantes
+            </div>
+            <div class="section-accordion-content">
+                <div class="section-accordion-inner">
+        <section>
             <h2>Mes compétences préexistantes</h2>
             
             <h3>Ce que je savais déjà</h3>
             <p>Avant ce projet, j'avais déjà des compétences en virtualisation (configuration et gestion d'environnements virtualisés), sécurité informatique (pare-feu, configuration de sécurité, bonnes pratiques), administration système Windows (configuration de serveurs), et maintenance et opérations (j'ai trois ans d'expérience professionnelle).</p>
             <p>Ces compétences m'ont aidé pour configurer et gérer Vault, créer l'architecture opérationnelle avec les menus CLI, intégrer la sécurité avec HashiCorp Vault, et mettre en place l'observabilité avec les logs et le monitoring.</p>
             <p>Ces compétences infrastructure compensent en partie mes limitations en développement pur.</p>
-            
+            </section>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Accordéon Limites et apprentissage -->
+        <div class="section-accordion importance-normal">
+            <div class="section-accordion-header" onclick="toggleSection(this)">
+                Mes limites et ce que je veux apprendre
+            </div>
+            <div class="section-accordion-content">
+                <div class="section-accordion-inner">
+        <section>
             <h2>Mes limites et ce que je veux apprendre</h2>
             
             <h3>Mes limites</h3>
-            <p>Je reconnais mes limites : mon code est fonctionnel mais basique (c'est un POC, pas une solution optimisée). Je manque de fondations théoriques solides. Ma pratique est empirique et efficace, mais je veux apprendre les vraies règles. Je suis encore très dépendant de l'IA (même si je veux apprendre à être plus autonome).</p>
+            <p>Je reconnais mes limites : mon code est fonctionnel mais basique (c'est un Proof of Concept, pas une solution optimisée). Je manque de fondations théoriques solides. Ma pratique est empirique et efficace, mais je veux apprendre les vraies règles. Je suis encore très dépendant de l'IA (même si je veux apprendre à être plus autonome).</p>
             
             <h3>Ce que je veux apprendre</h3>
-            <p>Je souhaite intégrer un Bachelor en Intelligence Artificielle pour apprendre les fondements théoriques, comprendre les bonnes pratiques professionnelles, découvrir les méthodologies éprouvées, apprendre dans un cadre académique et professionnel, et transformer ma pratique empirique en compétence structurée.</p>
+            <p>Je souhaite intégrer une formation académique en Intelligence Artificielle pour apprendre les fondements théoriques, comprendre les bonnes pratiques professionnelles, découvrir les méthodologies éprouvées, apprendre dans un cadre académique et professionnel, et transformer ma pratique empirique en compétence structurée.</p>
             <p>Je veux comprendre ce qui se passe sous le capot : systèmes, réseaux, sécurité, architectures. Je veux être capable de travailler aussi sans IA quand le contexte l'exige. Je veux faire de l'IA un outil maîtrisé, intégré dans des processus robustes et gouvernés.</p>
             
             <h2>En résumé</h2>
             <p>En trois mois, j'ai créé un projet fonctionnel qui dépasse mes attentes initiales. J'ai développé un système de gouvernance IA (INIT_SEQUENCE), créé des standards réutilisables, et appris beaucoup sur l'architecture, l'automatisation et la documentation.</p>
             <p>Ce que je trouve intéressant dans mon parcours, c'est ma capacité à résoudre des problèmes naturellement. Chaque problème que j'ai rencontré est devenu une opportunité d'apprendre et d'améliorer le projet. C'est cette approche qui m'a permis d'avancer rapidement.</p>
             <p>Je suis conscient que j'ai encore beaucoup à apprendre, notamment sur les fondations théoriques. C'est pour ça que je souhaite suivre une formation académique : pour transformer ma pratique empirique en compétence structurée et reconnue.</p>
-            <p>Je cherche un environnement où je peux apprendre, progresser et contribuer, idéalement dans le cadre d'une alternance liée à un Bachelor en Intelligence Artificielle. Mon objectif professionnel est de devenir Expert en Gouvernance IA, un métier qui correspond bien à mes compétences et à mes aspirations : structurer les processus d'utilisation de l'IA, assurer la traçabilité et l'éthique, définir les règles de gouvernance. Cette orientation professionnelle découle naturellement de ma vision stratégique et de mon appétence pour la structuration et la gouvernance.</p>
-        </section>
+            <p>Je cherche un environnement où je peux apprendre, progresser et contribuer, idéalement dans le cadre d'une alternance liée à une formation académique en Intelligence Artificielle. Mon objectif professionnel est de devenir Expert en Gouvernance IA, un métier qui correspond bien à mes compétences et à mes aspirations : structurer les processus d'utilisation de l'IA, assurer la traçabilité et l'éthique, définir les règles de gouvernance. Cette orientation professionnelle découle naturellement de ma vision stratégique et de mon appétence pour la structuration et la gouvernance.</p>
+            </section>
+                </div>
+            </div>
+        </div>
     </main>
     
     <footer role="contentinfo">
@@ -595,6 +688,49 @@
             <a href="https://github.com/Gab-Hub-Ctrl/presentation_technique" target="_blank" rel="noopener noreferrer">Dépôt GitHub</a>
         </p>
     </footer>
+    
+    <script>
+        /**
+         * Fonction pour ouvrir/fermer les sections accordéon
+         */
+        function toggleSection(element) {
+            const section = element.parentElement;
+            section.classList.toggle('active');
+        }
+
+
+        /**
+         * Menu déroulant de navigation
+         */
+        (function() {
+            const dropdownToggle = document.querySelector('.nav-dropdown-toggle');
+            const dropdownMenu = document.querySelector('.nav-dropdown-menu');
+            
+            if (!dropdownToggle || !dropdownMenu) return;
+            
+            dropdownToggle.addEventListener('click', function(e) {
+                e.preventDefault();
+                const isExpanded = dropdownToggle.getAttribute('aria-expanded') === 'true';
+                dropdownToggle.setAttribute('aria-expanded', !isExpanded);
+                dropdownMenu.setAttribute('aria-hidden', isExpanded);
+            });
+            
+            document.addEventListener('click', function(e) {
+                if (!dropdownToggle.contains(e.target) && !dropdownMenu.contains(e.target)) {
+                    dropdownToggle.setAttribute('aria-expanded', 'false');
+                    dropdownMenu.setAttribute('aria-hidden', 'true');
+                }
+            });
+            
+            const menuLinks = dropdownMenu.querySelectorAll('a');
+            menuLinks.forEach(link => {
+                link.addEventListener('click', function() {
+                    dropdownToggle.setAttribute('aria-expanded', 'false');
+                    dropdownMenu.setAttribute('aria-hidden', 'true');
+                });
+            });
+        })();
+    </script>
     
     <!-- Common JavaScript -->
     <script src="common.js" defer></script>
