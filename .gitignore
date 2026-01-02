@@ -1,0 +1,70 @@
+# ==============================
+# Système / OS
+# ==============================
+Thumbs.db
+Desktop.ini
+.DS_Store
+
+# ==============================
+# Fichiers temporaires
+# ==============================
+*.tmp
+*.bak
+*.swp
+*.swo
+*~
+*_temp_*
+*_temp.*
+
+# ==============================
+# Sauvegardes
+# ==============================
+*.backup
+*.old
+
+# ==============================
+# Éditeurs / IDE
+# ==============================
+.vscode/
+.idea/
+*.sublime-*
+
+# ==============================
+# Logs
+# ==============================
+*.log
+
+# ==============================
+# Fichiers NON nécessaires pour la candidature
+# ==============================
+
+# Dossier documents complet (non nécessaire pour la candidature)
+documents/
+
+# Fichiers de structure/planning (non nécessaires)
+plan_*
+structure_*
+
+# Fichiers texte (tous convertis en .md)
+# Exception : robots.txt doit être inclus dans le repo
+*.txt
+!robots.txt
+
+# Fichiers PDF (non nécessaires pour la candidature)
+*.pdf
+
+# ==============================
+# Fichiers de développement (non nécessaires)
+# ==============================
+.gitignore.backup
+prepare-git.ps1
+
+# ==============================
+# Présentation complète (temporairement indisponible)
+# ==============================
+presentation_complete.html
+
+# ==============================
+# Documentation technique (temporairement indisponible)
+# ==============================
+documentation_technique/

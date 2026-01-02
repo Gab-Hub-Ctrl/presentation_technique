@@ -1,0 +1,1657 @@
+<!DOCTYPE html>
+<!-- Validation HTML5 W3C : Document conforme aux standards HTML5 -->
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>IT Dashboard A+ : Présentation technique</title>
+
+  <!-- SEO -->
+  <meta name="description" content="Présentation technique professionnelle du projet IT Dashboard A+. Architecture, gouvernance, documentation et vision long terme.">
+  <meta name="author" content="Gabriel ROULON">
+  <meta name="keywords" content="IT Dashboard, Intelligence Artificielle, Architecture technique, Gouvernance IA, Documentation technique">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="IT Dashboard A+ : Présentation technique">
+  <meta property="og:description" content="Architecture, gouvernance, documentation et vision long terme du projet IT Dashboard A+.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://gab-hub-ctrl.github.io/presentation_technique/">
+  <meta property="og:image" content="https://gab-hub-ctrl.github.io/presentation_technique/og-image.png">
+  <meta property="og:locale" content="fr_FR">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="IT Dashboard A+ : Présentation technique">
+  <meta name="twitter:description" content="Architecture, gouvernance, documentation et vision long terme du projet IT Dashboard A+.">
+  <meta name="twitter:image" content="https://gab-hub-ctrl.github.io/presentation_technique/og-image.png">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="favicon.png">
+  <link rel="apple-touch-icon" href="favicon.png">
+
+  <!-- Canonical URL -->
+  <link rel="canonical" href="https://gab-hub-ctrl.github.io/presentation_technique/">
+
+  <!-- Robots -->
+  <meta name="robots" content="index, follow">
+  
+  <!-- Sitemap -->
+  <link rel="sitemap" type="application/xml" href="sitemap.xml">
+
+  <!-- Theme Color for Mobile -->
+  <meta name="theme-color" content="#000000">
+  <meta name="msapplication-TileColor" content="#000000">
+
+  <!-- Format Detection -->
+  <meta name="format-detection" content="telephone=no">
+
+  <!-- Referrer Policy -->
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+
+  <!-- Resource Hints -->
+  <link rel="preconnect" href="https://github.com">
+  <link rel="dns-prefetch" href="https://github.com">
+  
+  <!-- Common CSS -->
+  <link rel="stylesheet" href="common.css">
+
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "IT Dashboard A+",
+    "description": "Présentation technique professionnelle du projet IT Dashboard A+",
+    "url": "https://gab-hub-ctrl.github.io/presentation_technique/",
+    "author": {
+      "@type": "Person",
+      "name": "Gabriel ROULON"
+    },
+    "inLanguage": "fr-FR",
+    "datePublished": "2025-01-01",
+    "dateModified": "2025-12-29",
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": "https://gab-hub-ctrl.github.io/presentation_technique/?q={search_term_string}",
+      "query-input": "required name=search_term_string"
+    },
+    "publisher": {
+      "@type": "Person",
+      "name": "Gabriel ROULON"
+    }
+  }
+  </script>
+
+  <!-- BreadcrumbList Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [{
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Accueil",
+      "item": "https://gab-hub-ctrl.github.io/presentation_technique/"
+    }]
+  }
+  </script>
+
+  <style>
+    /* ============================================
+       VARIABLES CSS - Palette de couleurs
+       Définition centralisée pour faciliter
+       la maintenance et la cohérence visuelle
+       ============================================ */
+    :root {
+      /* Thème noir et blanc professionnel avec couleurs d'importance discrètes */
+      
+      /* Couleurs de base - Noir et blanc */
+      --text-color: #000000; /* Noir pur pour texte principal */
+      --text-secondary: #333333; /* Gris foncé pour texte secondaire */
+      --bg-color: #ffffff; /* Blanc pur pour fond principal */
+      --bg-secondary: #f5f5f5; /* Gris très clair pour fond secondaire */
+      --card-bg: #ffffff; /* Blanc pur pour cartes */
+      --border-color: #000000; /* Noir pour bordures */
+      
+      /* Couleurs d'importance - Discrètes et professionnelles */
+      --importance-critical: #8b0000; /* Rouge foncé discret pour critique */
+      --importance-high: #003366; /* Bleu foncé discret pour important */
+      --importance-normal: #006400; /* Vert foncé discret pour normal */
+      --importance-info: #333333; /* Gris foncé pour information */
+      
+      /* Couleurs principales - Noir par défaut */
+      --primary-color: #000000; /* Noir pour éléments principaux */
+      --primary-dark: #000000; /* Noir pour états foncés */
+      --primary-light: #333333; /* Gris foncé pour états clairs */
+      
+      /* Accents */
+      --accent-color: #000000; /* Noir pour accents */
+      --accent-hover: #333333; /* Gris foncé au survol */
+      
+      /* Ombres subtiles en noir et blanc */
+      --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.12);
+      --shadow-md: 0 2px 6px rgba(0, 0, 0, 0.15);
+      --shadow-lg: 0 4px 12px rgba(0, 0, 0, 0.2);
+      
+      --max-width: 1200px;
+    }
+
+    /* Mode sombre désactivé - Thème noir et blanc uniquement */
+
+    /* ============================================
+       RESET ET BASE
+       Normalisation des styles et configuration
+       des propriétés de base du document
+       ============================================ */
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 100px;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      text-rendering: optimizeLegibility;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: var(--bg-color);
+      color: var(--text-color);
+      overflow-x: hidden;
+      line-height: 1.6;
+      min-height: 100vh;
+    }
+
+    /* Performance: Use will-change for animated elements */
+    header, .card {
+      will-change: transform;
+    }
+
+    /* Fond blanc pur - pas de gradient */
+    body::before {
+      display: none;
+    }
+
+
+    /* ============================================
+       HEADER - Navigation principale
+       Header fixe avec effet glassmorphism
+       et navigation accessible
+       ============================================ */
+    header {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%;
+      background: #ffffff;
+      border-bottom: 2px solid var(--border-color);
+      box-shadow: var(--shadow-md);
+      padding: 14px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 100;
+    }
+
+
+    .header-left a {
+      text-decoration: none;
+      color: inherit;
+      display: block;
+    }
+
+    .header-left a:focus-visible {
+      outline: 3px solid #000000;
+      outline-offset: 4px;
+      border-radius: 3px;
+      padding: 2px 4px;
+    }
+
+    .header-left h2 {
+      margin: 0;
+      font-size: 1.1em;
+      color: #000000;
+      font-weight: 600;
+      line-height: 1.3;
+      transition: color 0.2s ease;
+      white-space: nowrap;
+    }
+    
+    .header-left h2 .page-title {
+      display: inline;
+      font-size: 1.1em;
+      color: #000000;
+      font-weight: 600;
+    }
+    
+    .header-left h2 .project-name {
+      display: inline;
+      font-size: 1.1em;
+      color: #000000;
+      font-weight: 600;
+      letter-spacing: 0.3px;
+    }
+
+    .header-left a:hover h2 {
+      color: var(--accent-hover);
+    }
+
+    .header-right {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .header-nav {
+      display: flex;
+      gap: 22px;
+    }
+
+    .header-nav a {
+      text-decoration: none;
+      color: #333333;
+      font-weight: 500;
+      font-size: 0.95em;
+      white-space: nowrap;
+      transition: color 0.2s ease;
+      position: relative;
+      padding: 4px 8px;
+    }
+
+    .header-nav a:hover {
+      color: #000000;
+    }
+
+    .header-nav a:focus-visible {
+      outline: 3px solid #000000;
+      outline-offset: 4px;
+      border-radius: 3px;
+    }
+
+    /* ============================================
+       HEADER NOTE TOGGLE - Bouton Important
+       ============================================ */
+    .header-note-toggle {
+      background: transparent;
+      border: 1px solid var(--importance-critical);
+      border-radius: 6px;
+      padding: 8px 16px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      font-family: inherit;
+      font-size: 0.9em;
+      font-weight: 500;
+      white-space: nowrap;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .header-note-label {
+      color: var(--importance-critical);
+      transition: color 0.2s ease;
+    }
+
+    .header-note-toggle:hover {
+      background: var(--importance-critical);
+      border-color: var(--importance-critical);
+    }
+
+    .header-note-toggle:hover .header-note-label {
+      color: #ffffff;
+    }
+
+    .header-note-toggle:focus-visible {
+      outline: 3px solid var(--importance-critical);
+      outline-offset: 2px;
+    }
+
+    /* ============================================
+       MODAL OVERLAY - Fond sombre de la modale
+       ============================================ */
+    .modal-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.7);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 10000;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.3s ease, visibility 0.3s ease;
+      padding: 20px;
+    }
+
+    .modal-overlay[aria-hidden="false"] {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    /* ============================================
+       MODAL CONTAINER - Conteneur de la modale
+       ============================================ */
+    .modal-container {
+      background: #ffffff;
+      border: 2px solid var(--importance-critical);
+      border-radius: 12px;
+      max-width: 700px;
+      width: 100%;
+      max-height: 90vh;
+      overflow-y: auto;
+      box-shadow: var(--shadow-lg);
+      transform: scale(0.9);
+      transition: transform 0.3s ease;
+      position: relative;
+    }
+
+    .modal-overlay[aria-hidden="false"] .modal-container {
+      transform: scale(1);
+    }
+
+    /* ============================================
+       MODAL HEADER - En-tête de la modale
+       ============================================ */
+    .modal-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 24px;
+      border-bottom: 2px solid var(--border-color);
+      background: #ffffff;
+      border-radius: 12px 12px 0 0;
+      position: sticky;
+      top: 0;
+      z-index: 1;
+    }
+
+    .modal-header h2 {
+      margin: 0;
+      font-size: 1.5em;
+      color: var(--importance-critical);
+      font-weight: 700;
+    }
+
+    .modal-close {
+      background: transparent;
+      border: none;
+      font-size: 2em;
+      line-height: 1;
+      color: var(--text-color);
+      cursor: pointer;
+      padding: 0;
+      width: 32px;
+      height: 32px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 4px;
+      transition: all 0.2s ease;
+    }
+
+    .modal-close:hover {
+      background: var(--bg-secondary);
+      color: var(--importance-critical);
+    }
+
+    .modal-close:focus-visible {
+      outline: 3px solid var(--importance-critical);
+      outline-offset: 2px;
+    }
+
+    /* ============================================
+       MODAL CONTENT - Contenu de la modale
+       ============================================ */
+    .modal-content {
+      padding: 24px;
+    }
+
+    .modal-content p {
+      margin: 0;
+      font-size: 1em;
+      line-height: 1.7;
+      color: var(--text-color);
+      text-align: justify;
+      text-align-last: left;
+    }
+
+    /* Responsive pour header note toggle */
+    @media (max-width: 900px) {
+      .header-note-toggle {
+        margin-left: 0;
+        margin-top: 10px;
+      }
+
+      .modal-container {
+        max-width: 95vw;
+        max-height: 85vh;
+      }
+
+      .modal-header {
+        padding: 16px 20px;
+      }
+
+      .modal-header h2 {
+        font-size: 1.3em;
+      }
+
+      .modal-content {
+        padding: 20px;
+      }
+
+      .modal-content p {
+        font-size: 0.95em;
+      }
+    }
+
+    /* Empêcher le scroll du body quand la modale est ouverte */
+    body.modal-open {
+      overflow: hidden;
+    }
+
+    /* RESPONSIVE HEADER */
+    @media (max-width: 900px) {
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 16px 25px;
+      }
+
+      .header-right {
+        margin-top: 10px;
+        width: 100%;
+        flex-wrap: wrap;
+      }
+
+      .header-nav {
+        gap: 14px;
+        flex-wrap: wrap;
+      }
+
+      .header-note-toggle {
+        margin-top: 0;
+      }
+    }
+
+    /* MAIN */
+    main {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 50px clamp(16px, 4vw, 40px) 40px;
+      min-width: 0;
+    }
+
+    /* h1 supprimé - titre maintenant dans le header */
+
+    .subtitle {
+      text-align: center;
+      font-size: 1em;
+      color: #666666;
+      margin-top: 15px;
+      margin-bottom: 25px;
+      animation: fadeIn 0.8s ease;
+      font-weight: 400;
+      line-height: 1.5;
+    }
+
+
+    .introduction {
+      text-align: center;
+      margin: 0 auto 35px auto;
+      max-width: 700px;
+      padding: 0 clamp(16px, 3vw, 20px);
+      font-size: 0.95em;
+      color: var(--text-secondary);
+      animation: fadeIn 1s ease;
+      line-height: 1.6;
+    }
+
+    /* ============================================
+       HERO SECTION - Grille spéciale
+       Résumé exécutif et rapport côte à côte
+       ============================================ */
+    .hero-section-container {
+      margin-bottom: 60px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 30px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    /* ============================================
+       EXECUTIVE SUMMARY - Résumé exécutif
+       Section mise en avant avec bordure
+       gauche et effet hover subtil
+       ============================================ */
+    .executive-summary {
+      max-width: none;
+      margin: 0;
+      padding: 24px clamp(16px, 3vw, 32px);
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-left: 4px solid var(--primary-color);
+      border-radius: 20px;
+      box-shadow: var(--shadow-md);
+      animation: fadeIn 1s ease;
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .executive-summary::before {
+      display: none; /* Supprimer le gradient coloré */
+    }
+
+    .executive-summary:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .executive-summary h2 {
+      margin-top: 0;
+      font-size: 1.55em;
+      color: var(--primary-color);
+    }
+
+    .executive-summary p {
+      font-size: 1.05em;
+      color: #3a3a3a;
+      line-height: 1.6;
+      margin-bottom: 0;
+      text-align: justify;
+      text-align-last: left;
+    }
+
+
+    /* ============================================
+       REPORT CARD HERO - Carte rapport dans hero
+       ============================================ */
+    .report-card-hero {
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-left: 4px solid var(--primary-color);
+      border-radius: 20px;
+      padding: 24px clamp(16px, 3vw, 32px);
+      box-shadow: var(--shadow-md);
+      animation: fadeIn 1s ease;
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .report-card-hero:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-lg);
+      border-left-color: var(--primary-dark);
+    }
+
+    .report-card-hero svg {
+      width: 32px;
+      height: 32px;
+      margin-bottom: 12px;
+      fill: var(--primary-color);
+      transition: transform 0.3s ease, fill 0.3s ease;
+    }
+
+    .report-card-hero:hover svg {
+      transform: scale(1.1) rotate(5deg);
+      fill: var(--primary-dark);
+    }
+
+    .report-card-hero h3 {
+      margin: 0 0 12px 0;
+      font-size: 1.55em;
+      color: var(--primary-color);
+      font-weight: 700;
+    }
+
+    .report-card-hero p {
+      font-size: 1.05em;
+      color: #3a3a3a;
+      line-height: 1.6;
+      margin-bottom: 20px;
+      flex-grow: 1;
+      text-align: justify;
+      text-align-last: left;
+    }
+
+
+    .report-card-hero a {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--primary-color);
+      font-weight: 600;
+      text-decoration: none;
+      font-size: 1em;
+      transition: color 0.3s ease, gap 0.3s ease;
+      margin-top: auto;
+    }
+
+    .report-card-hero a::after {
+      content: '';
+      transition: transform 0.3s ease;
+    }
+
+    .report-card-hero a:hover {
+      color: var(--accent-hover);
+      gap: 12px;
+    }
+
+    .report-card-hero a:hover::after {
+      transform: translateX(4px);
+    }
+
+    .report-card-hero a:focus-visible {
+      outline: 3px solid var(--primary-color);
+      outline-offset: 4px;
+      border-radius: 4px;
+      padding: 2px 4px;
+    }
+
+    /* Responsive pour la grille hero */
+    @media (max-width: 900px) {
+      .hero-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+      }
+
+      .executive-summary {
+        max-width: 900px;
+        margin: 0 auto;
+      }
+    }
+
+    /* Section container avec accordéon */
+    .sections-container {
+      margin-top: 40px;
+      padding-top: 40px;
+      border-top: 3px solid #000000;
+      position: relative;
+    }
+
+
+    .section-accordion {
+      margin-bottom: 20px;
+      border: 2px solid #000000;
+      border-radius: 0;
+      overflow: hidden;
+      background: #ffffff;
+      box-shadow: var(--shadow-md);
+    }
+
+    .section-accordion-header {
+      background: #000000;
+      color: #ffffff;
+      padding: 12px 18px;
+      font-size: 0.95em;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      user-select: none;
+      transition: background 0.2s ease;
+      border-bottom: 2px solid #000000;
+    }
+
+    .section-accordion-header:hover {
+      background: #333333;
+    }
+    
+    /* Couleurs d'importance pour les sections */
+    .section-accordion.importance-critical .section-accordion-header {
+      border-left: 4px solid var(--importance-critical);
+    }
+    
+    .section-accordion.importance-high .section-accordion-header {
+      border-left: 4px solid var(--importance-high);
+    }
+    
+    .section-accordion.importance-normal .section-accordion-header {
+      border-left: 4px solid var(--importance-normal);
+    }
+
+    .section-accordion-header::after {
+      content: '+';
+      font-size: 1.5em;
+      font-weight: 300;
+      transition: transform 0.3s ease;
+    }
+
+    .section-accordion.active .section-accordion-header::after {
+      transform: rotate(45deg);
+    }
+
+    .section-accordion-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.5s ease;
+    }
+
+    .section-accordion.active .section-accordion-content {
+      max-height: 5000px;
+      transition: max-height 0.5s ease;
+    }
+
+    /* Désactiver les transitions pendant les animations pour éviter les chevauchements */
+    .section-accordion.animating .section-accordion-content {
+      transition: none;
+    }
+
+    .section-accordion-inner {
+      padding: 20px clamp(16px, 3vw, 24px);
+      background: #ffffff;
+    }
+
+    .sections-title {
+      font-size: 1.4em;
+      color: #000000;
+      text-align: center;
+      margin-bottom: 25px;
+      font-weight: 600;
+      position: relative;
+      padding-bottom: 12px;
+      animation: fadeIn 0.8s ease;
+      letter-spacing: -0.3px;
+    }
+
+    .sections-title::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100px;
+      height: 3px;
+      background: #000000;
+    }
+
+    /* ============================================
+       CARDS GRID - Grille de cartes
+       Layout responsive avec grid CSS
+       et animations au survol
+       ============================================ */
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      margin-top: 16px;
+    }
+
+    .card {
+      background: #ffffff;
+      border: 2px solid #000000;
+      border-radius: 8px;
+      padding: 16px clamp(14px, 2vw, 20px);
+      box-shadow: var(--shadow-md);
+      text-align: center;
+      transition: transform 0.3s ease,
+                  box-shadow 0.3s ease,
+                  border-color 0.3s ease;
+      animation: fadeInUp 0.6s ease;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    /* Couleurs d'importance pour les cartes */
+    .card.importance-critical {
+      border-left: 4px solid var(--importance-critical);
+    }
+    
+    .card.importance-high {
+      border-left: 4px solid var(--importance-high);
+    }
+    
+    .card.importance-normal {
+      border-left: 4px solid var(--importance-normal);
+    }
+
+    .card::after {
+      display: none;
+    }
+
+    .card::before {
+      display: none;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-lg);
+      border-color: #000000;
+    }
+
+    /* Micro-interaction: Card focus state */
+    .card:focus-within {
+      outline: 3px solid #000000;
+      outline-offset: 4px;
+      border-radius: 8px;
+    }
+
+    .card svg {
+      width: 24px;
+      height: 24px;
+      margin-bottom: 8px;
+      fill: #000000;
+      transition: transform 0.2s ease;
+    }
+
+    .card:hover svg {
+      transform: scale(1.05);
+    }
+
+    .card h3 {
+      margin: 0 0 6px 0;
+      font-size: 0.95em;
+      color: #000000;
+      font-weight: 700;
+    }
+
+    .card p {
+      margin-top: 6px;
+      font-size: 0.8em;
+      color: #666666;
+      line-height: 1.5;
+      margin-bottom: 10px;
+      text-align: center;
+    }
+
+
+    .card a {
+      margin-top: 8px;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      color: #000000;
+      font-weight: 600;
+      text-decoration: none;
+      font-size: 0.85em;
+      padding: 6px 14px;
+      border: 1px solid #000000;
+      border-radius: 4px;
+      transition: all 0.2s ease;
+    }
+    
+    .card a:hover {
+      background: #000000;
+      color: #ffffff;
+      text-decoration: none;
+    }
+
+
+    .card a:focus-visible {
+      outline: 3px solid #000000;
+      outline-offset: 4px;
+      border-radius: 4px;
+    }
+
+    /* Styles spécifiques pour les liens dans la carte 3 (Lettre de motivation) */
+    .card div a {
+      margin-top: 0;
+      font-size: 0.85em;
+    }
+
+    .card div a:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 2px 8px rgba(37, 99, 235, 0.2);
+    }
+
+    .card div a:active {
+      transform: translateY(0);
+    }
+
+    /* Footer */
+    footer {
+      margin-top: 60px;
+      padding: 30px 0;
+      text-align: center;
+      color: #000000;
+      font-size: 0.9em;
+      border-top: 2px solid #000000;
+      background: #ffffff;
+    }
+
+    footer p {
+      margin: 8px 0;
+      color: #000000;
+    }
+
+    footer a {
+      color: #000000;
+      text-decoration: none;
+      transition: color 0.2s ease;
+      font-weight: 500;
+    }
+
+    footer a:hover {
+      color: #333333;
+      text-decoration: underline;
+    }
+
+    footer a:focus-visible {
+      outline: 2px solid var(--primary-color);
+      outline-offset: 2px;
+      border-radius: 2px;
+    }
+
+    footer .arrow-up {
+      font-size: 0.5em;
+      margin-right: 12px;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+
+    /* ============================================
+       ANIMATIONS - Optimisées pour performance
+       Utilisation exclusive de transform et opacity
+       pour bénéficier de l'accélération GPU
+       ============================================ */
+    
+    @keyframes fadeIn {
+      from { 
+        opacity: 0; 
+        transform: translate3d(0, 10px, 0); 
+      }
+      to { 
+        opacity: 1; 
+        transform: translate3d(0, 0, 0); 
+      }
+    }
+
+    @keyframes fadeInUp {
+      from { 
+        opacity: 0; 
+        transform: translate3d(0, 20px, 0); 
+      }
+      to { 
+        opacity: 1; 
+        transform: translate3d(0, 0, 0); 
+      }
+    }
+
+    @keyframes highlight {
+      0% { 
+        background-color: transparent; 
+        transform: translate3d(0, 0, 0);
+      }
+      50% { 
+        background-color: rgba(0, 0, 0, 0.1); 
+        transform: translate3d(0, 0, 0);
+      }
+      100% { 
+        background-color: transparent; 
+        transform: translate3d(0, 0, 0);
+      }
+    }
+
+    section:target {
+      animation: highlight 1s ease;
+    }
+
+    @keyframes highlight {
+      0% { background-color: transparent; }
+      50% { background-color: rgba(0, 0, 0, 0.2); }
+      100% { background-color: transparent; }
+    }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      .cards {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 16px;
+      }
+    }
+
+    @media (max-width: 900px) {
+      .cards {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 600px) {
+      .cards {
+        grid-template-columns: 1fr;
+      }
+      .card {
+        padding: 20px clamp(16px, 3vw, 24px);
+      }
+      .section-accordion-header {
+        padding: 15px 20px;
+        font-size: 1.1em;
+      }
+      .section-accordion-inner {
+        padding: 20px;
+      }
+    }
+
+    /* Very small screens (< 320px) */
+    @media (max-width: 320px) {
+      main {
+        padding: 100px clamp(16px, 3vw, 20px) 30px;
+      }
+      
+      /* h1 supprimé */
+      
+      .subtitle {
+        font-size: 1em;
+      }
+      
+      .executive-summary {
+        padding: 20px 16px;
+        margin-bottom: 40px;
+      }
+      
+      .card {
+        padding: 16px clamp(12px, 2vw, 16px);
+      }
+      
+      .card h3 {
+        font-size: 0.95em;
+      }
+      
+      .card p {
+        font-size: 0.75em;
+      }
+      
+      .card a {
+        font-size: 0.7em;
+      }
+      
+      header {
+        padding: 12px 16px;
+      }
+      
+      .header-left h2 {
+        font-size: 1.1em;
+      }
+      
+      .header-nav {
+        gap: 10px;
+      }
+      
+      .header-nav a {
+        font-size: 0.85em;
+      }
+    }
+
+    /* Skip link for accessibility */
+    .skip-link {
+      position: absolute;
+      top: -40px;
+      left: 0;
+      background: #000000;
+      color: #ffffff;
+      padding: 10px 20px;
+      text-decoration: none;
+      z-index: 1000;
+      font-weight: 600;
+      border-radius: 0 0 4px 0;
+    }
+
+    .skip-link:focus {
+      top: 0;
+      outline: 3px solid #000000;
+      outline-offset: 2px;
+    }
+
+    /* Mode impression */
+    @media print {
+      header, footer, .skip-link {
+        display: none;
+      }
+      
+      main {
+        padding: 0;
+        max-width: 100%;
+      }
+      
+      section {
+        page-break-inside: avoid;
+        box-shadow: none;
+        border: 1px solid #ddd;
+      }
+      
+      .card {
+        page-break-inside: avoid;
+      }
+    }
+
+    /* Screen reader only content */
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border-width: 0;
+    }
+
+    /* Reduced motion */
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+      
+      .back-to-top {
+        transition: opacity 0.01ms !important;
+      }
+    }
+
+    /* High contrast mode support */
+    @media (prefers-contrast: high) {
+      :root {
+        --border-color: #000000;
+        --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.5);
+      }
+    }
+
+    /* Focus visible enhancement */
+    *:focus-visible {
+      outline: 3px solid #000000;
+      outline-offset: 2px;
+      border-radius: 2px;
+    }
+  </style>
+</head>
+
+<body>
+
+<a href="#main-content" class="skip-link">Aller au contenu principal</a>
+
+<header role="banner">
+  <div class="header-left">
+    <a href="#main-content" aria-label="Retour en haut de la page">
+      <h2>
+        <span class="page-title">Présentation technique</span> | <span class="project-name">IT Dashboard A+</span>
+      </h2>
+    </a>
+  </div>
+
+  <div class="header-right">
+    <button class="header-note-toggle" aria-expanded="false" aria-label="Afficher la note importante">
+      <span class="header-note-label">Important</span>
+    </button>
+
+    <nav class="header-nav" aria-label="Navigation principale">
+      <div class="nav-dropdown">
+        <button class="nav-dropdown-toggle" aria-expanded="false" aria-haspopup="true" aria-label="Menu de navigation">
+          Navigation <span class="nav-arrow">▼</span>
+        </button>
+        <ul class="nav-dropdown-menu" role="menu" aria-hidden="true">
+          <li role="none"><a href="presentation_synthetique.html" role="menuitem">Présentation synthétique</a></li>
+          <li role="none"><a href="rapport_projection_dimension_standards_projet3.html" role="menuitem">Rapport</a></li>
+          <li role="none"><a href="profil_personnel.html" role="menuitem">Profil</a></li>
+          <li role="none"><a href="lettre_motivation_ecole.html" role="menuitem">Lettre école</a></li>
+          <li role="none"><a href="lettre_motivation_entreprise.html" role="menuitem">Lettre entreprise</a></li>
+          <li role="none"><a href="https://github.com/Gab-Hub-Ctrl/presentation_technique" target="_blank" rel="noopener noreferrer" role="menuitem">Dépôt GitHub</a></li>
+        </ul>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<!-- Modale pour la note importante -->
+<div class="modal-overlay" id="important-note-modal" aria-hidden="true" role="dialog" aria-labelledby="modal-title" aria-modal="true">
+  <div class="modal-container">
+    <div class="modal-header">
+      <h2 id="modal-title">Important</h2>
+      <button class="modal-close" aria-label="Fermer la fenêtre" type="button">×</button>
+    </div>
+    <div class="modal-content">
+      <p>J'ai rédigé la plupart des documents récemment pour clarifier l'état actuel d'INIT_SEQUENCE. Il y a un mois environ, la procédure fonctionnait encore avec certaines IA publiques. Un durcissement récent de leur usage rend cette méthode obsolète. Ces systèmes restreignent désormais les demandes liées aux modifications internes ou à l'imposition d'un état. Aujourd'hui, mon usage intensif de l'IA dépasse le cadre privé et serait mieux servi par des outils professionnels. Les agents locaux pourraient être une solution, mais cela demanderait un investissement important pour satisfaire mes besoins d'efficacité. Travailler dans une entreprise qui dispose déjà d'outils avancés intégrant l'IA, en complément de mes propres outils, multiplierait significativement ma vitesse de progression et renforcerait mes compétences de manière plus efficace.</p>
+    </div>
+  </div>
+</div>
+
+<main id="main-content" role="main">
+
+  <section id="sections" class="sections-container" aria-label="Sections de présentation">
+
+    <!-- Section 1 : Présentations principales -->
+    <div class="section-accordion importance-high" role="region" aria-labelledby="section-1-header">
+      <div class="section-accordion-header" id="section-1-header" onclick="toggleSection(this)" aria-expanded="false" aria-controls="section-1-content">
+        Présentations principales
+      </div>
+      <div id="section-1-content" class="section-accordion-content">
+        <div class="section-accordion-inner">
+          <div class="cards">
+
+    <!-- Card 1 -->
+    <article class="card importance-normal" aria-labelledby="card-1-title" aria-describedby="card-1-desc">
+      <svg viewBox="0 0 24 24" aria-hidden="true" role="img" aria-label="Icône présentation synthétique" style="fill: #000000; width: 24px; height: 24px; margin-bottom: 8px;">
+        <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/>
+      </svg>
+      <h3 id="card-1-title">Présentation synthétique</h3>
+      <p id="card-1-desc" class="sr-only">Accédez à la présentation synthétique qui offre une vue d'ensemble du projet IT Dashboard A+, ses objectifs et sa structure générale.</p>
+      <p>Vue d'ensemble du projet et de ses objectifs.</p>
+      <a href="https://gab-hub-ctrl.github.io/presentation_technique/presentation_synthetique.html" target="_blank" rel="noopener noreferrer" aria-label="Voir la présentation synthétique du projet">Voir</a>
+    </article>
+
+    <!-- Card 2 -->
+    <article class="card importance-high" aria-labelledby="card-2-title" aria-describedby="card-2-desc">
+      <svg viewBox="0 0 24 24" aria-hidden="true" role="img" aria-label="Icône présentation complète" style="fill: #000000; width: 24px; height: 24px; margin-bottom: 8px;">
+        <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V5h14v14zm-5.04-6.71l-2.75 3.54-1.96-2.36L6.5 17h11l-3.54-4.71z"/>
+      </svg>
+      <h3 id="card-2-title">Présentation complète</h3>
+      <p id="card-2-desc" class="sr-only">Présentation complète détaillant l'architecture technique, les choix technologiques et la vision à long terme du projet IT Dashboard A+ (disponible prochainement).</p>
+      <p>Architecture technique et vision à long terme.</p>
+      <span style="color: #666; font-style: italic; cursor: default;" aria-label="Disponible prochainement">Prochainement</span>
+    </article>
+
+    <!-- Card 2b : Rapport de Projection Dimensionnelle -->
+    <article class="card importance-critical" aria-labelledby="card-2b-title" aria-describedby="card-2b-desc">
+      <svg viewBox="0 0 24 24" aria-hidden="true" role="img" aria-label="Icône rapport de projection" style="fill: #000000; width: 24px; height: 24px; margin-bottom: 8px;">
+        <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-2 10h-4v4h-2v-4H7v-2h4V7h2v4h4v2z"/>
+      </svg>
+      <h3 id="card-2b-title">Rapport de Projection Dimensionnelle</h3>
+      <p id="card-2b-desc" class="sr-only">Accédez au rapport de projection dimensionnelle analysant l'impact des 31 standards techniques sur la dimension, la maturité et les capacités du projet IT Dashboard A+.</p>
+      <p>Impact des 31 standards sur la maturité du projet.</p>
+      <a href="https://gab-hub-ctrl.github.io/presentation_technique/rapport_projection_dimension_standards_projet3.html" aria-label="Consulter le rapport de projection dimensionnelle">Consulter</a>
+    </article>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Section 2 : Candidatures et lettres de motivation -->
+    <div class="section-accordion importance-normal" role="region" aria-labelledby="section-2-header">
+      <div class="section-accordion-header" id="section-2-header" onclick="toggleSection(this)" aria-expanded="false" aria-controls="section-2-content">
+        Candidatures et lettres de motivation
+      </div>
+      <div id="section-2-content" class="section-accordion-content">
+        <div class="section-accordion-inner">
+          <div class="cards">
+    <!-- Card 3 : Lettre pour école -->
+    <article class="card importance-normal" aria-labelledby="card-3-title" aria-describedby="card-3-desc">
+      <svg viewBox="0 0 24 24" aria-hidden="true" role="img" aria-label="Icône lettre de motivation école" style="fill: #000000; width: 24px; height: 24px; margin-bottom: 8px;">
+        <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+      </svg>
+      <h3 id="card-3-title">Lettre de motivation - École</h3>
+      <p id="card-3-desc" class="sr-only">Accédez à la lettre de motivation académique présentant le projet IT Dashboard A+ et son contexte.</p>
+      <p>Candidature académique.</p>
+      <a href="https://gab-hub-ctrl.github.io/presentation_technique/lettre_motivation_ecole.html" target="_blank" rel="noopener noreferrer" aria-label="Voir la lettre de motivation pour école">Voir</a>
+    </article>
+
+    <!-- Card 3b : Lettre pour entreprise -->
+    <article class="card importance-normal" aria-labelledby="card-3b-title" aria-describedby="card-3b-desc">
+      <svg viewBox="0 0 24 24" aria-hidden="true" role="img" aria-label="Icône lettre de motivation entreprise" style="fill: #000000; width: 24px; height: 24px; margin-bottom: 8px;">
+        <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+      </svg>
+      <h3 id="card-3b-title">Lettre de motivation - Entreprise</h3>
+      <p id="card-3b-desc" class="sr-only">Accédez à la lettre de motivation professionnelle présentant le projet IT Dashboard A+ et son contexte.</p>
+      <p>Candidature professionnelle.</p>
+      <a href="https://gab-hub-ctrl.github.io/presentation_technique/lettre_motivation_entreprise.html" target="_blank" rel="noopener noreferrer" aria-label="Voir la lettre de motivation pour entreprise">Voir</a>
+    </article>
+
+    <!-- Card 3c : Profil personnel -->
+    <article class="card importance-normal" aria-labelledby="card-6-title" aria-describedby="card-6-desc">
+      <svg viewBox="0 0 24 24" aria-hidden="true" role="img" aria-label="Icône profil personnel" style="fill: #000000; width: 24px; height: 24px; margin-bottom: 8px;">
+        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z"/>
+      </svg>
+      <h3 id="card-6-title">Mieux me connaître</h3>
+      <p id="card-6-desc" class="sr-only">Découvrez mon profil professionnel, mon parcours académique et mes compétences techniques liées au projet IT Dashboard A+.</p>
+      <p>Profil, parcours et compétences.</p>
+      <a href="https://gab-hub-ctrl.github.io/presentation_technique/profil_personnel.html" target="_blank" rel="noopener noreferrer" aria-label="Découvrir mon profil et mon parcours">Découvrir</a>
+    </article>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Section 3 : Ressources techniques -->
+    <div class="section-accordion importance-high" role="region" aria-labelledby="section-3-header">
+      <div class="section-accordion-header" id="section-3-header" onclick="toggleSection(this)" aria-expanded="false" aria-controls="section-3-content">
+        Ressources techniques
+      </div>
+      <div id="section-3-content" class="section-accordion-content">
+        <div class="section-accordion-inner">
+          <div class="cards">
+    <!-- Card 4 -->
+    <article class="card importance-high" aria-labelledby="card-4-title" aria-describedby="card-4-desc">
+      <svg viewBox="0 0 24 24" aria-hidden="true" role="img" aria-label="Icône fichiers de documentation" style="fill: #000000; width: 24px; height: 24px; margin-bottom: 8px;">
+        <path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/>
+      </svg>
+      <h3 id="card-4-title">Fichiers de documentation</h3>
+      <p id="card-4-desc" class="sr-only">Fichiers Markdown de documentation technique couvrant l'architecture, la gouvernance de l'IA et la structuration du système IT Dashboard A+ (indisponible).</p>
+      <p>Fichiers Markdown sur GitHub.</p>
+      <span style="color: #666; font-style: italic; cursor: default;" aria-label="Indisponible">Prochainement</span>
+    </article>
+
+    <!-- Card 5 -->
+    <article class="card importance-normal" aria-labelledby="card-5-title" aria-describedby="card-5-desc">
+      <svg viewBox="0 0 24 24" aria-hidden="true" role="img" aria-label="Icône annexes visuelles" style="fill: #000000; width: 24px; height: 24px; margin-bottom: 8px;">
+        <path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/>
+      </svg>
+      <h3 id="card-5-title">Annexes visuelles</h3>
+      <p id="card-5-desc" class="sr-only">Accédez aux annexes visuelles comprenant captures d'écran, schémas d'architecture et illustrations techniques du projet IT Dashboard A+.</p>
+      <p>Captures d'écran Dashboard A+.</p>
+      <a href="https://github.com/Gab-Hub-Ctrl/presentation_technique/tree/main/presentation_visuel" target="_blank" rel="noopener noreferrer" aria-label="Voir les annexes visuelles sur GitHub">Voir</a>
+    </article>
+
+    <!-- Card 5b -->
+    <article class="card importance-normal" aria-labelledby="card-5b-title" aria-describedby="card-5b-desc">
+      <svg viewBox="0 0 24 24" aria-hidden="true" role="img" aria-label="Icône démo vidéo" style="fill: #000000; width: 24px; height: 24px; margin-bottom: 8px;">
+        <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-2 10h-4v4h-2v-4H7v-2h4V7h2v4h4v2z"/>
+      </svg>
+      <h3 id="card-5b-title">Démo vidéo</h3>
+      <p id="card-5b-desc" class="sr-only">Accédez aux démonstrations vidéo du projet IT Dashboard A+ : configuration Vault, lancement de la stack, dashboard frontend et pipeline complet.</p>
+      <p>Démonstration du projet en action.</p>
+      <div style="margin-top: 12px; font-size: 0.9em; line-height: 1.6;">
+        <p style="margin: 8px 0 4px 0;"><strong>Vidéo 1 :</strong> Config Vault via menu CLI + lancement stack.</p>
+        <p style="margin: 4px 0 4px 0;"><strong>Vidéo 2 :</strong> Dashboard frontend + lancement pipeline.</p>
+        <p style="margin: 4px 0 8px 0;"><strong>Pour visualiser :</strong> cliquer sur la vidéo puis sur View raw.</p>
+      </div>
+      <a href="https://github.com/Gab-Hub-Ctrl/presentation_technique/tree/main/presentation_visuel/demo_video" target="_blank" rel="noopener noreferrer" aria-label="Voir les démos vidéo">Voir</a>
+    </article>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+  <footer role="contentinfo">
+    <p>Projet IT Dashboard A+</p>
+    <p>Gabriel ROULON</p>
+    <p>Démarche de démonstration technique et académique - 2025</p>
+    <!-- Liens supprimés selon les spécifications -->
+  </footer>
+
+</main>
+
+
+  <script>
+    /**
+     * Fonction pour ouvrir/fermer les sections accordéon
+     * Version harmonisée avec gestion des animations
+     */
+    // Variable globale pour gérer l'état des animations
+    let isAnimating = false;
+    const ANIMATION_DURATION = 500; // Durée de l'animation en ms
+    
+    function toggleSection(element) {
+      // Empêcher les actions simultanées
+      if (isAnimating) return;
+      
+      const section = element.parentElement;
+      const isActive = section.classList.contains('active');
+      
+      // Si on ouvre une nouvelle section, fermer d'abord les autres
+      if (!isActive) {
+        isAnimating = true;
+        
+        // Fermer toutes les autres sections d'abord
+        const allAccordions = document.querySelectorAll('.section-accordion.active');
+        const closingPromises = [];
+        
+        allAccordions.forEach(acc => {
+          if (acc !== section) {
+            acc.classList.add('animating');
+            acc.classList.remove('active');
+            closingPromises.push(new Promise(resolve => {
+              setTimeout(() => {
+                acc.classList.remove('animating');
+                resolve();
+              }, ANIMATION_DURATION);
+            }));
+          }
+        });
+        
+        // Attendre que toutes les fermetures soient terminées
+        Promise.all(closingPromises).then(() => {
+          // Ouvrir la nouvelle section après un court délai de 150ms
+          setTimeout(() => {
+            section.classList.add('animating');
+            section.classList.add('active');
+            
+            // Réappliquer l'alignement adaptatif après ouverture
+            setTimeout(() => {
+              if (typeof applyAdaptiveTextAlignment === 'function') {
+                applyAdaptiveTextAlignment();
+              }
+              section.classList.remove('animating');
+              isAnimating = false;
+              
+              // Scroller vers l'en-tête après ouverture complète
+              setTimeout(() => {
+                const headerHeight = 100;
+                const headerPosition = element.getBoundingClientRect().top + window.pageYOffset;
+                const offsetPosition = Math.max(0, headerPosition - headerHeight);
+                
+                window.scrollTo({
+                  top: offsetPosition,
+                  behavior: 'smooth'
+                });
+              }, 100);
+            }, ANIMATION_DURATION);
+          }, 150); // Délai pour permettre la fermeture de la section précédente
+        });
+      } else {
+        // Fermer la section actuelle
+        isAnimating = true;
+        section.classList.add('animating');
+        section.classList.remove('active');
+        
+        setTimeout(() => {
+          section.classList.remove('animating');
+          isAnimating = false;
+        }, ANIMATION_DURATION);
+      }
+    }
+
+    /**
+     * Toutes les sections accordéon sont fermées par défaut
+     */
+
+    /**
+     * Intersection Observer pour les animations
+     */
+    (function() {
+      if ('IntersectionObserver' in window) {
+        const observerOptions = {
+          root: null,
+          rootMargin: '50px',
+          threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('in-view');
+              observer.unobserve(entry.target);
+            }
+          });
+        }, observerOptions);
+
+        // Observer les cartes
+        document.querySelectorAll('.card').forEach(card => {
+          observer.observe(card);
+        });
+      }
+    })();
+
+    /**
+     * Menu déroulant de navigation
+     */
+    (function() {
+      const dropdownToggle = document.querySelector('.nav-dropdown-toggle');
+      const dropdownMenu = document.querySelector('.nav-dropdown-menu');
+      
+      if (!dropdownToggle || !dropdownMenu) return;
+      
+      dropdownToggle.addEventListener('click', function(e) {
+        e.preventDefault();
+        const isExpanded = dropdownToggle.getAttribute('aria-expanded') === 'true';
+        dropdownToggle.setAttribute('aria-expanded', !isExpanded);
+        dropdownMenu.setAttribute('aria-hidden', isExpanded);
+      });
+      
+      document.addEventListener('click', function(e) {
+        if (!dropdownToggle.contains(e.target) && !dropdownMenu.contains(e.target)) {
+          dropdownToggle.setAttribute('aria-expanded', 'false');
+          dropdownMenu.setAttribute('aria-hidden', 'true');
+        }
+      });
+      
+      const menuLinks = dropdownMenu.querySelectorAll('a');
+      menuLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+          const href = link.getAttribute('href');
+          
+          // Si c'est un lien vers une section (commence par #)
+          if (href && href.startsWith('#')) {
+            e.preventDefault();
+            
+            const targetId = href.substring(1);
+            const targetElement = document.getElementById(targetId);
+            
+              if (targetElement) {
+              // Fermer tous les accordéons ouverts
+              const allAccordions = document.querySelectorAll('.section-accordion.active');
+              allAccordions.forEach(acc => {
+                acc.classList.remove('active');
+                const header = acc.querySelector('.section-accordion-header');
+                if (header) {
+                  header.setAttribute('aria-expanded', 'false');
+                }
+              });
+              
+              // Trouver l'accordéon parent
+              let accordion = targetElement.closest('.section-accordion');
+              
+              // Si l'élément cible est dans une section, remonter jusqu'à l'accordéon
+              if (!accordion) {
+                let parent = targetElement.parentElement;
+                while (parent && !parent.classList.contains('section-accordion')) {
+                  parent = parent.parentElement;
+                }
+                accordion = parent;
+              }
+              
+              // Ouvrir l'accordéon correspondant si trouvé
+              if (accordion) {
+                accordion.classList.add('active');
+                
+                // Trouver l'en-tête de l'accordéon et mettre à jour aria-expanded
+                const accordionHeader = accordion.querySelector('.section-accordion-header');
+                if (accordionHeader) {
+                  accordionHeader.setAttribute('aria-expanded', 'true');
+                }
+                
+                // Scroller vers l'en-tête de l'accordéon après un court délai
+                if (accordionHeader) {
+                  setTimeout(() => {
+                    const headerHeight = 100; // Hauteur du header fixe
+                    const headerPosition = accordionHeader.getBoundingClientRect().top + window.pageYOffset;
+                    const offsetPosition = headerPosition - headerHeight;
+                    
+                    window.scrollTo({
+                      top: offsetPosition,
+                      behavior: 'smooth'
+                    });
+                  }, 150);
+                }
+              } else {
+                // Si pas d'accordéon, scroller directement vers l'élément
+                setTimeout(() => {
+                  const headerHeight = 100;
+                  const elementPosition = targetElement.getBoundingClientRect().top + window.pageYOffset;
+                  const offsetPosition = elementPosition - headerHeight;
+                  
+                  window.scrollTo({
+                    top: offsetPosition,
+                    behavior: 'smooth'
+                  });
+                }, 100);
+              }
+            }
+          }
+          
+          dropdownToggle.setAttribute('aria-expanded', 'false');
+          dropdownMenu.setAttribute('aria-hidden', 'true');
+        });
+      });
+    })();
+
+    /**
+     * Gestion de la modale "Important"
+     */
+    (function() {
+      const noteToggle = document.querySelector('.header-note-toggle');
+      const modal = document.getElementById('important-note-modal');
+      const modalClose = document.querySelector('.modal-close');
+      
+      if (!noteToggle || !modal) return;
+      
+      // Ouvrir la modale
+      noteToggle.addEventListener('click', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        modal.setAttribute('aria-hidden', 'false');
+        document.body.classList.add('modal-open');
+        noteToggle.setAttribute('aria-expanded', 'true');
+        
+        // Focus sur le bouton de fermeture pour l'accessibilité
+        setTimeout(() => {
+          if (modalClose) {
+            modalClose.focus();
+          }
+        }, 100);
+      });
+      
+      // Fermer la modale avec le bouton X
+      if (modalClose) {
+        modalClose.addEventListener('click', function() {
+          closeModal();
+        });
+      }
+      
+      // Fermer la modale en cliquant sur l'overlay
+      modal.addEventListener('click', function(e) {
+        if (e.target === modal) {
+          closeModal();
+        }
+      });
+      
+      // Fermer la modale avec la touche Escape
+      document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && modal.getAttribute('aria-hidden') === 'false') {
+          closeModal();
+        }
+      });
+      
+      // Fonction pour fermer la modale
+      function closeModal() {
+        modal.setAttribute('aria-hidden', 'true');
+        document.body.classList.remove('modal-open');
+        noteToggle.setAttribute('aria-expanded', 'false');
+        noteToggle.focus();
+      }
+    })();
+  </script>
+  
+  <!-- Common JavaScript -->
+  <script src="common.js" defer></script>
+
+</body>
+</html>
