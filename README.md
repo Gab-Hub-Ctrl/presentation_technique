@@ -8,12 +8,14 @@ Ce dossier présente l'ensemble de la documentation technique du projet IT Dashb
 
 **Note** : Les fichiers exclus par `.gitignore` ne sont pas comptés dans ces statistiques.
 
-- **Total fichiers dans le repo Git** : ~50 fichiers
+- **Total fichiers dans le repo Git** : ~51 fichiers
 - **Fichiers HTML** : 6 fichiers (présentations interactives)
   - ⚠️ `presentation_complete.html` est exclu du repo (défini dans `.gitignore`)
-- **Fichiers Markdown** : 4 fichiers (2 README + 2 candidature)
+- **Fichiers Markdown** : 2 fichiers (2 README uniquement)
   - ⚠️ `documentation_technique/` (15 fichiers) est exclu du repo (défini dans `.gitignore`)
+  - ⚠️ `documents/` (dossier complet) est exclu du repo (défini dans `.gitignore`)
 - **Images PNG** : 33 fichiers (captures d'écran et ressources visuelles)
+- **Vidéos MP4** : 2 fichiers (démonstrations vidéo)
 - **Fichiers CSS/JS** : 2 fichiers (styles et scripts communs)
 - **Fichiers de configuration** : 5 fichiers (README.md, GIT_README.md, .gitignore, sitemap.xml, robots.txt)
 
@@ -22,7 +24,7 @@ Ce dossier présente l'ensemble de la documentation technique du projet IT Dashb
 ```
 presentation_technique/
 │
-├── 📄 Fichiers racine (15 fichiers dans le repo Git)
+├── 📄 Fichiers racine (18 fichiers dans le repo Git - 19 fichiers moins presentation_complete.html exclu)
 │   ├── .gitignore                                    # Fichier d'exclusion Git
 │   ├── common.css                                    # Styles CSS communs (413 lignes)
 │   ├── common.js                                     # Scripts JavaScript communs
@@ -57,21 +59,22 @@ presentation_technique/
 │   ├── 14_conclusion.md                              # Conclusion
 │   └── 15_standards_projet3.md                       # Standards Projet3 (31 standards)
 │
-├── 📝 documents/ (2 fichiers Markdown dans le repo Git)
+├── ⚠️ documents/ (⚠️ Dossier complet exclu du repo Git)
 │   ├── candidature/
-│   │   ├── lettre_motivation_ecole.md                # Lettre de motivation académique (Markdown)
-│   │   ├── lettre_motivation_entreprise.md           # Lettre de motivation professionnelle (Markdown)
-│   │   └── ⚠️ email_candidature.md                   # ⚠️ Exclu du repo (.gitignore)
+│   │   ├── ⚠️ email_candidature.md                   # ⚠️ Exclu du repo (dossier complet exclu)
+│   │   ├── ⚠️ lettre_motivation_ecole.md            # ⚠️ Exclu du repo (dossier complet exclu)
+│   │   └── ⚠️ lettre_motivation_entreprise.md      # ⚠️ Exclu du repo (dossier complet exclu)
 │   └── documentation/
 │       └── ⚠️ arborescence.txt                       # ⚠️ Exclu du repo (.gitignore - *.txt)
 │
-└── 🖼️ presentation_visuel/ (31 fichiers PNG)
+└── 🖼️ presentation_visuel/ (30 fichiers PNG + 2 fichiers MP4)
     ├── Correlation_Anticipation/ (2 fichiers)
     │   ├── Capture d'écran 2025-12-24 004254.png
     │   └── Capture d'écran 2025-12-24 004304.png
     │
-    ├── demo_video/ (1 fichier)
-    │   └── demo.png
+    ├── demo_video/ (2 fichiers)
+    │   ├── 1_demo_dashboard_it .mp4
+    │   └── 2_demo_dashboard_it .mp4
     │
     ├── Pole0_Demonstration/ (9 fichiers)
     │   ├── Capture d'écran 2025-12-24 003537.png
@@ -182,25 +185,22 @@ Les présentations HTML offrent une expérience interactive complète avec navig
 
 ### Documents de candidature
 
-2 fichiers Markdown dans `documents/candidature/` (dans le repo Git) :
-- Lettre de motivation académique (`lettre_motivation_ecole.md`)
-- Lettre de motivation professionnelle (`lettre_motivation_entreprise.md`)
+⚠️ **Le dossier `documents/` est complètement exclu du repo Git** (défini dans `.gitignore` ligne 42).
 
 **Note** : Les fichiers suivants sont exclus du repo Git (définis dans `.gitignore`) :
 - `presentation_complete.html` (présentation complète temporairement indisponible)
 - `documentation_technique/` (dossier complet exclu)
-- `documents/candidature/email_candidature.md` (fichier personnel)
-- `documents/documentation/arborescence.txt` et `arborescence.md` (fichiers d'arborescence)
+- `documents/` (dossier complet exclu)
 - Tous les fichiers `*.txt` (sauf `robots.txt`) et `*.pdf`
 - Fichiers temporaires, logs, et fichiers système
 
 ### Annexes visuelles
 
-31 captures d'écran organisées par catégorie dans `presentation_visuel/` :
+30 captures d'écran et 2 vidéos organisées par catégorie dans `presentation_visuel/` :
 - `Correlation_Anticipation/` : 2 captures d'écran
-- `demo_video/` : 1 fichier (demo.png)
+- `demo_video/` : 2 fichiers (1_demo_dashboard_it .mp4, 2_demo_dashboard_it .mp4)
 - `Pole0_Demonstration/` : 9 fichiers (1 capture + Pipeline/ avec 8 fichiers)
-- `Pole1_Technologies_Infrastructures/` à `Pole10_Innovation_RD/` : 9 fichiers (1 capture par pôle)
+- `Pole1_Technologies_Infrastructures/` à `Pole10_Innovation_RD/` : 10 fichiers (1 capture par pôle)
 - `Vue_global/` : 10 fichiers (9 captures d'écran + Formulaire.png)
 
 ## 🎨 Ressources partagées

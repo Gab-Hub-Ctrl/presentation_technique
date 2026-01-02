@@ -6,11 +6,11 @@ Ce guide présente les conventions Git à respecter pour le dossier `presentatio
 
 Le dossier `presentation_technique` est prêt à être commité dans votre repo git.
 
-## 📋 Inventaire complet des fichiers dans le repo Git (~50 fichiers)
+## 📋 Inventaire complet des fichiers dans le repo Git (~51 fichiers)
 
 **Note** : Les fichiers exclus par `.gitignore` ne sont pas listés ici. Voir la section "Fichiers exclus" ci-dessous.
 
-### Fichiers racine (15 fichiers - ordre alphabétique selon arborescence.txt)
+### Fichiers racine (18 fichiers dans le repo Git - 19 fichiers moins presentation_complete.html exclu)
 - ✅ `.gitignore` - Fichier d'exclusion Git
 - ✅ `common.css` - Styles CSS communs (413 lignes)
 - ✅ `common.js` - Scripts JavaScript communs
@@ -45,21 +45,20 @@ Le dossier `presentation_technique` est prêt à être commité dans votre repo 
 - ⚠️ `documentation_technique/14_conclusion.md` - **Exclu du repo** (dossier complet exclu)
 - ⚠️ `documentation_technique/15_standards_projet3.md` - **Exclu du repo** (dossier complet exclu)
 
-### Documents de candidature (2 fichiers Markdown)
-- ✅ `documents/candidature/lettre_motivation_ecole.md`
-- ✅ `documents/candidature/lettre_motivation_entreprise.md`
-- ⚠️ `documents/candidature/email_candidature.md` - **Exclu du repo** (défini dans `.gitignore`)
+### Documents de candidature (⚠️ Dossier complet exclu du repo Git)
+- ⚠️ `documents/candidature/lettre_motivation_ecole.md` - **Exclu du repo** (dossier complet exclu)
+- ⚠️ `documents/candidature/lettre_motivation_entreprise.md` - **Exclu du repo** (dossier complet exclu)
+- ⚠️ `documents/candidature/email_candidature.md` - **Exclu du repo** (dossier complet exclu)
 
-### Documentation additionnelle
-- ⚠️ `documents/documentation/arborescence.txt` - **Exclu du repo** (défini dans `.gitignore` - *.txt)
-- ⚠️ `documents/documentation/arborescence.md` - **Exclu du repo** (défini dans `.gitignore`)
-- ⚠️ `documents/rapports/` - Dossier vide dans le repo
+### Documentation additionnelle (⚠️ Dossier complet exclu du repo Git)
+- ⚠️ `documents/documentation/arborescence.txt` - **Exclu du repo** (dossier complet exclu)
+- ⚠️ `documents/documentation/arborescence.md` - **Exclu du repo** (dossier complet exclu)
 
-### Annexes visuelles (33 fichiers PNG au total)
+### Annexes visuelles (33 fichiers PNG + 2 fichiers MP4)
 - ✅ `favicon.png` - Icône du site (racine)
 - ✅ `og-image.png` - Image Open Graph (racine)
 - ✅ `presentation_visuel/Correlation_Anticipation/` - 2 captures d'écran
-- ✅ `presentation_visuel/demo_video/` - 1 fichier (demo.png)
+- ✅ `presentation_visuel/demo_video/` - 2 fichiers (1_demo_dashboard_it .mp4, 2_demo_dashboard_it .mp4)
 - ✅ `presentation_visuel/Pole0_Demonstration/` - 9 fichiers (1 capture + Pipeline/ avec 8 fichiers)
 - ✅ `presentation_visuel/Pole1_Technologies_Infrastructures/` - 1 capture d'écran
 - ✅ `presentation_visuel/Pole2_Logiciels_Developpement/` - 1 capture d'écran
@@ -73,19 +72,20 @@ Le dossier `presentation_technique` est prêt à être commité dans votre repo 
 - ✅ `presentation_visuel/Pole10_Innovation_RD/` - 1 capture d'écran
 - ✅ `presentation_visuel/Vue_global/` - 10 fichiers (9 captures d'écran + Formulaire.png)
 
-**Total PNG** : 2 (racine) + 31 (presentation_visuel/) = 33 fichiers
+**Total PNG** : 2 (racine) + 31 (presentation_visuel/) = 33 fichiers PNG
+**Total MP4** : 2 fichiers (1_demo_dashboard_it .mp4, 2_demo_dashboard_it .mp4)
 
-**Total estimé dans le repo Git : ~50 fichiers**
-- 15 fichiers racine (HTML, CSS, JS, PNG, config)
-- 2 fichiers Markdown candidature
+**Total estimé dans le repo Git : ~51 fichiers**
+- 18 fichiers racine (HTML, CSS, JS, PNG, config) - 19 fichiers moins presentation_complete.html exclu
+- 2 fichiers Markdown (README.md, GIT_README.md)
 - 33 fichiers PNG (images)
-- Total : ~50 fichiers
+- 2 fichiers MP4 (vidéos de démonstration)
+- Total : ~51 fichiers
 
 **Fichiers exclus par `.gitignore`** :
 - ⚠️ `presentation_complete.html` (présentation complète temporairement indisponible)
 - ⚠️ `documentation_technique/` (dossier complet exclu - 15 fichiers Markdown)
-- ⚠️ `documents/candidature/email_candidature.md` (fichier personnel)
-- ⚠️ `documents/documentation/arborescence.txt` et `arborescence.md` (fichiers d'arborescence)
+- ⚠️ `documents/` (dossier complet exclu - tous les fichiers de candidature et documentation)
 - ⚠️ Tous les fichiers `*.txt` (pattern global, sauf `robots.txt` qui est inclus)
 - ⚠️ Tous les fichiers `*.pdf` (pattern global)
 - ⚠️ Fichiers temporaires, logs, et fichiers système (Thumbs.db, Desktop.ini, .DS_Store, *.tmp, *.bak, *.swp, etc.)
@@ -168,9 +168,10 @@ Description détaillée si nécessaire.
 ## 📝 Notes importantes
 
 - Le fichier `.gitignore` exclut automatiquement :
-  - `documents/candidature/email_candidature.md` (fichier personnel)
-  - `documents/documentation/arborescence.txt` et `arborescence.md` (fichiers d'arborescence)
-  - Tous les fichiers `*.txt` (pattern global)
+  - `documents/` (dossier complet exclu)
+  - `documentation_technique/` (dossier complet exclu)
+  - `presentation_complete.html` (fichier exclu)
+  - Tous les fichiers `*.txt` (pattern global, sauf `robots.txt`)
   - Tous les fichiers `*.pdf` (pattern global)
   - Les fichiers temporaires, logs, et fichiers système
   - Les fichiers de développement (`prepare-git.ps1`, `.gitignore.backup`)
