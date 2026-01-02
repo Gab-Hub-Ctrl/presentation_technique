@@ -20,14 +20,6 @@
     <priority>0.9</priority>
   </url>
   
-  <!-- Présentation complète -->
-  <url>
-    <loc>https://gab-hub-ctrl.github.io/presentation_technique/presentation_complete.html</loc>
-    <lastmod>2025-12-29</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  
   <!-- Rapport de projection dimensionnelle -->
   <url>
     <loc>https://gab-hub-ctrl.github.io/presentation_technique/rapport_projection_dimension_standards_projet3.html</loc>

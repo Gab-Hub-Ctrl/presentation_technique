@@ -73,8 +73,8 @@ presentation_technique/
     │   └── Capture d'écran 2025-12-24 004304.png
     │
     ├── demo_video/ (2 fichiers)
-    │   ├── 1_demo_dashboard_it .mp4
-    │   └── 2_demo_dashboard_it .mp4
+    │   ├── Vault_Stack.mp4
+    │   └── Dashboard_Pipeline.mp4
     │
     ├── Pole0_Demonstration/ (9 fichiers)
     │   ├── Capture d'écran 2025-12-24 003537.png
@@ -198,7 +198,7 @@ Les présentations HTML offrent une expérience interactive complète avec navig
 
 30 captures d'écran et 2 vidéos organisées par catégorie dans `presentation_visuel/` :
 - `Correlation_Anticipation/` : 2 captures d'écran
-- `demo_video/` : 2 fichiers (1_demo_dashboard_it .mp4, 2_demo_dashboard_it .mp4)
+- `demo_video/` : 2 fichiers (Vault_Stack.mp4, Dashboard_Pipeline.mp4)
 - `Pole0_Demonstration/` : 9 fichiers (1 capture + Pipeline/ avec 8 fichiers)
 - `Pole1_Technologies_Infrastructures/` à `Pole10_Innovation_RD/` : 10 fichiers (1 capture par pôle)
 - `Vue_global/` : 10 fichiers (9 captures d'écran + Formulaire.png)

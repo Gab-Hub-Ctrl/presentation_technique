@@ -58,7 +58,7 @@ Le dossier `presentation_technique` est prêt à être commité dans votre repo 
 - ✅ `favicon.png` - Icône du site (racine)
 - ✅ `og-image.png` - Image Open Graph (racine)
 - ✅ `presentation_visuel/Correlation_Anticipation/` - 2 captures d'écran
-- ✅ `presentation_visuel/demo_video/` - 2 fichiers (1_demo_dashboard_it .mp4, 2_demo_dashboard_it .mp4)
+- ✅ `presentation_visuel/demo_video/` - 2 fichiers (Vault_Stack.mp4, Dashboard_Pipeline.mp4)
 - ✅ `presentation_visuel/Pole0_Demonstration/` - 9 fichiers (1 capture + Pipeline/ avec 8 fichiers)
 - ✅ `presentation_visuel/Pole1_Technologies_Infrastructures/` - 1 capture d'écran
 - ✅ `presentation_visuel/Pole2_Logiciels_Developpement/` - 1 capture d'écran
@@ -73,7 +73,7 @@ Le dossier `presentation_technique` est prêt à être commité dans votre repo 
 - ✅ `presentation_visuel/Vue_global/` - 10 fichiers (9 captures d'écran + Formulaire.png)
 
 **Total PNG** : 2 (racine) + 31 (presentation_visuel/) = 33 fichiers PNG
-**Total MP4** : 2 fichiers (1_demo_dashboard_it .mp4, 2_demo_dashboard_it .mp4)
+**Total MP4** : 2 fichiers (Vault_Stack.mp4, Dashboard_Pipeline.mp4)
 
 **Total estimé dans le repo Git : ~51 fichiers**
 - 18 fichiers racine (HTML, CSS, JS, PNG, config) - 19 fichiers moins presentation_complete.html exclu
