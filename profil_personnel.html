@@ -583,6 +583,20 @@
     body.quick-read-mode .section-accordion-inner > section > code {
         display: block;
     }
+    
+    /* Désactiver les transitions pendant les animations pour éviter les chevauchements */
+    .section-accordion.animating .section-accordion-content {
+        transition: none;
+    }
+    
+    /* Ajuster les transitions pour correspondre à ANIMATION_DURATION (500ms) */
+    .section-accordion-content {
+        transition: max-height 0.5s ease !important;
+    }
+    
+    .section-accordion.active .section-accordion-content {
+        transition: max-height 0.5s ease !important;
+    }
   </style>
 </head>
 <body>
@@ -853,48 +867,79 @@
         
         /**
          * Fonction pour ouvrir/fermer les sections accordéon
+         * Version harmonisée avec gestion des animations
          */
+        // Variable globale pour gérer l'état des animations
+        let isAnimating = false;
+        const ANIMATION_DURATION = 500; // Durée de l'animation en ms
+        
         function toggleSection(element) {
+            // Empêcher les actions simultanées
+            if (isAnimating) return;
+            
             const section = element.parentElement;
             const isActive = section.classList.contains('active');
             
-            // Fermer toutes les autres sections
-            const allAccordions = document.querySelectorAll('.section-accordion.active');
-            allAccordions.forEach(acc => {
-                if (acc !== section) {
-                    acc.classList.remove('active');
-                }
-            });
-            
-            // Si on ouvre une nouvelle section, fermer d'abord les autres avec un délai
+            // Si on ouvre une nouvelle section, fermer d'abord les autres
             if (!isActive) {
+                isAnimating = true;
+                
                 // Fermer toutes les autres sections d'abord
                 const allAccordions = document.querySelectorAll('.section-accordion.active');
+                const closingPromises = [];
+                
                 allAccordions.forEach(acc => {
                     if (acc !== section) {
+                        acc.classList.add('animating');
                         acc.classList.remove('active');
+                        closingPromises.push(new Promise(resolve => {
+                            setTimeout(() => {
+                                acc.classList.remove('animating');
+                                resolve();
+                            }, ANIMATION_DURATION);
+                        }));
                     }
                 });
                 
-                // Attendre que la fermeture soit terminée avant d'ouvrir la nouvelle section
-                setTimeout(() => {
-                    section.classList.add('active');
-                    
-                    // Scroller vers l'en-tête de l'accordéon après un court délai
+                // Attendre que toutes les fermetures soient terminées
+                Promise.all(closingPromises).then(() => {
+                    // Ouvrir la nouvelle section après un court délai de 150ms
                     setTimeout(() => {
-                        const headerHeight = 100; // Hauteur du header fixe
-                        const headerPosition = element.getBoundingClientRect().top + window.pageYOffset;
-                        const offsetPosition = Math.max(0, headerPosition - headerHeight);
+                        section.classList.add('animating');
+                        section.classList.add('active');
                         
-                        window.scrollTo({
-                            top: offsetPosition,
-                            behavior: 'smooth'
-                        });
-                    }, 200);
-                }, 150); // Délai pour permettre la fermeture de la section précédente
+                        // Réappliquer l'alignement adaptatif après ouverture
+                        setTimeout(() => {
+                            if (typeof applyAdaptiveTextAlignment === 'function') {
+                                applyAdaptiveTextAlignment();
+                            }
+                            section.classList.remove('animating');
+                            isAnimating = false;
+                            
+                            // Scroller vers l'en-tête après ouverture complète
+                            setTimeout(() => {
+                                const headerHeight = 100;
+                                const headerPosition = element.getBoundingClientRect().top + window.pageYOffset;
+                                const offsetPosition = Math.max(0, headerPosition - headerHeight);
+                                
+                                window.scrollTo({
+                                    top: offsetPosition,
+                                    behavior: 'smooth'
+                                });
+                            }, 100);
+                        }, ANIMATION_DURATION);
+                    }, 150); // Délai pour permettre la fermeture de la section précédente
+                });
             } else {
-                // Si on ferme la section, pas besoin de délai
+                // Fermer la section actuelle
+                isAnimating = true;
+                section.classList.add('animating');
                 section.classList.remove('active');
+                
+                setTimeout(() => {
+                    section.classList.remove('animating');
+                    isAnimating = false;
+                }, ANIMATION_DURATION);
             }
         }
 
@@ -935,17 +980,13 @@
                         const targetElement = document.getElementById(targetId);
                         
                         if (targetElement) {
-                            // Fermer tous les accordéons ouverts d'abord
-                            const allAccordions = document.querySelectorAll('.section-accordion.active');
-                            allAccordions.forEach(acc => {
-                                acc.classList.remove('active');
-                            });
+                            // Empêcher les actions pendant les animations
+                            if (isAnimating) return;
                             
-                            // Trouver l'accordéon parent
+                            // Trouver l'accordéon correspondant
                             let accordion = targetElement.closest('.section-accordion');
-                            
-                            // Si l'élément cible est dans une section, remonter jusqu'à l'accordéon
                             if (!accordion) {
+                                // Chercher dans les parents
                                 let parent = targetElement.parentElement;
                                 while (parent && !parent.classList.contains('section-accordion')) {
                                     parent = parent.parentElement;
@@ -953,29 +994,60 @@
                                 accordion = parent;
                             }
                             
-                            // Ouvrir l'accordéon correspondant si trouvé avec un délai pour éviter les perturbations visuelles
-                            if (accordion) {
-                                setTimeout(() => {
-                                    accordion.classList.add('active');
-                                    
-                                    // Trouver l'en-tête de l'accordéon
-                                    const accordionHeader = accordion.querySelector('.section-accordion-header');
-                                    
-                                    // Scroller vers l'en-tête de l'accordéon après un court délai
-                                    if (accordionHeader) {
+                            // Fermer toutes les sections d'abord
+                            const allAccordions = document.querySelectorAll('.section-accordion.active');
+                            const closingPromises = [];
+                            
+                            allAccordions.forEach(acc => {
+                                if (acc !== accordion) {
+                                    acc.classList.add('animating');
+                                    acc.classList.remove('active');
+                                    closingPromises.push(new Promise(resolve => {
                                         setTimeout(() => {
-                                            const headerHeight = 100; // Hauteur du header fixe
-                                            const headerPosition = accordionHeader.getBoundingClientRect().top + window.pageYOffset;
-                                            const offsetPosition = Math.max(0, headerPosition - headerHeight);
+                                            acc.classList.remove('animating');
+                                            resolve();
+                                        }, ANIMATION_DURATION);
+                                    }));
+                                }
+                            });
+                            
+                            // Attendre la fermeture puis ouvrir
+                            Promise.all(closingPromises).then(() => {
+                                if (accordion) {
+                                    setTimeout(() => {
+                                        accordion.classList.add('animating');
+                                        accordion.classList.add('active');
+                                        
+                                        setTimeout(() => {
+                                            accordion.classList.remove('animating');
                                             
-                                            window.scrollTo({
-                                                top: offsetPosition,
-                                                behavior: 'smooth'
-                                            });
-                                        }, 200);
-                                    }
-                                }, 150); // Délai pour permettre la fermeture de la section précédente
-                            }
+                                            // Scroller vers la section
+                                            setTimeout(() => {
+                                                const headerHeight = 100;
+                                                const elementPosition = targetElement.getBoundingClientRect().top + window.pageYOffset;
+                                                const offsetPosition = Math.max(0, elementPosition - headerHeight);
+                                                
+                                                window.scrollTo({
+                                                    top: offsetPosition,
+                                                    behavior: 'smooth'
+                                                });
+                                            }, 100);
+                                        }, ANIMATION_DURATION);
+                                    }, 50);
+                                } else {
+                                    // Si pas d'accordéon, scroller directement
+                                    setTimeout(() => {
+                                        const headerHeight = 100;
+                                        const elementPosition = targetElement.getBoundingClientRect().top + window.pageYOffset;
+                                        const offsetPosition = Math.max(0, elementPosition - headerHeight);
+                                        
+                                        window.scrollTo({
+                                            top: offsetPosition,
+                                            behavior: 'smooth'
+                                        });
+                                    }, ANIMATION_DURATION + 50);
+                                }
+                            });
                         }
                     }
                     

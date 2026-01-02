@@ -409,7 +409,7 @@
         .section-accordion-content {
             max-height: 0;
             overflow: hidden;
-            transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease;
+            transition: max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.4s ease;
             opacity: 0;
         }
 
@@ -2254,28 +2254,32 @@
                 
                 // Attendre que toutes les fermetures soient terminées
                 Promise.all(closingPromises).then(() => {
-                    // Ouvrir la nouvelle section après un court délai
-                setTimeout(() => {
-                        section.classList.add('animating');
-                    section.classList.add('active');
-                    
+                    // Ouvrir la nouvelle section après un court délai de 150ms
                     setTimeout(() => {
+                        section.classList.add('animating');
+                        section.classList.add('active');
+                        
+                        // Réappliquer l'alignement adaptatif après ouverture
+                        setTimeout(() => {
+                            if (typeof applyAdaptiveTextAlignment === 'function') {
+                                applyAdaptiveTextAlignment();
+                            }
                             section.classList.remove('animating');
                             isAnimating = false;
                             
                             // Scroller vers l'en-tête après ouverture complète
                             setTimeout(() => {
                                 const headerHeight = 100;
-                        const headerPosition = element.getBoundingClientRect().top + window.pageYOffset;
-                        const offsetPosition = Math.max(0, headerPosition - headerHeight);
-                        
-                        window.scrollTo({
-                            top: offsetPosition,
-                            behavior: 'smooth'
-                        });
+                                const headerPosition = element.getBoundingClientRect().top + window.pageYOffset;
+                                const offsetPosition = Math.max(0, headerPosition - headerHeight);
+                                
+                                window.scrollTo({
+                                    top: offsetPosition,
+                                    behavior: 'smooth'
+                                });
                             }, 100);
                         }, ANIMATION_DURATION);
-                    }, 50);
+                    }, 150); // Délai pour permettre la fermeture de la section précédente
                 });
             } else {
                 // Fermer la section actuelle

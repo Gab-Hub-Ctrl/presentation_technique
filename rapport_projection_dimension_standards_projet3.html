@@ -2137,7 +2137,7 @@
                 
                 // Attendre que toutes les fermetures soient terminées
                 Promise.all(closingPromises).then(() => {
-                    // Ouvrir la nouvelle section après un court délai
+                    // Ouvrir la nouvelle section après un court délai de 150ms
                     setTimeout(() => {
                         section.classList.add('animating');
                         section.classList.add('active');
@@ -2162,7 +2162,7 @@
                                 });
                             }, 100);
                         }, ANIMATION_DURATION);
-                    }, 50);
+                    }, 150); // Délai pour permettre la fermeture de la section précédente
                 });
             } else {
                 // Fermer la section actuelle
@@ -2603,63 +2603,8 @@
             
             // Générer des résumés pour toutes les sections
             function generateQuickReadSummaries() {
-                const sections = document.querySelectorAll('.section-accordion-inner > section');
-                
-                sections.forEach(section => {
-                    // Vérifier si un résumé existe déjà
-                    if (section.querySelector('.quick-read-summary')) return;
-                    
-                    const sectionId = section.getAttribute('id');
-                    let summaryText = '';
-                    
-                    // Chercher une description sr-only ou le premier paragraphe
-                    const srDescription = section.querySelector('p.sr-only[id$="-description"]');
-                    const firstParagraph = section.querySelector('p:not(.sr-only)');
-                    const firstH2 = section.querySelector('h2');
-                    const sectionTitle = section.querySelector('h1');
-                    
-                    // Pour le rapport, créer des résumés plus détaillés qui incluent les métriques clés
-                    if (firstParagraph) {
-                        // Extraire les informations essentielles du premier paragraphe
-                        let text = firstParagraph.textContent;
-                        
-                        // Chercher des métriques (nombres suivis de %, ×, +, etc.)
-                        const metrics = text.match(/\d+[\s]*(?:%|×|\+|\-|points?|lignes?|fichiers?|standards?|KPIs?)/gi);
-                        
-                        if (metrics && metrics.length > 0) {
-                            summaryText = text.substring(0, 150);
-                            if (text.length > 150) {
-                                summaryText += '...';
-                            }
-                            summaryText += ' Métriques clés : ' + metrics.slice(0, 3).join(', ') + '.';
-                        } else {
-                            summaryText = text.substring(0, 250);
-                            if (text.length > 250) {
-                                summaryText += '...';
-                            }
-                        }
-                    } else if (srDescription) {
-                        summaryText = srDescription.textContent;
-                    } else if (firstH2) {
-                        summaryText = firstH2.textContent + ' : Cette section présente les détails sur ' + firstH2.textContent.toLowerCase() + '.';
-                    } else if (sectionTitle) {
-                        summaryText = 'Cette section présente les informations sur ' + sectionTitle.textContent.toLowerCase() + '.';
-                    }
-                    
-                    if (summaryText) {
-                        const summary = document.createElement('div');
-                        summary.className = 'quick-read-summary';
-                        summary.textContent = summaryText;
-                        
-                        // Insérer le résumé au début de la section
-                        const firstChild = section.firstElementChild;
-                        if (firstChild) {
-                            section.insertBefore(summary, firstChild.nextSibling);
-                        } else {
-                            section.appendChild(summary);
-                        }
-                    }
-                });
+                // Désactivé : ne plus générer de résumés automatiques pour éviter les répétitions
+                return;
             }
             
             function setReadingMode(isQuickMode) {

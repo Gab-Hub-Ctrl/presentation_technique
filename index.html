@@ -737,11 +737,17 @@
     .section-accordion-content {
       max-height: 0;
       overflow: hidden;
-      transition: max-height 0.3s ease;
+      transition: max-height 0.5s ease;
     }
 
     .section-accordion.active .section-accordion-content {
       max-height: 5000px;
+      transition: max-height 0.5s ease;
+    }
+
+    /* Désactiver les transitions pendant les animations pour éviter les chevauchements */
+    .section-accordion.animating .section-accordion-content {
+      transition: none;
     }
 
     .section-accordion-inner {
@@ -1212,7 +1218,7 @@
       <button class="modal-close" aria-label="Fermer la fenêtre" type="button">×</button>
     </div>
     <div class="modal-content">
-      <p>J'ai rédigé la plupart des documents récemment pour clarifier l'état actuel d'INIT_SEQUENCE. Il y a un mois environ, la procédure fonctionnait encore avec certaines IA publiques, mais un durcissement récent de leur usage rend cette méthode obsolète, car ces systèmes restreignent les demandes liées aux modifications internes ou à l'imposition d'un état. Aujourd'hui, mon usage intensif de l'IA dépasse le cadre privé et nécessite des outils professionnels : les agents locaux pourraient être une solution, mais cela demanderait un investissement très important pour satisfaire mes besoins d'efficacité. Travailler dans une entreprise qui dispose déjà d'outils avancés intégrant l'IA, en complément de mes propres outils, multiplierait significativement ma vitesse de progression et renforcerait mes compétences de manière plus efficace.</p>
+      <p>J'ai rédigé la plupart des documents récemment pour clarifier l'état actuel d'INIT_SEQUENCE. Il y a un mois environ, la procédure fonctionnait encore avec certaines IA publiques. Un durcissement récent de leur usage rend cette méthode obsolète. Ces systèmes restreignent désormais les demandes liées aux modifications internes ou à l'imposition d'un état. Aujourd'hui, mon usage intensif de l'IA dépasse le cadre privé et serait mieux servi par des outils professionnels. Les agents locaux pourraient être une solution, mais cela demanderait un investissement important pour satisfaire mes besoins d'efficacité. Travailler dans une entreprise qui dispose déjà d'outils avancés intégrant l'IA, en complément de mes propres outils, multiplierait significativement ma vitesse de progression et renforcerait mes compétences de manière plus efficace.</p>
     </div>
   </div>
 </div>
@@ -1377,16 +1383,80 @@
   <script>
     /**
      * Fonction pour ouvrir/fermer les sections accordéon
+     * Version harmonisée avec gestion des animations
      */
+    // Variable globale pour gérer l'état des animations
+    let isAnimating = false;
+    const ANIMATION_DURATION = 500; // Durée de l'animation en ms
+    
     function toggleSection(element) {
+      // Empêcher les actions simultanées
+      if (isAnimating) return;
+      
       const section = element.parentElement;
       const isActive = section.classList.contains('active');
       
-      // Mettre à jour aria-expanded pour l'accessibilité
-      element.setAttribute('aria-expanded', !isActive);
-      
-      // Toggle de l'état actif
-      section.classList.toggle('active');
+      // Si on ouvre une nouvelle section, fermer d'abord les autres
+      if (!isActive) {
+        isAnimating = true;
+        
+        // Fermer toutes les autres sections d'abord
+        const allAccordions = document.querySelectorAll('.section-accordion.active');
+        const closingPromises = [];
+        
+        allAccordions.forEach(acc => {
+          if (acc !== section) {
+            acc.classList.add('animating');
+            acc.classList.remove('active');
+            closingPromises.push(new Promise(resolve => {
+              setTimeout(() => {
+                acc.classList.remove('animating');
+                resolve();
+              }, ANIMATION_DURATION);
+            }));
+          }
+        });
+        
+        // Attendre que toutes les fermetures soient terminées
+        Promise.all(closingPromises).then(() => {
+          // Ouvrir la nouvelle section après un court délai de 150ms
+          setTimeout(() => {
+            section.classList.add('animating');
+            section.classList.add('active');
+            
+            // Réappliquer l'alignement adaptatif après ouverture
+            setTimeout(() => {
+              if (typeof applyAdaptiveTextAlignment === 'function') {
+                applyAdaptiveTextAlignment();
+              }
+              section.classList.remove('animating');
+              isAnimating = false;
+              
+              // Scroller vers l'en-tête après ouverture complète
+              setTimeout(() => {
+                const headerHeight = 100;
+                const headerPosition = element.getBoundingClientRect().top + window.pageYOffset;
+                const offsetPosition = Math.max(0, headerPosition - headerHeight);
+                
+                window.scrollTo({
+                  top: offsetPosition,
+                  behavior: 'smooth'
+                });
+              }, 100);
+            }, ANIMATION_DURATION);
+          }, 150); // Délai pour permettre la fermeture de la section précédente
+        });
+      } else {
+        // Fermer la section actuelle
+        isAnimating = true;
+        section.classList.add('animating');
+        section.classList.remove('active');
+        
+        setTimeout(() => {
+          section.classList.remove('animating');
+          isAnimating = false;
+        }, ANIMATION_DURATION);
+      }
     }
 
     /**
