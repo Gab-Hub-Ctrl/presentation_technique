@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<!-- Validation HTML5 W3C : Document conforme aux standards HTML5 -->
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
@@ -219,6 +220,12 @@
         color: var(--accent-hover);
     }
 
+    .header-right {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+    }
+    
     .header-nav {
         display: flex;
         gap: 22px;
@@ -278,9 +285,27 @@
             padding: 16px 25px;
         }
 
+        .header-right {
+            margin-top: 10px;
+            width: 100%;
+            flex-wrap: wrap;
+        }
+        
         .header-nav {
             margin-top: 10px;
             gap: 14px;
+        }
+        
+        .reading-mode-controls {
+            margin-left: 0;
+            margin-top: 8px;
+            width: 100%;
+            justify-content: flex-start;
+        }
+        
+        .reading-mode-button {
+            flex: 1;
+            max-width: 150px;
         }
     }
 
@@ -408,13 +433,6 @@
         text-decoration: underline;
     }
 
-    footer .arrow-up {
-        font-size: 0.5em;
-        margin-right: 12px;
-        display: inline-block;
-        vertical-align: middle;
-        line-height: 1;
-    }
 
     /* Skip link for accessibility */
     .skip-link {
@@ -493,6 +511,78 @@
         outline-offset: 2px;
         border-radius: 2px;
     }
+    
+    /* ============================================
+       MODE LECTURE RAPIDE - Version légère
+       Moins agressif car contenu déjà condensé
+       ============================================ */
+    
+    /* Boutons de contrôle de lecture dans le header */
+    .reading-mode-controls {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        margin-left: 12px;
+    }
+    
+    .reading-mode-button {
+        background: transparent;
+        border: 1px solid var(--importance-high);
+        border-radius: 6px;
+        padding: 8px 16px;
+        cursor: pointer;
+        transition: all 0.2s ease;
+        font-family: inherit;
+        font-size: 0.9em;
+        font-weight: 500;
+        white-space: nowrap;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--text-color);
+    }
+    
+    .reading-mode-button:hover {
+        background: var(--importance-high);
+        border-color: var(--importance-high);
+        color: #ffffff;
+    }
+    
+    .reading-mode-button.active {
+        background: var(--importance-high);
+        border-color: var(--importance-high);
+        color: #ffffff;
+    }
+    
+    .reading-mode-button:focus-visible {
+        outline: 3px solid var(--importance-high);
+        outline-offset: 2px;
+    }
+    
+    /* Mode lecture rapide - Réduction légère */
+    body.quick-read-mode .section-accordion-inner > section > p:not(:first-of-type):not(.quick-read-essential) {
+        display: none;
+    }
+    
+    /* Conserver les premiers paragraphes et les éléments essentiels */
+    body.quick-read-mode .section-accordion-inner > section > p:first-of-type,
+    body.quick-read-mode .section-accordion-inner > section > .quick-read-essential {
+        display: block;
+    }
+    
+    /* Conserver tous les titres */
+    body.quick-read-mode .section-accordion-inner > section > h2,
+    body.quick-read-mode .section-accordion-inner > section > h3,
+    body.quick-read-mode .section-accordion-inner > section > h4 {
+        display: block;
+    }
+    
+    /* Conserver les listes et éléments de structure */
+    body.quick-read-mode .section-accordion-inner > section > ul,
+    body.quick-read-mode .section-accordion-inner > section > ol,
+    body.quick-read-mode .section-accordion-inner > section > code {
+        display: block;
+    }
   </style>
 </head>
 <body>
@@ -506,21 +596,31 @@
             </a>
         </div>
         
-        <nav class="header-nav" aria-label="Navigation principale">
-            <div class="nav-dropdown">
-                <button class="nav-dropdown-toggle" aria-expanded="false" aria-haspopup="true" aria-label="Menu de navigation">
-                    Navigation <span class="nav-arrow">▼</span>
+        <div class="header-right">
+            <div class="reading-mode-controls">
+                <button class="reading-mode-button" id="reading-mode-quick" aria-pressed="false" aria-label="Mode lecture rapide">
+                    Lecture rapide
                 </button>
-                <ul class="nav-dropdown-menu" role="menu" aria-hidden="true">
-                    <li role="none"><a href="index.html" role="menuitem">Accueil</a></li>
-                    <li role="none"><a href="presentation_synthetique.html" role="menuitem">Présentation synthétique</a></li>
-                    <li role="none"><a href="presentation_complete.html" role="menuitem">Présentation complète</a></li>
-                    <li role="none"><a href="rapport_projection_dimension_standards_projet3.html" role="menuitem">Rapport</a></li>
-                    <li role="none"><a href="lettre_motivation_ecole.html" role="menuitem">Lettre école</a></li>
-                    <li role="none"><a href="lettre_motivation_entreprise.html" role="menuitem">Lettre entreprise</a></li>
-                </ul>
+                <button class="reading-mode-button active" id="reading-mode-full" aria-pressed="true" aria-label="Mode lecture complète">
+                    Lecture complète
+                </button>
             </div>
-        </nav>
+
+            <nav class="header-nav" aria-label="Navigation principale">
+                <div class="nav-dropdown">
+                    <button class="nav-dropdown-toggle" aria-expanded="false" aria-haspopup="true" aria-label="Menu de navigation">
+                        Navigation <span class="nav-arrow">▼</span>
+                    </button>
+                    <ul class="nav-dropdown-menu" role="menu" aria-hidden="true">
+                        <li role="none"><a href="index.html" role="menuitem">Accueil</a></li>
+                        <li role="none"><a href="presentation_synthetique.html" role="menuitem">Présentation synthétique</a></li>
+                        <li role="none"><a href="rapport_projection_dimension_standards_projet3.html" role="menuitem">Rapport</a></li>
+                        <li role="none"><a href="lettre_motivation_ecole.html" role="menuitem">Lettre école</a></li>
+                        <li role="none"><a href="lettre_motivation_entreprise.html" role="menuitem">Lettre entreprise</a></li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
     </header>
     
     <main id="main-content" role="main">
@@ -591,13 +691,13 @@
             <h3>Mes compétences techniques</h3>
             
             <h4>Ce que je sais faire</h4>
-            <p><strong>Architecture et design :</strong> Je comprends les architectures modulaires (séparation des responsabilités). J'ai créé un pipeline complet : collecte → ETL → règles → corrélation → visualisation. Je comprends les machines à états finis (grâce à INIT_SEQUENCE). J'ai créé <code>ProjectModule.psm1</code> pour gérer la portabilité.</p>
+            <p><strong>Architecture et design :</strong> Les architectures modulaires sont comprises (séparation des responsabilités). Un pipeline complet a été créé : collecte → ETL → règles → corrélation → visualisation. Les machines à états finis sont comprises grâce à INIT_SEQUENCE. Le module <code>ProjectModule.psm1</code> a été créé pour gérer la portabilité.</p>
             
-            <p><strong>Développement :</strong> Je connais les bases de Python, PowerShell, TypeScript et React. Mon code est fonctionnel mais encore basique (c'est un Proof of Concept, pas une solution optimisée). Je n'écris pas tout le code moi-même : j'utilise l'IA, mais je comprends ce qui est généré. Je valide et adapte le code généré selon mes besoins.</p>
+            <p><strong>Développement :</strong> Les bases de Python, PowerShell, TypeScript et React sont connues. Le code est fonctionnel mais encore basique (c'est un Proof of Concept, pas une solution optimisée). Tout le code n'est pas écrit manuellement : l'IA est utilisée, mais chaque ligne générée est comprise. Le code généré est validé et adapté selon les besoins.</p>
             
-            <p><strong>Automatisation :</strong> J'ai créé des menus CLI pour automatiser les opérations. J'ai intégré HashiCorp Vault de manière opérationnelle. J'ai mis en place des scripts de maintenance (backup, restauration, nettoyage). J'ai créé un système d'archivage automatique.</p>
+            <p><strong>Automatisation :</strong> Des menus CLI ont été créés pour automatiser les opérations. HashiCorp Vault a été intégré de manière opérationnelle. Des scripts de maintenance ont été mis en place (backup, restauration, nettoyage). Un système d'archivage automatique a été créé.</p>
             
-            <p><strong>Documentation :</strong> J'ai produit beaucoup de documentation. INIT_SEQUENCE comprend 4100 lignes, les Standards Projet3 représentent environ 50 000 lignes de documentation structurée, et j'ai créé de nombreux guides et standards. J'ai appris l'importance de bien documenter pour que d'autres (ou moi plus tard) puissent comprendre.</p>
+            <p><strong>Documentation :</strong> Une documentation importante a été produite. INIT_SEQUENCE comprend 4100 lignes, les Standards Projet3 représentent environ 50 000 lignes de documentation structurée, et de nombreux guides et standards ont été créés. L'importance de bien documenter pour que d'autres (ou soi-même plus tard) puissent comprendre a été apprise.</p>
             
             <h4>Ce que je ne sais pas encore bien faire</h4>
             <p><strong>Code technique :</strong> Mon code est fonctionnel mais pas optimisé. Je ne maîtrise pas encore toutes les bonnes pratiques de développement. Je n'ai pas encore beaucoup d'expérience en débogage complexe. Je dois encore améliorer mes compétences en tests.</p>
@@ -607,9 +707,10 @@
             <h3>Mes compétences préexistantes</h3>
             
             <h4>Ce que je savais déjà</h4>
-            <p>Avant ce projet, j'avais déjà des compétences en virtualisation (configuration et gestion d'environnements virtualisés), sécurité informatique (pare-feu, configuration de sécurité, bonnes pratiques), administration système Windows (configuration de serveurs), et maintenance et opérations (j'ai trois ans d'expérience professionnelle).</p>
-            <p>Ces compétences m'ont aidé pour configurer et gérer Vault, créer l'architecture opérationnelle avec les menus CLI, intégrer la sécurité avec HashiCorp Vault, et mettre en place l'observabilité avec les logs et le monitoring.</p>
-            <p>Ces compétences infrastructure compensent en partie mes limitations en développement pur.</p>
+            <p>Avant ce projet, des compétences existaient déjà en virtualisation (configuration et gestion d'environnements virtualisés), sécurité informatique (pare-feu, configuration de sécurité, bonnes pratiques), administration système Windows (configuration de serveurs), et maintenance et opérations (trois ans d'expérience professionnelle).</p>
+            <p>Ces compétences ont facilité la configuration et la gestion de Vault, la création de l'architecture opérationnelle avec les menus CLI, l'intégration de la sécurité avec HashiCorp Vault, et la mise en place de l'observabilité avec les logs et le monitoring.</p>
+            <p>Ces compétences infrastructure compensent en partie les limitations en développement pur.</p>
+            <p>Cette complémentarité entre les compétences infrastructure et l'usage de l'IA pour le développement illustre la façon de travailler : l'IA est utilisée comme outil d'orchestration pour transformer les idées en solutions concrètes.</p>
             </section>
                 </div>
             </div>
@@ -624,6 +725,7 @@
                 <div class="section-accordion-inner">
         <section>
             <h2>Ma relation avec l'IA</h2>
+            <p>Comme mentionné précédemment, l'IA occupe une place centrale dans ma démarche de développement. Cette section détaille comment j'utilise cet outil et pourquoi cette approche correspond à mes compétences naturelles.</p>
             
             <h3>Comment j'utilise l'IA</h3>
             <p>Je reconnais être très dépendant de l'IA pour développer. Ce n'est pas une faiblesse à mes yeux : c'est une réalité que j'assume et que j'ai transformée en outil d'apprentissage.</p>
@@ -682,6 +784,73 @@
     </footer>
     
     <script>
+        /**
+         * Mode lecture rapide/complète - Version légère
+         */
+        (function() {
+            const quickButton = document.getElementById('reading-mode-quick');
+            const fullButton = document.getElementById('reading-mode-full');
+            
+            if (!quickButton || !fullButton) return;
+            
+            // Marquer les éléments essentiels à conserver
+            function markEssentialElements() {
+                const sections = document.querySelectorAll('.section-accordion-inner > section');
+                
+                sections.forEach(section => {
+                    // Conserver le premier paragraphe de chaque section
+                    const firstParagraph = section.querySelector('p:first-of-type');
+                    if (firstParagraph) {
+                        firstParagraph.classList.add('quick-read-essential');
+                    }
+                    
+                    // Conserver les paragraphes avec des exemples numérotés (ex: "1. Le problème...")
+                    const paragraphs = section.querySelectorAll('p');
+                    paragraphs.forEach(p => {
+                        const text = p.textContent.trim();
+                        if (text.match(/^\d+\.\s/) || p.querySelector('strong')) {
+                            p.classList.add('quick-read-essential');
+                        }
+                    });
+                    
+                    // Conserver le dernier paragraphe de chaque section (souvent une conclusion)
+                    const allParagraphs = Array.from(section.querySelectorAll('p'));
+                    if (allParagraphs.length > 0) {
+                        allParagraphs[allParagraphs.length - 1].classList.add('quick-read-essential');
+                    }
+                });
+            }
+            
+            function setReadingMode(isQuickMode) {
+                document.body.classList.toggle('quick-read-mode', isQuickMode);
+                
+                if (isQuickMode) {
+                    markEssentialElements();
+                    quickButton.classList.add('active');
+                    quickButton.setAttribute('aria-pressed', 'true');
+                    fullButton.classList.remove('active');
+                    fullButton.setAttribute('aria-pressed', 'false');
+                } else {
+                    // Retirer les marques essentielles en mode complet
+                    document.querySelectorAll('.quick-read-essential').forEach(el => {
+                        el.classList.remove('quick-read-essential');
+                    });
+                    fullButton.classList.add('active');
+                    fullButton.setAttribute('aria-pressed', 'true');
+                    quickButton.classList.remove('active');
+                    quickButton.setAttribute('aria-pressed', 'false');
+                }
+            }
+            
+            quickButton.addEventListener('click', function() {
+                setReadingMode(true);
+            });
+            
+            fullButton.addEventListener('click', function() {
+                setReadingMode(false);
+            });
+        })();
+        
         /**
          * Fonction pour ouvrir/fermer les sections accordéon
          */

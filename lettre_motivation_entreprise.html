@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<!-- Validation HTML5 W3C : Document conforme aux standards HTML5 -->
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
@@ -263,7 +264,7 @@
       width: 100%;
       background: #ffffff;
       border-bottom: 2px solid #000000;
-      box-shadow: var(--shadow-md);
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
       padding: 14px 40px;
       display: flex;
       justify-content: space-between;
@@ -320,6 +321,12 @@
       color: #333333;
     }
 
+    .header-right {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
     .header-nav {
       display: flex;
       gap: 22px;
@@ -327,25 +334,97 @@
       align-items: center;
     }
 
-    .header-nav a {
-      text-decoration: none;
-      color: #333333;
-      font-weight: 500;
-      font-size: 0.95em;
-      white-space: nowrap;
-      transition: color 0.2s ease;
+    .nav-dropdown {
       position: relative;
-      padding: 4px 8px;
     }
 
-    .header-nav a:hover {
+    .nav-dropdown-toggle {
+      background: transparent;
+      border: 1px solid #000000;
+      border-radius: 6px;
+      padding: 8px 16px;
+      color: #000000;
+      font-weight: 500;
+      font-size: 0.9em;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.2s ease;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    }
+
+    .nav-dropdown-toggle:hover {
+      background: #f5f5f5;
+      border-color: #000000;
       color: #000000;
     }
 
-    .header-nav a:focus-visible {
+    .nav-dropdown-toggle[aria-expanded="true"] {
+      background: #000000;
+      color: #ffffff;
+      border-color: #000000;
+    }
+
+    .nav-dropdown-toggle:focus-visible {
       outline: 3px solid #000000;
-      outline-offset: 4px;
-      border-radius: 3px;
+      outline-offset: 2px;
+    }
+
+    .nav-arrow {
+      font-size: 0.8em;
+      transition: transform 0.2s ease;
+    }
+
+    .nav-dropdown-toggle[aria-expanded="true"] .nav-arrow {
+      transform: rotate(180deg);
+    }
+
+    .nav-dropdown-menu {
+      position: absolute;
+      top: calc(100% + 8px);
+      right: 0;
+      background: #ffffff;
+      border: 1px solid #000000;
+      border-radius: 6px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+      min-width: 200px;
+      list-style: none;
+      padding: 8px 0;
+      margin: 0;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(-10px);
+      transition: all 0.3s ease;
+      z-index: 1000;
+    }
+
+    .nav-dropdown-menu[aria-hidden="false"] {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+
+    .nav-dropdown-menu a {
+      display: block;
+      padding: 10px 20px;
+      text-decoration: none;
+      color: #000000;
+      font-size: 0.9em;
+      transition: background 0.2s ease, color 0.2s ease;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    }
+
+    .nav-dropdown-menu a:hover,
+    .nav-dropdown-menu a:focus {
+      background: #f5f5f5;
+      color: #000000;
+    }
+
+    .nav-dropdown-menu a.active {
+      background: #f5f5f5;
+      color: #000000;
+      font-weight: 600;
     }
 
     /* ============================================
@@ -370,6 +449,7 @@
     .letter-section p {
       margin-bottom: 20px;
       text-align: justify;
+      text-align-last: left;
       font-size: 1.05em;
       line-height: 1.75;
       color: var(--text-color);
@@ -410,8 +490,8 @@
        FOOTER
        ============================================ */
     footer {
-      margin-top: 60px;
-      padding: 32px 20px;
+      margin-top: 50px;
+      padding: 25px 0;
       text-align: center;
       color: #000000;
       font-size: 0.9em;
@@ -421,20 +501,19 @@
     }
 
     footer p {
-      color: #000000;
       margin: 8px 0;
+      color: #000000;
       font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
     }
 
     footer a {
       color: #000000;
       text-decoration: none;
-      margin: 0 8px;
+      transition: color 0.2s ease;
       font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
     }
 
-    footer a:hover,
-    footer a:focus {
+    footer a:hover {
       color: #333333;
       text-decoration: underline;
     }
@@ -449,15 +528,19 @@
         align-items: flex-start;
         padding: 16px 25px;
       }
-
+      
+      .header-right {
+        margin-top: 10px;
+        width: 100%;
+        flex-wrap: wrap;
+      }
+      
       .header-nav {
         margin-top: 10px;
-        gap: 14px;
-        flex-wrap: wrap;
       }
     }
 
-    @media (max-width: 768px) {
+    @media (max-width: 900px) {
       .letter-section {
         padding: 32px 24px;
       }
@@ -526,21 +609,22 @@
         </h2>
       </a>
     </div>
-    <nav class="header-nav" aria-label="Navigation principale">
-      <div class="nav-dropdown">
-        <button class="nav-dropdown-toggle" aria-expanded="false" aria-haspopup="true" aria-label="Menu de navigation">
-          Navigation <span class="nav-arrow">▼</span>
-        </button>
-        <ul class="nav-dropdown-menu" role="menu" aria-hidden="true">
-          <li role="none"><a href="index.html" role="menuitem">Accueil</a></li>
-          <li role="none"><a href="presentation_synthetique.html" role="menuitem">Présentation synthétique</a></li>
-          <li role="none"><a href="presentation_complete.html" role="menuitem">Présentation complète</a></li>
-          <li role="none"><a href="rapport_projection_dimension_standards_projet3.html" role="menuitem">Rapport</a></li>
-          <li role="none"><a href="profil_personnel.html" role="menuitem">Profil</a></li>
-          <li role="none"><a href="lettre_motivation_ecole.html" role="menuitem">Lettre école</a></li>
-        </ul>
-      </div>
-    </nav>
+    <div class="header-right">
+      <nav class="header-nav" aria-label="Navigation principale">
+        <div class="nav-dropdown">
+          <button class="nav-dropdown-toggle" aria-expanded="false" aria-haspopup="true" aria-label="Menu de navigation">
+            Navigation <span class="nav-arrow">▼</span>
+          </button>
+          <ul class="nav-dropdown-menu" role="menu" aria-hidden="true">
+            <li role="none"><a href="index.html" role="menuitem">Accueil</a></li>
+            <li role="none"><a href="presentation_synthetique.html" role="menuitem">Présentation synthétique</a></li>
+            <li role="none"><a href="rapport_projection_dimension_standards_projet3.html" role="menuitem">Rapport</a></li>
+            <li role="none"><a href="profil_personnel.html" role="menuitem">Profil</a></li>
+            <li role="none"><a href="lettre_motivation_ecole.html" role="menuitem">Lettre école</a></li>
+          </ul>
+        </div>
+      </nav>
+    </div>
   </header>
 
   <main id="main-content" role="main">
@@ -549,19 +633,19 @@
       
       <p class="letter-greeting">Madame, Monsieur,</p>
       
-      <p>Actuellement en réorientation vers les métiers de l'informatique, j'intégrerai, à compter du 5 janvier 2026, la formation de Technicien Supérieur Systèmes et Réseaux (TSSR) en alternance. Je recherche une entreprise partenaire pour accompagner mon parcours et contribuer à vos projets en Intelligence Artificielle et gouvernance des systèmes.</p>
+      <p>Actuellement en réorientation vers les métiers de l'informatique, j'intégrerai à compter du 5 janvier 2026 la formation de Technicien Supérieur Systèmes et Réseaux (TSSR) en alternance. Dans ce cadre, je recherche une entreprise partenaire où je pourrai m'investir pleinement et contribuer à des projets liés à l'Intelligence Artificielle et à la maîtrise des systèmes.</p>
       
-      <p>Mon objectif professionnel est de me spécialiser en Expert en Gouvernance IA. L'Intelligence Artificielle fait déjà partie intégrante de mon quotidien. À force de pratique, j'ai développé une réelle qualité de communication avec les modèles d'IA, et j'estime avoir envoyé quelques milliers de prompts sur trois mois. Cette pratique m'a naturellement conduit à m'interroger sur des questions de gouvernance et d'éthique, essentielles dans un contexte professionnel.</p>
+      <p>Mon projet professionnel vise une spécialisation progressive vers l'expertise en gouvernance de l'IA. Cette technologie fait déjà partie de mon quotidien. Ma pratique intensive m'a conduit à réfléchir aux enjeux de fiabilité, d'éthique et de maîtrise des systèmes, essentiels dans un contexte professionnel.</p>
       
-      <p>En parallèle, j'ai initié un projet personnel nommé IT Dashboard A+, un tableau de bord interactif de veille IT développé en trois mois en partant de zéro connaissance en développement. Ce projet a évolué vers un Proof of Concept opérationnel avec intégration Vault, pipeline backend fonctionnel et synchronisation automatique. Ce projet m'a également conduit à créer INIT_SEQUENCE, un système de gouvernance IA basé sur une machine à états finis.</p>
+      <p>Parallèlement, j'ai mené un projet personnel structurant, IT Dashboard A+, un tableau de bord interactif de veille IT devenu un Proof of Concept opérationnel. J'ai également conçu INIT_SEQUENCE, un système de gouvernance IA reposant sur une architecture à états finis, démontrant mon intérêt pour des architectures fiables et maîtrisées. Ce projet illustre ma capacité à structurer des solutions complexes et à transformer des limitations techniques en opportunités d'innovation.</p>
       
-      <p>Mes trois années d'expérience en alternance en électricité et en maintenance industrielle m'ont permis d'acquérir une posture professionnelle solide : respect des engagements, travail en équipe et communication régulière. Je possède également des bases solides en virtualisation, sécurité informatique et configuration de serveur Windows, compétences directement applicables dans un contexte professionnel.</p>
+      <p>Mes trois années d'expérience en alternance dans l'électricité et la maintenance industrielle m'ont permis d'acquérir rigueur, esprit d'équipe, respect des engagements et communication efficace. Ces compétences transversales complètent mon approche technique et renforcent ma capacité à contribuer efficacement à vos projets.</p>
       
-      <p>Au sein de votre entreprise, je souhaite mettre en pratique mes compétences en gouvernance IA, contribuer à vos projets d'intelligence artificielle et développer mes compétences techniques dans un environnement professionnel stimulant.</p>
+      <p>Intégrer une entreprise partenaire représente pour moi l'opportunité de mettre en pratique mes compétences en maîtrise de l'IA, de contribuer concrètement à vos projets et de progresser dans un environnement stimulant. Je suis convaincu que cette collaboration mutuelle permettrait d'accélérer ma progression tout en apportant une valeur ajoutée à vos équipes. Mon expérience en structuration de solutions complexes, ma capacité à orchestrer l'IA pour transformer des idées en solutions opérationnelles, et ma rigueur acquise en environnement professionnel constituent des atouts concrets pour vos projets liés à l'IA et à la gouvernance des systèmes.</p>
       
-      <p>Je serais ravi d'échanger avec vous afin de vous présenter plus en détail ma démarche et mon projet. Une annexe technique détaille mon projet et illustre ma démarche d'apprentissage et mes compétences techniques.</p>
+      <p>Je serais ravi de vous rencontrer pour présenter mon parcours et mon projet professionnel. Si vous le souhaitez, une <a href="presentation_synthetique.html" style="color: #000000; text-decoration: underline;">présentation technique en ligne</a> détaille ce projet et illustre mon approche d'apprentissage autonome ; elle est accessible via le menu de navigation.</p>
       
-      <p>Je vous remercie pour l'attention portée à ma candidature et reste à votre disposition pour un entretien.</p>
+      <p>Je vous remercie pour l'attention portée à ma candidature et reste à votre entière disposition pour un entretien.</p>
       
       <p>Veuillez agréer, Madame, Monsieur, l'expression de mes salutations distinguées.</p>
       
@@ -573,10 +657,12 @@
   </main>
 
   <footer role="contentinfo">
+    <p>Projet IT Dashboard A+</p>
+    <p>Gabriel ROULON</p>
+    <p>Démarche de démonstration technique et académique - 2025</p>
     <p>
       <a href="https://github.com/Gab-Hub-Ctrl/presentation_technique" target="_blank" rel="noopener noreferrer">Dépôt GitHub</a>
     </p>
-    <p>&copy; 2025 Gabriel ROULON - Tous droits réservés</p>
   </footer>
 
 

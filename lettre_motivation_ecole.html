@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<!-- Validation HTML5 W3C : Document conforme aux standards HTML5 -->
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
@@ -263,7 +264,7 @@
       width: 100%;
       background: #ffffff;
       border-bottom: 2px solid #000000;
-      box-shadow: var(--shadow-md);
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
       padding: 14px 40px;
       display: flex;
       justify-content: space-between;
@@ -320,6 +321,12 @@
       color: #333333;
     }
 
+    .header-right {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
     .header-nav {
       display: flex;
       gap: 22px;
@@ -327,25 +334,97 @@
       align-items: center;
     }
 
-    .header-nav a {
-      text-decoration: none;
-      color: #333333;
-      font-weight: 500;
-      font-size: 0.95em;
-      white-space: nowrap;
-      transition: color 0.2s ease;
+    .nav-dropdown {
       position: relative;
-      padding: 4px 8px;
     }
 
-    .header-nav a:hover {
+    .nav-dropdown-toggle {
+      background: transparent;
+      border: 1px solid #000000;
+      border-radius: 6px;
+      padding: 8px 16px;
+      color: #000000;
+      font-weight: 500;
+      font-size: 0.9em;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.2s ease;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    }
+
+    .nav-dropdown-toggle:hover {
+      background: #f5f5f5;
+      border-color: #000000;
       color: #000000;
     }
 
-    .header-nav a:focus-visible {
+    .nav-dropdown-toggle[aria-expanded="true"] {
+      background: #000000;
+      color: #ffffff;
+      border-color: #000000;
+    }
+
+    .nav-dropdown-toggle:focus-visible {
       outline: 3px solid #000000;
-      outline-offset: 4px;
-      border-radius: 3px;
+      outline-offset: 2px;
+    }
+
+    .nav-arrow {
+      font-size: 0.8em;
+      transition: transform 0.2s ease;
+    }
+
+    .nav-dropdown-toggle[aria-expanded="true"] .nav-arrow {
+      transform: rotate(180deg);
+    }
+
+    .nav-dropdown-menu {
+      position: absolute;
+      top: calc(100% + 8px);
+      right: 0;
+      background: #ffffff;
+      border: 1px solid #000000;
+      border-radius: 6px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+      min-width: 200px;
+      list-style: none;
+      padding: 8px 0;
+      margin: 0;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(-10px);
+      transition: all 0.3s ease;
+      z-index: 1000;
+    }
+
+    .nav-dropdown-menu[aria-hidden="false"] {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+
+    .nav-dropdown-menu a {
+      display: block;
+      padding: 10px 20px;
+      text-decoration: none;
+      color: #000000;
+      font-size: 0.9em;
+      transition: background 0.2s ease, color 0.2s ease;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    }
+
+    .nav-dropdown-menu a:hover,
+    .nav-dropdown-menu a:focus {
+      background: #f5f5f5;
+      color: #000000;
+    }
+
+    .nav-dropdown-menu a.active {
+      background: #f5f5f5;
+      color: #000000;
+      font-weight: 600;
     }
 
     /* ============================================
@@ -411,8 +490,8 @@
        FOOTER
        ============================================ */
     footer {
-      margin-top: 60px;
-      padding: 32px 20px;
+      margin-top: 50px;
+      padding: 25px 0;
       text-align: center;
       color: #000000;
       font-size: 0.9em;
@@ -422,20 +501,19 @@
     }
 
     footer p {
-      color: #000000;
       margin: 8px 0;
+      color: #000000;
       font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
     }
 
     footer a {
       color: #000000;
       text-decoration: none;
-      margin: 0 8px;
+      transition: color 0.2s ease;
       font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
     }
 
-    footer a:hover,
-    footer a:focus {
+    footer a:hover {
       color: #333333;
       text-decoration: underline;
     }
@@ -450,15 +528,19 @@
         align-items: flex-start;
         padding: 16px 25px;
       }
-
+      
+      .header-right {
+        margin-top: 10px;
+        width: 100%;
+        flex-wrap: wrap;
+      }
+      
       .header-nav {
         margin-top: 10px;
-        gap: 14px;
-        flex-wrap: wrap;
       }
     }
 
-    @media (max-width: 768px) {
+    @media (max-width: 900px) {
       .letter-section {
         padding: 32px 24px;
       }
@@ -526,21 +608,22 @@
         </h2>
       </a>
     </div>
-    <nav class="header-nav" aria-label="Navigation principale">
-      <div class="nav-dropdown">
-        <button class="nav-dropdown-toggle" aria-expanded="false" aria-haspopup="true" aria-label="Menu de navigation">
-          Navigation <span class="nav-arrow">▼</span>
-        </button>
-        <ul class="nav-dropdown-menu" role="menu" aria-hidden="true">
-          <li role="none"><a href="index.html" role="menuitem">Accueil</a></li>
-          <li role="none"><a href="presentation_synthetique.html" role="menuitem">Présentation synthétique</a></li>
-          <li role="none"><a href="presentation_complete.html" role="menuitem">Présentation complète</a></li>
-          <li role="none"><a href="rapport_projection_dimension_standards_projet3.html" role="menuitem">Rapport</a></li>
-          <li role="none"><a href="profil_personnel.html" role="menuitem">Profil</a></li>
-          <li role="none"><a href="lettre_motivation_entreprise.html" role="menuitem">Lettre entreprise</a></li>
-        </ul>
-      </div>
-    </nav>
+    <div class="header-right">
+      <nav class="header-nav" aria-label="Navigation principale">
+        <div class="nav-dropdown">
+          <button class="nav-dropdown-toggle" aria-expanded="false" aria-haspopup="true" aria-label="Menu de navigation">
+            Navigation <span class="nav-arrow">▼</span>
+          </button>
+          <ul class="nav-dropdown-menu" role="menu" aria-hidden="true">
+            <li role="none"><a href="index.html" role="menuitem">Accueil</a></li>
+            <li role="none"><a href="presentation_synthetique.html" role="menuitem">Présentation synthétique</a></li>
+            <li role="none"><a href="rapport_projection_dimension_standards_projet3.html" role="menuitem">Rapport</a></li>
+            <li role="none"><a href="profil_personnel.html" role="menuitem">Profil</a></li>
+            <li role="none"><a href="lettre_motivation_entreprise.html" role="menuitem">Lettre entreprise</a></li>
+          </ul>
+        </div>
+      </nav>
+    </div>
   </header>
 
   <main id="main-content" role="main">
@@ -549,19 +632,17 @@
       
       <p class="letter-greeting">Madame, Monsieur,</p>
       
-      <p>Actuellement en réorientation vers les métiers de l'informatique, j'intégrerai, à compter du 5 janvier 2026, la formation de Technicien Supérieur Systèmes et Réseaux (TSSR). Dans la continuité de ce parcours, je souhaite intégrer votre Bachelor en Intelligence Artificielle en troisième année.</p>
+      <p>Actuellement en réorientation vers les métiers de l'informatique, j'intégrerai à compter du 5 janvier 2026 la formation de Technicien Supérieur Systèmes et Réseaux (TSSR). Cette formation constitue un prérequis essentiel pour accéder au Bachelor en Intelligence Artificielle en troisième année. Dans la continuité de ce parcours structuré, je souhaite rejoindre ce Bachelor afin de structurer et approfondir mon projet professionnel.</p>
       
-      <p>Mon objectif professionnel est de me spécialiser en Expert en Gouvernance IA. L'Intelligence Artificielle fait déjà partie intégrante de mon quotidien. À force de pratique, j'ai développé une réelle qualité de communication avec les modèles d'IA et j'estime avoir envoyé quelques milliers de prompts sur trois mois. Cette pratique m'a naturellement conduit à m'interroger sur des questions de gouvernance et d'éthique.</p>
+      <p>Je souhaite me spécialiser progressivement en gouvernance de l'Intelligence Artificielle. L'IA fait déjà partie intégrante de mon quotidien. Ma pratique régulière m'a amenée à m'interroger sur les enjeux de fiabilité, d'éthique et de maîtrise des systèmes, désormais centraux dans les usages professionnels.</p>
       
-      <p>Je reconnais ma dépendance à l'IA pour apprendre et progresser. C'est précisément pour cette raison que je m'oriente vers le TSSR, puis vers un Bachelor en IA, afin de transformer ma pratique empirique en compétence structurée et reconnue.</p>
+      <p>Conscient que ma pratique reste encore empirique, j'ai choisi ce parcours structurant afin de transformer mon expérience autodidacte en compétences solides et théoriquement fondées. Cette démarche s'inscrit dans une volonté d'apprendre les fondements théoriques et les bonnes pratiques professionnelles.</p>
       
-      <p>En parallèle, j'ai initié un projet personnel nommé IT Dashboard A+, un tableau de bord interactif de veille IT développé en trois mois en partant de zéro connaissance en développement. Ce projet a évolué vers un Proof of Concept opérationnel avec intégration Vault, pipeline backend fonctionnel et synchronisation automatique. Ce projet m'a également conduit à créer INIT_SEQUENCE, un système de gouvernance IA basé sur une machine à états finis.</p>
+      <p>Parallèlement, j'ai développé un projet personnel, IT Dashboard A+, un tableau de bord interactif de veille IT devenu un Proof of Concept opérationnel. J'ai également conçu INIT_SEQUENCE, un système de gouvernance IA basé sur une logique de machine à états finis, illustrant mon intérêt pour des architectures fiables et maîtrisées. Ce projet démontre ma capacité à structurer des solutions complexes et à transformer des obstacles en opportunités d'apprentissage.</p>
       
-      <p>Par ailleurs, mes trois années d'expérience en alternance en électricité et en maintenance industrielle m'ont permis d'acquérir une posture professionnelle solide. Je possède également des bases solides en virtualisation, en sécurité informatique et en configuration de serveur Windows.</p>
+      <p>Mes trois années d'expérience en alternance dans l'électricité et la maintenance industrielle m'ont permis de développer rigueur, respect des engagements, travail en équipe et communication efficace. Ces compétences transversales complètent mon approche technique et renforcent ma capacité à travailler dans un environnement professionnel structuré.</p>
       
-      <p>Au sein de votre formation, je souhaite apprendre les fondements théoriques et pratiques de l'IA que ma pratique empirique n'a pas encore couverts, et approfondir mes compétences en gouvernance IA.</p>
-      
-      <p>Je serais heureux d'échanger avec vous afin de vous présenter plus en détail ma démarche et mon projet. Une annexe technique détaille mon projet et illustre ma démarche d'apprentissage.</p>
+      <p>Je serais heureux d'échanger avec vous pour présenter mon parcours, ma démarche et mon projet professionnel. Des informations complémentaires sont disponibles dans la <a href="profil_personnel.html" style="color: #000000; text-decoration: underline;">rubrique « Profil »</a> du menu de navigation, si vous souhaitez en savoir plus.</p>
       
       <p>Je vous remercie pour l'attention portée à ma candidature et reste à votre disposition pour un entretien.</p>
       
@@ -575,10 +656,12 @@
   </main>
 
   <footer role="contentinfo">
+    <p>Projet IT Dashboard A+</p>
+    <p>Gabriel ROULON</p>
+    <p>Démarche de démonstration technique et académique - 2025</p>
     <p>
       <a href="https://github.com/Gab-Hub-Ctrl/presentation_technique" target="_blank" rel="noopener noreferrer">Dépôt GitHub</a>
     </p>
-    <p>&copy; 2025 Gabriel ROULON - Tous droits réservés</p>
   </footer>
 
 

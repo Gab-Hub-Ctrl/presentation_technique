@@ -62,3 +62,13 @@ structure_*
 # ==============================
 .gitignore.backup
 prepare-git.ps1
+
+# ==============================
+# Présentation complète (temporairement indisponible)
+# ==============================
+presentation_complete.html
+
+# ==============================
+# Documentation technique (temporairement indisponible)
+# ==============================
+documentation_technique/

@@ -6,9 +6,13 @@ Ce dossier présente l'ensemble de la documentation technique du projet IT Dashb
 
 ## 📊 Statistiques du dossier (repo Git)
 
-- **Total fichiers dans le repo** : 64 fichiers
-- **Fichiers HTML** : 7 fichiers (présentations interactives)
-- **Fichiers Markdown** : 17 fichiers (15 documentation technique + 2 candidature)
+**Note** : Les fichiers exclus par `.gitignore` ne sont pas comptés dans ces statistiques.
+
+- **Total fichiers dans le repo Git** : ~50 fichiers
+- **Fichiers HTML** : 6 fichiers (présentations interactives)
+  - ⚠️ `presentation_complete.html` est exclu du repo (défini dans `.gitignore`)
+- **Fichiers Markdown** : 4 fichiers (2 README + 2 candidature)
+  - ⚠️ `documentation_technique/` (15 fichiers) est exclu du repo (défini dans `.gitignore`)
 - **Images PNG** : 33 fichiers (captures d'écran et ressources visuelles)
 - **Fichiers CSS/JS** : 2 fichiers (styles et scripts communs)
 - **Fichiers de configuration** : 5 fichiers (README.md, GIT_README.md, .gitignore, sitemap.xml, robots.txt)
@@ -18,7 +22,7 @@ Ce dossier présente l'ensemble de la documentation technique du projet IT Dashb
 ```
 presentation_technique/
 │
-├── 📄 Fichiers racine (16 fichiers dans le repo Git)
+├── 📄 Fichiers racine (15 fichiers dans le repo Git)
 │   ├── .gitignore                                    # Fichier d'exclusion Git
 │   ├── common.css                                    # Styles CSS communs (413 lignes)
 │   ├── common.js                                     # Scripts JavaScript communs
@@ -28,13 +32,15 @@ presentation_technique/
 │   ├── lettre_motivation_ecole.html                 # Lettre de motivation académique
 │   ├── lettre_motivation_entreprise.html            # Lettre de motivation professionnelle
 │   ├── og-image.png                                  # Image Open Graph pour partage social
-│   ├── presentation_complete.html                    # Présentation complète (14 sections)
+│   ├── ⚠️ presentation_complete.html                # ⚠️ Exclu du repo (.gitignore)
 │   ├── presentation_synthetique.html                 # Présentation synthétique (6 sections)
 │   ├── profil_personnel.html                        # Profil personnel et professionnel
 │   ├── rapport_projection_dimension_standards_projet3.html  # Rapport de projection dimensionnelle
-│   └── README.md                                     # Documentation principale (ce fichier)
+│   ├── README.md                                     # Documentation principale (ce fichier)
+│   ├── robots.txt                                    # Instructions pour les robots d'indexation
+│   └── sitemap.xml                                   # Plan du site pour les moteurs de recherche
 │
-├── 📚 documentation_technique/ (15 fichiers Markdown)
+├── ⚠️ documentation_technique/ (15 fichiers Markdown - ⚠️ Exclu du repo Git)
 │   ├── 01_introduction.md                            # Introduction au projet
 │   ├── 02_relation_ia.md                             # Relation avec l'IA et prompt engineering
 │   ├── 03_orientation_professionnelle.md            # Orientation professionnelle
@@ -54,11 +60,10 @@ presentation_technique/
 ├── 📝 documents/ (2 fichiers Markdown dans le repo Git)
 │   ├── candidature/
 │   │   ├── lettre_motivation_ecole.md                # Lettre de motivation académique (Markdown)
-│   │   └── lettre_motivation_entreprise.md           # Lettre de motivation professionnelle (Markdown)
-│   │   └── email_candidature.md                      # ⚠️ Exclu du repo (.gitignore)
-│   ├── documentation/                                # Dossier vide dans le repo Git
-│   │   └── arborescence.txt                          # ⚠️ Exclu du repo (.gitignore - *.txt)
-│   └── rapports/                                     # Dossier vide dans le repo Git
+│   │   ├── lettre_motivation_entreprise.md           # Lettre de motivation professionnelle (Markdown)
+│   │   └── ⚠️ email_candidature.md                   # ⚠️ Exclu du repo (.gitignore)
+│   └── documentation/
+│       └── ⚠️ arborescence.txt                       # ⚠️ Exclu du repo (.gitignore - *.txt)
 │
 └── 🖼️ presentation_visuel/ (31 fichiers PNG)
     ├── Correlation_Anticipation/ (2 fichiers)
@@ -143,6 +148,7 @@ Les présentations HTML offrent une expérience interactive complète avec navig
    - Conclusion
 
 3. **`presentation_complete.html`** - Présentation complète (14 sections)
+   - ⚠️ **Exclu du repo Git** (défini dans `.gitignore`)
    - Toutes les sections de la documentation technique
    - Vision détaillée du projet
    - Contexte de réalisation complet
@@ -169,7 +175,7 @@ Les présentations HTML offrent une expérience interactive complète avec navig
 
 ### Documentation technique Markdown
 
-15 fichiers Markdown dans `documentation_technique/` détaillent chaque aspect du projet :
+⚠️ **15 fichiers Markdown dans `documentation_technique/` sont exclus du repo Git** (défini dans `.gitignore`). Ces fichiers détaillent chaque aspect du projet :
 
 - **Fichiers essentiels** (6 fichiers) : Introduction, Relation IA, Orientation, Fonctionnalités, Résolution problèmes, INIT_SEQUENCE
 - **Fichiers complémentaires** (9 fichiers) : Architecture, Observabilité, Amélioration continue, Évolutions, Compétences, Vision stratégique, Métriques, Conclusion, Standards
@@ -181,9 +187,12 @@ Les présentations HTML offrent une expérience interactive complète avec navig
 - Lettre de motivation professionnelle (`lettre_motivation_entreprise.md`)
 
 **Note** : Les fichiers suivants sont exclus du repo Git (définis dans `.gitignore`) :
+- `presentation_complete.html` (présentation complète temporairement indisponible)
+- `documentation_technique/` (dossier complet exclu)
 - `documents/candidature/email_candidature.md` (fichier personnel)
 - `documents/documentation/arborescence.txt` et `arborescence.md` (fichiers d'arborescence)
-- Tous les fichiers `*.txt` et `*.pdf`
+- Tous les fichiers `*.txt` (sauf `robots.txt`) et `*.pdf`
+- Fichiers temporaires, logs, et fichiers système
 
 ### Annexes visuelles
 

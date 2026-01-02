@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<!-- Validation HTML5 W3C : Document conforme aux standards HTML5 -->
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
@@ -182,16 +183,17 @@
            ============================================ */
         header {
             position: fixed;
-            top: 0; left: 0;
+            top: 0;
+            left: 0;
             width: 100%;
             background: #ffffff;
             border-bottom: 2px solid #000000;
-            box-shadow: var(--shadow-md);
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
             padding: 14px 40px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            z-index: 100;
+            z-index: 1000;
         }
 
 
@@ -202,7 +204,7 @@
         }
 
         .header-left a:focus-visible {
-            outline: 3px solid var(--primary-color);
+            outline: 3px solid #000000;
             outline-offset: 4px;
             border-radius: 3px;
             padding: 2px 4px;
@@ -237,59 +239,115 @@
         }
 
         .header-left a:hover h2 {
-            color: var(--accent-hover);
+            color: #333333;
         }
 
         .header-nav {
             display: flex;
             gap: 22px;
             flex-wrap: wrap;
+            align-items: center;
         }
 
-        .header-nav a {
-            text-decoration: none;
-            color: var(--text-secondary);
-            font-weight: 500;
-            font-size: 0.95em;
-            white-space: nowrap;
-            transition: color 0.2s ease;
+        .nav-dropdown {
             position: relative;
         }
 
-        .header-nav a::after {
-            content: '';
+        .nav-dropdown-toggle {
+            background: transparent;
+            border: 1px solid #000000;
+            border-radius: 6px;
+            padding: 8px 16px;
+            color: #000000;
+            font-weight: 500;
+            font-size: 0.9em;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            transition: all 0.2s ease;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+        }
+
+        .nav-dropdown-toggle:hover {
+            background: #f5f5f5;
+            border-color: #000000;
+            color: #000000;
+        }
+
+        .nav-dropdown-toggle[aria-expanded="true"] {
+            background: #000000;
+            color: #ffffff;
+            border-color: #000000;
+        }
+
+        .nav-dropdown-toggle:focus-visible {
+            outline: 3px solid #000000;
+            outline-offset: 2px;
+        }
+
+        .nav-arrow {
+            font-size: 0.8em;
+            transition: transform 0.2s ease;
+        }
+
+        .nav-dropdown-toggle[aria-expanded="true"] .nav-arrow {
+            transform: rotate(180deg);
+        }
+
+        .nav-dropdown-menu {
             position: absolute;
-            bottom: -4px;
-            left: 50%;
-            transform: translateX(-50%) scaleX(0);
-            width: 100%;
-            height: 2px;
-            background: var(--primary-color);
-            border-radius: 2px;
-            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            top: calc(100% + 8px);
+            right: 0;
+            background: #ffffff;
+            border: 1px solid #000000;
+            border-radius: 6px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            min-width: 200px;
+            list-style: none;
+            padding: 8px 0;
+            margin: 0;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-10px);
+            transition: all 0.3s ease;
+            z-index: 1000;
         }
 
-        .header-nav a:hover {
-            color: var(--primary-color);
+        .nav-dropdown-menu[aria-hidden="false"] {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
         }
 
-        .header-nav a:hover::after {
-            transform: translateX(-50%) scaleX(1);
+        .nav-dropdown-menu a {
+            display: block;
+            padding: 10px 20px;
+            text-decoration: none;
+            color: #000000;
+            font-size: 0.9em;
+            transition: background 0.2s ease, color 0.2s ease;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
         }
 
-        .header-nav a:focus-visible {
-            outline: 3px solid var(--primary-color);
-            outline-offset: 4px;
-            border-radius: 3px;
+        .nav-dropdown-menu a:hover,
+        .nav-dropdown-menu a:focus {
+            background: #f5f5f5;
+            color: #000000;
         }
 
-        .header-nav a.active {
-            color: var(--primary-color);
+        .nav-dropdown-menu a.active {
+            background: #f5f5f5;
+            color: #000000;
+            font-weight: 600;
         }
 
-        .header-nav a.active::after {
-            transform: translateX(-50%) scaleX(1);
+        .header-right {
+            display: flex;
+            align-items: center;
+            gap: 12px;
         }
+
 
         /* RESPONSIVE HEADER */
         @media (max-width: 850px) {
@@ -299,9 +357,34 @@
                 padding: 16px 25px;
             }
 
+            .header-right {
+                margin-top: 10px;
+                width: 100%;
+                flex-wrap: wrap;
+            }
+
             .header-nav {
                 margin-top: 10px;
                 gap: 14px;
+            }
+
+            .header-note-toggle,
+            .reading-mode-button {
+                margin-top: 0;
+                font-size: 0.85em;
+                padding: 6px 12px;
+            }
+            
+            .reading-mode-controls {
+                margin-left: 0;
+                margin-top: 8px;
+                width: 100%;
+                justify-content: flex-start;
+            }
+
+            .modal-container {
+                max-width: 95vw;
+                max-height: 85vh;
             }
         }
 
@@ -317,6 +400,38 @@
         main > .section-accordion:first-child,
         main > section:first-child {
             margin-top: 1cm;
+        }
+        
+        /* ============================================
+           TRANSITIONS HARMONISÉES POUR ACCORDÉONS
+           Même vitesse, même logique dans les deux fichiers
+           ============================================ */
+        .section-accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease;
+            opacity: 0;
+        }
+
+        .section-accordion.active .section-accordion-content {
+            max-height: 10000px; /* Valeur suffisamment grande */
+            opacity: 1;
+            transition: max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.4s ease 0.1s;
+        }
+
+        .section-accordion-header {
+            transition: background 0.2s ease, transform 0.2s ease;
+            cursor: pointer;
+            user-select: none;
+        }
+
+        .section-accordion-header:active {
+            transform: scale(0.98);
+        }
+
+        /* Désactiver les transitions pendant les animations pour éviter les chevauchements */
+        .section-accordion.animating .section-accordion-content {
+            transition: none;
         }
 
         /* Section d'introduction */
@@ -473,6 +588,10 @@
             text-align: center;
             padding-bottom: 12px;
             border-bottom: 1px solid var(--border-color);
+            word-wrap: normal;
+            overflow-wrap: break-word;
+            word-break: normal;
+            hyphens: none;
         }
         
         section h3 {
@@ -484,13 +603,18 @@
             padding-left: 0;
             font-weight: 600;
             text-align: center;
+            word-wrap: normal;
+            overflow-wrap: break-word;
+            word-break: normal;
+            hyphens: none;
         }
         
-        /* Éviter les coupures de texte */
+        /* Éviter les coupures de texte au maximum - coupure uniquement pour les mots très longs (URLs, codes, etc.) */
         section p, section li, section dd {
-            word-wrap: break-word;
+            word-wrap: normal;
             overflow-wrap: break-word;
-            hyphens: auto;
+            hyphens: none;
+            word-break: normal;
         }
 
         /* PARAGRAPHS */
@@ -521,11 +645,16 @@
         
         .highlight p {
             margin-bottom: 0;
-            text-align: left;
+            text-align: justify;
+            text-align-last: left;
             color: var(--text-color);
             font-size: 1.05em;
             line-height: 1.8;
             font-weight: 500;
+            word-wrap: normal;
+            overflow-wrap: break-word;
+            word-break: normal;
+            hyphens: none;
         }
         
         .highlight strong {
@@ -692,8 +821,8 @@
         .metric-card {
             background: var(--card-bg);
             border: 1px solid var(--border-color);
-            border-radius: 12px;
-            padding: 32px 24px;
+            border-radius: 8px;
+            padding: 24px;
             box-shadow: var(--shadow-sm);
             text-align: center;
             transition: all 0.3s ease;
@@ -723,7 +852,7 @@
         .metric-card:focus-within {
             outline: 3px solid var(--primary-color);
             outline-offset: 4px;
-            border-radius: 12px;
+            border-radius: 8px;
         }
 
         /* Micro-interaction: Section hover enhancement */
@@ -744,14 +873,16 @@
            ============================================ */
         .category-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            grid-template-columns: repeat(2, 1fr);
             gap: 24px;
             margin: 40px 0;
+            width: 100%;
+            box-sizing: border-box;
         }
         
         .category-card {
             background: var(--bg-secondary);
-            padding: 28px 24px;
+            padding: 24px;
             border-radius: 8px;
             border-left: 4px solid var(--primary-color);
             min-height: 140px;
@@ -809,6 +940,100 @@
             font-weight: 400;
         }
 
+        /* ============================================
+           COMPONENT CARDS - Grille de cartes pour améliorer la lisibilité
+           ============================================ */
+        .component-cards {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px;
+            margin: 24px 0;
+        }
+
+        .component-cards-2 {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px;
+            margin: 24px 0;
+        }
+
+        .component-cards-2 .component-card:nth-child(5) {
+            grid-column: 1 / -1;
+            max-width: 50%;
+            margin: 0 auto;
+        }
+
+        .component-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 24px;
+            box-shadow: var(--shadow-sm);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .component-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: var(--primary-color);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.3s ease;
+            border-radius: 8px 8px 0 0;
+        }
+
+        .component-card:hover {
+            transform: translate3d(0, -2px, 0);
+            box-shadow: var(--shadow-md);
+            border-color: var(--primary-color);
+        }
+
+        .component-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .component-card h4 {
+            color: var(--primary-color);
+            font-size: 1.1em;
+            margin: 0 0 6px 0;
+            font-weight: 600;
+            padding-bottom: 4px;
+            border-bottom: 1px solid var(--border-color);
+            text-align: center;
+            word-wrap: normal;
+            overflow-wrap: break-word;
+            word-break: normal;
+            hyphens: none;
+        }
+
+        .component-card p {
+            margin-bottom: 0;
+            font-size: 0.9em;
+            line-height: 1.4;
+            color: var(--text-color);
+            text-align: justify;
+            text-align-last: center;
+            word-wrap: normal;
+            overflow-wrap: break-word;
+            word-break: normal;
+            hyphens: none;
+        }
+
+        .component-card code {
+            background: var(--bg-secondary);
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 0.85em;
+            border: 1px solid var(--border-color);
+            color: var(--primary-color);
+            font-weight: 600;
+        }
+
         /* Responsive pour les cartes */
         @media (max-width: 900px) {
             .metrics {
@@ -818,6 +1043,20 @@
 
         @media (max-width: 600px) {
             .metrics {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Responsive pour les cartes de composants */
+        @media (max-width: 900px) {
+            .component-cards-2 {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .component-cards,
+            .component-cards-2 {
                 grid-template-columns: 1fr;
             }
         }
@@ -873,18 +1112,11 @@
         }
 
         footer a:focus-visible {
-            outline: 2px solid var(--primary-color);
+            outline: 2px solid #000000;
             outline-offset: 2px;
             border-radius: 2px;
         }
 
-        footer .arrow-up {
-            font-size: 0.5em;
-            margin-right: 12px;
-            display: inline-block;
-            vertical-align: middle;
-            line-height: 1;
-        }
 
         /* Skip link for accessibility */
         .skip-link {
@@ -969,9 +1201,6 @@
                 scroll-behavior: auto !important;
             }
             
-            .back-to-top {
-                transition: opacity 0.01ms !important;
-            }
         }
 
         /* High contrast mode support */
@@ -984,12 +1213,10 @@
 
         /* Focus visible enhancement */
         *:focus-visible {
-            outline: 3px solid var(--primary-color);
+            outline: 3px solid #000000;
             outline-offset: 2px;
             border-radius: 2px;
         }
-
-        /* Bouton retour en haut */
 
         /* Mode impression */
         @media print {
@@ -1019,7 +1246,7 @@
         }
 
         /* RESPONSIVE */
-        @media (max-width: 768px) {
+        @media (max-width: 900px) {
             section {
                 padding: 28px 24px;
             }
@@ -1082,7 +1309,7 @@
             }
             
             .metric-card {
-                padding: 20px 16px;
+                padding: 24px;
             }
             
             .metric-card h3 {
@@ -1105,10 +1332,397 @@
                 font-size: 0.85em;
             }
         }
+        
+        /* ============================================
+           BARRE DE PROGRESSION DE LECTURE
+           Indicateur visuel en haut de page
+           ============================================ */
+        .reading-progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: var(--bg-secondary);
+            z-index: 1000;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .reading-progress.visible {
+            opacity: 1;
+        }
+        
+        .reading-progress-bar {
+            height: 100%;
+            background: var(--primary-color);
+            width: 0%;
+            transition: width 0.1s ease;
+        }
+        
+        /* ============================================
+           AMÉLIORATION DE LA SEGMENTATION
+           Textes courts, structurés, lisibles
+           ============================================ */
+        
+        /* Optimisation des paragraphes - Utiliser toute la largeur disponible */
+        .section-accordion-inner > section > p {
+            max-width: 100%;
+            width: 100%;
+            margin: 1em 0;
+            line-height: 1.7;
+            text-align: justify;
+            hyphens: auto;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+            box-sizing: border-box;
+        }
+        
+        /* Espacement harmonieux entre les éléments */
+        .section-accordion-inner > section > h2 {
+            margin-top: 2em;
+            margin-bottom: 1em;
+            font-weight: 600;
+            line-height: 1.3;
+        }
+        
+        .section-accordion-inner > section > h3 {
+            margin-top: 1.5em;
+            margin-bottom: 0.75em;
+            font-weight: 500;
+            line-height: 1.4;
+        }
+        
+        /* ============================================
+           AMÉLIORATION DES CARTES
+           Style harmonisé et minimaliste
+           ============================================ */
+        
+        /* Amélioration des cartes existantes - styles complémentaires */
+        /* Les styles existants sont conservés, ces règles améliorent la cohérence */
+        
+        /* ============================================
+           OPTIMISATION DE L'ESPACE HORIZONTAL
+           Format 2×2 strict pour les cartes
+           ============================================ */
+        
+        /* Grilles de catégories - Format 2×2 optimisé */
+        .category-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            margin: 32px 0;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        
+        /* Grilles de composants - Format 2×2 optimisé */
+        .component-cards,
+        .component-cards-2 {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            margin: 32px 0;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        
+        /* Grilles de comparaison - Format 2×2 optimisé */
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
+            margin: 32px 0;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        
+        /* Empêcher les cartes isolées - toutes les cartes ont la même largeur */
+        .category-card,
+        .component-card,
+        .comparison-card {
+            width: 100%;
+            min-width: 0;
+            box-sizing: border-box;
+        }
+        
+        /* Amélioration de la lisibilité du contenu des cartes */
+        .category-card .description {
+            line-height: 1.7;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+        }
+        
+        .component-card p {
+            line-height: 1.7;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+        }
+        
+        .comparison-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 24px;
+            transition: all 0.2s ease;
+            box-shadow: var(--shadow-sm);
+        }
+        
+        .comparison-card:hover {
+            box-shadow: var(--shadow-md);
+            transform: translateY(-2px);
+        }
+        
+        .comparison-card h3 {
+            margin-top: 0;
+            margin-bottom: 16px;
+            font-size: 1.15em;
+            font-weight: 600;
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 8px;
+        }
+        
+        .comparison-card ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .comparison-card li {
+            padding: 8px 0;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+            font-size: 0.9em;
+            line-height: 1.6;
+        }
+        
+        .comparison-card li:last-child {
+            border-bottom: none;
+        }
+        
+        /* ============================================
+           MODE LECTURE RAPIDE
+           Résumés condensés avec contrôle global
+           ============================================ */
+        /* Style minimaliste pour les résumés en mode rapide */
+        .quick-read-summary {
+            background: var(--bg-secondary);
+            padding: 20px 24px;
+            border-left: 4px solid var(--primary-color);
+            border-radius: 0 4px 4px 0;
+            margin: 20px 0;
+            font-size: 0.95em;
+            line-height: 1.7;
+            max-width: 100%;
+            width: 100%;
+            color: var(--text-secondary);
+            display: none;
+            box-shadow: var(--shadow-sm);
+            box-sizing: border-box;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+        }
+        
+        /* Classe pour marquer les éléments essentiels à conserver */
+        .quick-read-essential {
+            display: block !important;
+        }
+        
+        /* Mode lecture rapide activé */
+        body.quick-read-mode .quick-read-summary {
+            display: block;
+        }
+        
+        /* Masquer les éléments détaillés en mode rapide */
+        body.quick-read-mode .section-accordion-inner > section > p:not(.quick-read-summary):not(.sr-only):not(.quick-read-essential),
+        body.quick-read-mode .section-accordion-inner > section > h2:not(.quick-read-essential),
+        body.quick-read-mode .section-accordion-inner > section > h3:not(.quick-read-essential),
+        body.quick-read-mode .section-accordion-inner > section > ul:not(.quick-read-essential):not(:first-of-type),
+        body.quick-read-mode .section-accordion-inner > section > ol:not(.quick-read-essential):not(:first-of-type),
+        body.quick-read-mode .section-accordion-inner > section > div:not(.quick-read-summary):not(.highlight):not(.explore-box):not(.metrics):not(.category-grid):not(.component-cards):not(.component-cards-2):not(.comparison-grid):not(.quick-read-essential) {
+            display: none;
+        }
+        
+        /* Conserver les éléments essentiels de base */
+        body.quick-read-mode .section-accordion-inner > section > p:first-of-type:not(.sr-only),
+        body.quick-read-mode .section-accordion-inner > section > .highlight,
+        body.quick-read-mode .section-accordion-inner > section > .explore-box,
+        body.quick-read-mode .section-accordion-inner > section > .metrics,
+        body.quick-read-mode .section-accordion-inner > section > .category-grid,
+        body.quick-read-mode .section-accordion-inner > section > .component-cards,
+        body.quick-read-mode .section-accordion-inner > section > .component-cards-2,
+        body.quick-read-mode .section-accordion-inner > section > .comparison-grid {
+            display: block;
+        }
+        
+        /* Conserver les éléments marqués comme essentiels */
+        body.quick-read-mode .quick-read-essential {
+            display: block !important;
+        }
+        
+        /* Conserver la signature et conclusion finale en mode rapide */
+        body.quick-read-mode .section-accordion-inner > section#conclusion > h2:last-of-type,
+        body.quick-read-mode .section-accordion-inner > section#conclusion > p:last-of-type,
+        body.quick-read-mode .section-accordion-inner > section#conclusion > .signature {
+            display: block;
+        }
+        
+        /* ============================================
+           COHÉRENCE VISUELLE ENTRE MODES
+           Même logique graphique, version allégée
+           ============================================ */
+        
+        /* En mode rapide, les cartes conservent leur style mais sont plus compactes */
+        body.quick-read-mode .category-card,
+        body.quick-read-mode .component-card,
+        body.quick-read-mode .comparison-card {
+            padding: 16px;
+            margin-bottom: 16px;
+        }
+        
+        body.quick-read-mode .category-card h3,
+        body.quick-read-mode .component-card h4 {
+            font-size: 1em;
+            margin-bottom: 8px;
+        }
+        
+        body.quick-read-mode .category-card .description,
+        body.quick-read-mode .component-card p {
+            font-size: 0.85em;
+            line-height: 1.5;
+        }
+        
+        /* Les grilles en mode rapide restent en format 2×2 */
+        body.quick-read-mode .category-grid,
+        body.quick-read-mode .component-cards,
+        body.quick-read-mode .component-cards-2,
+        body.quick-read-mode .comparison-grid {
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px;
+            margin: 24px 0;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        
+        /* Cartes en mode rapide - Largeur optimisée */
+        body.quick-read-mode .category-card,
+        body.quick-read-mode .component-card,
+        body.quick-read-mode .comparison-card {
+            width: 100%;
+            min-width: 0;
+            box-sizing: border-box;
+        }
+        
+        /* Paragraphes essentiels en mode rapide - style harmonisé */
+        body.quick-read-mode .quick-read-essential {
+            max-width: 100%;
+            width: 100%;
+            margin: 1em 0;
+            line-height: 1.7;
+            box-sizing: border-box;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+        }
+        
+        /* Titres essentiels en mode rapide - même hiérarchie visuelle */
+        body.quick-read-mode .quick-read-essential h2 {
+            margin-top: 1.5em;
+            margin-bottom: 0.75em;
+            font-weight: 600;
+        }
+        
+        body.quick-read-mode .quick-read-essential h3 {
+            margin-top: 1.25em;
+            margin-bottom: 0.5em;
+            font-weight: 500;
+        }
+        
+        /* Responsive - Adaptation mobile */
+        @media (max-width: 900px) {
+            .section-accordion-inner > section > p {
+                max-width: 100%;
+                width: 100%;
+                text-align: left;
+            }
+            
+            .category-grid,
+            .component-cards,
+            .component-cards-2,
+            .comparison-grid {
+                grid-template-columns: 1fr;
+                gap: 16px;
+                width: 100%;
+            }
+            
+            .quick-read-summary {
+                padding: 16px;
+                max-width: 100%;
+                width: 100%;
+            }
+        }
+        
+        /* Pour les très grands écrans, optimiser l'espace */
+        @media (min-width: 1400px) {
+            .category-grid,
+            .component-cards,
+            .component-cards-2,
+            .comparison-grid {
+                max-width: 1200px;
+                margin-left: auto;
+                margin-right: auto;
+            }
+        }
+        
+        /* Boutons de contrôle de lecture dans le header */
+        .reading-mode-controls {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-left: 12px;
+        }
+        
+        .reading-mode-button {
+            background: transparent;
+            border: 1px solid var(--importance-high);
+            border-radius: 6px;
+            padding: 8px 16px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            font-family: inherit;
+            font-size: 0.9em;
+            font-weight: 500;
+            white-space: nowrap;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-color);
+        }
+        
+        .reading-mode-button:hover {
+            background: var(--importance-high);
+            border-color: var(--importance-high);
+            color: #ffffff;
+        }
+        
+        .reading-mode-button.active {
+            background: var(--importance-high);
+            border-color: var(--importance-high);
+            color: #ffffff;
+        }
+        
+        .reading-mode-button:focus-visible {
+            outline: 3px solid var(--importance-high);
+            outline-offset: 2px;
+        }
     </style>
 </head>
 <body>
     <a href="#main-content" class="skip-link">Aller au contenu principal</a>
+    
+    <!-- Barre de progression de lecture -->
+    <div class="reading-progress" id="reading-progress" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
+        <div class="reading-progress-bar" id="reading-progress-bar"></div>
+    </div>
+    
     <header role="banner">
         <div class="header-left">
             <a href="index.html" aria-label="Retour à l'accueil">
@@ -1118,60 +1732,65 @@
             </a>
         </div>
         
-        <nav class="header-nav" aria-label="Navigation principale">
-            <div class="nav-dropdown">
-                <button class="nav-dropdown-toggle" aria-expanded="false" aria-haspopup="true" aria-label="Menu de navigation">
-                    Navigation <span class="nav-arrow">▼</span>
+        <div class="header-right">
+            <div class="reading-mode-controls">
+                <button class="reading-mode-button" id="reading-mode-quick" aria-pressed="false" aria-label="Mode lecture rapide">
+                    Lecture rapide
+            </button>
+                <button class="reading-mode-button active" id="reading-mode-full" aria-pressed="true" aria-label="Mode lecture complète">
+                    Lecture complète
                 </button>
-                <ul class="nav-dropdown-menu" role="menu" aria-hidden="true">
-                    <li role="none"><a href="index.html" role="menuitem">Accueil</a></li>
-                    <li role="none"><a href="#introduction-title" role="menuitem">Introduction</a></li>
-                    <li role="none"><a href="#architecture-title" role="menuitem">Architecture et fonctionnalités</a></li>
-                    <li role="none"><a href="#init-sequence-title" role="menuitem">INIT_SEQUENCE</a></li>
-                    <li role="none"><a href="#standards-title" role="menuitem">Standards et métriques</a></li>
-                    <li role="none"><a href="#conclusion-title" role="menuitem">Conclusion</a></li>
-                </ul>
             </div>
-        </nav>
+
+            <nav class="header-nav" aria-label="Navigation principale">
+                <div class="nav-dropdown">
+                    <button class="nav-dropdown-toggle" aria-expanded="false" aria-haspopup="true" aria-label="Menu de navigation">
+                        Navigation <span class="nav-arrow">▼</span>
+                    </button>
+                    <ul class="nav-dropdown-menu" role="menu" aria-hidden="true">
+                        <li role="none"><a href="index.html" role="menuitem">Accueil</a></li>
+                        <li role="none"><a href="#introduction-title" role="menuitem">Introduction</a></li>
+                        <li role="none"><a href="#architecture-title" role="menuitem">Architecture et fonctionnalités</a></li>
+                        <li role="none"><a href="#init-sequence-title" role="menuitem">INIT_SEQUENCE</a></li>
+                        <li role="none"><a href="#standards-title" role="menuitem">Standards et métriques</a></li>
+                        <li role="none"><a href="#conclusion-title" role="menuitem">Conclusion</a></li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
     </header>
+    
     
     <main id="main-content" role="main">
         <!-- Accordéon Introduction -->
         <div class="section-accordion importance-high">
             <div class="section-accordion-header" onclick="toggleSection(this)">
-                Introduction : du besoin à la réalisation
+                Introduction
             </div>
             <div class="section-accordion-content">
                 <div class="section-accordion-inner">
         <section id="introduction" aria-labelledby="introduction-title" aria-describedby="introduction-description">
-            <h1 id="introduction-title">Introduction : du besoin à la réalisation</h1>
+            <h1 id="introduction-title" class="sr-only">Introduction</h1>
             <p id="introduction-description" class="sr-only">Cette section présente le contexte, les motivations et l'approche retenue pour le projet IT Dashboard A+.</p>
                 
                 <h2>Le besoin initial</h2>
                 <p>J'avais besoin de mieux organiser mes recherches sur les nouvelles technologies informatiques. Je voulais un outil qui me permette de suivre l'actualité dans plusieurs domaines : la sécurité informatique, le cloud, le développement de logiciels, les systèmes et l'intelligence artificielle.</p>
                 <p>Mon objectif était de créer un tableau de bord qui rassemble toutes ces informations, les analyse et les présente de manière claire. J'ai utilisé l'intelligence artificielle pour m'aider à comprendre et organiser ces informations.</p>
-                <p>J'ai conçu ce projet comme un projet d'apprentissage, en suivant les mêmes règles qu'un projet professionnel : le projet doit pouvoir être déplacé facilement, toutes les actions doivent être traçables, et tout doit être bien organisé.</p>
+                <p>J'ai conçu ce projet comme un projet d'apprentissage, en suivant les mêmes règles qu'un projet professionnel : toutes les actions doivent être traçables et tout doit être bien organisé.</p>
                 
                 <h2>Le défi et ma méthode</h2>
                 <div class="highlight">
-                    <p>J'ai commencé ce projet avec peu de connaissances en programmation. J'avais seulement quelques bases en scripts informatiques apprises lors de ma formation. Je n'avais pas de formation en développement, en architecture de logiciels ou en intelligence artificielle.</p>
-                <p>J'ai utilisé uniquement des outils gratuits disponibles en ligne. J'avais trois mois pour tout créer.</p>
+                    <p>J'ai commencé ce projet avec peu de connaissances en programmation, disposant uniquement de quelques bases en scripts informatiques acquises lors de ma formation de technicien en assistance informatique. Je n'avais aucune formation en développement logiciel, en architecture logicielle ni en intelligence artificielle.</p>
+                    <p>Le projet a été réalisé exclusivement à l'aide d'outils gratuits accessibles au grand public, notamment ChatGPT et Copilot. J'utilise actuellement Cursor au quotidien pour m'aider à structurer et rédiger mon code.</p>
                 </div>
-                <p>J'ai utilisé l'intelligence artificielle comme outil d'apprentissage. Mon objectif était d'apprendre progressivement les concepts techniques, de créer une structure cohérente, et d'apprendre à documenter, tester et maintenir un projet complexe.</p>
-                <p>J'ai travaillé pendant deux mois et demi avec des outils d'intelligence artificielle locaux. J'ai d'abord créé des bilans techniques et des arborescences pour faciliter la reprise, mais cela ne suffisait pas. J'ai alors créé les prompts fondateurs en cherchant une cohérence totale. INIT_SEQUENCE est né de la nécessité de résoudre la perte de contexte.</p>
-                <p>Pendant les deux dernières semaines, j'ai utilisé un outil plus avancé (Cursor) qui m'a permis d'augmenter ma productivité. Au total, j'ai consacré trois mois à ce projet.</p>
+                <p>L'intelligence artificielle a été utilisée comme outil d'apprentissage. Le travail s'est effectué pendant deux mois et demi avec des outils d'intelligence artificielle publiques. Face à la perte de contexte, INIT_SEQUENCE a été développé pour gérer l'état du projet. Quand la quantité de données est devenue trop importante, une migration vers Cursor a été effectuée pour augmenter la productivité. Le projet a été développé en environ trois mois au total.</p>
                 
                 <h2>L'évolution du projet</h2>
-                <p>Le projet est maintenant un Proof of Concept opérationnel et bien organisé. Le projet peut être déplacé facilement d'un ordinateur à l'autre. L'organisation est modulaire, ce qui signifie que chaque partie peut être modifiée indépendamment.</p>
-                <p>L'archivage des données se fait automatiquement. Toutes les actions sont enregistrées dans des fichiers de log. Le système de sécurité Vault est intégré et fonctionne. Toutes les parties du système communiquent correctement entre elles.</p>
-                <p>Le projet fonctionne actuellement uniquement sur mon ordinateur. L'ouverture au public est prévue pour plus tard.</p>
+                <p>Le projet est maintenant un Proof of Concept opérationnel avec une organisation modulaire permettant à chaque partie d'être modifiée indépendamment.</p>
                 
                 <h2>Pourquoi ce projet est intéressant</h2>
-                <p>Ce qui rend ce projet intéressant, ce n'est pas seulement le résultat final, mais la façon dont il a été créé.</p>
-                <p>En partant de zéro, j'ai d'abord créé des bilans techniques et des arborescences pour faciliter la reprise. Puis j'ai créé onze prompts fondateurs pour structurer la communication avec l'IA. Ensuite, j'ai conçu INIT_SEQUENCE, un système de gouvernance IA basé sur une machine à états finis. J'ai également créé un système d'archivage automatique.</p>
-                <p>J'ai créé un système qui permet de déplacer facilement le projet. J'ai créé des menus et des outils qui automatisent les opérations. Toutes les parties du système fonctionnent ensemble.</p>
-<p>Réaliser ce projet dans ces conditions montre une capacité à apprendre seul et à évoluer rapidement.</p>
-<p>Ce qui est notable, c'est la rapidité d'apprentissage, la capacité à organiser et résoudre des problèmes complexes en partant de zéro, et la persévérance face aux limitations des outils disponibles.</p>
+                <p>Ce qui rend ce projet intéressant, c'est la façon dont il a été créé : sans connaissances préalables, une approche structurée a été développée avec prompts fondateurs, bilans techniques, arborescences, puis INIT_SEQUENCE, un système de gouvernance IA basé sur une machine à états finis.</p>
+                <p>Cette démarche illustre une capacité à apprendre seul, à organiser et résoudre des problèmes complexes, et une persévérance face aux limitations des outils disponibles.</p>
             </section>
                 </div>
             </div>
@@ -1180,55 +1799,73 @@
         <!-- Accordéon Architecture et Fonctionnalités -->
         <div class="section-accordion importance-high">
             <div class="section-accordion-header" onclick="toggleSection(this)">
-                Architecture technique globale et fonctionnalités opérationnelles
+                Architecture et fonctionnalités
             </div>
             <div class="section-accordion-content">
                 <div class="section-accordion-inner">
         <section id="architecture" aria-labelledby="architecture-title" aria-describedby="architecture-description">
-            <h1 id="architecture-title">Architecture technique globale et fonctionnalités opérationnelles</h1>
+            <h1 id="architecture-title" class="sr-only">Architecture et fonctionnalités</h1>
             <p id="architecture-description" class="sr-only">Cette section détaille l'architecture technique complète du projet et les fonctionnalités opérationnelles validées, incluant les composants principaux, la portabilité, l'automatisation et les démonstrations opérationnelles.</p>
                 
                 <h2>Vue d'ensemble</h2>
-                <p>J'ai organisé le projet IT Dashboard A+ en plusieurs parties distinctes, faciles à comprendre et à modifier. Mon objectif principal était de créer quelque chose de cohérent et bien organisé, plutôt que quelque chose de performant.</p>
-            <p>Le projet comprend plusieurs parties principales. L'interface utilisateur (Frontend) permet d'afficher les alertes, de voir les liens entre les informations, de consulter les informations par domaine et de gérer les retours des utilisateurs.</p>
-            <p>La partie serveur (Backend) collecte les informations, les traite, applique des règles et trouve les liens entre les différentes informations. Le système de sécurité Vault est intégré et fonctionne. Les données sont stockées dans des fichiers texte structurés, les actions sont enregistrées dans des fichiers de log horodatés, et les anciennes données sont archivées automatiquement. Vault gère de manière sécurisée les mots de passe et les clés d'accès, en les générant, les renouvelant et les utilisant automatiquement.</p>
+                <p>J'ai organisé le projet IT Dashboard A+ en plusieurs parties distinctes, faciles à comprendre et à modifier.</p>
+                <p>L'interface utilisateur (Frontend) permet d'afficher les alertes, de voir les liens entre les informations, de consulter les informations par domaine et de gérer les retours des utilisateurs.</p>
+                <p>La partie Backend collecte les informations, les traite, applique des règles et trouve les liens entre les différentes informations.</p>
                 
-                <h2>Composants principaux opérationnels</h2>
-                <p>J'ai développé 10 collecteurs pour les pôles 1 à 10 (11 pôles spécialisés au total : pôles 1 à 10 pour la collecte + pôle 11 pour la corrélation, plus le pôle 0 pour la démonstration). Leur rôle est de collecter des événements par domaine IT comme la sécurité, le cloud, le développement et les systèmes. J'ai implémenté 10 scripts Python collect_pole qui chargent automatiquement les credentials Vault, génèrent des événements bruts au format JSON, utilisent un logging standardisé avec filtrage des données sensibles, et propagent systématiquement des Correlation IDs.</p>
-                <p>Le pipeline ETL normalise, enrichit et fiabilise les données collectées. Il normalise les schémas JSON, déduplique par hash SHA256, enrichit les données de métadonnées, archive automatiquement les données J-1 en compression, et applique une rétention configurable de 90 jours par défaut.</p>
-            <p>Le Rules Engine transforme des événements normalisés en alertes exploitables. Il applique un scoring de sévérité basé sur des règles explicites avec des seuils clairs : critique à partir de 0,7, moyen entre 0,4 et 0,69, faible en dessous de 0,4. Cette approche permet de prioriser les alertes selon leur impact potentiel sur l'infrastructure IT.</p>
-            <p>Le Correlation Engine pour le pôle 11 corrèle les alertes issues des pôles 1 à 10 et calcule un score de risque global. Les politiques de corrélation incluent Global Critical, Time Window Correlation et Multi-Pole Cross Correlation. Cette corrélation permet d'identifier des menaces complexes qui ne seraient pas détectées en analysant chaque pôle isolément.</p>
+                <h2>Composants principaux</h2>
+                <div class="component-cards">
+                    <div class="component-card">
+                        <h4>Collecteurs</h4>
+                        <p>10 scripts Python collectent les événements par domaine IT. Chargement automatique des credentials Vault, génération d'événements JSON, logging standardisé et propagation de Correlation IDs.</p>
+                    </div>
+                    
+                    <div class="component-card">
+                        <h4>Pipeline ETL</h4>
+                        <p>Normalisation des schémas JSON, déduplication par hash SHA256, enrichissement des métadonnées, archivage automatique J-1 et rétention de 90 jours.</p>
+                    </div>
+                    
+                    <div class="component-card">
+                        <h4>Rules Engine</h4>
+                        <p>Transformation des événements en alertes avec scoring de sévérité : critique (≥0,7), moyen (0,4-0,69), faible (&lt;0,4).</p>
+                    </div>
+                    
+                    <div class="component-card">
+                        <h4>Correlation Engine</h4>
+                        <p>Corrélation des alertes multi-pôles et calcul d'un score de risque global. Détection de menaces complexes.</p>
+                    </div>
+                </div>
                 
                 <h2>Portabilité maximale : ProjectModule</h2>
-            <p>Mon objectif était de permettre l'exécution de n'importe quel script depuis n'importe quel répertoire. J'ai implémenté cela dans <code>Tools/utils/core/ProjectModule.psm1</code>. Le module détecte automatiquement la racine du projet avec 5 stratégies de fallback, expose une table centralisée <code>$Global:ProjectPaths</code>, supprime les chemins absolus hardcodés et valide la racine par critères. Cette approche garantit la portabilité du projet et simplifie son déploiement sur différents environnements.</p>
+                <p>Mon objectif était de permettre l'exécution de n'importe quel script depuis n'importe quel répertoire. J'ai implémenté cela dans <code>Tools/utils/core/ProjectModule.psm1</code>. Le module détecte automatiquement la racine du projet avec 5 stratégies de fallback, expose une table centralisée <code>$Global:ProjectPaths</code>, supprime les chemins absolus hardcodés et valide la racine par critères, garantissant la portabilité du projet et simplifiant son déploiement sur différents environnements.</p>
                 
                 <h2>Automatisation complète : Menus CLI</h2>
-            <p>Plusieurs menus CLI interactifs automatisent toutes les opérations. Le Menu Principal sert de point d'entrée centralisé avec accès à tous les sous-menus.</p>
-            <p>Le Menu Vault permet l'initialisation complète, la création de policies et d'AppRoles pour les 11 pôles spécialisés (pôles 1 à 10 pour la collecte + pôle 11 pour la corrélation), la rotation des Secret IDs, et un cycle complet automatique en 15 étapes. Le Menu Stack Management permet de lancer la stack complète, le Backend uniquement, le Frontend uniquement, le pipeline complet, et l'arrêt de la stack. Le Menu Maintenance offre un backup complet, une restauration, un nettoyage standard et approfondi, un test de santé et un diagnostic avancé.</p>
+                <p>Plusieurs menus CLI interactifs automatisent toutes les opérations. Le Menu Principal sert de point d'entrée centralisé avec accès à tous les sous-menus.</p>
+                <p>Le Menu Vault permet l'initialisation complète, la création de policies et d'AppRoles pour les 11 pôles spécialisés, la rotation des Secret IDs, et un cycle complet automatique en 15 étapes. Le Menu Stack Management permet de lancer la stack complète, le Backend uniquement, le Frontend uniquement, le pipeline complet, et l'arrêt de la stack. Le Menu Maintenance offre un backup complet, une restauration, un nettoyage standard et approfondi, un test de santé et un diagnostic avancé.</p>
                 <p>J'ai créé des scripts de maintenance spécifiques. Test-StackHealth.ps1 vérifie complètement la santé de la stack et génère des rapports de santé horodatés.</p>
                 
-                <h2>Ce qui fonctionne réellement : démonstration opérationnelle</h2>
+                <h2>Démonstrations fonctionnelles</h2>
                 
-                <h3>Intégration Vault : automatisation complète du cycle de vie des secrets</h3>
-            <p>J'ai intégré HashiCorp Vault de manière opérationnelle dans mon projet pour sécuriser la gestion des secrets. L'automatisation couvre le cycle de vie complet des AppRoles. Le système génère automatiquement 10 fichiers AppRole JSON, un par pôle de collecte (pôles 1 à 10).</p>
-            <p>Chaque collecteur Python charge automatiquement son fichier AppRole via la fonction <code>loadroleandsecret()</code>. Chaque étape du pipeline s'initialise avec les credentials Vault appropriés. Un cycle complet automatisé en 15 étapes configure tout de bout en bout, incluant la rotation automatique des logs et la génération de rapports.</p>
-            <p>Le pipeline fonctionne de bout en bout avec Vault, depuis l'initiation jusqu'à la génération et l'utilisation des credentials, sans intervention manuelle de ma part. Cette intégration garantit la sécurité des accès tout en simplifiant la gestion opérationnelle.</p>
-                
-                <h3>Pipeline backend : flux opérationnel complet et validé</h3>
-                <p>J'ai validé une séquence opérationnelle complète. La collecte utilise 10 collecteurs Python qui exécutent en parallèle. Chaque collecteur charge ses credentials Vault, collecte les données de son domaine IT, génère des événements bruts au format JSON et les stocke dans <code>Backend/storage/raw/poleX/YYYYMMDD/</code>.</p>
-                <p>L'ETL utilise le normaliseur <code>etl_normalize.py</code> qui lit les données brutes, normalise les schémas JSON, déduplique par hash SHA256, enrichit les données de métadonnées, archive automatiquement les données J-1 en compression et stocke dans <code>Backend/storage/processed/</code>.</p>
-                <p>Le Rules Engine utilise le moteur de règles <code>rules_engine.py</code> qui applique les règles métier configurées, génère des alertes normalisées avec scoring de sévérité et stocke dans <code>Backend/storage/alerts/</code>.</p>
-                <p>Le Correlation Engine utilise le moteur de corrélation <code>correlation_engine.py</code> qui lit les alertes générées, analyse les alertes multi-pôles, applique les politiques de corrélation configurables et calcule les scores de risque global.</p>
-                <p>Le pipeline fonctionne de manière autonome. Chaque étape s'initialise correctement avec Vault, et le flux de données est tracé de bout en bout avec des correlation IDs.</p>
-                
-                <h3>Synchronisation Backend vers Frontend : opérationnelle et automatique</h3>
-            <p>J'ai validé un mécanisme de synchronisation automatique pour garantir la cohérence entre le backend et le frontend. Le script <code>Frontend/scripts/sync-data.mjs</code> copie automatiquement les alertes, corrélations, données agrégées, données brutes et logs depuis Backend vers Frontend/public. Il génère automatiquement <code>artifacts.json</code> et <code>config.json</code> avec les chemins relatifs vers les derniers fichiers.</p>
-            <p>La synchronisation est fonctionnelle et automatique. Les données remontent vers le frontend après chaque exécution du pipeline, sans intervention manuelle. Cette automatisation réduit les risques d'erreurs et assure la fraîcheur des données affichées.</p>
-                
-                <h3>Remontée des alertes vers le frontend : validée et opérationnelle</h3>
-                <p>J'ai validé le flux de données complet. Côté frontend, les composants React utilisent <code>alertsRepo.ts</code> et <code>correlationsRepo.ts</code> pour charger les fichiers JSONL, parser et transformer les données au format frontend, et appliquer les filtres dynamiques.</p>
-                <p>Les alertes sont affichées dans GlobalView.tsx, PoleView.tsx, SeverityHeatmap.tsx, TimelineView.tsx et CorrelationsChart.tsx. Le backend expose également une API FastAPI qui permet de récupérer les alertes via HTTP.</p>
-                <p>Les alertes remontent correctement vers le frontend et sont affichées dans toutes les vues prévues. Le système est opérationnel de bout en bout.</p>
+                <div class="component-cards">
+                    <div class="component-card">
+                        <h4>Intégration Vault</h4>
+                        <p>Génération automatique de 10 fichiers AppRole JSON. Cycle complet en 15 étapes avec rotation des logs et génération de rapports.</p>
+                    </div>
+                    
+                    <div class="component-card">
+                        <h4>Pipeline backend</h4>
+                        <p>Flux complet validé : collecte parallèle, ETL, Rules Engine et Correlation Engine. Traçabilité complète avec correlation IDs.</p>
+                    </div>
+                    
+                    <div class="component-card">
+                        <h4>Synchronisation Backend-Frontend</h4>
+                        <p>Copie automatique des données vers Frontend/public et génération de <code>artifacts.json</code> et <code>config.json</code>. Sans intervention manuelle.</p>
+                    </div>
+                    
+                    <div class="component-card">
+                        <h4>Remontée des alertes</h4>
+                        <p>Composants React chargent les fichiers JSONL. Affichage dans GlobalView, PoleView, SeverityHeatmap, TimelineView et CorrelationsChart. API FastAPI disponible.</p>
+                    </div>
+                </div>
             </section>
                 </div>
             </div>
@@ -1237,34 +1874,57 @@
         <!-- Accordéon INIT_SEQUENCE -->
         <div class="section-accordion importance-critical">
             <div class="section-accordion-header" onclick="toggleSection(this)">
-                INIT_SEQUENCE : système de gouvernance IA innovant
+                INIT_SEQUENCE
             </div>
             <div class="section-accordion-content">
                 <div class="section-accordion-inner">
         <section id="init-sequence" aria-labelledby="init-sequence-title" aria-describedby="init-sequence-description">
-            <h1 id="init-sequence-title">INIT_SEQUENCE : système de gouvernance IA innovant</h1>
-            <p id="init-sequence-description" class="sr-only">Cette section présente INIT_SEQUENCE, un système de gouvernance IA basé sur une machine à états finis, développé pour résoudre le problème de perte de contexte avec les IA.</p>
+            <h1 id="init-sequence-title" class="sr-only">INIT_SEQUENCE</h1>
+            <p id="init-sequence-description" class="sr-only">Cette section présente INIT_SEQUENCE, un système de gouvernance IA utilisant une approche de machine à états finis, développé pour résoudre le problème de perte de contexte avec les IA.</p>
                 
                 <h2>Pourquoi j'ai créé INIT_SEQUENCE</h2>
-                <p>J'ai créé INIT_SEQUENCE pour résoudre un problème important : lors des échanges avec les IA locales, je devais copier-coller l'intégralité de mes fichiers existants dans chaque nouvelle conversation. Plus le projet grandissait, plus cette approche devenait impossible car envoyer toutes les données saturait la mémoire de contexte du modèle.</p>
-            <p>J'ai d'abord créé des bilans techniques et des arborescences pour faciliter la reprise, mais cela ne suffisait pas. J'ai ensuite créé les prompts fondateurs pour structurer la communication avec l'IA. Puis j'ai conçu INIT_SEQUENCE, un système de gouvernance IA structuré en machine à états finis. Ce système permet de reprendre facilement le projet après chaque interruption. Il limite la perte de contexte et garantit que le travail continue correctement malgré les interruptions.</p>
+                <p>Comme expliqué dans la section précédente, lors des échanges avec les IA publiques, je devais exposer mon projet à chaque nouvelle conversation. Plus le projet grandissait, plus cette approche devenait impossible car envoyer toutes les données saturait la mémoire de contexte du modèle.</p>
+                <p>INIT_SEQUENCE est né de la nécessité de résoudre cette perte de contexte. Ce système permet de reprendre facilement le projet après chaque interruption, limite la perte de contexte et garantit que le travail continue correctement malgré les interruptions.</p>
                 
                 <h2>Comment fonctionne INIT_SEQUENCE</h2>
-            <p>Le système fonctionne comme un système à états : il peut se souvenir de l'état du projet à chaque moment et le reconstruire après une interruption. Cette approche garantit que chaque étape peut être reproduite et que tout est traçable.</p>
-                <p>J'ai défini huit états principaux. Le premier état vérifie que tous les fichiers de base sont présents. Le deuxième état vérifie l'historique du projet. Le troisième état analyse la structure des fichiers. Le quatrième état vérifie que tout est cohérent. Le cinquième état active le mode de travail normal. Le sixième état est utilisé pour la maintenance et les corrections. Le septième état permet de récupérer le projet en cas de problème grave.</p>
+                <p>Le système fonctionne selon une approche de machine à états finis : il peut se souvenir de l'état du projet à chaque moment et le reconstruire après une interruption, garantissant que chaque étape peut être reproduite et que tout est traçable.</p>
+                <p>J'ai défini huit états principaux organisés en séquence. L'état S(-1) attend la réception du Bootloader et des 11 fichiers prompts fondateurs, avec un comptage strict et une confirmation utilisateur. L'état S0 valide les bilans techniques avec comptage automatique. L'état S2 analyse l'arborescence du projet pour détecter les structures et zones floues. L'état S4 contrôle la cohérence globale en vérifiant les structures backend, frontend et root, ainsi que les chemins et imports. L'état S5 active le mode projet actif uniquement après une phrase d'activation explicite ("ACTIVER S5 IT DASHBOARD A+") et active le module cognitif. L'état S6 est utilisé pour la maintenance technique avec retour automatique à S5. L'état S7 permet la récupération en cas d'échec critique avec diagnostic et recalage avant retour à S5.</p>
                 
                 <h2>Les composants du système</h2>
-                <p>Le système fonctionne avec 8 états différents, des règles strictes pour passer d'un état à l'autre, une gestion de la mémoire et un protocole de contrôle.</p>
-                <p>Le module de réflexion utilise une approche inspirée de grandes figures historiques pour réfléchir aux problèmes sous différents angles. Il dispose d'une mémoire interne, de méthodes structurées et d'un système de gestion des erreurs qui s'améliore avec le temps.</p>
-            <p>Le système de communication de base comprend 11 fichiers qui représentent 8 prompts logiques différents, soit environ 1090 lignes de texte structuré. Chaque prompt doit être cohérent avec tous les autres. J'ai commencé avec 5 prompts, puis 8, puis finalement 11 fichiers correspondant à 8 prompts logiques.</p>
-            <p>Ces modèles couvrent le comportement de l'IA, les règles de programmation, la vision de l'architecture, le contenu des 11 pôles IT, l'architecture technique, l'organisation des fichiers, l'interface utilisateur et l'automatisation.</p>
-                <p>Le système de démarrage utilise une initialisation stricte, vérifie que tous les fichiers nécessaires sont présents, et garantit la sécurité et la traçabilité en utilisant uniquement du texte simple.</p>
-                <p>Le système principal comprend 15 sections détaillées, 8 états définis, des règles strictes pour passer d'un état à l'autre, une gestion des fichiers et des bilans, et des commandes disponibles.</p>
-                <p>Le système utilisateur comprend 7 phases : les prompts fondateurs, les bilans, l'organisation des fichiers, la vérification de cohérence, le mode de travail normal, la maintenance et la récupération.</p>
-                <p>Le système comprend 14 bilans techniques détaillés qui couvrent la partie serveur, l'interface utilisateur, les scripts d'automatisation, le traitement des données, l'organisation des fichiers, la maintenance et le nettoyage, la documentation et les commandes opérationnelles.</p>
+                <p>Le système comprend des règles strictes pour passer d'un état à l'autre, une gestion de la mémoire et un protocole de contrôle.</p>
+                
+                <div class="component-cards-2">
+                    <div class="component-card">
+                        <h4>Module de réflexion</h4>
+                        <p>Approche inspirée de grandes figures historiques. Mémoire interne, méthodes structurées et gestion d'erreurs améliorative.</p>
+                    </div>
+                    
+                    <div class="component-card">
+                        <h4>Système de communication</h4>
+                        <p>11 fichiers représentant 7 prompts logiques. Couvre comportement IA, règles de programmation, architecture et automatisation.</p>
+                    </div>
+                    
+                    <div class="component-card">
+                        <h4>Système de démarrage</h4>
+                        <p>Initialisation stricte avec vérification des fichiers nécessaires. Sécurité et traçabilité via texte simple uniquement.</p>
+                    </div>
+                    
+                    <div class="component-card">
+                        <h4>Système principal</h4>
+                        <p>15 sections détaillées, 8 états définis, règles strictes de transition, gestion des fichiers et bilans.</p>
+                    </div>
+                    
+                    <div class="component-card">
+                        <h4>Système utilisateur</h4>
+                        <p>7 phases : prompts fondateurs, bilans, organisation, vérification, mode normal, maintenance et récupération.</p>
+                    </div>
+                </div>
                 
                 <h2>La taille du système INIT_SEQUENCE</h2>
-                <p>J'ai analysé et organisé 50 fichiers. INIT_SEQUENCE représente environ 4100 lignes de documentation et de prompts structurés : 1090 lignes pour les prompts fondateurs, le reste étant composé du système de démarrage, du système principal, du système utilisateur, du module de réflexion et des bilans techniques.</p>
+                <p>J'ai analysé et organisé 17 fichiers de procédure et prompts. INIT_SEQUENCE représente 1 809 lignes de documentation et prompts structurés, composé du système de démarrage (Bootloader), du système principal (SYSTEM), du système utilisateur (USER), du module cognitif et de la procédure d'initialisation.</p>
+                
+                <h2>État actuel</h2>
+                <p>J'ai rédigé la plupart des documents récemment pour clarifier l'état actuel d'INIT_SEQUENCE. Pendant la période de développement du projet, la procédure fonctionnait avec certaines IA publiques, mais un durcissement récent de leur usage rend cette méthode obsolète, car ces systèmes restreignent les demandes liées aux modifications internes ou à l'imposition d'un état. INIT_SEQUENCE reste valable comme architecture conceptuelle et démonstration de structuration de solutions complexes.</p>
             </section>
                 </div>
             </div>
@@ -1273,38 +1933,31 @@
         <!-- Accordéon Standards et Métriques -->
         <div class="section-accordion importance-high">
             <div class="section-accordion-header" onclick="toggleSection(this)">
-                Standards Projet3 et chiffres clés
+                Standards et métriques
             </div>
             <div class="section-accordion-content">
                 <div class="section-accordion-inner">
         <section id="standards" aria-labelledby="standards-title" aria-describedby="standards-description">
-            <h1 id="standards-title">Standards Projet3 et chiffres clés</h1>
+            <h1 id="standards-title" class="sr-only">Standards et métriques</h1>
             <p id="standards-description" class="sr-only">Cette section présente les Standards Projet3, un framework de gouvernance et de qualité composé de 31 standards organisés en 8 catégories, ainsi que les métriques quantitatives du projet.</p>
             
-            <h2>Standards Projet3 : framework de gouvernance et qualité</h2>
-            <p>Après avoir développé INIT_SEQUENCE pour gérer le contexte avec l'IA, j'ai été confronté à un autre problème récurrent : la nécessité de répéter les mêmes instructions à l'IA à chaque nouvelle session. J'ai donc créé les Standards Projet3, un framework de 31 standards organisés en 8 catégories pour garantir la cohérence et la qualité dans tout le projet.</p>
+                <h2>Standards Projet3 : framework de gouvernance et qualité</h2>
+                <p>Après avoir développé INIT_SEQUENCE pour gérer le contexte avec l'IA, puis migré vers Cursor pour gérer la quantité de données, j'ai été confronté à un autre problème récurrent : la nécessité de répéter les mêmes instructions à l'IA à chaque nouvelle session. J'ai donc créé les Standards Projet3, un framework de 31 standards organisés en 8 catégories pour garantir la cohérence et la qualité dans tout le projet.</p>
                 
                 <h3>Structure et organisation</h3>
-                <p>J'ai organisé 31 standards en 8 catégories logiques qui couvrent tous les aspects du projet. Cette organisation permet de retrouver rapidement un standard selon le domaine concerné.</p>
-                <p>Les 8 catégories sont : Qualité (2 standards de référence), Code (4 standards), Infrastructure (5 standards), Sécurité (3 standards), Pipeline (5 standards), Opérationnel (5 standards), Gouvernance (5 standards), et Interface (2 standards).</p>
-                <p>Les standards de référence, Qualité d'Écriture (2463 lignes) et Naming Conventions (1554 lignes), servent de modèles pour tous les autres standards. Ils définissent la structure à respecter et garantissent que chaque standard est complet, cohérent, et directement utilisable par un agent IA.</p>
-                
-                <h3>Liste complète des standards</h3>
-                <p>Le framework complet comprend 31 standards organisés en 8 catégories : Qualité (2 standards), Code (4 standards), Infrastructure (5 standards), Sécurité (3 standards), Pipeline (5 standards), Opérationnel (5 standards), Gouvernance (5 standards), et Interface (2 standards).</p>
-                <p>Tous les standards ont atteint le score optimal de 100/100, représentant un total d'environ 50 000 lignes de documentation structurée réparties en 703 sections, garantissant une complétude et une cohérence optimales.</p>
+                <p>Les 31 standards sont organisés en 8 catégories logiques : Qualité (2 standards de référence), Code (4 standards), Infrastructure (5 standards), Sécurité (3 standards), Pipeline (5 standards), Opérationnel (5 standards), Gouvernance (5 standards), et Interface (2 standards).</p>
+                <p>Les standards de référence, Qualité d'Écriture (2463 lignes) et Naming Conventions (1554 lignes), servent de modèles pour tous les autres standards. Tous les standards ont atteint le score optimal de 100/100, représentant un total d'environ 50 000 lignes de documentation structurée réparties en 703 sections. Cette organisation permet une navigation facile et une utilisation efficace selon le domaine concerné.</p>
                 
                 <h3>Vision et réutilisabilité</h3>
-                <p>Les standards Projet3 représentent un investissement pour l'avenir. Quand je voudrai créer un projet similaire, j'aurai déjà les standards prêts, ce qui devrait accélérer le développement et garantir la cohérence dès le départ.</p>
-                <p>Cette réutilisabilité multiplie la valeur du travail investi. Au lieu d'avoir des règles dispersées dans différents documents ou d'avoir à réexpliquer à chaque fois, les standards constituent une référence permanente et structurée.</p>
-                <p>De plus, le framework de standards peut être adapté à d'autres types de projets. La structure générale, la méthodologie de création, et les processus de validation sont transposables à d'autres contextes.</p>
+                <p>Les standards Projet3 représentent un investissement pour l'avenir. Quand je voudrai créer un projet similaire, j'aurai déjà les standards prêts. Cela devrait accélérer le développement et garantir la cohérence dès le départ.</p>
+                <p>Cette réutilisabilité multiplie la valeur du travail investi. Au lieu d'avoir des règles dispersées dans différents documents, les standards constituent une référence permanente et structurée, transposable à d'autres contextes.</p>
                 
                 <h3>Impact sur le projet</h3>
-                <p>Les standards Projet3 ont un impact direct sur la qualité et la cohérence du projet IT Dashboard A+. Ils garantissent que tous les composants suivent les mêmes conventions, utilisent la même structure, et respectent les mêmes règles de qualité.</p>
-                <p>Ils facilitent également la maintenance du projet. Quand un nouveau développeur reprend le projet, les standards fournissent une référence claire et complète pour comprendre comment le projet est structuré et comment il doit être maintenu.</p>
-                <p>Enfin, les standards permettent l'automatisation. Un agent IA peut utiliser ces standards pour générer du code conforme, ce qui accélère le développement tout en garantissant la qualité.</p>
+                <p>Les standards Projet3 garantissent que tous les composants suivent les mêmes conventions, utilisent la même structure, et respectent les mêmes règles de qualité. Ils facilitent la maintenance du projet et permettent l'automatisation.</p>
+                <p>Un agent IA peut utiliser ces standards pour générer du code conforme. Cela accélère le développement tout en garantissant la qualité.</p>
                 
                 <h2>Chiffres clés et métriques du projet</h2>
-            <p>Voici les métriques quantitatives qui montrent l'ampleur et la complexité du projet réalisé.</p>
+                <p>Voici les métriques quantitatives qui montrent l'ampleur et la complexité du projet réalisé.</p>
                 
                 <h3>Volume de code</h3>
                 <div class="metrics">
@@ -1325,7 +1978,7 @@
                         <p>Prompts fondateurs</p>
                     </div>
                     <div class="metric-card">
-                        <h3>50</h3>
+                        <h3>17</h3>
                         <p>Fichiers INIT_SEQUENCE</p>
                     </div>
                     <div class="metric-card">
@@ -1333,10 +1986,10 @@
                         <p>Standards Projet3</p>
                     </div>
                 </div>
-            <p>Le projet comprend 124 scripts PowerShell, 55 fichiers Python, 80 composants React et TypeScript, 11 prompts fondateurs (1090 lignes), 50 fichiers INIT_SEQUENCE, et 31 standards organisés en 8 catégories représentant environ 50 000 lignes de documentation structurée.</p>
+                <p>Le projet totalise 124 scripts PowerShell, 55 fichiers Python, 80 composants React et TypeScript, 11 prompts fondateurs, et 17 fichiers INIT_SEQUENCE (1 809 lignes). Il comprend également 31 standards organisés en 8 catégories, représentant environ 50 000 lignes de documentation structurée.</p>
                 
                 <h3>Architecture</h3>
-                <p>L'architecture comprend 11 pôles spécialisés (pôles 1 à 10 pour la collecte + pôle 11 pour la corrélation, plus le pôle 0 pour la démonstration). Les modules backend incluent ETL, Rules Engine, Correlation Engine, API REST, Services et Repositories. Les vues frontend comprennent GlobalView, PoleView et FeedbackView.</p>
+                <p>L'architecture comprend 11 pôles spécialisés (voir section Architecture pour les détails). Les modules backend incluent ETL, Rules Engine, Correlation Engine, API REST, Services et Repositories. Les vues frontend comprennent GlobalView, PoleView et FeedbackView.</p>
             </section>
                 </div>
             </div>
@@ -1345,49 +1998,35 @@
         <!-- Accordéon Conclusion -->
         <div class="section-accordion importance-high">
             <div class="section-accordion-header" onclick="toggleSection(this)">
-                Conclusion : démarche d'amélioration continue et recherche de maîtrise
+                Conclusion
             </div>
             <div class="section-accordion-content">
                 <div class="section-accordion-inner">
         <section id="conclusion" aria-labelledby="conclusion-title" aria-describedby="conclusion-description">
-            <h1 id="conclusion-title">Conclusion : démarche d'amélioration continue et recherche de maîtrise</h1>
+            <h1 id="conclusion-title" class="sr-only">Conclusion</h1>
             <p id="conclusion-description" class="sr-only">Cette section conclut la présentation en partageant la vision de l'évolution du projet, la démarche d'amélioration continue et la recherche de maîtrise académique.</p>
             
-            <p>IT Dashboard A+ reflète ma démarche d'apprentissage autonome et ma recherche de maîtrise. Partant de limitations techniques, j'ai développé une approche structurée pour résoudre les problèmes rencontrés. Le projet montre ma compréhension des enjeux de gouvernance de l'IA : règles, architecture, protocoles, audit, sécurité et traçabilité.</p>
-                <p>J'ai adopté une approche systémique et modulaire, transformant chaque obstacle en solution structurée. J'ai appliqué des standards de qualité professionnels, même en contexte d'apprentissage. Un système de collecte de feedback améliore continuellement le projet.</p>
+                <p>IT Dashboard A+ reflète ma démarche d'apprentissage autonome et ma recherche de maîtrise. Partant de limitations techniques, j'ai développé une approche structurée pour résoudre les problèmes rencontrés. Le projet reflète ma compréhension des enjeux de gouvernance de l'IA : règles, architecture, protocoles, audit, sécurité et traçabilité.</p>
+                <p>J'ai adopté une approche systémique et modulaire, transformant chaque obstacle en solution structurée. J'ai appliqué des standards de qualité professionnels, même en contexte d'apprentissage. Un système de collecte de feedback est en cours de finalisation : l'interface frontend est déjà développée, mais l'intégration complète avec Bridgepoint n'est pas encore opérationnelle.</p>
                 <p>Je reconnais ma dépendance à l'IA et ma pratique du "no code full IA". Cette approche m'a permis de progresser rapidement, mais je souhaite maintenant apprendre les fondements théoriques et les bonnes pratiques professionnelles dans un cadre académique structuré.</p>
                 
                 <h2>État actuel du projet</h2>
-                <p>Le projet fonctionne en local avec les composants principaux opérationnels : pipeline backend, intégration Vault, synchronisation Backend-Frontend, et scripts de maintenance. <code>ProjectModule</code> et INIT_SEQUENCE sont en place et documentés.</p>
-                <p>Le projet est en phase de consolidation. Je collecte des retours utilisateurs pour améliorer l'orchestration et finaliser l'interface.</p>
-                <p>Certains éléments restent en développement : la journalisation automatique Bridgepoint, la synchronisation bidirectionnelle complète, et le système de mises à jour automatiques. Le backend n'est pas encore exposé via une API publique complète.</p>
+                <p>Le projet fonctionne en local avec les composants principaux en place : pipeline backend, intégration Vault, synchronisation Backend-Frontend, et scripts de maintenance.</p>
+                <p>Le projet est en phase de consolidation. Certains éléments restent en développement : la journalisation automatique Bridgepoint, la synchronisation bidirectionnelle complète, et le système de mises à jour automatiques. Le backend n'est pas encore exposé via une API publique complète.</p>
                 
                 <h2>Démarche d'amélioration continue</h2>
-                <p>Je prévois de mettre en place un test utilisateur structuré avec deux parcours distincts pour collecter des retours ciblés. Le projet sera distribué de manière contrôlée via clés USB et copies locales afin de tester dans des conditions réelles. Je prévois également d’intégrer un formulaire frontend pour collecter et structurer les retours, chaque retour utilisateur alimentant les prochaines améliorations.</p>
+                <p>Je prévois de mettre en place deux parcours distincts pour collecter des retours ciblés. Le projet sera distribué de manière contrôlée via clés USB et copies locales afin de tester dans des conditions réelles.</p>
+                <p>Le formulaire de collecte de retours dispose déjà de son interface sur le frontend, mais la collecte n'est pas encore opérationnelle : l'intégration avec Bridgepoint est déjà incluse mais non opérationnelle, il manque à finaliser l'envoi des données vers Bridgepoint pour rendre le système pleinement fonctionnel.</p>
                 
                 <h2>Recherche de maîtrise</h2>
                 <p>Je reconnais mes limites : ma pratique empirique est efficace mais manque de fondations théoriques. J'ai la volonté d'apprendre : je souhaite intégrer une formation académique en Intelligence Artificielle pour apprendre les vraies règles, les bonnes pratiques et les méthodologies éprouvées.</p>
+                <p>Aujourd'hui, mon usage intensif de l'IA dépasse le cadre privé et nécessite des outils professionnels. Les agents locaux pourraient être une solution, mais cela demanderait un investissement très important pour satisfaire mes besoins d'efficacité. Travailler dans une entreprise qui dispose déjà d'outils avancés intégrant l'IA, en complément de mes propres outils, accélérerait ma progression et renforcerait mes compétences de manière plus efficace.</p>
                 <p>J'ai besoin d'un cadre encadré : un environnement académique et professionnel pour transformer ma pratique en compétence structurée.</p>
-                
-                <div class="explore-box">
-                    <h3>Pour approfondir</h3>
-                <p>Cette présentation couvre les 6 aspects principaux du projet. Pour une vision complète avec les 14 sections détaillées, consultez <a href="presentation_complete.html">la présentation complète</a>.</p>
-                    <p>Les documents techniques dans <code>documentation_technique/</code> détaillent chaque aspect :</p>
-                    <ul>
-                        <li><strong>Ma relation avec l'IA</strong> (<code>02_relation_ia.md</code>) : ma pratique du prompt engineering et ma vision du "no code full IA"</li>
-                        <li><strong>Résolution de problèmes</strong> (<code>05_resolution_problemes.md</code>) : les 6 défis majeurs rencontrés et les solutions développées</li>
-                        <li><strong>Observabilité et qualité</strong> (<code>08_observabilite_qualite.md</code>) : scripts d'audit, health checks et traçabilité (43 tests automatisables)</li>
-                        <li><strong>Orientation professionnelle</strong> (<code>03_orientation_professionnelle.md</code>) : mon objectif d'Expert en Gouvernance IA et les compétences visées</li>
-                        <li><strong>Vision stratégique</strong> (<code>12_vision_strategique.md</code>) : évolutions prévues, agents locaux et généralisation d'INIT_SEQUENCE</li>
-                        <li><strong>Amélioration continue</strong> (<code>09_amelioration_continue.md</code>) : collecte de retours utilisateurs et amélioration itérative</li>
-                        <li><strong>Compétences préexistantes</strong> (<code>11_competences_preexistantes.md</code>) : virtualisation, sécurité et infrastructure</li>
-                    </ul>
-                </div>
                 
                 <h2>Conclusion finale</h2>
                 <p>Ce projet n'a pas vocation à être terminé à ce stade, mais à servir de socle pédagogique et technique pour poursuivre mon parcours en formation académique en Informatique et Intelligence Artificielle, et approfondir ces concepts dans un cadre académique et encadré.</p>
-                <p>Cette démarche, plus que l'état fini du projet, montre une capacité à utiliser l'IA comme accélérateur tout en maintenant des standards de qualité professionnels, une volonté d'amélioration continue basée sur des retours utilisateurs structurés, et surtout une recherche de maîtrise.</p>
-                <p>Mon objectif est de transformer une pratique empirique en compétence structurée et reconnue, compétence que je souhaite mettre au service d'une équipe dans le cadre d'une alternance liée à une formation académique en Intelligence Artificielle.</p>
+                <p>Cette démarche, plus que l'état fini du projet, illustre une capacité à utiliser l'IA comme accélérateur tout en maintenant des standards de qualité professionnels, une volonté d'amélioration continue avec un système de collecte de retours en cours de finalisation, et surtout une recherche de maîtrise.</p>
+                <p>Mon objectif est de transformer une pratique empirique en compétence structurée et reconnue. L'évolution récente des outils d'IA et les limitations rencontrées avec les solutions publiques renforcent ma conviction qu'un environnement professionnel avec des outils avancés intégrant l'IA serait un facteur d'accélération important pour ma progression. Je souhaite mettre cette compétence au service d'une équipe dans le cadre d'une alternance liée à une formation académique en Intelligence Artificielle.</p>
                 <div class="signature">
                     <span class="name">ROULON</span><span class="firstname">Gabriel</span>
                 </div>
@@ -1495,48 +2134,6 @@
             window.addEventListener('scroll', throttle(onScroll, 100), { passive: true });
         })();
 
-        /**
-         * Back to top button with performance optimization
-         */
-        (function() {
-            const backToTop = document.querySelector('.back-to-top');
-            if (!backToTop) return;
-
-            let ticking = false;
-            
-            function updateBackToTop() {
-                if (window.pageYOffset > 300) {
-                    backToTop.classList.add('visible');
-                } else {
-                    backToTop.classList.remove('visible');
-                }
-                ticking = false;
-            }
-
-            function onScroll() {
-                if (!ticking) {
-                    window.requestAnimationFrame(updateBackToTop);
-                    ticking = true;
-                }
-            }
-
-            // Throttle scroll events with passive listener
-            window.addEventListener('scroll', throttle(onScroll, 100), { passive: true });
-
-            // Smooth scroll to top
-            backToTop.addEventListener('click', function(e) {
-                e.preventDefault();
-                window.scrollTo({
-                    top: 0,
-                    behavior: 'smooth'
-                });
-                // Update focus for accessibility
-                const skipLink = document.querySelector('.skip-link');
-                if (skipLink) {
-                    skipLink.focus();
-                }
-            });
-        })();
 
         /**
          * Intersection Observer for lazy loading animations
@@ -1599,35 +2196,56 @@
         /**
          * Fonction pour ouvrir/fermer les sections accordéon
          */
+        /**
+         * Fonction pour ouvrir/fermer les sections accordéon
+         * Version harmonisée avec gestion des animations
+         */
+        // Variable globale pour gérer l'état des animations
+        let isAnimating = false;
+        const ANIMATION_DURATION = 500; // Durée de l'animation en ms
+        
         function toggleSection(element) {
+            // Empêcher les actions simultanées
+            if (isAnimating) return;
+            
             const section = element.parentElement;
             const isActive = section.classList.contains('active');
             
-            // Fermer toutes les autres sections
-            const allAccordions = document.querySelectorAll('.section-accordion.active');
-            allAccordions.forEach(acc => {
-                if (acc !== section) {
-                    acc.classList.remove('active');
-                }
-            });
-            
-            // Si on ouvre une nouvelle section, fermer d'abord les autres avec un délai
+            // Si on ouvre une nouvelle section, fermer d'abord les autres
             if (!isActive) {
+                isAnimating = true;
+                
                 // Fermer toutes les autres sections d'abord
                 const allAccordions = document.querySelectorAll('.section-accordion.active');
+                const closingPromises = [];
+                
                 allAccordions.forEach(acc => {
                     if (acc !== section) {
+                        acc.classList.add('animating');
                         acc.classList.remove('active');
+                        closingPromises.push(new Promise(resolve => {
+                            setTimeout(() => {
+                                acc.classList.remove('animating');
+                                resolve();
+                            }, ANIMATION_DURATION);
+                        }));
                     }
                 });
                 
-                // Attendre que la fermeture soit terminée avant d'ouvrir la nouvelle section
+                // Attendre que toutes les fermetures soient terminées
+                Promise.all(closingPromises).then(() => {
+                    // Ouvrir la nouvelle section après un court délai
                 setTimeout(() => {
+                        section.classList.add('animating');
                     section.classList.add('active');
                     
-                    // Scroller vers l'en-tête de l'accordéon après un court délai
                     setTimeout(() => {
-                        const headerHeight = 100; // Hauteur du header fixe
+                            section.classList.remove('animating');
+                            isAnimating = false;
+                            
+                            // Scroller vers l'en-tête après ouverture complète
+                            setTimeout(() => {
+                                const headerHeight = 100;
                         const headerPosition = element.getBoundingClientRect().top + window.pageYOffset;
                         const offsetPosition = Math.max(0, headerPosition - headerHeight);
                         
@@ -1635,11 +2253,20 @@
                             top: offsetPosition,
                             behavior: 'smooth'
                         });
-                    }, 200);
-                }, 150); // Délai pour permettre la fermeture de la section précédente
+                            }, 100);
+                        }, ANIMATION_DURATION);
+                    }, 50);
+                });
             } else {
-                // Si on ferme la section, pas besoin de délai
+                // Fermer la section actuelle
+                isAnimating = true;
+                section.classList.add('animating');
                 section.classList.remove('active');
+                
+                setTimeout(() => {
+                    section.classList.remove('animating');
+                    isAnimating = false;
+                }, ANIMATION_DURATION);
             }
         }
 
@@ -1676,21 +2303,18 @@
                     if (href && href.startsWith('#')) {
                         e.preventDefault();
                         
+                        // Empêcher les actions pendant les animations
+                        if (isAnimating) return;
+                        
                         const targetId = href.substring(1);
                         const targetElement = document.getElementById(targetId);
                         
-                        if (targetElement) {
-                            // Fermer tous les accordéons ouverts d'abord
-                            const allAccordions = document.querySelectorAll('.section-accordion.active');
-                            allAccordions.forEach(acc => {
-                                acc.classList.remove('active');
-                            });
-                            
-                            // Trouver l'accordéon parent
+                        if (!targetElement) return;
+                        
+                        // Trouver l'accordéon correspondant
                             let accordion = targetElement.closest('.section-accordion');
-                            
-                            // Si l'élément cible est dans une section, remonter jusqu'à l'accordéon
                             if (!accordion) {
+                            // Chercher dans les parents
                                 let parent = targetElement.parentElement;
                                 while (parent && !parent.classList.contains('section-accordion')) {
                                     parent = parent.parentElement;
@@ -1698,30 +2322,48 @@
                                 accordion = parent;
                             }
                             
-                            // Ouvrir l'accordéon correspondant si trouvé avec un délai pour éviter les perturbations visuelles
+                        // Fermer toutes les sections d'abord
+                        const allAccordions = document.querySelectorAll('.section-accordion.active');
+                        const closingPromises = [];
+                        
+                        allAccordions.forEach(acc => {
+                            if (acc !== accordion) {
+                                acc.classList.add('animating');
+                                acc.classList.remove('active');
+                                closingPromises.push(new Promise(resolve => {
+                                    setTimeout(() => {
+                                        acc.classList.remove('animating');
+                                        resolve();
+                                    }, ANIMATION_DURATION);
+                                }));
+                            }
+                        });
+                        
+                        // Attendre la fermeture puis ouvrir
+                        Promise.all(closingPromises).then(() => {
                             if (accordion) {
                                 setTimeout(() => {
+                                    accordion.classList.add('animating');
                                     accordion.classList.add('active');
                                     
-                                    // Trouver l'en-tête de l'accordéon
-                                    const accordionHeader = accordion.querySelector('.section-accordion-header');
+                                    setTimeout(() => {
+                                        accordion.classList.remove('animating');
                                     
-                                    // Scroller vers l'en-tête de l'accordéon après un court délai pour permettre l'ouverture
-                                    if (accordionHeader) {
+                                        // Scroller vers la section
                                         setTimeout(() => {
-                                            const headerHeight = 100; // Hauteur du header fixe
-                                            const headerPosition = accordionHeader.getBoundingClientRect().top + window.pageYOffset;
-                                            const offsetPosition = Math.max(0, headerPosition - headerHeight);
+                                            const headerHeight = 100;
+                                            const elementPosition = targetElement.getBoundingClientRect().top + window.pageYOffset;
+                                            const offsetPosition = Math.max(0, elementPosition - headerHeight);
                                             
                                             window.scrollTo({
                                                 top: offsetPosition,
                                                 behavior: 'smooth'
                                             });
-                                        }, 200);
-                                    }
-                                }, 150); // Délai pour permettre la fermeture de la section précédente
+                                        }, 100);
+                                    }, ANIMATION_DURATION);
+                                }, 50);
                             } else {
-                                // Si pas d'accordéon, scroller directement vers l'élément
+                                // Si pas d'accordéon, scroller directement
                                 setTimeout(() => {
                                     const headerHeight = 100;
                                     const elementPosition = targetElement.getBoundingClientRect().top + window.pageYOffset;
@@ -1731,15 +2373,265 @@
                                         top: offsetPosition,
                                         behavior: 'smooth'
                                     });
-                                }, 100);
+                                }, ANIMATION_DURATION + 50);
                             }
-                        }
+                        });
                     }
                     
+                    // Fermer le menu déroulant
                     dropdownToggle.setAttribute('aria-expanded', 'false');
                     dropdownMenu.setAttribute('aria-hidden', 'true');
                 });
             });
+        })();
+
+        /**
+         * Barre de progression de lecture
+         */
+        (function() {
+            const readingProgress = document.getElementById('reading-progress');
+            const readingProgressBar = document.getElementById('reading-progress-bar');
+            
+            function updateReadingProgress() {
+                if (!readingProgress || !readingProgressBar) return;
+                
+                const windowHeight = window.innerHeight;
+                const documentHeight = document.documentElement.scrollHeight;
+                const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+                const scrollableHeight = documentHeight - windowHeight;
+                const progress = scrollableHeight > 0 ? (scrollTop / scrollableHeight) * 100 : 0;
+                
+                readingProgressBar.style.width = progress + '%';
+                
+                if (scrollTop > 100) {
+                    readingProgress.classList.add('visible');
+                } else {
+                    readingProgress.classList.remove('visible');
+                }
+            }
+            
+            // Écouteur d'événement scroll
+            window.addEventListener('scroll', throttle(updateReadingProgress, 50), { passive: true });
+            
+            // Initialisation
+            updateReadingProgress();
+        })();
+        
+        /**
+         * Mode lecture rapide/complète avec résumés condensés
+         */
+        (function() {
+            const quickButton = document.getElementById('reading-mode-quick');
+            const fullButton = document.getElementById('reading-mode-full');
+            
+            if (!quickButton || !fullButton) return;
+            
+            // Analyser intelligemment chaque section et marquer les éléments essentiels
+            function markEssentialElements() {
+                const sections = document.querySelectorAll('.section-accordion-inner > section');
+                
+                sections.forEach(section => {
+                    const sectionId = section.getAttribute('id');
+                    const allElements = Array.from(section.children);
+                    
+                    // Sections structurantes : conserver tous les h2 avec leur premier paragraphe
+                    const structuralSections = ['init-sequence', 'standards-projet3'];
+                    const isStructural = structuralSections.includes(sectionId);
+                    
+                    if (isStructural) {
+                        // Pour les sections structurantes, conserver tous les h2 et leur premier paragraphe
+                        allElements.forEach((element, index) => {
+                            if (element.tagName === 'H2') {
+                                element.classList.add('quick-read-essential');
+                                // Trouver le premier paragraphe après ce h2
+                                for (let i = index + 1; i < allElements.length; i++) {
+                                    const nextElement = allElements[i];
+                                    if (nextElement.tagName === 'P' && !nextElement.classList.contains('sr-only')) {
+                                        nextElement.classList.add('quick-read-essential');
+                                        break;
+                                    } else if (nextElement.tagName === 'H2') {
+                                        // Si on rencontre un autre h2, on s'arrête
+                                        break;
+                                    }
+                                }
+                            }
+                        });
+                    } else {
+                        // Pour les autres sections, analyser chaque titre et garantir du contenu
+                        allElements.forEach((element, index) => {
+                            if (element.tagName === 'H2' || element.tagName === 'H3') {
+                                // Vérifier s'il y a du contenu après ce titre
+                                let hasContentAfter = false;
+                                for (let i = index + 1; i < allElements.length; i++) {
+                                    const nextElement = allElements[i];
+                                    // Si c'est un autre titre de même niveau ou supérieur, on s'arrête
+                                    if ((nextElement.tagName === 'H2' && element.tagName === 'H2') ||
+                                        (nextElement.tagName === 'H1')) {
+                                        break;
+                                    }
+                                    // Si c'est un élément de contenu, on le marque comme essentiel
+                                    if (nextElement.tagName === 'P' && !nextElement.classList.contains('sr-only')) {
+                                        element.classList.add('quick-read-essential');
+                                        nextElement.classList.add('quick-read-essential');
+                                        hasContentAfter = true;
+                                        break;
+                                    } else if (nextElement.tagName === 'UL' || nextElement.tagName === 'OL') {
+                                        element.classList.add('quick-read-essential');
+                                        nextElement.classList.add('quick-read-essential');
+                                        hasContentAfter = true;
+                                        break;
+                                    } else if (nextElement.classList.contains('component-cards') ||
+                                               nextElement.classList.contains('component-cards-2') ||
+                                               nextElement.classList.contains('category-grid') ||
+                                               nextElement.classList.contains('comparison-grid') ||
+                                               nextElement.classList.contains('metrics') ||
+                                               nextElement.classList.contains('highlight') ||
+                                               nextElement.classList.contains('explore-box')) {
+                                        element.classList.add('quick-read-essential');
+                                        hasContentAfter = true;
+                                        break;
+                                    }
+                                }
+                                
+                                // Si aucun contenu après, chercher le premier élément de contenu disponible
+                                if (!hasContentAfter) {
+                                    for (let i = index + 1; i < allElements.length; i++) {
+                                        const nextElement = allElements[i];
+                                        if (nextElement.tagName === 'P' && !nextElement.classList.contains('sr-only')) {
+                                            element.classList.add('quick-read-essential');
+                                            nextElement.classList.add('quick-read-essential');
+                                            break;
+                                        }
+                                    }
+                                }
+                            }
+                        });
+                    }
+                    
+                    // Toujours conserver le premier paragraphe et les éléments visuels importants
+                    const firstParagraph = section.querySelector('p:not(.sr-only)');
+                    if (firstParagraph) {
+                        firstParagraph.classList.add('quick-read-essential');
+                    }
+                });
+            }
+            
+            // Générer des résumés pour toutes les sections
+            function generateQuickReadSummaries() {
+                const sections = document.querySelectorAll('.section-accordion-inner > section');
+                
+                sections.forEach(section => {
+                    // Vérifier si un résumé existe déjà
+                    if (section.querySelector('.quick-read-summary')) return;
+                    
+                    const sectionId = section.getAttribute('id');
+                    let summaryText = '';
+                    
+                    // Résumé spécial pour la conclusion
+                    if (sectionId === 'conclusion') {
+                        const conclusionFinale = section.querySelector('h2:last-of-type');
+                        const conclusionParagraph = section.querySelector('h2:last-of-type')?.nextElementSibling;
+                        if (conclusionFinale && conclusionParagraph) {
+                            summaryText = conclusionFinale.textContent + ' : ' + conclusionParagraph.textContent.substring(0, 150);
+                            if (conclusionParagraph.textContent.length > 150) {
+                                summaryText += '...';
+                            }
+                        } else {
+                            const firstParagraph = section.querySelector('p:not(.sr-only)');
+                            if (firstParagraph) {
+                                summaryText = firstParagraph.textContent.substring(0, 200);
+                                if (firstParagraph.textContent.length > 200) {
+                                    summaryText += '...';
+                                }
+                            }
+                        }
+                    } else {
+                        // Pour les autres sections
+                        const srDescription = section.querySelector('p.sr-only[id$="-description"]');
+                        const firstParagraph = section.querySelector('p:not(.sr-only)');
+                        const firstH2 = section.querySelector('h2');
+                        const sectionTitle = section.querySelector('h1');
+                        
+                        if (srDescription) {
+                            summaryText = srDescription.textContent;
+                        } else if (firstParagraph) {
+                            summaryText = firstParagraph.textContent.substring(0, 200);
+                            if (firstParagraph.textContent.length > 200) {
+                                summaryText += '...';
+                            }
+                        } else if (firstH2) {
+                            summaryText = firstH2.textContent + ' : Cette section présente les détails sur ' + firstH2.textContent.toLowerCase() + '.';
+                        } else if (sectionTitle) {
+                            summaryText = 'Cette section présente les informations sur ' + sectionTitle.textContent.toLowerCase() + '.';
+                        }
+                    }
+                    
+                    if (summaryText) {
+                        const summary = document.createElement('div');
+                        summary.className = 'quick-read-summary';
+                        summary.textContent = summaryText;
+                        
+                        // Insérer le résumé au début de la section
+                        const firstChild = section.firstElementChild;
+                        if (firstChild) {
+                            section.insertBefore(summary, firstChild.nextSibling);
+                        } else {
+                            section.appendChild(summary);
+                        }
+                    }
+                });
+            }
+            
+            function setReadingMode(isQuickMode) {
+                // Empêcher les changements pendant les animations
+                if (isAnimating) return;
+                
+                isAnimating = true;
+                
+                // Ajouter une transition pour le changement de mode
+                document.body.style.transition = 'none';
+                document.body.classList.toggle('quick-read-mode', isQuickMode);
+                
+                // Forcer un reflow
+                void document.body.offsetHeight;
+                
+                // Appliquer la transition
+                document.body.style.transition = '';
+                
+                if (isQuickMode) {
+                    markEssentialElements();
+                    quickButton.classList.add('active');
+                    quickButton.setAttribute('aria-pressed', 'true');
+                    fullButton.classList.remove('active');
+                    fullButton.setAttribute('aria-pressed', 'false');
+                } else {
+                    document.querySelectorAll('.quick-read-essential').forEach(el => {
+                        el.classList.remove('quick-read-essential');
+                    });
+                    fullButton.classList.add('active');
+                    fullButton.setAttribute('aria-pressed', 'true');
+                    quickButton.classList.remove('active');
+                    quickButton.setAttribute('aria-pressed', 'false');
+                }
+                
+                setTimeout(() => {
+                    isAnimating = false;
+                }, 300);
+            }
+            
+            // Initialiser les résumés et l'analyse au chargement
+            generateQuickReadSummaries();
+            
+            quickButton.addEventListener('click', function() {
+                setReadingMode(true);
+            });
+            
+            fullButton.addEventListener('click', function() {
+                setReadingMode(false);
+            });
+            
+            // Générer les résumés au chargement
+            generateQuickReadSummaries();
         })();
     </script>
     

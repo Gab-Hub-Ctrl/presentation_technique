@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<!-- Validation HTML5 W3C : Document conforme aux standards HTML5 -->
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
@@ -237,6 +238,12 @@
       color: var(--accent-hover);
     }
 
+    .header-right {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
     .header-nav {
       display: flex;
       gap: 22px;
@@ -263,6 +270,190 @@
       border-radius: 3px;
     }
 
+    /* ============================================
+       HEADER NOTE TOGGLE - Bouton Important
+       ============================================ */
+    .header-note-toggle {
+      background: transparent;
+      border: 1px solid var(--importance-critical);
+      border-radius: 6px;
+      padding: 8px 16px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      font-family: inherit;
+      font-size: 0.9em;
+      font-weight: 500;
+      white-space: nowrap;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .header-note-label {
+      color: var(--importance-critical);
+      transition: color 0.2s ease;
+    }
+
+    .header-note-toggle:hover {
+      background: var(--importance-critical);
+      border-color: var(--importance-critical);
+    }
+
+    .header-note-toggle:hover .header-note-label {
+      color: #ffffff;
+    }
+
+    .header-note-toggle:focus-visible {
+      outline: 3px solid var(--importance-critical);
+      outline-offset: 2px;
+    }
+
+    /* ============================================
+       MODAL OVERLAY - Fond sombre de la modale
+       ============================================ */
+    .modal-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.7);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 10000;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.3s ease, visibility 0.3s ease;
+      padding: 20px;
+    }
+
+    .modal-overlay[aria-hidden="false"] {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    /* ============================================
+       MODAL CONTAINER - Conteneur de la modale
+       ============================================ */
+    .modal-container {
+      background: #ffffff;
+      border: 2px solid var(--importance-critical);
+      border-radius: 12px;
+      max-width: 700px;
+      width: 100%;
+      max-height: 90vh;
+      overflow-y: auto;
+      box-shadow: var(--shadow-lg);
+      transform: scale(0.9);
+      transition: transform 0.3s ease;
+      position: relative;
+    }
+
+    .modal-overlay[aria-hidden="false"] .modal-container {
+      transform: scale(1);
+    }
+
+    /* ============================================
+       MODAL HEADER - En-tête de la modale
+       ============================================ */
+    .modal-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 24px;
+      border-bottom: 2px solid var(--border-color);
+      background: #ffffff;
+      border-radius: 12px 12px 0 0;
+      position: sticky;
+      top: 0;
+      z-index: 1;
+    }
+
+    .modal-header h2 {
+      margin: 0;
+      font-size: 1.5em;
+      color: var(--importance-critical);
+      font-weight: 700;
+    }
+
+    .modal-close {
+      background: transparent;
+      border: none;
+      font-size: 2em;
+      line-height: 1;
+      color: var(--text-color);
+      cursor: pointer;
+      padding: 0;
+      width: 32px;
+      height: 32px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 4px;
+      transition: all 0.2s ease;
+    }
+
+    .modal-close:hover {
+      background: var(--bg-secondary);
+      color: var(--importance-critical);
+    }
+
+    .modal-close:focus-visible {
+      outline: 3px solid var(--importance-critical);
+      outline-offset: 2px;
+    }
+
+    /* ============================================
+       MODAL CONTENT - Contenu de la modale
+       ============================================ */
+    .modal-content {
+      padding: 24px;
+    }
+
+    .modal-content p {
+      margin: 0;
+      font-size: 1em;
+      line-height: 1.7;
+      color: var(--text-color);
+      text-align: justify;
+      text-align-last: left;
+    }
+
+    /* Responsive pour header note toggle */
+    @media (max-width: 850px) {
+      .header-note-toggle {
+        margin-left: 0;
+        margin-top: 10px;
+      }
+
+      .modal-container {
+        max-width: 95vw;
+        max-height: 85vh;
+      }
+
+      .modal-header {
+        padding: 16px 20px;
+      }
+
+      .modal-header h2 {
+        font-size: 1.3em;
+      }
+
+      .modal-content {
+        padding: 20px;
+      }
+
+      .modal-content p {
+        font-size: 0.95em;
+      }
+    }
+
+    /* Empêcher le scroll du body quand la modale est ouverte */
+    body.modal-open {
+      overflow: hidden;
+    }
+
     /* RESPONSIVE HEADER */
     @media (max-width: 850px) {
       header {
@@ -271,10 +462,19 @@
         padding: 16px 25px;
       }
 
-      .header-nav {
+      .header-right {
         margin-top: 10px;
+        width: 100%;
+        flex-wrap: wrap;
+      }
+
+      .header-nav {
         gap: 14px;
         flex-wrap: wrap;
+      }
+
+      .header-note-toggle {
+        margin-top: 0;
       }
     }
 
@@ -983,40 +1183,58 @@
     </a>
   </div>
 
-  <nav class="header-nav" aria-label="Navigation principale">
-    <div class="nav-dropdown">
-      <button class="nav-dropdown-toggle" aria-expanded="false" aria-haspopup="true" aria-label="Menu de navigation">
-        Navigation <span class="nav-arrow">▼</span>
-      </button>
-      <ul class="nav-dropdown-menu" role="menu" aria-hidden="true">
-        <li role="none"><a href="presentation_synthetique.html" role="menuitem">Présentation synthétique</a></li>
-        <li role="none"><a href="presentation_complete.html" role="menuitem">Présentation complète</a></li>
-        <li role="none"><a href="rapport_projection_dimension_standards_projet3.html" role="menuitem">Rapport</a></li>
-        <li role="none"><a href="profil_personnel.html" role="menuitem">Profil</a></li>
-        <li role="none"><a href="lettre_motivation_ecole.html" role="menuitem">Lettre école</a></li>
-        <li role="none"><a href="lettre_motivation_entreprise.html" role="menuitem">Lettre entreprise</a></li>
-        <li role="none"><a href="https://github.com/Gab-Hub-Ctrl/presentation_technique" target="_blank" rel="noopener noreferrer" role="menuitem">Dépôt GitHub</a></li>
-      </ul>
-    </div>
-  </nav>
+  <div class="header-right">
+    <button class="header-note-toggle" aria-expanded="false" aria-label="Afficher la note importante">
+      <span class="header-note-label">Important</span>
+    </button>
+
+    <nav class="header-nav" aria-label="Navigation principale">
+      <div class="nav-dropdown">
+        <button class="nav-dropdown-toggle" aria-expanded="false" aria-haspopup="true" aria-label="Menu de navigation">
+          Navigation <span class="nav-arrow">▼</span>
+        </button>
+        <ul class="nav-dropdown-menu" role="menu" aria-hidden="true">
+          <li role="none"><a href="presentation_synthetique.html" role="menuitem">Présentation synthétique</a></li>
+          <li role="none"><a href="rapport_projection_dimension_standards_projet3.html" role="menuitem">Rapport</a></li>
+          <li role="none"><a href="profil_personnel.html" role="menuitem">Profil</a></li>
+          <li role="none"><a href="lettre_motivation_ecole.html" role="menuitem">Lettre école</a></li>
+          <li role="none"><a href="lettre_motivation_entreprise.html" role="menuitem">Lettre entreprise</a></li>
+          <li role="none"><a href="https://github.com/Gab-Hub-Ctrl/presentation_technique" target="_blank" rel="noopener noreferrer" role="menuitem">Dépôt GitHub</a></li>
+        </ul>
+      </div>
+    </nav>
+  </div>
 </header>
+
+<!-- Modale pour la note importante -->
+<div class="modal-overlay" id="important-note-modal" aria-hidden="true" role="dialog" aria-labelledby="modal-title" aria-modal="true">
+  <div class="modal-container">
+    <div class="modal-header">
+      <h2 id="modal-title">Important</h2>
+      <button class="modal-close" aria-label="Fermer la fenêtre" type="button">×</button>
+    </div>
+    <div class="modal-content">
+      <p>J'ai rédigé la plupart des documents récemment pour clarifier l'état actuel d'INIT_SEQUENCE. Il y a un mois environ, la procédure fonctionnait encore avec certaines IA publiques, mais un durcissement récent de leur usage rend cette méthode obsolète, car ces systèmes restreignent les demandes liées aux modifications internes ou à l'imposition d'un état. Aujourd'hui, mon usage intensif de l'IA dépasse le cadre privé et nécessite des outils professionnels : les agents locaux pourraient être une solution, mais cela demanderait un investissement très important pour satisfaire mes besoins d'efficacité. Travailler dans une entreprise qui dispose déjà d'outils avancés intégrant l'IA, en complément de mes propres outils, multiplierait significativement ma vitesse de progression et renforcerait mes compétences de manière plus efficace.</p>
+    </div>
+  </div>
+</div>
 
 <main id="main-content" role="main">
 
   <section id="sections" class="sections-container" aria-label="Sections de présentation">
 
     <!-- Section 1 : Présentations principales -->
-    <div class="section-accordion importance-high">
-      <div class="section-accordion-header" onclick="toggleSection(this)">
+    <div class="section-accordion importance-high" role="region" aria-labelledby="section-1-header">
+      <div class="section-accordion-header" id="section-1-header" onclick="toggleSection(this)" aria-expanded="false" aria-controls="section-1-content">
         Présentations principales
       </div>
-      <div class="section-accordion-content">
+      <div id="section-1-content" class="section-accordion-content">
         <div class="section-accordion-inner">
           <div class="cards">
 
     <!-- Card 1 -->
     <article class="card importance-normal" aria-labelledby="card-1-title" aria-describedby="card-1-desc">
-      <svg viewBox="0 0 24 24" aria-hidden="true" role="img" style="fill: #000000; width: 24px; height: 24px; margin-bottom: 8px;">
+      <svg viewBox="0 0 24 24" aria-hidden="true" role="img" aria-label="Icône présentation synthétique" style="fill: #000000; width: 24px; height: 24px; margin-bottom: 8px;">
         <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/>
       </svg>
       <h3 id="card-1-title">Présentation synthétique</h3>
@@ -1027,18 +1245,18 @@
 
     <!-- Card 2 -->
     <article class="card importance-high" aria-labelledby="card-2-title" aria-describedby="card-2-desc">
-      <svg viewBox="0 0 24 24" aria-hidden="true" role="img" style="fill: #000000; width: 24px; height: 24px; margin-bottom: 8px;">
+      <svg viewBox="0 0 24 24" aria-hidden="true" role="img" aria-label="Icône présentation complète" style="fill: #000000; width: 24px; height: 24px; margin-bottom: 8px;">
         <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V5h14v14zm-5.04-6.71l-2.75 3.54-1.96-2.36L6.5 17h11l-3.54-4.71z"/>
       </svg>
       <h3 id="card-2-title">Présentation complète</h3>
-      <p id="card-2-desc" class="sr-only">Accédez à la présentation complète détaillant l'architecture technique, les choix technologiques et la vision à long terme du projet IT Dashboard A+.</p>
+      <p id="card-2-desc" class="sr-only">Présentation complète détaillant l'architecture technique, les choix technologiques et la vision à long terme du projet IT Dashboard A+ (disponible prochainement).</p>
       <p>Architecture technique et vision à long terme.</p>
-      <a href="https://gab-hub-ctrl.github.io/presentation_technique/presentation_complete.html" target="_blank" rel="noopener noreferrer" aria-label="Voir la présentation complète du projet">Voir</a>
+      <span style="color: #666; font-style: italic; cursor: default;" aria-label="Disponible prochainement">Prochainement</span>
     </article>
 
     <!-- Card 2b : Rapport de Projection Dimensionnelle -->
     <article class="card importance-critical" aria-labelledby="card-2b-title" aria-describedby="card-2b-desc">
-      <svg viewBox="0 0 24 24" aria-hidden="true" role="img" style="fill: #000000; width: 24px; height: 24px; margin-bottom: 8px;">
+      <svg viewBox="0 0 24 24" aria-hidden="true" role="img" aria-label="Icône rapport de projection" style="fill: #000000; width: 24px; height: 24px; margin-bottom: 8px;">
         <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-2 10h-4v4h-2v-4H7v-2h4V7h2v4h4v2z"/>
       </svg>
       <h3 id="card-2b-title">Rapport de Projection Dimensionnelle</h3>
@@ -1052,16 +1270,16 @@
     </div>
 
     <!-- Section 2 : Candidatures et lettres de motivation -->
-    <div class="section-accordion importance-normal">
-      <div class="section-accordion-header" onclick="toggleSection(this)">
+    <div class="section-accordion importance-normal" role="region" aria-labelledby="section-2-header">
+      <div class="section-accordion-header" id="section-2-header" onclick="toggleSection(this)" aria-expanded="false" aria-controls="section-2-content">
         Candidatures et lettres de motivation
       </div>
-      <div class="section-accordion-content">
+      <div id="section-2-content" class="section-accordion-content">
         <div class="section-accordion-inner">
           <div class="cards">
     <!-- Card 3 : Lettre pour école -->
     <article class="card importance-normal" aria-labelledby="card-3-title" aria-describedby="card-3-desc">
-      <svg viewBox="0 0 24 24" aria-hidden="true" role="img" style="fill: #000000; width: 24px; height: 24px; margin-bottom: 8px;">
+      <svg viewBox="0 0 24 24" aria-hidden="true" role="img" aria-label="Icône lettre de motivation école" style="fill: #000000; width: 24px; height: 24px; margin-bottom: 8px;">
         <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
       </svg>
       <h3 id="card-3-title">Lettre de motivation - École</h3>
@@ -1072,7 +1290,7 @@
 
     <!-- Card 3b : Lettre pour entreprise -->
     <article class="card importance-normal" aria-labelledby="card-3b-title" aria-describedby="card-3b-desc">
-      <svg viewBox="0 0 24 24" aria-hidden="true" role="img" style="fill: #000000; width: 24px; height: 24px; margin-bottom: 8px;">
+      <svg viewBox="0 0 24 24" aria-hidden="true" role="img" aria-label="Icône lettre de motivation entreprise" style="fill: #000000; width: 24px; height: 24px; margin-bottom: 8px;">
         <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
       </svg>
       <h3 id="card-3b-title">Lettre de motivation - Entreprise</h3>
@@ -1083,7 +1301,7 @@
 
     <!-- Card 3c : Profil personnel -->
     <article class="card importance-normal" aria-labelledby="card-6-title" aria-describedby="card-6-desc">
-      <svg viewBox="0 0 24 24" aria-hidden="true" role="img" style="fill: #000000; width: 24px; height: 24px; margin-bottom: 8px;">
+      <svg viewBox="0 0 24 24" aria-hidden="true" role="img" aria-label="Icône profil personnel" style="fill: #000000; width: 24px; height: 24px; margin-bottom: 8px;">
         <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z"/>
       </svg>
       <h3 id="card-6-title">Mieux me connaître</h3>
@@ -1097,38 +1315,38 @@
     </div>
 
     <!-- Section 3 : Ressources techniques -->
-    <div class="section-accordion importance-high">
-      <div class="section-accordion-header" onclick="toggleSection(this)">
+    <div class="section-accordion importance-high" role="region" aria-labelledby="section-3-header">
+      <div class="section-accordion-header" id="section-3-header" onclick="toggleSection(this)" aria-expanded="false" aria-controls="section-3-content">
         Ressources techniques
       </div>
-      <div class="section-accordion-content">
+      <div id="section-3-content" class="section-accordion-content">
         <div class="section-accordion-inner">
           <div class="cards">
     <!-- Card 4 -->
     <article class="card importance-high" aria-labelledby="card-4-title" aria-describedby="card-4-desc">
-      <svg viewBox="0 0 24 24" aria-hidden="true" role="img" style="fill: #000000; width: 24px; height: 24px; margin-bottom: 8px;">
+      <svg viewBox="0 0 24 24" aria-hidden="true" role="img" aria-label="Icône fichiers de documentation" style="fill: #000000; width: 24px; height: 24px; margin-bottom: 8px;">
         <path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/>
       </svg>
-      <h3 id="card-4-title">Documentation technique</h3>
-      <p id="card-4-desc" class="sr-only">Accédez à la documentation technique complète couvrant l'architecture, la gouvernance de l'IA et la structuration du système IT Dashboard A+.</p>
-      <p>Architecture et gouvernance de l'IA.</p>
-      <a href="https://github.com/Gab-Hub-Ctrl/presentation_technique/tree/main/documentation_technique" target="_blank" rel="noopener noreferrer" aria-label="Accéder à la documentation technique sur GitHub">Accéder</a>
+      <h3 id="card-4-title">Fichiers de documentation</h3>
+      <p id="card-4-desc" class="sr-only">Fichiers Markdown de documentation technique couvrant l'architecture, la gouvernance de l'IA et la structuration du système IT Dashboard A+ (indisponible).</p>
+      <p>Fichiers Markdown sur GitHub.</p>
+      <span style="color: #666; font-style: italic; cursor: default;" aria-label="Indisponible">Prochainement</span>
     </article>
 
     <!-- Card 5 -->
     <article class="card importance-normal" aria-labelledby="card-5-title" aria-describedby="card-5-desc">
-      <svg viewBox="0 0 24 24" aria-hidden="true" role="img" style="fill: #000000; width: 24px; height: 24px; margin-bottom: 8px;">
+      <svg viewBox="0 0 24 24" aria-hidden="true" role="img" aria-label="Icône annexes visuelles" style="fill: #000000; width: 24px; height: 24px; margin-bottom: 8px;">
         <path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/>
       </svg>
       <h3 id="card-5-title">Annexes visuelles</h3>
       <p id="card-5-desc" class="sr-only">Accédez aux annexes visuelles comprenant captures d'écran, schémas d'architecture et illustrations techniques du projet IT Dashboard A+.</p>
-      <p>Captures d'écran et schémas techniques.</p>
+      <p>Captures d'écran Dashboard A+.</p>
       <a href="https://github.com/Gab-Hub-Ctrl/presentation_technique/tree/main/presentation_visuel" target="_blank" rel="noopener noreferrer" aria-label="Voir les annexes visuelles sur GitHub">Voir</a>
     </article>
 
     <!-- Card 5b -->
     <article class="card importance-normal" aria-labelledby="card-5b-title" aria-describedby="card-5b-desc">
-      <svg viewBox="0 0 24 24" aria-hidden="true" role="img" style="fill: #000000; width: 24px; height: 24px; margin-bottom: 8px;">
+      <svg viewBox="0 0 24 24" aria-hidden="true" role="img" aria-label="Icône démo vidéo" style="fill: #000000; width: 24px; height: 24px; margin-bottom: 8px;">
         <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-2 10h-4v4h-2v-4H7v-2h4V7h2v4h4v2z"/>
       </svg>
       <h3 id="card-5b-title">Démo vidéo</h3>
@@ -1287,6 +1505,62 @@
           dropdownMenu.setAttribute('aria-hidden', 'true');
         });
       });
+    })();
+
+    /**
+     * Gestion de la modale "Important"
+     */
+    (function() {
+      const noteToggle = document.querySelector('.header-note-toggle');
+      const modal = document.getElementById('important-note-modal');
+      const modalClose = document.querySelector('.modal-close');
+      
+      if (!noteToggle || !modal) return;
+      
+      // Ouvrir la modale
+      noteToggle.addEventListener('click', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        modal.setAttribute('aria-hidden', 'false');
+        document.body.classList.add('modal-open');
+        noteToggle.setAttribute('aria-expanded', 'true');
+        
+        // Focus sur le bouton de fermeture pour l'accessibilité
+        setTimeout(() => {
+          if (modalClose) {
+            modalClose.focus();
+          }
+        }, 100);
+      });
+      
+      // Fermer la modale avec le bouton X
+      if (modalClose) {
+        modalClose.addEventListener('click', function() {
+          closeModal();
+        });
+      }
+      
+      // Fermer la modale en cliquant sur l'overlay
+      modal.addEventListener('click', function(e) {
+        if (e.target === modal) {
+          closeModal();
+        }
+      });
+      
+      // Fermer la modale avec la touche Escape
+      document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && modal.getAttribute('aria-hidden') === 'false') {
+          closeModal();
+        }
+      });
+      
+      // Fonction pour fermer la modale
+      function closeModal() {
+        modal.setAttribute('aria-hidden', 'true');
+        document.body.classList.remove('modal-open');
+        noteToggle.setAttribute('aria-expanded', 'false');
+        noteToggle.focus();
+      }
     })();
   </script>
   

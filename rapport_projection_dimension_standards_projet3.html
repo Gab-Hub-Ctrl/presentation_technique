@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<!-- Validation HTML5 W3C : Document conforme aux standards HTML5 -->
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
@@ -153,15 +154,17 @@
         }
         header {
             position: fixed;
-            top: 0; left: 0;
+            top: 0;
+            left: 0;
             width: 100%;
             background: #ffffff;
             border-bottom: 2px solid #000000;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
             padding: 14px 40px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            z-index: 100;
+            z-index: 1000;
         }
         .header-left a {
             text-decoration: none;
@@ -170,9 +173,10 @@
         }
 
         .header-left a:focus-visible {
-            outline: 3px solid var(--primary-color);
+            outline: 3px solid #000000;
             outline-offset: 4px;
             border-radius: 3px;
+            padding: 2px 4px;
         }
 
         .header-left h2 {
@@ -203,17 +207,24 @@
         }
 
         .header-left a:hover h2 {
-            color: var(--primary-light);
+            color: #333333;
         }
+        
+        .header-right {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        
         .nav-dropdown {
             position: relative;
         }
         .nav-dropdown-toggle {
             background: transparent;
-            border: 1px solid var(--border-color);
+            border: 1px solid #000000;
             border-radius: 6px;
             padding: 8px 16px;
-            color: var(--text-color);
+            color: #000000;
             font-weight: 500;
             font-size: 0.9em;
             cursor: pointer;
@@ -221,31 +232,41 @@
             align-items: center;
             gap: 6px;
             transition: all 0.2s ease;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
         }
         .nav-dropdown-toggle:hover {
-            background: var(--bg-secondary);
-            border-color: var(--primary-color);
-            color: var(--primary-color);
+            background: #f5f5f5;
+            border-color: #000000;
+            color: #000000;
         }
         .nav-dropdown-toggle[aria-expanded="true"] {
-            background: var(--primary-color);
-            color: white;
-            border-color: var(--primary-color);
+            background: #000000;
+            color: #ffffff;
+            border-color: #000000;
+        }
+        .nav-dropdown-toggle:focus-visible {
+            outline: 3px solid #000000;
+            outline-offset: 2px;
+        }
+        .nav-arrow {
+            font-size: 0.8em;
+            transition: transform 0.2s ease;
+        }
+        .nav-dropdown-toggle[aria-expanded="true"] .nav-arrow {
+            transform: rotate(180deg);
         }
         .nav-dropdown-menu {
             position: absolute;
             top: calc(100% + 8px);
             right: 0;
-            background: var(--card-bg);
-            border: 1px solid var(--border-color);
-            border-radius: 8px;
-            box-shadow: var(--shadow-lg);
-            min-width: 220px;
-            max-height: 70vh;
-            overflow-y: auto;
+            background: #ffffff;
+            border: 1px solid #000000;
+            border-radius: 6px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            min-width: 200px;
             list-style: none;
-            margin: 0;
             padding: 8px 0;
+            margin: 0;
             opacity: 0;
             visibility: hidden;
             transform: translateY(-10px);
@@ -261,18 +282,19 @@
             display: block;
             padding: 10px 20px;
             text-decoration: none;
-            color: var(--text-color);
+            color: #000000;
             font-size: 0.9em;
             transition: background 0.2s ease, color 0.2s ease;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
         }
         .nav-dropdown-menu a:hover,
         .nav-dropdown-menu a:focus {
-            background: var(--bg-secondary);
-            color: var(--primary-color);
+            background: #f5f5f5;
+            color: #000000;
         }
         .nav-dropdown-menu a.active {
-            background: var(--bg-secondary);
-            color: var(--primary-color);
+            background: #f5f5f5;
+            color: #000000;
             font-weight: 600;
         }
         main {
@@ -283,8 +305,8 @@
         }
         .hero-section {
             text-align: center;
-            margin-bottom: 60px;
-            padding: 60px 0 40px;
+            margin: 40px 20px 60px 20px;
+            padding: 60px 20px 40px 20px;
         }
         .hero-section h1 {
             font-size: 2.8em;
@@ -302,16 +324,17 @@
             display: grid;
             grid-template-columns: repeat(6, 1fr);
             gap: 16px;
-            margin: 30px 0;
+            margin: 30px 20px;
             max-width: 1200px;
             margin-left: auto;
             margin-right: auto;
+            padding: 0 10px;
         }
         .metric-card {
             background: var(--card-bg);
             border: 1px solid var(--border-color);
             border-radius: 8px;
-            padding: 20px 12px;
+            padding: 24px;
             box-shadow: var(--shadow-sm);
             text-align: center;
             transition: all 0.3s ease;
@@ -478,18 +501,27 @@
         }
         .comparison-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 32px;
-            margin: 40px 0;
-            align-items: stretch;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            margin: 32px auto;
+            max-width: 900px;
+            width: 100%;
+            box-sizing: border-box;
+            align-items: stretch; /* Aligner les cartes sur la même hauteur */
+            justify-items: center; /* Centrer les cartes dans leurs cellules */
         }
         .comparison-card {
-            padding: 32px 28px;
+            padding: 24px;
             border-radius: 8px;
             border: 2px solid var(--border-color);
             display: flex;
             flex-direction: column;
+            height: 100%; /* Utiliser toute la hauteur disponible */
             min-height: 100%;
+            align-self: stretch; /* S'étirer pour remplir la grille */
+            width: 100%;
+            max-width: 100%;
+            box-sizing: border-box;
         }
         .comparison-card.before {
             background: var(--bg-secondary);
@@ -501,44 +533,44 @@
         }
         .comparison-card h3 {
             font-size: 1.3em;
-            margin: 0 0 20px 0;
-            padding-bottom: 12px;
+            margin: 0 0 16px 0;
+            padding-bottom: 8px;
             border-bottom: 2px solid var(--border-color);
             color: var(--text-color);
             font-weight: 600;
+            flex-shrink: 0; /* Empêcher le titre de se rétrécir */
         }
         .comparison-card ul {
             margin: 0;
             padding-left: 20px;
             list-style: none;
-            flex-grow: 1;
-            margin-top: 8px;
+            flex-grow: 1; /* Prendre l'espace disponible */
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
         }
         .comparison-card li {
             margin-bottom: 12px;
-            padding-left: 24px;
+            padding-left: 0; /* Retirer le padding puisque les puces sont supprimées */
             position: relative;
             line-height: 1.6;
+            flex-shrink: 0; /* Empêcher les items de se rétrécir */
         }
         .comparison-card li::before {
-            content: '•';
-            position: absolute;
-            left: 0;
-            color: var(--primary-color);
-            font-weight: bold;
+            display: none; /* Supprimer les puces */
         }
         .comparison-card.before li::before {
-            color: var(--neutral-medium);
+            display: none; /* Supprimer les puces */
         }
         .metrics-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            grid-template-columns: repeat(2, 1fr);
             gap: 24px;
             margin: 40px 0;
         }
         .metric-small {
             background: var(--bg-secondary);
-            padding: 28px 24px;
+            padding: 24px;
             border-radius: 8px;
             text-align: center;
             border-left: 4px solid var(--primary-color);
@@ -628,13 +660,15 @@
         }
         .category-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            grid-template-columns: repeat(2, 1fr);
             gap: 24px;
             margin: 40px 0;
+            width: 100%;
+            box-sizing: border-box;
         }
         .category-card {
             background: var(--bg-secondary);
-            padding: 28px 24px;
+            padding: 24px;
             border-radius: 8px;
             border-left: 4px solid var(--primary-color);
             min-height: 140px;
@@ -713,36 +747,27 @@
         footer a {
             color: #000000;
             text-decoration: none;
+            transition: color 0.2s ease;
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
         }
         footer a:hover {
             color: #333333;
             text-decoration: underline;
         }
-        @media (max-width: 1200px) {
-            .category-grid[style*="repeat(5, 1fr)"] {
-                grid-template-columns: repeat(3, 1fr) !important;
-            }
+        footer a:hover {
+            color: #333333;
+            text-decoration: underline;
         }
         
-        @media (max-width: 800px) {
-            .category-grid[style*="repeat(5, 1fr)"] {
-                grid-template-columns: repeat(2, 1fr) !important;
-            }
-        }
-        
-        @media (max-width: 500px) {
-            .category-grid[style*="repeat(5, 1fr)"] {
-                grid-template-columns: 1fr !important;
-            }
-        }
-        
-        @media (max-width: 1000px) {
+        @media (max-width: 900px) {
             .metrics-hero {
                 grid-template-columns: repeat(3, 1fr);
                 gap: 16px;
             }
             .category-grid[style*="repeat(4, 1fr)"] {
+                grid-template-columns: repeat(2, 1fr) !important;
+            }
+            .category-grid[style*="repeat(5, 1fr)"] {
                 grid-template-columns: repeat(2, 1fr) !important;
             }
             .metrics-grid[style*="repeat(4, 1fr)"] {
@@ -755,14 +780,14 @@
                 gap: 24px;
             }
         }
-        @media (max-width: 700px) {
+        @media (max-width: 600px) {
             .metrics-hero {
                 grid-template-columns: repeat(2, 1fr);
                 gap: 12px;
             }
             .metric-card {
                 min-height: 110px;
-                padding: 16px 10px;
+                padding: 24px;
             }
             .metric-card h3 {
                 font-size: 2.2em;
@@ -773,16 +798,14 @@
             .category-grid[style*="repeat(4, 1fr)"] {
                 grid-template-columns: 1fr !important;
             }
+            .category-grid[style*="repeat(5, 1fr)"] {
+                grid-template-columns: 1fr !important;
+            }
             .metrics-grid {
-                grid-template-columns: repeat(2, 1fr);
+                grid-template-columns: 1fr;
             }
             .metrics-grid[style*="repeat(4, 1fr)"] {
                 grid-template-columns: 1fr !important;
-            }
-        }
-        @media (max-width: 500px) {
-            .metrics-grid {
-                grid-template-columns: 1fr;
             }
             .badge-container {
                 flex-direction: column;
@@ -796,6 +819,37 @@
             }
             section h1 {
                 font-size: 1.8em;
+            }
+        }
+        
+        /* RESPONSIVE HEADER */
+        @media (max-width: 850px) {
+            header {
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 16px 25px;
+            }
+            
+            .header-nav-wrapper {
+                margin-top: 10px;
+                width: 100%;
+                flex-wrap: wrap;
+            }
+            
+            .reading-mode-button {
+                font-size: 0.85em;
+                padding: 6px 12px;
+            }
+            
+            .reading-mode-controls {
+                margin-right: 0;
+                margin-top: 8px;
+                width: 100%;
+                justify-content: flex-start;
+            }
+            
+            .header-nav {
+                margin-top: 10px;
             }
         }
         /* Skip link for accessibility */
@@ -910,19 +964,70 @@
             transform: rotate(45deg);
         }
 
+        /* ============================================
+           TRANSITIONS HARMONISÉES POUR ACCORDÉONS
+           Même vitesse, même logique dans les deux fichiers
+           ============================================ */
         .section-accordion-content {
             max-height: 0;
             overflow: hidden;
-            transition: max-height 0.3s ease;
+            transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease;
+            opacity: 0;
         }
 
         .section-accordion.active .section-accordion-content {
-            max-height: 50000px;
+            max-height: 10000px; /* Valeur suffisamment grande */
+            opacity: 1;
+            transition: max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.4s ease 0.1s;
+        }
+
+        .section-accordion-header {
+            transition: background 0.2s ease, transform 0.2s ease;
+            cursor: pointer;
+            user-select: none;
+        }
+
+        .section-accordion-header:active {
+            transform: scale(0.98);
+        }
+
+        /* Désactiver les transitions pendant les animations pour éviter les chevauchements */
+        .section-accordion.animating .section-accordion-content {
+            transition: none;
         }
 
         .section-accordion-inner {
-            padding: 20px clamp(16px, 3vw, 24px);
+            padding: 30px 25px;
             background: #ffffff;
+        }
+        
+        /* Marges pour la première section du rapport */
+        .section-accordion:first-of-type {
+            margin-top: 40px;
+        }
+        
+        .section-accordion:first-of-type .section-accordion-inner {
+            padding: 40px 30px;
+        }
+        
+        /* Première grille de cartes avec marges harmonisées */
+        .section-accordion:first-of-type .category-grid {
+            margin-top: 40px;
+            margin-bottom: 40px;
+            padding: 0 20px;
+        }
+        
+        .section-accordion:first-of-type .category-card {
+            margin: 0;
+        }
+        
+        /* Marges harmonisées pour les cartes */
+        .category-grid,
+        .comparison-grid {
+            margin: 40px auto !important;
+            max-width: 900px !important;
+            padding: 0 20px;
+            justify-items: center !important;
         }
 
         .section-accordion-inner section {
@@ -940,10 +1045,399 @@
         .section-accordion-inner section::before {
             display: none;
         }
+        
+        /* ============================================
+           BARRE DE PROGRESSION DE LECTURE
+           Indicateur visuel en haut de page
+           ============================================ */
+        .reading-progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: var(--bg-secondary);
+            z-index: 1000;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .reading-progress.visible {
+            opacity: 1;
+        }
+        
+        .reading-progress-bar {
+            height: 100%;
+            background: var(--primary-color);
+            width: 0%;
+            transition: width 0.1s ease;
+        }
+        
+        /* ============================================
+           MODE LECTURE RAPIDE
+           Résumés condensés avec contrôle global
+           ============================================ */
+        /* Style minimaliste pour les résumés en mode rapide */
+        .quick-read-summary {
+            background: var(--bg-secondary);
+            padding: 20px 24px;
+            border-left: 4px solid var(--primary-color);
+            border-radius: 0 4px 4px 0;
+            margin: 20px 0;
+            font-size: 0.95em;
+            line-height: 1.7;
+            max-width: 100%;
+            width: 100%;
+            color: var(--text-secondary);
+            display: none;
+            box-shadow: var(--shadow-sm);
+            box-sizing: border-box;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+        }
+        
+        /* Mode lecture rapide activé */
+        body.quick-read-mode .quick-read-summary {
+            display: block;
+        }
+        
+        /* ============================================
+           AMÉLIORATION DE LA SEGMENTATION
+           Textes courts, structurés, lisibles
+           ============================================ */
+        
+        /* Optimisation des paragraphes - Utiliser toute la largeur disponible */
+        .section-accordion-inner > section > p {
+            max-width: 100%;
+            width: 100%;
+            margin: 1em 0;
+            line-height: 1.7;
+            text-align: justify;
+            hyphens: auto;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+            box-sizing: border-box;
+        }
+        
+        /* Espacement harmonieux entre les éléments */
+        .section-accordion-inner > section > h2 {
+            margin-top: 2em;
+            margin-bottom: 1em;
+            font-weight: 600;
+            line-height: 1.3;
+        }
+        
+        .section-accordion-inner > section > h3 {
+            margin-top: 1.5em;
+            margin-bottom: 0.75em;
+            font-weight: 500;
+            line-height: 1.4;
+        }
+        
+        /* ============================================
+           AMÉLIORATION DES CARTES
+           Style harmonisé et minimaliste
+           ============================================ */
+        
+        /* Amélioration des cartes existantes - styles complémentaires */
+        /* Les styles existants sont conservés, ces règles améliorent la cohérence */
+        
+        /* ============================================
+           OPTIMISATION DE L'ESPACE HORIZONTAL
+           Format 2×2 strict pour les cartes
+           ============================================ */
+        
+        /* Grilles de catégories - Format 2×2 optimisé */
+        .category-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            margin: 32px 0;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        
+        /* Grilles de composants - Format 2×2 optimisé */
+        .component-cards,
+        .component-cards-2 {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            margin: 32px 0;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        
+        /* Surcharger les styles inline si nécessaire */
+        .comparison-grid[style*="gap"] {
+            gap: 20px !important;
+        }
+        
+        /* Empêcher les cartes isolées - toutes les cartes ont la même largeur */
+        .category-card,
+        .component-card,
+        .comparison-card {
+            width: 100%;
+            min-width: 0;
+            box-sizing: border-box;
+        }
+        
+        /* Amélioration de la lisibilité du contenu des cartes */
+        .category-card .description {
+            line-height: 1.7;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+        }
+        
+        /* Styles supplémentaires pour les cartes de comparaison (hover, etc.) */
+        .comparison-card:hover {
+            box-shadow: var(--shadow-md);
+            transform: translateY(-2px);
+        }
+        
+        .comparison-card h3 {
+            margin-top: 0;
+            margin-bottom: 16px;
+            font-size: 1.15em;
+            font-weight: 600;
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 8px;
+        }
+        
+        .comparison-card ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .comparison-card li {
+            padding: 8px 0;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+            font-size: 0.9em;
+            line-height: 1.6;
+        }
+        
+        .comparison-card li:last-child {
+            border-bottom: none;
+        }
+        
+        /* Classe pour marquer les éléments essentiels à conserver */
+        .quick-read-essential {
+            display: block !important;
+        }
+        
+        /* Masquer les éléments détaillés en mode rapide */
+        body.quick-read-mode .section-accordion-inner > section > p:not(.quick-read-summary):not(.sr-only):not(.quick-read-essential):not(:first-of-type),
+        body.quick-read-mode .section-accordion-inner > section > h2:not(.quick-read-essential),
+        body.quick-read-mode .section-accordion-inner > section > h3:not(.quick-read-essential),
+        body.quick-read-mode .section-accordion-inner > section > ul:not(.quick-read-essential):not(:first-of-type),
+        body.quick-read-mode .section-accordion-inner > section > ol:not(.quick-read-essential):not(:first-of-type),
+        body.quick-read-mode .section-accordion-inner > section > table:not(.quick-read-essential):not(:first-of-type) {
+            display: none;
+        }
+        
+        /* Conserver les éléments essentiels de base en mode rapide */
+        body.quick-read-mode .section-accordion-inner > section > h1,
+        body.quick-read-mode .section-accordion-inner > section > p:first-of-type:not(.sr-only),
+        body.quick-read-mode .section-accordion-inner > section > ul:first-of-type,
+        body.quick-read-mode .section-accordion-inner > section > ol:first-of-type,
+        body.quick-read-mode .section-accordion-inner > section > table:first-of-type,
+        body.quick-read-mode .section-accordion-inner > section > .metrics-hero,
+        body.quick-read-mode .section-accordion-inner > section > .metrics,
+        body.quick-read-mode .section-accordion-inner > section > .category-grid,
+        body.quick-read-mode .section-accordion-inner > section > .comparison-grid,
+        body.quick-read-mode .section-accordion-inner > section > .progress-container,
+        body.quick-read-mode .section-accordion-inner > section > .highlight-box,
+        body.quick-read-mode .section-accordion-inner > section > .component-cards,
+        body.quick-read-mode .section-accordion-inner > section > .component-cards-2 {
+            display: block;
+        }
+        
+        /* Conserver les éléments marqués comme essentiels */
+        body.quick-read-mode .quick-read-essential {
+            display: block !important;
+        }
+        
+        /* Conserver les éléments de conclusion */
+        body.quick-read-mode .section-accordion-inner > section#conclusion > h2:last-of-type,
+        body.quick-read-mode .section-accordion-inner > section#conclusion > p:last-of-type {
+            display: block;
+        }
+        
+        /* ============================================
+           COHÉRENCE VISUELLE ENTRE MODES
+           Même logique graphique, version allégée
+           ============================================ */
+        
+        /* En mode rapide, les cartes conservent leur style mais sont plus compactes */
+        body.quick-read-mode .category-card,
+        body.quick-read-mode .component-card,
+        body.quick-read-mode .comparison-card {
+            padding: 16px;
+            margin-bottom: 16px;
+        }
+        
+        body.quick-read-mode .category-card h3,
+        body.quick-read-mode .component-card h4 {
+            font-size: 1em;
+            margin-bottom: 8px;
+        }
+        
+        body.quick-read-mode .category-card .description,
+        body.quick-read-mode .component-card p {
+            font-size: 0.85em;
+            line-height: 1.5;
+        }
+        
+        /* Les grilles en mode rapide restent en format 2×2 */
+        body.quick-read-mode .category-grid,
+        body.quick-read-mode .component-cards,
+        body.quick-read-mode .component-cards-2,
+        body.quick-read-mode .comparison-grid {
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px;
+            margin: 24px 0;
+            width: 100%;
+            box-sizing: border-box;
+            align-items: stretch; /* Aligner les cartes sur la même hauteur */
+        }
+        
+        /* Cartes en mode rapide - Largeur optimisée */
+        body.quick-read-mode .category-card,
+        body.quick-read-mode .component-card,
+        body.quick-read-mode .comparison-card {
+            width: 100%;
+            min-width: 0;
+            box-sizing: border-box;
+        }
+        
+        /* Cartes de comparaison en mode rapide - Hauteur optimisée */
+        body.quick-read-mode .comparison-card {
+            height: 100%;
+            align-self: stretch;
+        }
+        
+        /* Paragraphes essentiels en mode rapide - style harmonisé */
+        body.quick-read-mode .quick-read-essential {
+            max-width: 100%;
+            width: 100%;
+            margin: 1em 0;
+            line-height: 1.7;
+            box-sizing: border-box;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+        }
+        
+        /* Titres essentiels en mode rapide - même hiérarchie visuelle */
+        body.quick-read-mode .quick-read-essential h2 {
+            margin-top: 1.5em;
+            margin-bottom: 0.75em;
+            font-weight: 600;
+        }
+        
+        body.quick-read-mode .quick-read-essential h3 {
+            margin-top: 1.25em;
+            margin-bottom: 0.5em;
+            font-weight: 500;
+        }
+        
+        /* Responsive - Adaptation mobile */
+        @media (max-width: 900px) {
+            .section-accordion-inner > section > p {
+                max-width: 100%;
+                width: 100%;
+                text-align: left;
+            }
+            
+            .category-grid,
+            .component-cards,
+            .component-cards-2,
+            .comparison-grid {
+                grid-template-columns: 1fr;
+                gap: 16px;
+                width: 100%;
+            }
+            
+            .comparison-card {
+                height: auto; /* Hauteur automatique sur mobile */
+            }
+            
+            .quick-read-summary {
+                padding: 16px;
+                max-width: 100%;
+                width: 100%;
+            }
+        }
+        
+        /* Pour les très grands écrans, optimiser l'espace */
+        @media (min-width: 1400px) {
+            .category-grid,
+            .component-cards,
+            .component-cards-2,
+            .comparison-grid {
+                max-width: 1200px;
+                margin-left: auto;
+                margin-right: auto;
+            }
+        }
+        
+        /* Boutons de contrôle de lecture dans le header */
+        .reading-mode-controls {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-right: 12px;
+        }
+        
+        .reading-mode-button {
+            background: transparent;
+            border: 1px solid var(--importance-high);
+            border-radius: 6px;
+            padding: 8px 16px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            font-family: inherit;
+            font-size: 0.9em;
+            font-weight: 500;
+            white-space: nowrap;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-color);
+        }
+        
+        .reading-mode-button:hover {
+            background: var(--importance-high);
+            border-color: var(--importance-high);
+            color: #ffffff;
+        }
+        
+        .reading-mode-button.active {
+            background: var(--importance-high);
+            border-color: var(--importance-high);
+            color: #ffffff;
+        }
+        
+        .reading-mode-button:focus-visible {
+            outline: 3px solid var(--importance-high);
+            outline-offset: 2px;
+        }
+        
+        .header-nav-wrapper {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
     </style>
 </head>
 <body>
     <a href="#main-content" class="skip-link">Aller au contenu principal</a>
+    
+    <!-- Barre de progression de lecture -->
+    <div class="reading-progress" id="reading-progress" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
+        <div class="reading-progress-bar" id="reading-progress-bar"></div>
+    </div>
+    
     <header role="banner">
         <div class="header-left">
             <a href="index.html" aria-label="Retour à l'accueil">
@@ -952,26 +1446,33 @@
                 </h2>
             </a>
         </div>
-        <nav class="header-nav" aria-label="Navigation principale">
-            <div class="nav-dropdown">
-                <button class="nav-dropdown-toggle" aria-expanded="false" aria-haspopup="true" aria-label="Menu de navigation">
-                    Navigation <span class="nav-arrow">▼</span>
+        <div class="header-nav-wrapper">
+            <div class="reading-mode-controls">
+                <button class="reading-mode-button" id="reading-mode-quick" aria-pressed="false" aria-label="Mode lecture rapide">
+                    Lecture rapide
                 </button>
+                <button class="reading-mode-button active" id="reading-mode-full" aria-pressed="true" aria-label="Mode lecture complète">
+                    Lecture complète
+                </button>
+            </div>
+            <nav class="header-nav" aria-label="Navigation principale">
+                <div class="nav-dropdown">
+                    <button class="nav-dropdown-toggle" aria-expanded="false" aria-haspopup="true" aria-label="Menu de navigation">
+                        Navigation <span class="nav-arrow">▼</span>
+                    </button>
                 <ul class="nav-dropdown-menu" role="menu" aria-hidden="true">
                     <li role="none"><a href="index.html" role="menuitem">Accueil</a></li>
                     <li role="none"><a href="#resume-executif" role="menuitem">Résumé exécutif</a></li>
-                    <li role="none"><a href="#contexte-methodologie" role="menuitem">Contexte et méthodologie</a></li>
-                    <li role="none"><a href="#qualite-standards" role="menuitem">Analyses techniques</a></li>
-                    <li role="none"><a href="#dimension-fonctionnelle" role="menuitem">Dimensions</a></li>
+                    <li role="none"><a href="#contexte-analyses" role="menuitem">Contexte et analyses</a></li>
+                    <li role="none"><a href="#dimensions-metriques" role="menuitem">Dimensions et métriques</a></li>
                     <li role="none"><a href="#automatisation-ia" role="menuitem">Automatisation IA</a></li>
-                    <li role="none"><a href="#metriques-indicateurs" role="menuitem">Métriques</a></li>
                     <li role="none"><a href="#projection-court-terme" role="menuitem">Projections</a></li>
                     <li role="none"><a href="#conclusion" role="menuitem">Conclusion</a></li>
-                    <li role="none"><a href="#bibliographie" role="menuitem">Bibliographie</a></li>
-                    <li role="none"><a href="#glossaire" role="menuitem">Glossaire</a></li>
+                    <li role="none"><a href="#references" role="menuitem">Références</a></li>
                 </ul>
-            </div>
-        </nav>
+                </div>
+            </nav>
+        </div>
     </header>
     <main id="main-content" role="main">
         <section class="hero-section">
@@ -1047,19 +1548,22 @@
             </div>
         </div>
         
-        <!-- Accordéon Contexte et méthodologie -->
-        <div class="section-accordion importance-normal">
+        <!-- Accordéon Contexte et analyses -->
+        <div class="section-accordion importance-high">
             <div class="section-accordion-header" onclick="toggleSection(this)">
-                Contexte et méthodologie
+                Contexte et analyses
             </div>
             <div class="section-accordion-content">
                 <div class="section-accordion-inner">
-        <section id="contexte-methodologie">
-            <h1 id="contexte-methodologie-title">Contexte et méthodologie</h1>
-            <p>Ce rapport analyse l'impact projeté de l'intégration des 31 standards techniques sur le projet IT Dashboard A+. Il présente le contexte du projet, la méthodologie d'analyse utilisée, et les résultats projetés en termes de qualité, de maturité technique et de capacité d'automatisation IA.</p>
+        <section id="contexte-analyses">
+            <h1 id="contexte-analyses-title">Contexte et analyses</h1>
+            <p>Ce rapport analyse l'impact projeté de l'intégration des 31 standards techniques sur le projet IT Dashboard A+. Il présente le contexte du projet, la méthodologie d'analyse utilisée, et l'évaluation de la qualité des standards.</p>
+            <p>Il expose également les résultats projetés en termes de qualité, de maturité technique et de capacité d'automatisation IA.</p>
             
             <h2>Contexte du projet IT Dashboard A+</h2>
-            <p>IT Dashboard A+ est un projet Proof of Concept opérationnel qui comprend plusieurs composants techniques. Le projet inclut 124 scripts PowerShell pour l'orchestration et l'automatisation, 55 fichiers Python pour le backend et les collecteurs, 80 composants React et TypeScript pour le frontend, 10 collecteurs opérationnels pour les pôles 1 à 10, un pipeline ETL complet pour le traitement des données, et une intégration Vault fonctionnelle pour la gestion sécurisée des secrets. Cette architecture modulaire et extensible permet une évolution progressive du projet vers une solution plus mature.</p>
+            <p>IT Dashboard A+ est un projet Proof of Concept opérationnel qui comprend plusieurs composants techniques. Le projet inclut 124 scripts PowerShell pour l'orchestration et l'automatisation, 55 fichiers Python pour le backend et les collecteurs, et 80 composants React et TypeScript pour le frontend.</p>
+            <p>Il comprend également 10 collecteurs opérationnels pour les pôles 1 à 10, un pipeline ETL complet pour le traitement des données, et une intégration Vault fonctionnelle pour la gestion sécurisée des secrets. Le projet inclut 11 prompts fondateurs et 17 fichiers INIT_SEQUENCE (1 809 lignes) pour la gouvernance IA.</p>
+            <p>Cette architecture modulaire et extensible permet une évolution progressive du projet vers une solution plus mature.</p>
             
             <h2>État actuel du projet</h2>
             <p>Le projet présente actuellement plusieurs limitations. La documentation est dispersée et manque de structure cohérente. Les conventions de nommage et de codage varient selon les composants. L'automatisation IA est limitée, avec peu de workflows automatisables. La maturité technique est estimée à CMMI niveau 1-2, correspondant à des processus ad hoc et peu structurés. Ces limitations rendent difficile la maintenance, l'évolution et la réutilisation du projet.</p>
@@ -1068,26 +1572,15 @@
             <p>Les 31 standards Projet3 analysés dans ce rapport sont organisés en 8 catégories logiques : Qualité (2 standards), Code (4 standards), Infrastructure (5 standards), Sécurité (3 standards), Pipeline (5 standards), Opérationnel (5 standards), Gouvernance (5 standards), et Interface (2 standards). Chaque standard suit une structure cohérente qui permettrait une utilisation directe par un agent IA, avec des guides pour agent IA, des workflows automatisables, des templates réutilisables, et des algorithmes de validation. Cette analyse projette l'impact de leur intégration future sur le projet.</p>
             
             <h2>Méthodologie d'analyse</h2>
-            <p>La méthodologie d'analyse comprend 4 étapes principales. La première étape consiste en une cartographie complète des 31 standards, avec identification de leur structure, de leur contenu, et de leur portée fonctionnelle. La deuxième étape est une évaluation de la qualité des standards selon 5 critères pondérés : Structure (30%), Écriture (25%), IA (25%), Exemples (10%), et Intégration (10%). La troisième étape est une analyse de l'impact dimensionnel, évaluant l'impact des standards sur la fonctionnalité, l'organisation, la maturité technique, et la capacité d'automatisation IA. La quatrième étape consiste en des projections d'évolution à court terme (6-12 mois), moyen terme (12-24 mois), et long terme (24+ mois), identifiant les opportunités d'amélioration et d'évolution du projet.</p>
-        </section>
-                </div>
-            </div>
-        </div>
-        
-        <!-- Accordéon Analyses techniques -->
-        <div class="section-accordion importance-high">
-            <div class="section-accordion-header" onclick="toggleSection(this)">
-                Analyses techniques : qualité et maturité
-            </div>
-            <div class="section-accordion-content">
-                <div class="section-accordion-inner">
-        <section id="qualite-standards">
-            <h1 id="qualite-standards-title">Analyses techniques : qualité et maturité</h1>
-            <p>Cette section présente l'analyse de la qualité des standards et l'impact projeté sur la maturité technique du projet. L'évaluation de la qualité des standards permet d'identifier les forces et les opportunités d'amélioration, tandis que l'analyse de la maturité technique montre l'évolution projetée du projet vers des processus plus structurés et quantitativement gérés.</p>
+            <p>La méthodologie d'analyse comprend 4 étapes principales. La première étape consiste en une cartographie complète des 31 standards, avec identification de leur structure, de leur contenu, et de leur portée fonctionnelle.</p>
+            <p>La deuxième étape est une évaluation de la qualité des standards selon 5 critères pondérés : Structure (30%), Écriture (25%), IA (25%), Exemples (10%), et Intégration (10%).</p>
+            <p>La troisième étape est une analyse de l'impact dimensionnel, évaluant l'impact des standards sur la fonctionnalité, l'organisation, la maturité technique, et la capacité d'automatisation IA.</p>
+            <p>La quatrième étape consiste en des projections d'évolution à court terme (6-12 mois), moyen terme (12-24 mois), et long terme (24+ mois), identifiant les opportunités d'amélioration et d'évolution du projet.</p>
+            <p>Cette méthodologie rigoureuse permet d'évaluer de manière systématique l'impact projeté de chaque standard sur le projet, garantissant une analyse complète et structurée.</p>
             
             <h2>Qualité des standards : évaluation complète</h2>
-            <p>Les 31 standards Projet3 ont tous atteint un score de qualité optimal de 100/100, garantissant une complétude et une cohérence maximales. Les standards sont organisés en 8 catégories logiques : Qualité (2 standards de référence), Code (4 standards), Infrastructure (5 standards), Sécurité (3 standards), Pipeline (5 standards), Opérationnel (5 standards), Gouvernance (5 standards), et Interface (2 standards). Cette organisation permet une navigation facile et une utilisation efficace des standards selon le domaine concerné.</p>
-            <p>L'évaluation de la qualité des standards est basée sur 5 critères pondérés. La Structure (30%) évalue la cohérence de l'organisation, la complétude des sections, et la clarté de la présentation. L'Écriture (25%) évalue la qualité de la rédaction, la précision du vocabulaire, et la lisibilité. L'IA (25%) évalue la présence de guides pour agent IA, de workflows automatisables, et de templates réutilisables. Les Exemples (10%) évaluent la présence d'exemples concrets et exploitables. L'Intégration (10%) évalue la cohérence avec les autres standards et la facilité d'intégration dans le projet.</p>
+            <p>Les résultats de l'évaluation montrent que les 31 standards Projet3 ont tous atteint un score de qualité optimal de 100/100, garantissant une complétude et une cohérence maximales. Cette organisation permet une navigation facile et une utilisation efficace des standards selon le domaine concerné.</p>
+            <p>L'évaluation est basée sur 5 critères pondérés. La Structure (30%) évalue la cohérence de l'organisation, la complétude des sections, et la clarté de la présentation. L'Écriture (25%) évalue la qualité de la rédaction, la précision du vocabulaire, et la lisibilité. L'IA (25%) évalue la présence de guides pour agent IA, de workflows automatisables, et de templates réutilisables. Les Exemples (10%) évaluent la présence d'exemples concrets et exploitables. L'Intégration (10%) évalue la cohérence avec les autres standards et la facilité d'intégration dans le projet.</p>
             <p>L'automatisation IA intégrée dans les standards comprend 500 patterns regex pour la détection automatique de non-conformités, 150 algorithmes de validation pour garantir la conformité, 100 templates réutilisables pour accélérer le développement, et 200 KPIs avec formules pour le suivi continu de l'impact. Cette automatisation permettrait une utilisation efficace des standards par des agents IA, réduisant la charge de travail manuel et garantissant la conformité.</p>
             
             <h2>Maturité technique : évolution CMMI</h2>
@@ -1155,38 +1648,41 @@
             </div>
         </div>
         
-        <!-- Accordéon Dimensions -->
-        <div class="section-accordion importance-normal">
+        <!-- Accordéon Dimensions et métriques -->
+        <div class="section-accordion importance-high">
             <div class="section-accordion-header" onclick="toggleSection(this)">
-                Dimensions fonctionnelle & organisationnelle
+                Dimensions et métriques
             </div>
             <div class="section-accordion-content">
                 <div class="section-accordion-inner">
-        <section id="dimension-fonctionnelle">
-            <h1 id="dimension-fonctionnelle-title">Dimensions fonctionnelle & organisationnelle</h1>
-            <p>Cette section analyse l'impact projeté des standards sur les dimensions fonctionnelle et organisationnelle du projet. La dimension fonctionnelle évalue les extensions fonctionnelles qui seraient ajoutées par les standards, tandis que la dimension organisationnelle évalue l'impact projeté sur la structure, les processus et la maintenabilité du projet.</p>
+        <section id="dimensions-metriques">
+            <h1 id="dimensions-metriques-title">Dimensions et métriques</h1>
+            <p>Cette section analyse l'impact projeté des standards sur les dimensions fonctionnelle et organisationnelle du projet, ainsi que les métriques et indicateurs dimensionnels permettant de mesurer cet impact.</p>
+            <p>La dimension fonctionnelle évalue les extensions fonctionnelles qui seraient ajoutées par les standards. La dimension organisationnelle évalue l'impact projeté sur la structure, les processus et la maintenabilité du projet.</p>
+            <p>Les métriques couvrent la couverture fonctionnelle, la réutilisabilité, l'automatisation, la traçabilité, le multiplicateur dimensionnel, et les KPIs pour le suivi continu de l'impact projeté.</p>
             
             <h2>Dimension fonctionnelle : extensions fonctionnelles projetées</h2>
-            <p>Selon la projection, les standards Projet3 ajouteraient de nombreuses extensions fonctionnelles au projet, couvrant tous les aspects techniques. Ces extensions projetées permettraient d'enrichir le projet avec de nouvelles fonctionnalités, d'améliorer la qualité du code, et de faciliter la maintenance et l'évolution.</p>
+            <p>Selon la projection, les standards Projet3 ajouteraient de nombreuses extensions fonctionnelles au projet, couvrant tous les aspects techniques.</p>
+            <p>Ces extensions projetées permettraient d'enrichir le projet avec de nouvelles fonctionnalités, d'améliorer la qualité du code, et de faciliter la maintenance et l'évolution.</p>
             
             <div class="category-grid" style="grid-template-columns: repeat(5, 1fr); gap: 12px; margin-top: 20px;">
-                <div class="category-card" style="padding: 16px 14px;">
+                <div class="category-card" style="padding: 24px;">
                     <h3 style="font-size: 1em; margin-bottom: 8px;">Pipeline</h3>
                     <div class="description" style="font-size: 0.85em; line-height: 1.4;">Collecteurs, ETL, orchestration, moteur de règles, corrélation.</div>
                 </div>
-                <div class="category-card" style="padding: 16px 14px;">
+                <div class="category-card" style="padding: 24px;">
                     <h3 style="font-size: 1em; margin-bottom: 8px;">Infrastructure</h3>
                     <div class="description" style="font-size: 0.85em; line-height: 1.4;">Configuration, gestion erreurs, tests, observabilité.</div>
                 </div>
-                <div class="category-card" style="padding: 16px 14px;">
+                <div class="category-card" style="padding: 24px;">
                     <h3 style="font-size: 1em; margin-bottom: 8px;">Sécurité</h3>
                     <div class="description" style="font-size: 0.85em; line-height: 1.4;">Gestion secrets, intégration Vault, bonnes pratiques.</div>
                 </div>
-                <div class="category-card" style="padding: 16px 14px;">
+                <div class="category-card" style="padding: 24px;">
                     <h3 style="font-size: 1em; margin-bottom: 8px;">Gouvernance</h3>
                     <div class="description" style="font-size: 0.85em; line-height: 1.4;">Dépendances, documentation, Git workflow, versioning.</div>
                 </div>
-                <div class="category-card" style="padding: 16px 14px;">
+                <div class="category-card" style="padding: 24px;">
                     <h3 style="font-size: 1em; margin-bottom: 8px;">Interfaces</h3>
                     <div class="description" style="font-size: 0.85em; line-height: 1.4;">API Design, menus CLI.</div>
                 </div>
@@ -1241,39 +1737,6 @@
             
             <h2>Workflows automatisables par standard</h2>
             <p>Chaque standard inclut un workflow complet qui permettrait à un agent IA de traiter le standard de manière autonome. Ces workflows décrivent les étapes nécessaires pour utiliser le standard, générer du code conforme, détecter les non-conformités, valider la conformité, et corriger les erreurs. Cette approche garantirait que chaque standard pourrait être utilisé efficacement par un agent IA, réduisant la nécessité d'intervention manuelle et améliorant la productivité.</p>
-        </section>
-                </div>
-            </div>
-        </div>
-        
-        <!-- Accordéon Métriques -->
-        <div class="section-accordion importance-high">
-            <div class="section-accordion-header" onclick="toggleSection(this)">
-                Métriques et indicateurs dimensionnels
-            </div>
-            <div class="section-accordion-content">
-                <div class="section-accordion-inner">
-        <section id="metriques-indicateurs">
-            <h1 id="metriques-indicateurs-title">Métriques et indicateurs dimensionnels</h1>
-            <p>Cette section présente les métriques et indicateurs dimensionnels permettant de mesurer l'impact projeté des standards sur le projet. Ces métriques couvrent la couverture fonctionnelle, la réutilisabilité, l'automatisation, la traçabilité, le multiplicateur dimensionnel, et les KPIs pour le suivi continu de l'impact projeté.</p>
-            
-            <h2>Couverture fonctionnelle</h2>
-            <p>La couverture fonctionnelle projetée des standards serait de 100%, avec 31 standards couvrant tous les aspects du projet. Cette couverture complète projetée garantirait que tous les domaines techniques seraient couverts par les standards, assurant une cohérence et une qualité maximales. Les 8 catégories de standards (Qualité, Code, Infrastructure, Sécurité, Pipeline, Opérationnel, Gouvernance, Interface) couvriraient l'ensemble des aspects techniques du projet, de la qualité du code à la gouvernance du projet.</p>
-            
-            <h2>Réutilisabilité</h2>
-            <p>La réutilisabilité projetée des standards serait élevée, avec 750 éléments réutilisables répartis entre 100 templates, 150 algorithmes, et 500 patterns. Cela représenterait une moyenne de 24,2 éléments réutilisables par standard. Cette réutilisabilité projetée permettrait d'accélérer le développement en fournissant des éléments prêts à l'emploi, réduisant le temps nécessaire à la création de nouveaux composants et garantissant la conformité aux standards.</p>
-            
-            <h2>Automatisation</h2>
-            <p>L'automatisation projetée des standards serait importante, avec une augmentation projetée de +400% par rapport à l'état initial. Cette automatisation projetée serait rendue possible par les 31 workflows automatisables intégrés dans les standards. Chaque workflow permettrait à un agent IA de traiter le standard de manière autonome, réduisant la charge de travail manuel et garantissant la conformité. Cette automatisation projetée montre l'impact potentiel des standards sur l'efficacité du développement.</p>
-            
-            <h2>Traçabilité</h2>
-            <p>La traçabilité projetée des standards serait complète, avec les 31 standards documentés incluant un historique détaillé, des guides pour agent IA, et des processus de validation. Cette traçabilité projetée permettrait de suivre l'évolution des standards, de comprendre leur utilisation, et de valider leur conformité. Elle garantirait également que chaque standard pourrait être utilisé efficacement par un agent IA, avec toutes les informations nécessaires pour une utilisation autonome.</p>
-            
-            <h2>Multiplicateur dimensionnel</h2>
-            <p>Le multiplicateur dimensionnel projeté des standards est de 3,5×, signifiant que la valeur et la portée du projet seraient multipliées par 3,5 grâce à l'intégration projetée des standards. Ce multiplicateur montre l'impact potentiel des standards sur la valeur et la portée du projet, transformant le projet d'un ensemble de composants isolés vers un framework structuré et réutilisable.</p>
-            
-            <h2>KPIs pour le suivi continu</h2>
-            <p>Les standards incluent 200 KPIs avec formules pour le suivi continu de l'impact. Ces KPIs permettraient de mesurer l'impact projeté des standards sur différents aspects du projet, comme la qualité du code, la maintenabilité, l'automatisation, et la maturité technique. Ces KPIs faciliteraient le suivi continu de l'impact projeté des standards et permettraient d'identifier les opportunités d'amélioration.</p>
         </section>
                 </div>
             </div>
@@ -1363,16 +1826,19 @@
             </div>
         </div>
         
-        <!-- Accordéon Bibliographie -->
+        <!-- Accordéon Références -->
         <div class="section-accordion importance-normal">
             <div class="section-accordion-header" onclick="toggleSection(this)">
-                Bibliographie
+                Références
             </div>
             <div class="section-accordion-content">
                 <div class="section-accordion-inner">
-        <section id="bibliographie" class="bibliographie-section">
-            <h1 id="bibliographie-title">Bibliographie</h1>
-            <p>Cette section liste toutes les références externes et standards utilisés dans ce rapport. Les références sont organisées par catégorie et suivent un format de citation standardisé.</p>
+        <section id="references" class="references-section">
+            <h1 id="references-title">Références</h1>
+            <p>Cette section liste toutes les références externes, standards utilisés dans ce rapport, ainsi que les définitions des termes techniques et acronymes. Les références sont organisées par catégorie et suivent un format de citation standardisé.</p>
+            
+            <h2>Bibliographie</h2>
+            <p>Références externes et standards utilisés dans ce rapport.</p>
             
             <h2>Standards Python</h2>
             <ul style="list-style: none; padding: 0;">
@@ -1537,21 +2003,9 @@
                     <strong>INIT_SEQUENCE.</strong> Système de gouvernance IA basé sur une machine à états finis, développé dans le cadre du projet IT Dashboard A+ pour résoudre le problème de perte de contexte lors des interactions avec les IA. IT Dashboard A+. (Consulté le 2025-01-01)
                 </li>
             </ul>
-        </section>
-                </div>
-            </div>
-        </div>
-        
-        <!-- Accordéon Glossaire -->
-        <div class="section-accordion importance-normal">
-            <div class="section-accordion-header" onclick="toggleSection(this)">
-                Glossaire
-            </div>
-            <div class="section-accordion-content">
-                <div class="section-accordion-inner">
-        <section id="glossaire" class="glossaire-section">
-            <h1 id="glossaire-title">Glossaire</h1>
-            <p>Cette section définit les termes techniques, acronymes et concepts utilisés dans ce rapport. Les définitions facilitent la compréhension du document pour tous les publics.</p>
+            
+            <h2>Glossaire</h2>
+            <p>Définitions des termes techniques, acronymes et concepts utilisés dans ce rapport.</p>
             
             <div style="margin-top: 30px;">
                 <h2 style="font-size: 1.3em; margin-bottom: 20px; color: var(--primary-color);">A</h2>
@@ -1629,68 +2083,91 @@
         </div>
     </main>
     
-    <footer role="contentinfo" style="background: #ffffff; color: #000000; border-top: 2px solid #000000; padding: 30px 0; margin-top: 60px; text-align: center;">
-        <div style="max-width: var(--max-width); margin: 0 auto; padding: 0 40px;">
-            <div style="margin-bottom: 20px;">
-                <p style="font-size: 1.1em; font-weight: 600; margin-bottom: 10px; color: #000000;">Rapport de Projection Dimensionnelle - IT Dashboard A+</p>
-                <p style="margin: 5px 0; color: #000000;"><strong>Auteur :</strong> Gabriel ROULON</p>
-                <p style="margin: 5px 0; color: #000000;"><strong>Date de publication :</strong> 2025-12-29</p>
-                <p style="margin: 5px 0; color: #000000;"><strong>Version du rapport :</strong> 1.0.0</p>
-                <p style="margin: 5px 0; color: #000000;"><strong>Statut :</strong> Final</p>
-                <p style="margin: 5px 0; color: #000000;"><strong>Projet :</strong> IT Dashboard A+</p>
-            </div>
-            
-            <div style="margin-top: 20px; padding-top: 20px; border-top: 1px solid #000000;">
-                <p style="margin: 5px 0; font-size: 0.9em; color: #000000; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;">
-                    Analyse visuelle de l'impact et de la portée du projet - 2025
-                </p>
-                <p style="margin: 10px 0; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;">
-                    <a href="https://github.com/Gab-Hub-Ctrl/presentation_technique" target="_blank" rel="noopener noreferrer" style="color: #000000; text-decoration: none; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;">Dépôt GitHub</a>
-                </p>
-            </div>
-        </div>
+    <footer role="contentinfo">
+        <p>Projet IT Dashboard A+</p>
+        <p>Gabriel ROULON</p>
+        <p>Démarche de démonstration technique et académique - 2025</p>
+        <p>
+            <a href="https://github.com/Gab-Hub-Ctrl/presentation_technique" target="_blank" rel="noopener noreferrer">Dépôt GitHub</a>
+        </p>
     </footer>
     
     <script>
         /**
          * Fonction pour ouvrir/fermer les sections accordéon
+         * Version harmonisée avec gestion des animations
          */
+        // Variable globale pour gérer l'état des animations
+        let isAnimating = false;
+        const ANIMATION_DURATION = 500; // Durée de l'animation en ms
+        
         function toggleSection(element) {
+            // Empêcher les actions simultanées
+            if (isAnimating) return;
+            
             const section = element.parentElement;
             const isActive = section.classList.contains('active');
             
-            // Si on ouvre une nouvelle section, fermer d'abord les autres avec un délai
+            // Si on ouvre une nouvelle section, fermer d'abord les autres
             if (!isActive) {
+                isAnimating = true;
+                
                 // Fermer toutes les autres sections d'abord
                 const allAccordions = document.querySelectorAll('.section-accordion.active');
+                const closingPromises = [];
+                
                 allAccordions.forEach(acc => {
                     if (acc !== section) {
+                        acc.classList.add('animating');
                         acc.classList.remove('active');
+                        closingPromises.push(new Promise(resolve => {
+                            setTimeout(() => {
+                                acc.classList.remove('animating');
+                                resolve();
+                            }, ANIMATION_DURATION);
+                        }));
                     }
                 });
                 
-                // Attendre que la fermeture soit terminée avant d'ouvrir la nouvelle section
-                setTimeout(() => {
-                    section.classList.add('active');
-                    
-                    // Réappliquer l'alignement adaptatif des cartes après ouverture
-                    setTimeout(applyAdaptiveTextAlignment, 100);
-                    
-                    // Scroller vers l'en-tête de l'accordéon après un court délai
+                // Attendre que toutes les fermetures soient terminées
+                Promise.all(closingPromises).then(() => {
+                    // Ouvrir la nouvelle section après un court délai
                     setTimeout(() => {
-                        const headerHeight = 100; // Hauteur du header fixe
-                        const headerPosition = element.getBoundingClientRect().top + window.pageYOffset;
-                        const offsetPosition = Math.max(0, headerPosition - headerHeight);
+                        section.classList.add('animating');
+                        section.classList.add('active');
                         
-                        window.scrollTo({
-                            top: offsetPosition,
-                            behavior: 'smooth'
-                        });
-                    }, 200);
-                }, 150); // Délai pour permettre la fermeture de la section précédente
+                        // Réappliquer l'alignement adaptatif après ouverture
+                        setTimeout(() => {
+                            if (typeof applyAdaptiveTextAlignment === 'function') {
+                                applyAdaptiveTextAlignment();
+                            }
+                            section.classList.remove('animating');
+                            isAnimating = false;
+                            
+                            // Scroller vers l'en-tête après ouverture complète
+                            setTimeout(() => {
+                                const headerHeight = 100;
+                                const headerPosition = element.getBoundingClientRect().top + window.pageYOffset;
+                                const offsetPosition = Math.max(0, headerPosition - headerHeight);
+                                
+                                window.scrollTo({
+                                    top: offsetPosition,
+                                    behavior: 'smooth'
+                                });
+                            }, 100);
+                        }, ANIMATION_DURATION);
+                    }, 50);
+                });
             } else {
-                // Si on ferme la section, pas besoin de délai
+                // Fermer la section actuelle
+                isAnimating = true;
+                section.classList.add('animating');
                 section.classList.remove('active');
+                
+                setTimeout(() => {
+                    section.classList.remove('animating');
+                    isAnimating = false;
+                }, ANIMATION_DURATION);
             }
         }
 
@@ -1747,55 +2224,70 @@
                     if (href && href.startsWith('#')) {
                         e.preventDefault();
                         
+                        // Empêcher les actions pendant les animations
+                        if (isAnimating) return;
+                        
                         const targetId = href.substring(1);
                         const targetElement = document.getElementById(targetId);
                         
-                        if (targetElement) {
-                            // Fermer tous les accordéons ouverts d'abord
-                            const allAccordions = document.querySelectorAll('.section-accordion.active');
-                            allAccordions.forEach(acc => {
-                                acc.classList.remove('active');
-                            });
-                            
-                            // Trouver l'accordéon parent
-                            let accordion = targetElement.closest('.section-accordion');
-                            
-                            // Si l'élément cible est dans une section, remonter jusqu'à l'accordéon
-                            if (!accordion) {
-                                let parent = targetElement.parentElement;
-                                while (parent && !parent.classList.contains('section-accordion')) {
-                                    parent = parent.parentElement;
-                                }
-                                accordion = parent;
+                        if (!targetElement) return;
+                        
+                        // Trouver l'accordéon correspondant
+                        let accordion = targetElement.closest('.section-accordion');
+                        if (!accordion) {
+                            // Chercher dans les parents
+                            let parent = targetElement.parentElement;
+                            while (parent && !parent.classList.contains('section-accordion')) {
+                                parent = parent.parentElement;
                             }
-                            
-                            // Ouvrir l'accordéon correspondant si trouvé avec un délai pour éviter les perturbations visuelles
+                            accordion = parent;
+                        }
+                        
+                        // Fermer toutes les sections d'abord
+                        const allAccordions = document.querySelectorAll('.section-accordion.active');
+                        const closingPromises = [];
+                        
+                        allAccordions.forEach(acc => {
+                            if (acc !== accordion) {
+                                acc.classList.add('animating');
+                                acc.classList.remove('active');
+                                closingPromises.push(new Promise(resolve => {
+                                    setTimeout(() => {
+                                        acc.classList.remove('animating');
+                                        resolve();
+                                    }, ANIMATION_DURATION);
+                                }));
+                            }
+                        });
+                        
+                        // Attendre la fermeture puis ouvrir
+                        Promise.all(closingPromises).then(() => {
                             if (accordion) {
                                 setTimeout(() => {
+                                    accordion.classList.add('animating');
                                     accordion.classList.add('active');
                                     
-                                    // Réappliquer l'alignement adaptatif des cartes après ouverture
-                                    setTimeout(applyAdaptiveTextAlignment, 100);
-                                    
-                                    // Trouver l'en-tête de l'accordéon
-                                    const accordionHeader = accordion.querySelector('.section-accordion-header');
-                                    
-                                    // Scroller vers l'en-tête de l'accordéon après un court délai pour permettre l'ouverture
-                                    if (accordionHeader) {
+                                    setTimeout(() => {
+                                        if (typeof applyAdaptiveTextAlignment === 'function') {
+                                            applyAdaptiveTextAlignment();
+                                        }
+                                        accordion.classList.remove('animating');
+                                        
+                                        // Scroller vers la section
                                         setTimeout(() => {
-                                            const headerHeight = 100; // Hauteur du header fixe
-                                            const headerPosition = accordionHeader.getBoundingClientRect().top + window.pageYOffset;
-                                            const offsetPosition = Math.max(0, headerPosition - headerHeight);
+                                            const headerHeight = 100;
+                                            const elementPosition = targetElement.getBoundingClientRect().top + window.pageYOffset;
+                                            const offsetPosition = Math.max(0, elementPosition - headerHeight);
                                             
                                             window.scrollTo({
                                                 top: offsetPosition,
                                                 behavior: 'smooth'
                                             });
-                                        }, 200);
-                                    }
-                                }, 150); // Délai pour permettre la fermeture de la section précédente
+                                        }, 100);
+                                    }, ANIMATION_DURATION);
+                                }, 50);
                             } else {
-                                // Si pas d'accordéon, scroller directement vers l'élément
+                                // Si pas d'accordéon, scroller directement
                                 setTimeout(() => {
                                     const headerHeight = 100;
                                     const elementPosition = targetElement.getBoundingClientRect().top + window.pageYOffset;
@@ -1805,13 +2297,12 @@
                                         top: offsetPosition,
                                         behavior: 'smooth'
                                     });
-                                }, 100);
+                                }, ANIMATION_DURATION + 50);
                             }
-                        }
+                        });
                     }
-                    // Pour les liens externes (comme index.html), on laisse le comportement par défaut
-                    // mais on ferme quand même le menu
                     
+                    // Fermer le menu déroulant
                     dropdownToggle.setAttribute('aria-expanded', 'false');
                     dropdownMenu.setAttribute('aria-hidden', 'true');
                 });
@@ -1973,6 +2464,248 @@
             }, { threshold: 0.5 });
             
             progressBars.forEach(bar => observer.observe(bar));
+        })();
+        
+        /**
+         * Barre de progression de lecture
+         */
+        (function() {
+            const readingProgress = document.getElementById('reading-progress');
+            const readingProgressBar = document.getElementById('reading-progress-bar');
+            
+            function updateReadingProgress() {
+                if (!readingProgress || !readingProgressBar) return;
+                
+                const windowHeight = window.innerHeight;
+                const documentHeight = document.documentElement.scrollHeight;
+                const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+                const scrollableHeight = documentHeight - windowHeight;
+                const progress = scrollableHeight > 0 ? (scrollTop / scrollableHeight) * 100 : 0;
+                
+                readingProgressBar.style.width = progress + '%';
+                
+                if (scrollTop > 100) {
+                    readingProgress.classList.add('visible');
+                } else {
+                    readingProgress.classList.remove('visible');
+                }
+            }
+            
+            // Écouteur d'événement scroll
+            window.addEventListener('scroll', throttle(updateReadingProgress, 50), { passive: true });
+            
+            // Initialisation
+            updateReadingProgress();
+        })();
+        
+        /**
+         * Mode lecture rapide/complète avec résumés condensés
+         */
+        (function() {
+            const quickButton = document.getElementById('reading-mode-quick');
+            const fullButton = document.getElementById('reading-mode-full');
+            
+            if (!quickButton || !fullButton) return;
+            
+            // Analyser intelligemment chaque section et marquer les éléments essentiels
+            function markEssentialElements() {
+                const sections = document.querySelectorAll('.section-accordion-inner > section');
+                
+                sections.forEach(section => {
+                    const sectionId = section.getAttribute('id');
+                    const allElements = Array.from(section.children);
+                    
+                    // Sections structurantes : conserver tous les h2 avec leur premier paragraphe
+                    const structuralSections = ['projection-court-terme'];
+                    const isStructural = structuralSections.includes(sectionId);
+                    
+                    if (isStructural) {
+                        // Pour les sections structurantes, conserver tous les h2 et leur premier paragraphe
+                        allElements.forEach((element, index) => {
+                            if (element.tagName === 'H2') {
+                                element.classList.add('quick-read-essential');
+                                // Trouver le premier paragraphe après ce h2
+                                for (let i = index + 1; i < allElements.length; i++) {
+                                    const nextElement = allElements[i];
+                                    if (nextElement.tagName === 'P' && !nextElement.classList.contains('sr-only')) {
+                                        nextElement.classList.add('quick-read-essential');
+                                        break;
+                                    } else if (nextElement.tagName === 'H2') {
+                                        // Si on rencontre un autre h2, on s'arrête
+                                        break;
+                                    }
+                                }
+                            }
+                        });
+                    } else {
+                        // Pour les autres sections, analyser chaque titre et garantir du contenu
+                        allElements.forEach((element, index) => {
+                            if (element.tagName === 'H2' || element.tagName === 'H3') {
+                                // Vérifier s'il y a du contenu après ce titre
+                                let hasContentAfter = false;
+                                for (let i = index + 1; i < allElements.length; i++) {
+                                    const nextElement = allElements[i];
+                                    // Si c'est un autre titre de même niveau ou supérieur, on s'arrête
+                                    if ((nextElement.tagName === 'H2' && element.tagName === 'H2') ||
+                                        (nextElement.tagName === 'H1')) {
+                                        break;
+                                    }
+                                    // Si c'est un élément de contenu, on le marque comme essentiel
+                                    if (nextElement.tagName === 'P' && !nextElement.classList.contains('sr-only')) {
+                                        element.classList.add('quick-read-essential');
+                                        nextElement.classList.add('quick-read-essential');
+                                        hasContentAfter = true;
+                                        break;
+                                    } else if (nextElement.tagName === 'UL' || nextElement.tagName === 'OL') {
+                                        element.classList.add('quick-read-essential');
+                                        nextElement.classList.add('quick-read-essential');
+                                        hasContentAfter = true;
+                                        break;
+                                    } else if (nextElement.classList.contains('category-grid') ||
+                                               nextElement.classList.contains('comparison-grid') ||
+                                               nextElement.classList.contains('metrics-hero') ||
+                                               nextElement.classList.contains('metrics') ||
+                                               nextElement.classList.contains('component-cards')) {
+                                        element.classList.add('quick-read-essential');
+                                        hasContentAfter = true;
+                                        break;
+                                    }
+                                }
+                                
+                                // Si aucun contenu après, chercher le premier élément de contenu disponible
+                                if (!hasContentAfter) {
+                                    for (let i = index + 1; i < allElements.length; i++) {
+                                        const nextElement = allElements[i];
+                                        if (nextElement.tagName === 'P' && !nextElement.classList.contains('sr-only')) {
+                                            element.classList.add('quick-read-essential');
+                                            nextElement.classList.add('quick-read-essential');
+                                            break;
+                                        }
+                                    }
+                                }
+                            }
+                        });
+                    }
+                    
+                    // Toujours conserver le premier paragraphe et les éléments visuels importants
+                    const firstParagraph = section.querySelector('p:not(.sr-only)');
+                    if (firstParagraph) {
+                        firstParagraph.classList.add('quick-read-essential');
+                    }
+                });
+            }
+            
+            // Générer des résumés pour toutes les sections
+            function generateQuickReadSummaries() {
+                const sections = document.querySelectorAll('.section-accordion-inner > section');
+                
+                sections.forEach(section => {
+                    // Vérifier si un résumé existe déjà
+                    if (section.querySelector('.quick-read-summary')) return;
+                    
+                    const sectionId = section.getAttribute('id');
+                    let summaryText = '';
+                    
+                    // Chercher une description sr-only ou le premier paragraphe
+                    const srDescription = section.querySelector('p.sr-only[id$="-description"]');
+                    const firstParagraph = section.querySelector('p:not(.sr-only)');
+                    const firstH2 = section.querySelector('h2');
+                    const sectionTitle = section.querySelector('h1');
+                    
+                    // Pour le rapport, créer des résumés plus détaillés qui incluent les métriques clés
+                    if (firstParagraph) {
+                        // Extraire les informations essentielles du premier paragraphe
+                        let text = firstParagraph.textContent;
+                        
+                        // Chercher des métriques (nombres suivis de %, ×, +, etc.)
+                        const metrics = text.match(/\d+[\s]*(?:%|×|\+|\-|points?|lignes?|fichiers?|standards?|KPIs?)/gi);
+                        
+                        if (metrics && metrics.length > 0) {
+                            summaryText = text.substring(0, 150);
+                            if (text.length > 150) {
+                                summaryText += '...';
+                            }
+                            summaryText += ' Métriques clés : ' + metrics.slice(0, 3).join(', ') + '.';
+                        } else {
+                            summaryText = text.substring(0, 250);
+                            if (text.length > 250) {
+                                summaryText += '...';
+                            }
+                        }
+                    } else if (srDescription) {
+                        summaryText = srDescription.textContent;
+                    } else if (firstH2) {
+                        summaryText = firstH2.textContent + ' : Cette section présente les détails sur ' + firstH2.textContent.toLowerCase() + '.';
+                    } else if (sectionTitle) {
+                        summaryText = 'Cette section présente les informations sur ' + sectionTitle.textContent.toLowerCase() + '.';
+                    }
+                    
+                    if (summaryText) {
+                        const summary = document.createElement('div');
+                        summary.className = 'quick-read-summary';
+                        summary.textContent = summaryText;
+                        
+                        // Insérer le résumé au début de la section
+                        const firstChild = section.firstElementChild;
+                        if (firstChild) {
+                            section.insertBefore(summary, firstChild.nextSibling);
+                        } else {
+                            section.appendChild(summary);
+                        }
+                    }
+                });
+            }
+            
+            function setReadingMode(isQuickMode) {
+                // Empêcher les changements pendant les animations
+                if (isAnimating) return;
+                
+                isAnimating = true;
+                
+                // Ajouter une transition pour le changement de mode
+                document.body.style.transition = 'none';
+                document.body.classList.toggle('quick-read-mode', isQuickMode);
+                
+                // Forcer un reflow
+                void document.body.offsetHeight;
+                
+                // Appliquer la transition
+                document.body.style.transition = '';
+                
+                if (isQuickMode) {
+                    markEssentialElements();
+                    quickButton.classList.add('active');
+                    quickButton.setAttribute('aria-pressed', 'true');
+                    fullButton.classList.remove('active');
+                    fullButton.setAttribute('aria-pressed', 'false');
+                } else {
+                    document.querySelectorAll('.quick-read-essential').forEach(el => {
+                        el.classList.remove('quick-read-essential');
+                    });
+                    fullButton.classList.add('active');
+                    fullButton.setAttribute('aria-pressed', 'true');
+                    quickButton.classList.remove('active');
+                    quickButton.setAttribute('aria-pressed', 'false');
+                }
+                
+                setTimeout(() => {
+                    isAnimating = false;
+                }, 300);
+            }
+            
+            // Initialiser les résumés et l'analyse au chargement
+            generateQuickReadSummaries();
+            
+            quickButton.addEventListener('click', function() {
+                setReadingMode(true);
+            });
+            
+            fullButton.addEventListener('click', function() {
+                setReadingMode(false);
+            });
+            
+            // Générer les résumés au chargement
+            generateQuickReadSummaries();
         })();
     </script>
 </body>

@@ -12,7 +12,7 @@ Mon objectif professionnel est de me spécialiser en Expert en Gouvernance IA. L
 
 Je reconnais ma dépendance à l'IA pour apprendre et progresser. C'est précisément pour cette raison que je m'oriente vers le TSSR, puis vers un Bachelor en IA, afin de transformer ma pratique empirique en compétence structurée et reconnue.
 
-En parallèle, j'ai initié un projet personnel nommé IT Dashboard A+, un tableau de bord interactif de veille IT développé en trois mois en partant de zéro connaissance en développement. Ce projet a évolué vers un Proof of Concept opérationnel avec intégration Vault, pipeline backend fonctionnel et synchronisation automatique. Ce projet m'a également conduit à créer INIT_SEQUENCE_ITD-A+, un système de gouvernance IA basé sur une machine à états finis.
+En parallèle, j'ai initié un projet personnel nommé IT Dashboard A+, un tableau de bord interactif de veille IT développé en trois mois en partant de zéro connaissance en développement. Ce projet a évolué vers un Proof of Concept opérationnel avec intégration Vault, pipeline backend fonctionnel et synchronisation automatique. Ce projet m'a également conduit à créer INIT_SEQUENCE_ITD-A+, un système de gouvernance IA basé sur une machine à états finis. Bien que l'usage de ce système avec certaines IA publiques soit aujourd'hui limité par des restrictions récentes, cette expérience illustre ma capacité à concevoir des solutions structurées pour résoudre des problèmes complexes.
 
 Par ailleurs, mes trois années d'expérience en alternance en électricité et en maintenance industrielle m'ont permis d'acquérir une posture professionnelle solide. Je possède également des bases solides en virtualisation, en sécurité informatique et en configuration de serveur Windows.
 

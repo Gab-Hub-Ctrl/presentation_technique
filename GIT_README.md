@@ -6,11 +6,11 @@ Ce guide présente les conventions Git à respecter pour le dossier `presentatio
 
 Le dossier `presentation_technique` est prêt à être commité dans votre repo git.
 
-## 📋 Inventaire complet des fichiers dans le repo Git (64 fichiers)
+## 📋 Inventaire complet des fichiers dans le repo Git (~50 fichiers)
 
-**Note** : Les fichiers exclus par `.gitignore` ne sont pas listés ici (email_candidature.md, *.txt, *.pdf, etc.).
+**Note** : Les fichiers exclus par `.gitignore` ne sont pas listés ici. Voir la section "Fichiers exclus" ci-dessous.
 
-### Fichiers racine (16 fichiers - ordre alphabétique selon arborescence.txt)
+### Fichiers racine (15 fichiers - ordre alphabétique selon arborescence.txt)
 - ✅ `.gitignore` - Fichier d'exclusion Git
 - ✅ `common.css` - Styles CSS communs (413 lignes)
 - ✅ `common.js` - Scripts JavaScript communs
@@ -20,30 +20,30 @@ Le dossier `presentation_technique` est prêt à être commité dans votre repo 
 - ✅ `lettre_motivation_ecole.html` - Lettre de motivation académique
 - ✅ `lettre_motivation_entreprise.html` - Lettre de motivation professionnelle
 - ✅ `og-image.png` - Image Open Graph pour partage social
-- ✅ `presentation_complete.html` - Présentation complète (14 sections)
+- ⚠️ `presentation_complete.html` - **Exclu du repo** (défini dans `.gitignore`)
 - ✅ `presentation_synthetique.html` - Présentation synthétique (6 sections)
 - ✅ `profil_personnel.html` - Profil personnel et professionnel
 - ✅ `rapport_projection_dimension_standards_projet3.html` - Rapport de projection dimensionnelle
 - ✅ `README.md` - Documentation principale
-- ✅ `robots.txt` - Instructions pour les robots d'indexation
+- ✅ `robots.txt` - Instructions pour les robots d'indexation (exception dans `.gitignore`)
 - ✅ `sitemap.xml` - Plan du site pour les moteurs de recherche
 
-### Documentation technique (15 fichiers Markdown)
-- ✅ `documentation_technique/01_introduction.md`
-- ✅ `documentation_technique/02_relation_ia.md`
-- ✅ `documentation_technique/03_orientation_professionnelle.md`
-- ✅ `documentation_technique/04_fonctionnalites_operationnelles.md`
-- ✅ `documentation_technique/05_resolution_problemes.md`
-- ✅ `documentation_technique/06_init_sequence.md`
-- ✅ `documentation_technique/07_architecture_technique.md`
-- ✅ `documentation_technique/08_observabilite_qualite.md`
-- ✅ `documentation_technique/09_amelioration_continue.md`
-- ✅ `documentation_technique/10_evolutions_prevues.md`
-- ✅ `documentation_technique/11_competences_preexistantes.md`
-- ✅ `documentation_technique/12_vision_strategique.md`
-- ✅ `documentation_technique/13_metriques_chiffres_cles.md`
-- ✅ `documentation_technique/14_conclusion.md`
-- ✅ `documentation_technique/15_standards_projet3.md`
+### Documentation technique (⚠️ 15 fichiers Markdown - Exclus du repo Git)
+- ⚠️ `documentation_technique/01_introduction.md` - **Exclu du repo** (dossier complet exclu)
+- ⚠️ `documentation_technique/02_relation_ia.md` - **Exclu du repo** (dossier complet exclu)
+- ⚠️ `documentation_technique/03_orientation_professionnelle.md` - **Exclu du repo** (dossier complet exclu)
+- ⚠️ `documentation_technique/04_fonctionnalites_operationnelles.md` - **Exclu du repo** (dossier complet exclu)
+- ⚠️ `documentation_technique/05_resolution_problemes.md` - **Exclu du repo** (dossier complet exclu)
+- ⚠️ `documentation_technique/06_init_sequence.md` - **Exclu du repo** (dossier complet exclu)
+- ⚠️ `documentation_technique/07_architecture_technique.md` - **Exclu du repo** (dossier complet exclu)
+- ⚠️ `documentation_technique/08_observabilite_qualite.md` - **Exclu du repo** (dossier complet exclu)
+- ⚠️ `documentation_technique/09_amelioration_continue.md` - **Exclu du repo** (dossier complet exclu)
+- ⚠️ `documentation_technique/10_evolutions_prevues.md` - **Exclu du repo** (dossier complet exclu)
+- ⚠️ `documentation_technique/11_competences_preexistantes.md` - **Exclu du repo** (dossier complet exclu)
+- ⚠️ `documentation_technique/12_vision_strategique.md` - **Exclu du repo** (dossier complet exclu)
+- ⚠️ `documentation_technique/13_metriques_chiffres_cles.md` - **Exclu du repo** (dossier complet exclu)
+- ⚠️ `documentation_technique/14_conclusion.md` - **Exclu du repo** (dossier complet exclu)
+- ⚠️ `documentation_technique/15_standards_projet3.md` - **Exclu du repo** (dossier complet exclu)
 
 ### Documents de candidature (2 fichiers Markdown)
 - ✅ `documents/candidature/lettre_motivation_ecole.md`
@@ -75,15 +75,22 @@ Le dossier `presentation_technique` est prêt à être commité dans votre repo 
 
 **Total PNG** : 2 (racine) + 31 (presentation_visuel/) = 33 fichiers
 
-**Total dans le repo Git : 64 fichiers** (63 fichiers précédents + demo_video/demo.png)
+**Total estimé dans le repo Git : ~50 fichiers**
+- 15 fichiers racine (HTML, CSS, JS, PNG, config)
+- 2 fichiers Markdown candidature
+- 33 fichiers PNG (images)
+- Total : ~50 fichiers
 
 **Fichiers exclus par `.gitignore`** :
-- `documents/candidature/email_candidature.md` (fichier personnel)
-- `documents/documentation/arborescence.txt` et `arborescence.md` (fichiers d'arborescence)
-- Tous les fichiers `*.txt` (pattern global)
-- Tous les fichiers `*.pdf` (pattern global)
-- Fichiers temporaires, logs, et fichiers système
-- Fichiers de développement (`prepare-git.ps1`, `.gitignore.backup`)
+- ⚠️ `presentation_complete.html` (présentation complète temporairement indisponible)
+- ⚠️ `documentation_technique/` (dossier complet exclu - 15 fichiers Markdown)
+- ⚠️ `documents/candidature/email_candidature.md` (fichier personnel)
+- ⚠️ `documents/documentation/arborescence.txt` et `arborescence.md` (fichiers d'arborescence)
+- ⚠️ Tous les fichiers `*.txt` (pattern global, sauf `robots.txt` qui est inclus)
+- ⚠️ Tous les fichiers `*.pdf` (pattern global)
+- ⚠️ Fichiers temporaires, logs, et fichiers système (Thumbs.db, Desktop.ini, .DS_Store, *.tmp, *.bak, *.swp, etc.)
+- ⚠️ Fichiers de développement (`.vscode/`, `.idea/`, `prepare-git.ps1`, `.gitignore.backup`)
+- ⚠️ Fichiers de structure/planning (`plan_*`, `structure_*`)
 
 ## 🚀 Prochaines étapes
 
