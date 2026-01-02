@@ -678,7 +678,7 @@
             <p>Quand je travaillais avec l'IA, je devais tout copier-coller à chaque fois. Plus le projet grandissait, moins c'était viable. J'ai donc créé INIT_SEQUENCE, un système qui permet de reprendre le projet proprement après une interruption. C'est basé sur une machine à états : l'IA passe par plusieurs étapes (bootloader, validation, analyse, etc.) pour reconstruire l'état du projet. Ça m'a fait découvrir les machines à états finis et leur utilité.</p>
             
             <p><strong>2. Les prompts qui devenaient trop longs</strong></p>
-            <p>Mes premiers prompts étaient trop longs et manquaient de cohérence. J'ai découpé tout ça en 11 prompts fondateurs, bien organisés et cohérents entre eux (1090 lignes au total). Chaque prompt a un rôle précis, et ils s'articulent ensemble de manière logique. Ça m'a appris l'importance de structurer l'information et de garder une cohérence dans la documentation.</p>
+            <p>Mes premiers prompts étaient trop longs et manquaient de cohérence. J'ai découpé tout ça en 11 prompts fondateurs, bien organisés et cohérents entre eux (2 502 lignes au total). Chaque prompt a un rôle précis, et ils s'articulent ensemble de manière logique. Ça m'a appris l'importance de structurer l'information et de garder une cohérence dans la documentation.</p>
             
             <p><strong>3. Les scripts qui n'étaient pas portables</strong></p>
             <p>Les scripts avaient des chemins absolus hardcodés, ce qui rendait le projet non portable. J'ai créé <code>ProjectModule.psm1</code>, un module PowerShell qui détecte automatiquement la racine du projet. Maintenant, tous les scripts peuvent s'exécuter depuis n'importe où. J'ai appris les modules PowerShell et l'importance de la portabilité dans un projet.</p>
@@ -711,7 +711,7 @@
             
             <p><strong>Automatisation :</strong> Des menus CLI ont été créés pour automatiser les opérations. HashiCorp Vault a été intégré de manière opérationnelle. Des scripts de maintenance ont été mis en place (backup, restauration, nettoyage). Un système d'archivage automatique a été créé.</p>
             
-            <p><strong>Documentation :</strong> Une documentation importante a été produite. INIT_SEQUENCE comprend 1 809 lignes réparties sur 17 fichiers, les Standards Projet3 représentent environ 50 000 lignes de documentation structurée, et de nombreux guides et standards ont été créés. L'importance de bien documenter pour que d'autres (ou soi-même plus tard) puissent comprendre a été apprise.</p>
+            <p><strong>Documentation :</strong> Une documentation importante a été produite. INIT_SEQUENCE comprend 3 607 lignes réparties sur 17 fichiers (système : 1 105 lignes + prompts fondateurs : 2 502 lignes), les Standards Projet3 représentent environ 50 000 lignes de documentation structurée, et de nombreux guides et standards ont été créés. L'importance de bien documenter pour que d'autres (ou soi-même plus tard) puissent comprendre a été apprise.</p>
             
             <h4>Ce que je ne sais pas encore bien faire</h4>
             <p><strong>Code technique :</strong> Mon code est fonctionnel mais pas optimisé. Je ne maîtrise pas encore toutes les bonnes pratiques de développement. Je n'ai pas encore beaucoup d'expérience en débogage complexe. Je dois encore améliorer mes compétences en tests.</p>

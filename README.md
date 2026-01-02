@@ -238,7 +238,7 @@ Les présentations HTML offrent une expérience interactive complète avec navig
   - Suppression des animations qui masquent le contenu (profil_personnel.html)
   - Alignement adaptatif des cartes selon le nombre de lignes (1-2 lignes = centré, 3+ lignes = justifié)
 - ✅ **Cohérence narrative** : Ordre chronologique cohérent (bilans techniques → prompts fondateurs → INIT_SEQUENCE → Standards Projet3)
-- ✅ **Cohérence des données** : Toutes les données numériques sont cohérentes (11 pôles, 10 collecteurs, 31 standards, 8 catégories, 4100 lignes INIT_SEQUENCE, 1090 lignes prompts fondateurs, 50 000 lignes standards, 703 sections)
+- ✅ **Cohérence des données** : Toutes les données numériques sont cohérentes (11 pôles, 10 collecteurs, 31 standards, 8 catégories, 3 607 lignes INIT_SEQUENCE (système : 1 105 lignes + prompts fondateurs : 2 502 lignes), 50 000 lignes standards, 703 sections)
 - ✅ **Cohérence temporelle** : Le rapport de projection (`rapport_projection_dimension_standards_projet3.html`) est rédigé au conditionnel et utilise systématiquement les formulations "projeté", "selon la projection", "transformerait", etc., pour indiquer clairement qu'il s'agit d'une projection future et non d'un état déjà réalisé
 - ✅ **Comportement des sections** : Délai de 150ms lors de l'ouverture d'une section pour éviter les perturbations visuelles lors de la fermeture de la section précédente
 - ✅ **Dates harmonisées** : datePublished (2025-01-01) et dateModified (2025-12-29) cohérentes
