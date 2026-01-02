@@ -1,9 +1,0 @@
-# robots.txt pour presentation_technique
-# Dernière mise à jour : 2025-12-29
-
-User-agent: *
-Allow: /
-
-# Sitemap
-Sitemap: https://gab-hub-ctrl.github.io/presentation_technique/sitemap.xml
-
