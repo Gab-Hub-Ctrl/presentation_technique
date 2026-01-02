@@ -1,0 +1,993 @@
+<!DOCTYPE html>
+<!-- Validation HTML5 W3C : Document conforme aux standards HTML5 -->
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Mieux me connaître : Gabriel ROULON</title>
+
+  <!-- SEO -->
+  <meta name="description" content="Présentation personnelle et professionnelle de Gabriel ROULON - Candidature en Intelligence Artificielle et gouvernance des systèmes">
+  <meta name="author" content="Gabriel ROULON">
+  <meta name="keywords" content="Gabriel ROULON, Présentation, Candidature, Intelligence Artificielle, Gouvernance IA">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Mieux me connaître : Gabriel ROULON">
+  <meta property="og:description" content="Présentation personnelle et professionnelle de Gabriel ROULON">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://gab-hub-ctrl.github.io/presentation_technique/profil_personnel.html">
+  <meta property="og:image" content="https://gab-hub-ctrl.github.io/presentation_technique/og-image.png">
+  <meta property="og:locale" content="fr_FR">
+
+  <!-- Twitter Cards -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Mieux me connaître : Gabriel ROULON">
+  <meta name="twitter:description" content="Présentation personnelle et professionnelle de Gabriel ROULON">
+  <meta name="twitter:image" content="https://gab-hub-ctrl.github.io/presentation_technique/og-image.png">
+
+  <!-- Canonical URL -->
+  <link rel="canonical" href="https://gab-hub-ctrl.github.io/presentation_technique/profil_personnel.html">
+
+  <!-- Robots -->
+  <meta name="robots" content="index, follow">
+  
+  <!-- Sitemap -->
+  <link rel="sitemap" type="application/xml" href="sitemap.xml">
+  <meta name="theme-color" content="#000000">
+  <meta name="msapplication-TileColor" content="#000000">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+
+  <!-- Preconnect -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  
+  <!-- Common CSS -->
+  <link rel="stylesheet" href="common.css">
+
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Gabriel ROULON",
+    "url": "https://gab-hub-ctrl.github.io/presentation_technique/",
+    "sameAs": [
+      "https://gab-hub-ctrl.github.io/presentation_technique/"
+    ]
+  }
+  </script>
+
+  <!-- BreadcrumbList Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Accueil",
+        "item": "https://gab-hub-ctrl.github.io/presentation_technique/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Mieux me connaître",
+        "item": "https://gab-hub-ctrl.github.io/presentation_technique/profil_personnel.html"
+      }
+    ]
+  }
+  </script>
+
+  <style>
+    /* ============================================
+       VARIABLES CSS - Palette de couleurs
+       Définition centralisée pour faciliter
+       la maintenance et la cohérence visuelle
+       ============================================ */
+    :root {
+        /* Thème noir et blanc professionnel avec couleurs d'importance discrètes */
+        
+        /* Couleurs de base - Noir et blanc */
+        --text-color: #000000; /* Noir pur pour texte principal */
+        --text-secondary: #333333; /* Gris foncé pour texte secondaire */
+        --bg-color: #ffffff; /* Blanc pur pour fond principal */
+        --bg-secondary: #f5f5f5; /* Gris très clair pour fond secondaire */
+        --card-bg: #ffffff; /* Blanc pur pour cartes */
+        --border-color: #000000; /* Noir pour bordures */
+        
+        /* Couleurs d'importance - Discrètes et professionnelles */
+        --importance-critical: #8b0000; /* Rouge foncé discret pour critique */
+        --importance-high: #003366; /* Bleu foncé discret pour important */
+        --importance-normal: #006400; /* Vert foncé discret pour normal */
+        --importance-info: #333333; /* Gris foncé pour information */
+        
+        /* Couleurs principales - Noir par défaut */
+        --primary-color: #000000; /* Noir pour éléments principaux */
+        --primary-dark: #000000; /* Noir pour états foncés */
+        --primary-light: #333333; /* Gris foncé pour états clairs */
+        
+        /* Accents */
+        --accent-color: #000000; /* Noir pour accents */
+        --accent-hover: #333333; /* Gris foncé au survol */
+        
+        /* Ombres subtiles en noir et blanc */
+        --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.12);
+        --shadow-md: 0 2px 6px rgba(0, 0, 0, 0.15);
+        --shadow-lg: 0 4px 12px rgba(0, 0, 0, 0.2);
+        
+        --max-width: 1200px;
+    }
+
+    /* ============================================
+       RESET ET BASE
+       Normalisation des styles et configuration
+       des propriétés de base du document
+       ============================================ */
+    * {
+        box-sizing: border-box;
+    }
+
+    html {
+        scroll-behavior: smooth;
+        scroll-padding-top: 100px;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        text-rendering: optimizeLegibility;
+    }
+
+    body {
+        margin: 0;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background: var(--bg-color);
+        color: var(--text-color);
+        overflow-x: hidden;
+        line-height: 1.6;
+        min-height: 100vh;
+    }
+
+    /* Performance: Use will-change for animated elements */
+    header, section {
+        will-change: transform;
+    }
+
+    /* Background sobre et professionnel */
+    body::before {
+        display: none;
+    }
+
+    /* ============================================
+       HEADER - Navigation principale
+       Header fixe avec effet glassmorphism
+       et navigation accessible
+       ============================================ */
+    header {
+        position: fixed;
+        top: 0; left: 0;
+        width: 100%;
+        background: #ffffff;
+        border-bottom: 2px solid #000000;
+        box-shadow: var(--shadow-sm);
+        padding: 14px 40px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        z-index: 100;
+    }
+
+    .header-left a {
+        text-decoration: none;
+        color: inherit;
+        display: block;
+    }
+
+    .header-left a:focus-visible {
+        outline: 3px solid var(--primary-color);
+        outline-offset: 4px;
+        border-radius: 3px;
+        padding: 2px 4px;
+    }
+
+    .header-left h2 {
+        margin: 0;
+        font-size: 1.1em;
+        color: #000000;
+        font-weight: 600;
+        line-height: 1.3;
+        transition: color 0.2s ease;
+        white-space: nowrap;
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    }
+    
+    .header-left h2 .page-title {
+        display: inline;
+        font-size: 1.1em;
+        color: #000000;
+        font-weight: 600;
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    }
+    
+    .header-left h2 .project-name {
+        display: inline;
+        font-size: 1.1em;
+        color: #000000;
+        font-weight: 600;
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    }
+
+    .header-left a:hover h2 {
+        color: var(--accent-hover);
+    }
+
+    .header-right {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+    }
+    
+    .header-nav {
+        display: flex;
+        gap: 22px;
+        flex-wrap: wrap;
+    }
+
+    .header-nav a {
+        text-decoration: none;
+        color: var(--text-secondary);
+        font-weight: 500;
+        font-size: 0.95em;
+        white-space: nowrap;
+        transition: color 0.2s ease;
+        position: relative;
+    }
+
+    .header-nav a::after {
+        content: '';
+        position: absolute;
+        bottom: -4px;
+        left: 50%;
+        transform: translateX(-50%) scaleX(0);
+        width: 100%;
+        height: 2px;
+        background: var(--primary-color);
+        border-radius: 2px;
+        transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .header-nav a:hover {
+        color: var(--primary-color);
+    }
+
+    .header-nav a:hover::after {
+        transform: translateX(-50%) scaleX(1);
+    }
+
+    .header-nav a:focus-visible {
+        outline: 3px solid var(--primary-color);
+        outline-offset: 4px;
+        border-radius: 3px;
+    }
+
+    .header-nav a.active {
+        color: var(--primary-color);
+    }
+
+    .header-nav a.active::after {
+        transform: translateX(-50%) scaleX(1);
+    }
+
+    /* RESPONSIVE HEADER */
+    @media (max-width: 900px) {
+        header {
+            flex-direction: column;
+            align-items: flex-start;
+            padding: 16px 25px;
+        }
+
+        .header-right {
+            margin-top: 10px;
+            width: 100%;
+            flex-wrap: wrap;
+        }
+        
+        .header-nav {
+            margin-top: 10px;
+            gap: 14px;
+        }
+        
+        .reading-mode-controls {
+            margin-left: 0;
+            margin-top: 8px;
+            width: 100%;
+            justify-content: flex-start;
+        }
+        
+        .reading-mode-button {
+            flex: 1;
+            max-width: 150px;
+        }
+    }
+
+    /* MAIN */
+        main {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 61px clamp(16px, 4vw, 40px) 40px;
+            min-width: 0;
+        }
+        
+        /* Décale la première section de 1,5 cm pour éviter qu'elle soit trop proche de l'en-tête */
+        main > .section-accordion:first-child {
+            margin-top: 1cm;
+        }
+
+    /* SECTIONS */
+    section {
+        margin-bottom: 48px;
+        padding: 40px 45px;
+        background: var(--card-bg);
+        border: 1px solid var(--border-color);
+        border-radius: 12px;
+        box-shadow: var(--shadow-md);
+        scroll-margin-top: 100px;
+        opacity: 1;
+        transform: none;
+    }
+
+    section h1 {
+        color: var(--primary-color);
+        font-size: 2.4em;
+        margin-bottom: 24px;
+        margin-top: 0;
+        padding-bottom: 16px;
+        border-bottom: 2px solid var(--border-color);
+        font-weight: 700;
+        letter-spacing: -0.5px;
+        text-align: center;
+    }
+
+    section h2 {
+        color: var(--text-color);
+        font-size: 1.6em;
+        margin-top: 32px;
+        margin-bottom: 16px;
+        margin-left: 0;
+        padding-left: 0;
+        font-weight: 600;
+        text-align: justify;
+        text-align-last: left;
+        padding-bottom: 12px;
+        border-bottom: 1px solid var(--border-color);
+    }
+    
+    section h3 {
+        color: var(--text-color);
+        font-size: 1.25em;
+        margin-top: 24px;
+        margin-bottom: 12px;
+        text-align: justify;
+        text-align-last: left;
+        margin-left: 0;
+        padding-left: 0;
+        font-weight: 600;
+        text-align: left;
+    }
+    
+    section h4 {
+        color: var(--text-color);
+        font-size: 1.1em;
+        margin-top: 20px;
+        margin-bottom: 10px;
+        margin-left: 0;
+        padding-left: 0;
+        font-weight: 600;
+        text-align: left;
+    }
+    
+    section p {
+        margin-bottom: 16px;
+        text-align: justify;
+        text-align-last: left;
+        font-size: 1.05em;
+        line-height: 1.75;
+        color: var(--text-color);
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        hyphens: auto;
+    }
+    
+    section li, section dd {
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        hyphens: auto;
+    }
+
+    /* FOOTER */
+    footer {
+        margin-top: 50px;
+        padding: 25px 0;
+        text-align: center;
+        color: #000000;
+        font-size: 0.9em;
+        border-top: 2px solid #000000;
+        background: #ffffff;
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    }
+
+    footer p {
+        margin: 8px 0;
+        color: #000000;
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    }
+
+    footer a {
+        color: #000000;
+        text-decoration: none;
+        transition: color 0.2s ease;
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    }
+
+    footer a:hover {
+        color: #333333;
+        text-decoration: underline;
+    }
+
+
+    /* Skip link for accessibility */
+    .skip-link {
+        position: absolute;
+        top: -40px;
+        left: 0;
+        background: var(--primary-color);
+        color: white;
+        padding: 10px 20px;
+        text-decoration: none;
+        z-index: 1000;
+        font-weight: 600;
+        border-radius: 0 0 4px 0;
+    }
+
+    .skip-link:focus {
+        top: 0;
+        outline: 3px solid var(--primary-color);
+        outline-offset: 2px;
+    }
+    
+    /* Breadcrumb navigation */
+    .breadcrumb {
+        max-width: var(--max-width);
+        margin: 0 auto;
+        padding: 100px 20px 20px;
+        font-size: 0.9em;
+    }
+    .breadcrumb ol {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 8px;
+    }
+    .breadcrumb li {
+        display: flex;
+        align-items: center;
+    }
+    .breadcrumb li:not(:last-child)::after {
+        content: '›';
+        margin-left: 8px;
+        color: var(--text-secondary);
+    }
+    .breadcrumb a {
+        color: var(--primary-color);
+        text-decoration: none;
+        transition: color 0.2s ease;
+    }
+    .breadcrumb a:hover {
+        color: var(--primary-dark);
+        text-decoration: underline;
+    }
+    .breadcrumb [aria-current="page"] {
+        color: var(--text-secondary);
+        font-weight: 500;
+    }
+
+    /* Reduced motion */
+    @media (prefers-reduced-motion: reduce) {
+        *,
+        *::before,
+        *::after {
+            animation-duration: 0.01ms !important;
+            animation-iteration-count: 1 !important;
+            transition-duration: 0.01ms !important;
+            scroll-behavior: auto !important;
+        }
+    }
+
+    /* Focus visible enhancement */
+    *:focus-visible {
+        outline: 3px solid var(--primary-color);
+        outline-offset: 2px;
+        border-radius: 2px;
+    }
+    
+    /* ============================================
+       MODE LECTURE RAPIDE - Version légère
+       Moins agressif car contenu déjà condensé
+       ============================================ */
+    
+    /* Boutons de contrôle de lecture dans le header */
+    .reading-mode-controls {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        margin-left: 12px;
+    }
+    
+    .reading-mode-button {
+        background: transparent;
+        border: 1px solid var(--importance-high);
+        border-radius: 6px;
+        padding: 8px 16px;
+        cursor: pointer;
+        transition: all 0.2s ease;
+        font-family: inherit;
+        font-size: 0.9em;
+        font-weight: 500;
+        white-space: nowrap;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--text-color);
+    }
+    
+    .reading-mode-button:hover {
+        background: var(--importance-high);
+        border-color: var(--importance-high);
+        color: #ffffff;
+    }
+    
+    .reading-mode-button.active {
+        background: var(--importance-high);
+        border-color: var(--importance-high);
+        color: #ffffff;
+    }
+    
+    .reading-mode-button:focus-visible {
+        outline: 3px solid var(--importance-high);
+        outline-offset: 2px;
+    }
+    
+    /* Mode lecture rapide - Réduction légère */
+    body.quick-read-mode .section-accordion-inner > section > p:not(:first-of-type):not(.quick-read-essential) {
+        display: none;
+    }
+    
+    /* Conserver les premiers paragraphes et les éléments essentiels */
+    body.quick-read-mode .section-accordion-inner > section > p:first-of-type,
+    body.quick-read-mode .section-accordion-inner > section > .quick-read-essential {
+        display: block;
+    }
+    
+    /* Conserver tous les titres */
+    body.quick-read-mode .section-accordion-inner > section > h2,
+    body.quick-read-mode .section-accordion-inner > section > h3,
+    body.quick-read-mode .section-accordion-inner > section > h4 {
+        display: block;
+    }
+    
+    /* Conserver les listes et éléments de structure */
+    body.quick-read-mode .section-accordion-inner > section > ul,
+    body.quick-read-mode .section-accordion-inner > section > ol,
+    body.quick-read-mode .section-accordion-inner > section > code {
+        display: block;
+    }
+  </style>
+</head>
+<body>
+    <a href="#main-content" class="skip-link">Aller au contenu principal</a>
+    <header role="banner">
+        <div class="header-left">
+            <a href="index.html" aria-label="Retour à l'accueil">
+                <h2>
+                    <span class="page-title">Mieux me connaître</span> | <span class="project-name">IT Dashboard A+</span>
+                </h2>
+            </a>
+        </div>
+        
+        <div class="header-right">
+            <div class="reading-mode-controls">
+                <button class="reading-mode-button" id="reading-mode-quick" aria-pressed="false" aria-label="Mode lecture rapide">
+                    Lecture rapide
+                </button>
+                <button class="reading-mode-button active" id="reading-mode-full" aria-pressed="true" aria-label="Mode lecture complète">
+                    Lecture complète
+                </button>
+            </div>
+
+            <nav class="header-nav" aria-label="Navigation principale">
+                <div class="nav-dropdown">
+                    <button class="nav-dropdown-toggle" aria-expanded="false" aria-haspopup="true" aria-label="Menu de navigation">
+                        Navigation <span class="nav-arrow">▼</span>
+                    </button>
+                    <ul class="nav-dropdown-menu" role="menu" aria-hidden="true">
+                        <li role="none"><a href="index.html" role="menuitem">Accueil</a></li>
+                        <li role="none"><a href="presentation_synthetique.html" role="menuitem">Présentation synthétique</a></li>
+                        <li role="none"><a href="rapport_projection_dimension_standards_projet3.html" role="menuitem">Rapport</a></li>
+                        <li role="none"><a href="lettre_motivation_ecole.html" role="menuitem">Lettre école</a></li>
+                        <li role="none"><a href="lettre_motivation_entreprise.html" role="menuitem">Lettre entreprise</a></li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </header>
+    
+    <main id="main-content" role="main">
+        <!-- Accordéon Parcours -->
+        <div class="section-accordion importance-high">
+            <div class="section-accordion-header" onclick="toggleSection(this)">
+                Mon parcours et mes bases
+            </div>
+            <div class="section-accordion-content">
+                <div class="section-accordion-inner">
+        <section>
+            <h2>Mon parcours et mes bases</h2>
+            
+            <h3>Ma formation</h3>
+            <p>J'ai un baccalauréat et une formation de Technicien Assistance Informatique qui m'a donné quelques bases en scripting. J'ai aussi trois ans d'expérience en alternance en électricité et maintenance industrielle, où j'ai appris à travailler en équipe et à respecter les contraintes d'un environnement professionnel.</p>
+            
+            <h3>Le projet IT Dashboard A+</h3>
+            <p>Il y a trois mois, j'ai démarré un projet personnel pour structurer ma veille technologique IT. Mon objectif était de créer un dashboard qui agrège et analyse des informations sur la sécurité, le cloud, le développement et l'IA.</p>
+            <p>Je partais de très peu : pas de formation structurée en développement, architecture ou IA. J'avais juste envie d'apprendre en faisant. J'ai utilisé l'IA comme outil d'apprentissage et de développement, mais j'ai toujours compris et validé chaque ligne de code qui était générée.</p>
+            </section>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Accordéon Résolution de problèmes -->
+        <div class="section-accordion importance-high">
+            <div class="section-accordion-header" onclick="toggleSection(this)">
+                Ma façon de résoudre des problèmes
+            </div>
+            <div class="section-accordion-content">
+                <div class="section-accordion-inner">
+        <section>
+            <h2>Ma façon de résoudre des problèmes</h2>
+            
+            <h3>Mon approche naturelle</h3>
+            <p>Quand je rencontre un problème, je cherche naturellement une solution adaptée. Cette approche simple m'a permis d'avancer rapidement sur le projet.</p>
+            
+            <h3>Exemples concrets de problèmes que j'ai résolus</h3>
+            
+            <p><strong>1. Le problème de la perte de contexte avec l'IA</strong></p>
+            <p>Quand je travaillais avec l'IA, je devais tout copier-coller à chaque fois. Plus le projet grandissait, moins c'était viable. J'ai donc créé INIT_SEQUENCE, un système qui permet de reprendre le projet proprement après une interruption. C'est basé sur une machine à états : l'IA passe par plusieurs étapes (bootloader, validation, analyse, etc.) pour reconstruire l'état du projet. Ça m'a fait découvrir les machines à états finis et leur utilité.</p>
+            
+            <p><strong>2. Les prompts qui devenaient trop longs</strong></p>
+            <p>Mes premiers prompts étaient trop longs et manquaient de cohérence. J'ai découpé tout ça en 11 prompts fondateurs, bien organisés et cohérents entre eux (1090 lignes au total). Chaque prompt a un rôle précis, et ils s'articulent ensemble de manière logique. Ça m'a appris l'importance de structurer l'information et de garder une cohérence dans la documentation.</p>
+            
+            <p><strong>3. Les scripts qui n'étaient pas portables</strong></p>
+            <p>Les scripts avaient des chemins absolus hardcodés, ce qui rendait le projet non portable. J'ai créé <code>ProjectModule.psm1</code>, un module PowerShell qui détecte automatiquement la racine du projet. Maintenant, tous les scripts peuvent s'exécuter depuis n'importe où. J'ai appris les modules PowerShell et l'importance de la portabilité dans un projet.</p>
+            
+            <p><strong>4. Les données qui s'accumulaient</strong></p>
+            <p>Les données brutes et les logs s'accumulaient sans contrôle. J'ai mis en place un système d'archivage automatique : compression des données du jour précédent, rétention de 90 jours, puis purge automatique. Ça m'a fait réfléchir à la gestion du cycle de vie des données.</p>
+            
+            <p>Chaque problème que j'ai rencontré est devenu une opportunité d'apprendre et d'améliorer le projet.</p>
+            </section>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Accordéon Compétences -->
+        <div class="section-accordion importance-high">
+            <div class="section-accordion-header" onclick="toggleSection(this)">
+                Mes compétences techniques et préexistantes
+            </div>
+            <div class="section-accordion-content">
+                <div class="section-accordion-inner">
+        <section>
+            <h2>Mes compétences techniques et préexistantes</h2>
+            
+            <h3>Mes compétences techniques</h3>
+            
+            <h4>Ce que je sais faire</h4>
+            <p><strong>Architecture et design :</strong> Les architectures modulaires sont comprises (séparation des responsabilités). Un pipeline complet a été créé : collecte → ETL → règles → corrélation → visualisation. Les machines à états finis sont comprises grâce à INIT_SEQUENCE. Le module <code>ProjectModule.psm1</code> a été créé pour gérer la portabilité.</p>
+            
+            <p><strong>Développement :</strong> Les bases de Python, PowerShell, TypeScript et React sont connues. Le code est fonctionnel mais encore basique (c'est un Proof of Concept, pas une solution optimisée). Tout le code n'est pas écrit manuellement : l'IA est utilisée, mais chaque ligne générée est comprise. Le code généré est validé et adapté selon les besoins.</p>
+            
+            <p><strong>Automatisation :</strong> Des menus CLI ont été créés pour automatiser les opérations. HashiCorp Vault a été intégré de manière opérationnelle. Des scripts de maintenance ont été mis en place (backup, restauration, nettoyage). Un système d'archivage automatique a été créé.</p>
+            
+            <p><strong>Documentation :</strong> Une documentation importante a été produite. INIT_SEQUENCE comprend 1 809 lignes réparties sur 17 fichiers, les Standards Projet3 représentent environ 50 000 lignes de documentation structurée, et de nombreux guides et standards ont été créés. L'importance de bien documenter pour que d'autres (ou soi-même plus tard) puissent comprendre a été apprise.</p>
+            
+            <h4>Ce que je ne sais pas encore bien faire</h4>
+            <p><strong>Code technique :</strong> Mon code est fonctionnel mais pas optimisé. Je ne maîtrise pas encore toutes les bonnes pratiques de développement. Je n'ai pas encore beaucoup d'expérience en débogage complexe. Je dois encore améliorer mes compétences en tests.</p>
+            
+            <p><strong>Fondations théoriques :</strong> Je manque de bases théoriques solides. Ma pratique est empirique et efficace, mais je veux apprendre les vraies règles. C'est pour ça que je souhaite suivre une formation académique en Intelligence Artificielle.</p>
+            
+            <h3>Mes compétences préexistantes</h3>
+            
+            <h4>Ce que je savais déjà</h4>
+            <p>Avant ce projet, des compétences existaient déjà en virtualisation (configuration et gestion d'environnements virtualisés), sécurité informatique (pare-feu, configuration de sécurité, bonnes pratiques), administration système Windows (configuration de serveurs), et maintenance et opérations (trois ans d'expérience professionnelle).</p>
+            <p>Ces compétences ont facilité la configuration et la gestion de Vault, la création de l'architecture opérationnelle avec les menus CLI, l'intégration de la sécurité avec HashiCorp Vault, et la mise en place de l'observabilité avec les logs et le monitoring.</p>
+            <p>Ces compétences infrastructure compensent en partie les limitations en développement pur.</p>
+            <p>Cette complémentarité entre les compétences infrastructure et l'usage de l'IA pour le développement illustre la façon de travailler : l'IA est utilisée comme outil d'orchestration pour transformer les idées en solutions concrètes.</p>
+            </section>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Accordéon Relation avec l'IA -->
+        <div class="section-accordion importance-critical">
+            <div class="section-accordion-header" onclick="toggleSection(this)">
+                Ma relation avec l'IA
+            </div>
+            <div class="section-accordion-content">
+                <div class="section-accordion-inner">
+        <section>
+            <h2>Ma relation avec l'IA</h2>
+            <p>Comme mentionné précédemment, l'IA occupe une place centrale dans ma démarche de développement. Cette section détaille comment j'utilise cet outil et pourquoi cette approche correspond à mes compétences naturelles.</p>
+            
+            <h3>Comment j'utilise l'IA</h3>
+            <p>Je reconnais être très dépendant de l'IA pour développer. Ce n'est pas une faiblesse à mes yeux : c'est une réalité que j'assume et que j'ai transformée en outil d'apprentissage.</p>
+            <p>J'ai appris à utiliser l'IA efficacement. J'estime avoir envoyé quelques milliers de prompts sur trois mois. Chaque prompt a été analysé, compris et amélioré. J'ai appris à communiquer avec l'IA comme avec un collaborateur : il faut être précis, clair, et itérer.</p>
+            <p>Parfois, je vois l'IA comme un collaborateur plutôt qu'un simple outil. Les heures que j'ai passées à peaufiner un simple prompt pour obtenir une réponse précise m'ont appris que la qualité d'un prompt détermine la qualité de la réponse.</p>
+            <p>En travaillant sur ce projet, j'ai constaté quelque chose d'inhabituel : l'orchestration de l'IA me paraît naturelle, presque évidente. Cette activité intellectuelle complexe me demande moins d'effort mental qu'un travail manuel répétitif. Je comprends assez rapidement comment structurer un problème complexe, comment décomposer une tâche en étapes logiques. Cette capacité à penser de manière abstraite semble être ce qui me permet de communiquer efficacement avec l'IA.</p>
+            <p>Je dois être honnête : je ne prétends pas être un développeur expérimenté capable d'écrire du code complexe de mémoire. Ce que je fais, c'est orchestrer. L'IA et moi sommes complémentaires, et j'assume cette complémentarité. L'IA apporte la capacité technique, moi j'apporte la vision, la structuration, l'orchestration, la validation du résultat dans son contexte.</p>
+            
+            <h3>Ce que j'aime vraiment</h3>
+            <p>Je ne cherche pas à devenir développeur au sens classique. Ce qui m'intéresse, c'est concevoir des architectures et structurer des systèmes, améliorer et optimiser ce qui existe, résoudre des problèmes en transformant des obstacles en opportunités, et analyser des systèmes complexes pour identifier des patterns.</p>
+            <p>L'IA me permet d'exprimer ces compétences sans être bloqué par mes limitations en développement. Elle traduit mes idées en code, mais c'est moi qui conçois, qui améliore, qui résous et qui analyse.</p>
+            
+            <h3>Ma recherche de maîtrise</h3>
+            <p>Je reconnais que ma pratique actuelle, bien qu'efficace, manque de fondations théoriques solides. Je comprends les concepts que j'utilise, mais je veux apprendre les vraies règles présentes dans les métiers de l'IA.</p>
+            <p>C'est précisément pour cela que je souhaite intégrer une formation académique en Intelligence Artificielle : pour apprendre les fondements théoriques, les bonnes pratiques professionnelles, les méthodologies éprouvées, les limites et les risques de l'IA. Je veux transformer ma pratique empirique en compétence structurée et reconnue.</p>
+            </section>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Accordéon Limites et apprentissage -->
+        <div class="section-accordion importance-normal">
+            <div class="section-accordion-header" onclick="toggleSection(this)">
+                Mes limites et ce que je veux apprendre
+            </div>
+            <div class="section-accordion-content">
+                <div class="section-accordion-inner">
+        <section>
+            <h2>Mes limites et ce que je veux apprendre</h2>
+            
+            <h3>Mes limites</h3>
+            <p>Je reconnais mes limites : mon code est fonctionnel mais basique (c'est un Proof of Concept, pas une solution optimisée). Je manque de fondations théoriques solides. Ma pratique est empirique et efficace, mais je veux apprendre les vraies règles. Je suis encore très dépendant de l'IA (même si je veux apprendre à être plus autonome).</p>
+            
+            <h3>Ce que je veux apprendre</h3>
+            <p>Je souhaite intégrer une formation académique en Intelligence Artificielle pour apprendre les fondements théoriques, comprendre les bonnes pratiques professionnelles, découvrir les méthodologies éprouvées, apprendre dans un cadre académique et professionnel, et transformer ma pratique empirique en compétence structurée.</p>
+            <p>Je veux comprendre ce qui se passe sous le capot : systèmes, réseaux, sécurité, architectures. Je veux être capable de travailler aussi sans IA quand le contexte l'exige. Je veux faire de l'IA un outil maîtrisé, intégré dans des processus robustes et gouvernés.</p>
+            
+            <h2>En résumé</h2>
+            <p>En trois mois, j'ai créé un projet fonctionnel qui dépasse mes attentes initiales. J'ai développé un système de gouvernance IA (INIT_SEQUENCE), créé des standards réutilisables, et appris beaucoup sur l'architecture, l'automatisation et la documentation.</p>
+            <p>Ce que je trouve intéressant dans mon parcours, c'est ma capacité à résoudre des problèmes naturellement. Chaque problème que j'ai rencontré est devenu une opportunité d'apprendre et d'améliorer le projet. C'est cette approche qui m'a permis d'avancer rapidement.</p>
+            <p>Je suis conscient que j'ai encore beaucoup à apprendre, notamment sur les fondations théoriques. C'est pour ça que je souhaite suivre une formation académique : pour transformer ma pratique empirique en compétence structurée et reconnue.</p>
+            <p>Je cherche un environnement où je peux apprendre, progresser et contribuer, idéalement dans le cadre d'une alternance liée à une formation académique en Intelligence Artificielle. Mon objectif professionnel est de devenir Expert en Gouvernance IA, un métier qui correspond bien à mes compétences et à mes aspirations : structurer les processus d'utilisation de l'IA, assurer la traçabilité et l'éthique, définir les règles de gouvernance. Cette orientation professionnelle découle naturellement de ma vision stratégique et de mon appétence pour la structuration et la gouvernance.</p>
+            </section>
+                </div>
+            </div>
+        </div>
+    </main>
+    
+    <footer role="contentinfo">
+        <p>Projet IT Dashboard A+</p>
+        <p>Gabriel ROULON</p>
+        <p>Démarche de démonstration technique et académique - 2025</p>
+        <p>
+            <a href="https://github.com/Gab-Hub-Ctrl/presentation_technique" target="_blank" rel="noopener noreferrer">Dépôt GitHub</a>
+        </p>
+    </footer>
+    
+    <script>
+        /**
+         * Mode lecture rapide/complète - Version légère
+         */
+        (function() {
+            const quickButton = document.getElementById('reading-mode-quick');
+            const fullButton = document.getElementById('reading-mode-full');
+            
+            if (!quickButton || !fullButton) return;
+            
+            // Marquer les éléments essentiels à conserver
+            function markEssentialElements() {
+                const sections = document.querySelectorAll('.section-accordion-inner > section');
+                
+                sections.forEach(section => {
+                    // Conserver le premier paragraphe de chaque section
+                    const firstParagraph = section.querySelector('p:first-of-type');
+                    if (firstParagraph) {
+                        firstParagraph.classList.add('quick-read-essential');
+                    }
+                    
+                    // Conserver les paragraphes avec des exemples numérotés (ex: "1. Le problème...")
+                    const paragraphs = section.querySelectorAll('p');
+                    paragraphs.forEach(p => {
+                        const text = p.textContent.trim();
+                        if (text.match(/^\d+\.\s/) || p.querySelector('strong')) {
+                            p.classList.add('quick-read-essential');
+                        }
+                    });
+                    
+                    // Conserver le dernier paragraphe de chaque section (souvent une conclusion)
+                    const allParagraphs = Array.from(section.querySelectorAll('p'));
+                    if (allParagraphs.length > 0) {
+                        allParagraphs[allParagraphs.length - 1].classList.add('quick-read-essential');
+                    }
+                });
+            }
+            
+            function setReadingMode(isQuickMode) {
+                document.body.classList.toggle('quick-read-mode', isQuickMode);
+                
+                if (isQuickMode) {
+                    markEssentialElements();
+                    quickButton.classList.add('active');
+                    quickButton.setAttribute('aria-pressed', 'true');
+                    fullButton.classList.remove('active');
+                    fullButton.setAttribute('aria-pressed', 'false');
+                } else {
+                    // Retirer les marques essentielles en mode complet
+                    document.querySelectorAll('.quick-read-essential').forEach(el => {
+                        el.classList.remove('quick-read-essential');
+                    });
+                    fullButton.classList.add('active');
+                    fullButton.setAttribute('aria-pressed', 'true');
+                    quickButton.classList.remove('active');
+                    quickButton.setAttribute('aria-pressed', 'false');
+                }
+            }
+            
+            quickButton.addEventListener('click', function() {
+                setReadingMode(true);
+            });
+            
+            fullButton.addEventListener('click', function() {
+                setReadingMode(false);
+            });
+        })();
+        
+        /**
+         * Fonction pour ouvrir/fermer les sections accordéon
+         */
+        function toggleSection(element) {
+            const section = element.parentElement;
+            const isActive = section.classList.contains('active');
+            
+            // Fermer toutes les autres sections
+            const allAccordions = document.querySelectorAll('.section-accordion.active');
+            allAccordions.forEach(acc => {
+                if (acc !== section) {
+                    acc.classList.remove('active');
+                }
+            });
+            
+            // Si on ouvre une nouvelle section, fermer d'abord les autres avec un délai
+            if (!isActive) {
+                // Fermer toutes les autres sections d'abord
+                const allAccordions = document.querySelectorAll('.section-accordion.active');
+                allAccordions.forEach(acc => {
+                    if (acc !== section) {
+                        acc.classList.remove('active');
+                    }
+                });
+                
+                // Attendre que la fermeture soit terminée avant d'ouvrir la nouvelle section
+                setTimeout(() => {
+                    section.classList.add('active');
+                    
+                    // Scroller vers l'en-tête de l'accordéon après un court délai
+                    setTimeout(() => {
+                        const headerHeight = 100; // Hauteur du header fixe
+                        const headerPosition = element.getBoundingClientRect().top + window.pageYOffset;
+                        const offsetPosition = Math.max(0, headerPosition - headerHeight);
+                        
+                        window.scrollTo({
+                            top: offsetPosition,
+                            behavior: 'smooth'
+                        });
+                    }, 200);
+                }, 150); // Délai pour permettre la fermeture de la section précédente
+            } else {
+                // Si on ferme la section, pas besoin de délai
+                section.classList.remove('active');
+            }
+        }
+
+
+        /**
+         * Menu déroulant de navigation
+         */
+        (function() {
+            const dropdownToggle = document.querySelector('.nav-dropdown-toggle');
+            const dropdownMenu = document.querySelector('.nav-dropdown-menu');
+            
+            if (!dropdownToggle || !dropdownMenu) return;
+            
+            dropdownToggle.addEventListener('click', function(e) {
+                e.preventDefault();
+                const isExpanded = dropdownToggle.getAttribute('aria-expanded') === 'true';
+                dropdownToggle.setAttribute('aria-expanded', !isExpanded);
+                dropdownMenu.setAttribute('aria-hidden', isExpanded);
+            });
+            
+            document.addEventListener('click', function(e) {
+                if (!dropdownToggle.contains(e.target) && !dropdownMenu.contains(e.target)) {
+                    dropdownToggle.setAttribute('aria-expanded', 'false');
+                    dropdownMenu.setAttribute('aria-hidden', 'true');
+                }
+            });
+            
+            const menuLinks = dropdownMenu.querySelectorAll('a');
+            menuLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    const href = link.getAttribute('href');
+                    
+                    // Si c'est un lien vers une section (commence par #)
+                    if (href && href.startsWith('#')) {
+                        e.preventDefault();
+                        
+                        const targetId = href.substring(1);
+                        const targetElement = document.getElementById(targetId);
+                        
+                        if (targetElement) {
+                            // Fermer tous les accordéons ouverts d'abord
+                            const allAccordions = document.querySelectorAll('.section-accordion.active');
+                            allAccordions.forEach(acc => {
+                                acc.classList.remove('active');
+                            });
+                            
+                            // Trouver l'accordéon parent
+                            let accordion = targetElement.closest('.section-accordion');
+                            
+                            // Si l'élément cible est dans une section, remonter jusqu'à l'accordéon
+                            if (!accordion) {
+                                let parent = targetElement.parentElement;
+                                while (parent && !parent.classList.contains('section-accordion')) {
+                                    parent = parent.parentElement;
+                                }
+                                accordion = parent;
+                            }
+                            
+                            // Ouvrir l'accordéon correspondant si trouvé avec un délai pour éviter les perturbations visuelles
+                            if (accordion) {
+                                setTimeout(() => {
+                                    accordion.classList.add('active');
+                                    
+                                    // Trouver l'en-tête de l'accordéon
+                                    const accordionHeader = accordion.querySelector('.section-accordion-header');
+                                    
+                                    // Scroller vers l'en-tête de l'accordéon après un court délai
+                                    if (accordionHeader) {
+                                        setTimeout(() => {
+                                            const headerHeight = 100; // Hauteur du header fixe
+                                            const headerPosition = accordionHeader.getBoundingClientRect().top + window.pageYOffset;
+                                            const offsetPosition = Math.max(0, headerPosition - headerHeight);
+                                            
+                                            window.scrollTo({
+                                                top: offsetPosition,
+                                                behavior: 'smooth'
+                                            });
+                                        }, 200);
+                                    }
+                                }, 150); // Délai pour permettre la fermeture de la section précédente
+                            }
+                        }
+                    }
+                    
+                    dropdownToggle.setAttribute('aria-expanded', 'false');
+                    dropdownMenu.setAttribute('aria-hidden', 'true');
+                });
+            });
+        })();
+    </script>
+    
+    <!-- Common JavaScript -->
+    <script src="common.js" defer></script>
+</body>
+</html>
+
