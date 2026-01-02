@@ -453,6 +453,12 @@
       font-size: 1.05em;
       line-height: 1.75;
       color: var(--text-color);
+      transition: transform 0.2s ease;
+      cursor: text;
+    }
+
+    .letter-section p:hover {
+      transform: scale(1.03);
     }
 
     .letter-greeting {
@@ -466,6 +472,11 @@
       text-align: right;
       padding-top: 32px;
       border-top: 2px solid var(--border-color);
+      transition: transform 0.2s ease;
+    }
+
+    .letter-signature:hover {
+      transform: scale(1.02);
     }
 
     .letter-signature .name {
@@ -481,10 +492,6 @@
       margin-top: 6px;
       color: var(--text-secondary);
     }
-
-    /* ============================================
-       BACK TO TOP BUTTON
-       ============================================ */
 
     /* ============================================
        FOOTER
@@ -522,7 +529,7 @@
        RESPONSIVE
        ============================================ */
     /* RESPONSIVE HEADER */
-    @media (max-width: 850px) {
+    @media (max-width: 900px) {
       header {
         flex-direction: column;
         align-items: flex-start;
@@ -633,19 +640,17 @@
       
       <p class="letter-greeting">Madame, Monsieur,</p>
       
-      <p>Actuellement en réorientation vers les métiers de l'informatique, j'intégrerai à compter du 5 janvier 2026 la formation de Technicien Supérieur Systèmes et Réseaux (TSSR) en alternance. Dans ce cadre, je recherche une entreprise partenaire où je pourrai m'investir pleinement et contribuer à des projets liés à l'Intelligence Artificielle et à la maîtrise des systèmes.</p>
+      <p>Actuellement en réorientation vers les métiers de l'informatique, j'intégrerai le 5 janvier 2026 la formation de Technicien Supérieur Systèmes et Réseaux (TSSR). Dans le cadre de ma poursuite d'études en troisième année de Bachelor en Intelligence Artificielle en alternance, je recherche une entreprise partenaire où je pourrai m'investir pleinement.</p>
       
-      <p>Mon projet professionnel vise une spécialisation progressive vers l'expertise en gouvernance de l'IA. Cette technologie fait déjà partie de mon quotidien. Ma pratique intensive m'a conduit à réfléchir aux enjeux de fiabilité, d'éthique et de maîtrise des systèmes, essentiels dans un contexte professionnel.</p>
+      <p>Je m'oriente progressivement vers la gouvernance de l'IA, domaine qui fait déjà partie de mon quotidien. Cette spécialisation s'appuie sur une pratique personnelle soutenue et sur une réflexion autour des enjeux de fiabilité, d'éthique et de maîtrise des systèmes.</p>
       
-      <p>Parallèlement, j'ai mené un projet personnel structurant, IT Dashboard A+, un tableau de bord interactif de veille IT devenu un Proof of Concept opérationnel. J'ai également conçu INIT_SEQUENCE, un système de gouvernance IA reposant sur une architecture à états finis, démontrant mon intérêt pour des architectures fiables et maîtrisées. Ce projet illustre ma capacité à structurer des solutions complexes et à transformer des limitations techniques en opportunités d'innovation.</p>
+      <p>J'ai notamment développé IT Dashboard A+, un tableau de bord de veille IT devenu un Proof of Concept opérationnel, ainsi que INIT_SEQUENCE, un système de gouvernance IA basé sur une logique de machine à états finis. Ces projets illustrent ma capacité à structurer des solutions et à aborder l'IA sous un angle rigoureux et maîtrisé.</p>
       
-      <p>Mes trois années d'expérience en alternance dans l'électricité et la maintenance industrielle m'ont permis d'acquérir rigueur, esprit d'équipe, respect des engagements et communication efficace. Ces compétences transversales complètent mon approche technique et renforcent ma capacité à contribuer efficacement à vos projets.</p>
+      <p>Mes trois années d'expérience en alternance dans l'électricité et la maintenance industrielle m'ont permis d'acquérir rigueur, sens des responsabilités et efficacité en équipe. Ces compétences transversales renforcent aujourd'hui ma capacité à contribuer à des projets techniques exigeants.</p>
       
-      <p>Intégrer une entreprise partenaire représente pour moi l'opportunité de mettre en pratique mes compétences en maîtrise de l'IA, de contribuer concrètement à vos projets et de progresser dans un environnement stimulant. Je suis convaincu que cette collaboration mutuelle permettrait d'accélérer ma progression tout en apportant une valeur ajoutée à vos équipes. Mon expérience en structuration de solutions complexes, ma capacité à orchestrer l'IA pour transformer des idées en solutions opérationnelles, et ma rigueur acquise en environnement professionnel constituent des atouts concrets pour vos projets liés à l'IA et à la gouvernance des systèmes.</p>
+      <p>Rejoindre votre entreprise serait pour moi l'occasion de mettre en pratique mes compétences émergentes en IA et de participer activement à vos projets. Une présentation technique détaillant mon approche et mes réalisations est disponible via le menu de navigation.</p>
       
-      <p>Je serais ravi de vous rencontrer pour présenter mon parcours et mon projet professionnel. Si vous le souhaitez, une <a href="presentation_synthetique.html" style="color: #000000; text-decoration: underline;">présentation technique en ligne</a> détaille ce projet et illustre mon approche d'apprentissage autonome ; elle est accessible via le menu de navigation.</p>
-      
-      <p>Je vous remercie pour l'attention portée à ma candidature et reste à votre entière disposition pour un entretien.</p>
+      <p>Je vous remercie pour l'attention portée à ma candidature et reste à votre disposition pour un entretien.</p>
       
       <p>Veuillez agréer, Madame, Monsieur, l'expression de mes salutations distinguées.</p>
       
@@ -701,8 +706,6 @@
         }
       };
     }
-
-    // Back to top button
 
     // Error handling
     window.addEventListener('error', (event) => {

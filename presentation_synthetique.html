@@ -350,7 +350,7 @@
 
 
         /* RESPONSIVE HEADER */
-        @media (max-width: 850px) {
+        @media (max-width: 900px) {
             header {
                 flex-direction: column;
                 align-items: flex-start;
@@ -1566,6 +1566,25 @@
             display: block;
         }
         
+        /* Mode lecture rapide : Layout 3x3 fixe pour les métriques */
+        body.quick-read-mode .metrics {
+            grid-template-columns: repeat(3, 1fr) !important;
+            gap: 24px;
+        }
+        
+        /* En mode lecture rapide, forcer 3x3 même sur tablette/mobile */
+        @media (max-width: 900px) {
+            body.quick-read-mode .metrics {
+                grid-template-columns: repeat(3, 1fr) !important;
+            }
+        }
+        
+        @media (max-width: 600px) {
+            body.quick-read-mode .metrics {
+                grid-template-columns: repeat(3, 1fr) !important;
+            }
+        }
+        
         /* ============================================
            COHÉRENCE VISUELLE ENTRE MODES
            Même logique graphique, version allégée
@@ -1806,6 +1825,7 @@
         <section id="architecture" aria-labelledby="architecture-title" aria-describedby="architecture-description">
             <h1 id="architecture-title" class="sr-only">Architecture et fonctionnalités</h1>
             <p id="architecture-description" class="sr-only">Cette section détaille l'architecture technique complète du projet et les fonctionnalités opérationnelles validées, incluant les composants principaux, la portabilité, l'automatisation et les démonstrations opérationnelles.</p>
+            <p>Après avoir présenté le contexte et l'approche du projet, cette section détaille l'architecture technique complète et les fonctionnalités opérationnelles qui ont été développées et validées.</p>
                 
                 <h2>Vue d'ensemble</h2>
                 <p>J'ai organisé le projet IT Dashboard A+ en plusieurs parties distinctes, faciles à comprendre et à modifier.</p>
@@ -2016,17 +2036,17 @@
                 
                 <h2>Démarche d'amélioration continue</h2>
                 <p>Je prévois de mettre en place deux parcours distincts pour collecter des retours ciblés. Le projet sera distribué de manière contrôlée via clés USB et copies locales afin de tester dans des conditions réelles.</p>
-                <p>Le formulaire de collecte de retours dispose déjà de son interface sur le frontend, mais la collecte n'est pas encore opérationnelle : l'intégration avec Bridgepoint est déjà incluse mais non opérationnelle, il manque à finaliser l'envoi des données vers Bridgepoint pour rendre le système pleinement fonctionnel.</p>
+                <p>Le formulaire de collecte de retours dispose déjà de son interface sur le frontend, mais la collecte n'est pas encore opérationnelle. L'intégration avec Bridgepoint est incluse dans le code, mais il reste à finaliser l'envoi des données pour rendre le système pleinement fonctionnel.</p>
                 
                 <h2>Recherche de maîtrise</h2>
-                <p>Je reconnais mes limites : ma pratique empirique est efficace mais manque de fondations théoriques. J'ai la volonté d'apprendre : je souhaite intégrer une formation académique en Intelligence Artificielle pour apprendre les vraies règles, les bonnes pratiques et les méthodologies éprouvées.</p>
+                <p>Je reconnais mes limites : ma pratique régulière est efficace mais manque de fondations théoriques. J'ai la volonté d'apprendre : je souhaite intégrer une formation académique en Intelligence Artificielle pour apprendre les vraies règles, les bonnes pratiques et les méthodologies éprouvées.</p>
                 <p>Aujourd'hui, mon usage intensif de l'IA dépasse le cadre privé et nécessite des outils professionnels. Les agents locaux pourraient être une solution, mais cela demanderait un investissement très important pour satisfaire mes besoins d'efficacité. Travailler dans une entreprise qui dispose déjà d'outils avancés intégrant l'IA, en complément de mes propres outils, accélérerait ma progression et renforcerait mes compétences de manière plus efficace.</p>
                 <p>J'ai besoin d'un cadre encadré : un environnement académique et professionnel pour transformer ma pratique en compétence structurée.</p>
                 
                 <h2>Conclusion finale</h2>
-                <p>Ce projet n'a pas vocation à être terminé à ce stade, mais à servir de socle pédagogique et technique pour poursuivre mon parcours en formation académique en Informatique et Intelligence Artificielle, et approfondir ces concepts dans un cadre académique et encadré.</p>
+                <p>Ce projet n'a pas vocation à être terminé à ce stade, mais à servir de socle pédagogique et technique pour poursuivre mon parcours en formation supérieure en Informatique et Intelligence Artificielle, et approfondir ces concepts dans un environnement structuré.</p>
                 <p>Cette démarche, plus que l'état fini du projet, illustre une capacité à utiliser l'IA comme accélérateur tout en maintenant des standards de qualité professionnels, une volonté d'amélioration continue avec un système de collecte de retours en cours de finalisation, et surtout une recherche de maîtrise.</p>
-                <p>Mon objectif est de transformer une pratique empirique en compétence structurée et reconnue. L'évolution récente des outils d'IA et les limitations rencontrées avec les solutions publiques renforcent ma conviction qu'un environnement professionnel avec des outils avancés intégrant l'IA serait un facteur d'accélération important pour ma progression. Je souhaite mettre cette compétence au service d'une équipe dans le cadre d'une alternance liée à une formation académique en Intelligence Artificielle.</p>
+                <p>Mon objectif est de transformer une pratique empirique en compétence structurée et reconnue. L'évolution récente des outils d'IA et les limitations rencontrées avec les solutions publiques renforcent ma conviction qu'un environnement professionnel avec des outils avancés intégrant l'IA serait un facteur d'accélération important pour ma progression. Je souhaite mettre cette compétence au service d'une équipe dans le cadre d'une alternance liée à une formation supérieure en Intelligence Artificielle.</p>
                 <div class="signature">
                     <span class="name">ROULON</span><span class="firstname">Gabriel</span>
                 </div>

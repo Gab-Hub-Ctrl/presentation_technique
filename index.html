@@ -421,7 +421,7 @@
     }
 
     /* Responsive pour header note toggle */
-    @media (max-width: 850px) {
+    @media (max-width: 900px) {
       .header-note-toggle {
         margin-left: 0;
         margin-top: 10px;
@@ -455,7 +455,7 @@
     }
 
     /* RESPONSIVE HEADER */
-    @media (max-width: 850px) {
+    @media (max-width: 900px) {
       header {
         flex-direction: column;
         align-items: flex-start;
@@ -1001,7 +1001,7 @@
     }
 
     /* Responsive */
-    @media (max-width: 1000px) {
+    @media (max-width: 900px) {
       .cards {
         grid-template-columns: repeat(3, 1fr);
         gap: 16px;
@@ -1099,8 +1099,6 @@
       outline: 3px solid #000000;
       outline-offset: 2px;
     }
-
-    /* Bouton retour en haut */
 
     /* Mode impression */
     @media print {
@@ -1377,6 +1375,12 @@
      */
     function toggleSection(element) {
       const section = element.parentElement;
+      const isActive = section.classList.contains('active');
+      
+      // Mettre à jour aria-expanded pour l'accessibilité
+      element.setAttribute('aria-expanded', !isActive);
+      
+      // Toggle de l'état actif
       section.classList.toggle('active');
     }
 
@@ -1446,11 +1450,15 @@
             const targetId = href.substring(1);
             const targetElement = document.getElementById(targetId);
             
-            if (targetElement) {
+              if (targetElement) {
               // Fermer tous les accordéons ouverts
               const allAccordions = document.querySelectorAll('.section-accordion.active');
               allAccordions.forEach(acc => {
                 acc.classList.remove('active');
+                const header = acc.querySelector('.section-accordion-header');
+                if (header) {
+                  header.setAttribute('aria-expanded', 'false');
+                }
               });
               
               // Trouver l'accordéon parent
@@ -1469,8 +1477,11 @@
               if (accordion) {
                 accordion.classList.add('active');
                 
-                // Trouver l'en-tête de l'accordéon
+                // Trouver l'en-tête de l'accordéon et mettre à jour aria-expanded
                 const accordionHeader = accordion.querySelector('.section-accordion-header');
+                if (accordionHeader) {
+                  accordionHeader.setAttribute('aria-expanded', 'true');
+                }
                 
                 // Scroller vers l'en-tête de l'accordéon après un court délai
                 if (accordionHeader) {

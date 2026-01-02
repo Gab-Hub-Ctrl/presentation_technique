@@ -453,6 +453,12 @@
       font-size: 1.05em;
       line-height: 1.75;
       color: var(--text-color);
+      transition: transform 0.2s ease;
+      cursor: text;
+    }
+
+    .letter-section p:hover {
+      transform: scale(1.03);
     }
 
     .letter-greeting {
@@ -466,6 +472,11 @@
       text-align: right;
       padding-top: 32px;
       border-top: 2px solid var(--border-color);
+      transition: transform 0.2s ease;
+    }
+
+    .letter-signature:hover {
+      transform: scale(1.02);
     }
 
     .letter-signature .name {
@@ -481,10 +492,6 @@
       margin-top: 6px;
       color: var(--text-secondary);
     }
-
-    /* ============================================
-       BACK TO TOP BUTTON
-       ============================================ */
 
     /* ============================================
        FOOTER
@@ -522,7 +529,7 @@
        RESPONSIVE
        ============================================ */
     /* RESPONSIVE HEADER */
-    @media (max-width: 850px) {
+    @media (max-width: 900px) {
       header {
         flex-direction: column;
         align-items: flex-start;
@@ -632,20 +639,18 @@
       
       <p class="letter-greeting">Madame, Monsieur,</p>
       
-      <p>Actuellement en réorientation vers les métiers de l'informatique, j'intégrerai à compter du 5 janvier 2026 la formation de Technicien Supérieur Systèmes et Réseaux (TSSR). Cette formation constitue un prérequis essentiel pour accéder au Bachelor en Intelligence Artificielle en troisième année. Dans la continuité de ce parcours structuré, je souhaite rejoindre ce Bachelor afin de structurer et approfondir mon projet professionnel.</p>
+      <p>Actuellement en réorientation vers les métiers de l'informatique, j'intégrerai le 5 janvier 2026 la formation de Technicien Supérieur Systèmes et Réseaux (TSSR), dans la continuité de mon diplôme de Technicien Assistance Informatique. Souhaitant structurer davantage mon projet professionnel, je souhaite poursuivre en troisième année de Bachelor en Intelligence Artificielle en alternance.</p>
       
-      <p>Je souhaite me spécialiser progressivement en gouvernance de l'Intelligence Artificielle. L'IA fait déjà partie intégrante de mon quotidien. Ma pratique régulière m'a amenée à m'interroger sur les enjeux de fiabilité, d'éthique et de maîtrise des systèmes, désormais centraux dans les usages professionnels.</p>
-      
-      <p>Conscient que ma pratique reste encore empirique, j'ai choisi ce parcours structurant afin de transformer mon expérience autodidacte en compétences solides et théoriquement fondées. Cette démarche s'inscrit dans une volonté d'apprendre les fondements théoriques et les bonnes pratiques professionnelles.</p>
-      
-      <p>Parallèlement, j'ai développé un projet personnel, IT Dashboard A+, un tableau de bord interactif de veille IT devenu un Proof of Concept opérationnel. J'ai également conçu INIT_SEQUENCE, un système de gouvernance IA basé sur une logique de machine à états finis, illustrant mon intérêt pour des architectures fiables et maîtrisées. Ce projet démontre ma capacité à structurer des solutions complexes et à transformer des obstacles en opportunités d'apprentissage.</p>
-      
-      <p>Mes trois années d'expérience en alternance dans l'électricité et la maintenance industrielle m'ont permis de développer rigueur, respect des engagements, travail en équipe et communication efficace. Ces compétences transversales complètent mon approche technique et renforcent ma capacité à travailler dans un environnement professionnel structuré.</p>
-      
-      <p>Je serais heureux d'échanger avec vous pour présenter mon parcours, ma démarche et mon projet professionnel. Des informations complémentaires sont disponibles dans la <a href="profil_personnel.html" style="color: #000000; text-decoration: underline;">rubrique « Profil »</a> du menu de navigation, si vous souhaitez en savoir plus.</p>
-      
+      <p>Je m'oriente progressivement vers la gouvernance de l'IA, domaine qui s'inscrit déjà dans mon quotidien. Cette formation représente pour moi l'occasion de transformer une pratique autodidacte solide en compétences théoriques et méthodologiques reconnues.</p>
+            
+      <p>En parallèle, j'ai développé IT Dashboard A+, un tableau de bord de veille IT devenu un Proof of Concept opérationnel. J'ai également conçu INIT_SEQUENCE, un système de gouvernance IA reposant sur une logique de machine à états finis, illustrant mon intérêt pour des architectures fiables, explicables et maîtrisées.</p>
+            
+      <p>Mes trois années d'expérience en alternance dans l'électricité et la maintenance industrielle m'ont permis d'acquérir rigueur, sens des responsabilités, travail en équipe et communication claire. Ces compétences transversales renforcent aujourd'hui mon approche technique et ma capacité à évoluer dans un environnement exigeant.</p>
+            
+      <p>Je serais heureux d'échanger avec vous afin de vous présenter plus en détail mon parcours et mon projet professionnel. Des informations complémentaires sont disponibles dans la rubrique « Profil » du menu de navigation.</p>
+            
       <p>Je vous remercie pour l'attention portée à ma candidature et reste à votre disposition pour un entretien.</p>
-      
+            
       <p>Veuillez agréer, Madame, Monsieur, l'expression de mes salutations distinguées.</p>
       
       <div class="letter-signature">
